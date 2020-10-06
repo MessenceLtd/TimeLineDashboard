@@ -9,6 +9,9 @@ Dashboard-FrontEnd/dist
 
 Dashboard-BackEnd/obj
 Dashboard-BackEnd/bin
+Dashboard-BackEnd/.config
+Dashboard-BackEnd/Properties/PublishProfiles
+Publishes/
 .vs/
 
 # Only exists if Bazel was run
