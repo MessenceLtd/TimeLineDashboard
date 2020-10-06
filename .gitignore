@@ -11,6 +11,10 @@ Dashboard-BackEnd/obj
 Dashboard-BackEnd/bin
 Dashboard-BackEnd/.config
 Dashboard-BackEnd/Properties/PublishProfiles
+
+Dashboard-BackEnd/appsettings.Development.json
+Dashboard-BackEnd/appsettings.Production.json
+
 Publishes/
 .vs/
 
