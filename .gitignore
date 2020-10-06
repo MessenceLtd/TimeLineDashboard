@@ -9,6 +9,7 @@ Dashboard-FrontEnd/dist
 
 Dashboard-BackEnd/obj
 Dashboard-BackEnd/bin
+.vs/
 
 # Only exists if Bazel was run
 /bazel-out
