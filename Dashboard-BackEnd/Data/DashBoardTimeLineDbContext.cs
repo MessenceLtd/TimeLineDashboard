@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dashboard_BackEnd.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,13 @@ namespace Dashboard_BackEnd.Data
 
         public DbSet<Users> Users { get; set;}
 
-        public DbSet<UserLibrarySongs> UserLibrarySongs { get; set; }
+        public DbSet<UserEntities> UserEntities { get; set; }
+
+        public DbSet<UserEntitySpotifyLibrarySongs> UserEntitySpotifyLibrarySongs { get; set; }
+
+        public DbSet<UserEntityBankAccounts> UserEntityBankAccounts { get; set; }
+
+        public DbSet<UserEntityBankAccountEntries> UserEntityBankAccountEntries { get; set; }
 
     }
 }

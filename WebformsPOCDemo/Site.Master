@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebformsPOCDemo.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Demo Document Manager</title>
+    <link href="/CSS/Main.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="Pages-Wrapper">
+            <!-- Top Menu  -->
+            DEMO Document Manager for AZURE Integrations
+        <hr />
+
+            <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links">
+                <asp:HyperLink runat="server" ID="hyperlink_MainPage" NavigateUrl="default.aspx">Home link</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+            <asp:HyperLink runat="server" ID="hyperlink_Expenses" NavigateUrl="expenses.aspx">Expenses</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+            <asp:HyperLink runat="server" ID="hyperlink_Invoices" NavigateUrl="invoices.aspx">Invoices</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+            <asp:HyperLink runat="server" ID="hyperlink_Documents" NavigateUrl="documents.aspx">Documents</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+            <asp:HyperLink runat="server" ID="hyperlink_BankAccounts" NavigateUrl="bankaccounts.aspx">Bank Accounts</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+            <asp:HyperLink runat="server" ID="hyperlink_Reports" NavigateUrl="reports.aspx">Reports</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+            <asp:HyperLink runat="server" ID="hyperlink_Users" NavigateUrl="users.aspx">Users</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+
+            <asp:LinkButton runat="server" ID="linkbutton_LogOff" Style="float: right" OnClick="linkbutton_LogOff_Click" Text="Log Off"></asp:LinkButton>
+            </asp:Panel>
+
+            <div>
+                <br />
+                <br />
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
