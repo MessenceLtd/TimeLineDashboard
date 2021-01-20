@@ -5,9 +5,4 @@
     <RootNamespace>TimeLineDashboard_BusinessLogic</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
-    <ProjectReference Include="..\SharedLayer\SharedLayer.csproj" />
-  </ItemGroup>
-
 </Project>

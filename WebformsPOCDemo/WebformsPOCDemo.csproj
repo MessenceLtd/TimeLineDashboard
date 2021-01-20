@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Add_Client.aspx" />
+    <Content Include="Add_User.aspx" />
     <Content Include="BankAccounts.aspx" />
     <Content Include="CSS\Main.css" />
     <Content Include="Default.aspx" />
@@ -79,6 +81,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_Client.aspx.cs">
+      <DependentUpon>Add_Client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Client.aspx.designer.cs">
+      <DependentUpon>Add_Client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Add_User.aspx.cs">
+      <DependentUpon>Add_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_User.aspx.designer.cs">
+      <DependentUpon>Add_User.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BankAccounts.aspx.cs">
       <DependentUpon>BankAccounts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -158,7 +174,16 @@
     <Content Include="WebPrivateAppSettings.config" />
     <Content Include="WebPrivateConnectionStrings.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TimeLineDashboard_BLL\TimeLineDashboard_BLL.csproj">
+      <Project>{0dbc84d4-457a-43cd-8b3a-3495a85c9ed9}</Project>
+      <Name>TimeLineDashboard_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TimeLineDashboard_Shared\TimeLineDashboard_Shared.csproj">
+      <Project>{79fb351a-9ff8-4c18-8d3a-dff3bdf4381d}</Project>
+      <Name>TimeLineDashboard_Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

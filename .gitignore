@@ -81,6 +81,18 @@ SharedLayer/obj
 packages/
 
 
+TimeLineDashboard_BLL/bin
+TimeLineDashboard_BLL/obj
+
+TimeLineDashboard_DAL/bin
+TimeLineDashboard_DAL/obj
+
+TimeLineDashboard_Shared/bin
+TimeLineDashboard_Shared/obj
+
+
+
+
 
 
 

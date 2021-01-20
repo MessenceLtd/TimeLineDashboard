@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using SharedLayer.Models;
 using DataAccessLayer.Operations;
+using System.Data;
 
 namespace DataAccessLayer
 {
-    public class DataAccessLayerFacade
+    public class Data_Access_Layer_Facade
     {
         #region Singleton
-        private static readonly DataAccessLayerFacade instance = new DataAccessLayerFacade();
+        private static readonly Data_Access_Layer_Facade instance = new Data_Access_Layer_Facade();
         // Explicit static constructor to tell C# compiler  
         // not to mark type as beforefieldinit  
-        static DataAccessLayerFacade()
+        static Data_Access_Layer_Facade()
         {
         }
-        private DataAccessLayerFacade()
+        private Data_Access_Layer_Facade()
         {
         }
-        public static DataAccessLayerFacade Instance
+        public static Data_Access_Layer_Facade Instance
         {
             get
             {
@@ -53,5 +54,12 @@ namespace DataAccessLayer
             //SQLHelper.SelectUsingStoredProcedure.
             return null;
         }
+
+        public List<Countries> Countries_GetAll()
+        {
+            return Countries_Operations.Instance.GetAll();
+        }
+
+        
     }
 }

@@ -4,16 +4,18 @@
 
 <html>
 <head runat="server">
-    <title>Demo Document Manager</title>
+    <title>Demo Document Manager / Timeline dashboard chaos</title>
     <link href="/CSS/Main.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
         <div class="Pages-Wrapper">
             <!-- Top Menu  -->
-            DEMO Document Manager for AZURE Integrations
+            DEMO Timeline dashboard for AZURE Integrations
         <hr />
 
             <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links">

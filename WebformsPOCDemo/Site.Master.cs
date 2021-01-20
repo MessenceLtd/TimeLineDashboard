@@ -38,6 +38,12 @@ namespace WebformsPOCDemo
                         }
                     }
                 }
+
+                // It is possible that the current requested page is an inner submenu .. so hard code make sure its focused 
+                if (requestedUrl == "add_user.aspx") this.hyperlink_Users.CssClass = "active";
+                //if (requestedUrl == "add_client") this.hyperlink_client.CssClass = "active";
+                
+
             }
             else
             {

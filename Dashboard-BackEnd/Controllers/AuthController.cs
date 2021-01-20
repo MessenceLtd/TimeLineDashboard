@@ -68,7 +68,8 @@ namespace Dashboard_BackEnd.Controllers
             Users userDetailsToReturnForAuthentication = null;
 
             // First step is to check if the username/email is in the databsae
-            var userDetails = BusinessLogicLayerFacade.Instance.Users_GetByUsername(loginDetailsRequest.Username);
+            //var userDetails = BusinessLogicLayerFacade.Instance.Users_GetByUsername(loginDetailsRequest.Username);
+            Users userDetails = null;
 
             if (userDetails != null )
             {
@@ -129,7 +130,7 @@ namespace Dashboard_BackEnd.Controllers
             newUser.CountryCode = registrationDetailsRequest.CountryCode;
             newUser.CountryName = registrationDetailsRequest.CountryName;
 
-            userToReturnAfterSuccessfullCreation = BusinessLogicLayerFacade.Instance.Users_InsertUser(newUser);
+            //Users userToReturnAfterSuccessfullCreation = Business_Logic_Layer_Facade.Instance.Users_InsertUser(newUser);
 
             return userToReturnAfterSuccessfullCreation;
         }

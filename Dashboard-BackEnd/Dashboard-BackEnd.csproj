@@ -30,10 +30,5 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj" />
-    <ProjectReference Include="..\SharedLayer\SharedLayer.csproj" />
-  </ItemGroup>
-
 
 </Project>
