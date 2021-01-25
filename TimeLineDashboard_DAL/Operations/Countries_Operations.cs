@@ -33,7 +33,7 @@ namespace TimeLineDashboard.DAL.Operations
         {
             List<Countries> countriesToReturn = new List<Countries>();
 
-            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Counties_List");
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Countries_List");
 
             if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
             {
@@ -50,13 +50,13 @@ namespace TimeLineDashboard.DAL.Operations
 
         private Countries Create_Country_Entity_From_DataRow(DataRow db_Row_Details_For_Country_Initialization)
         {
-            Countries userToReturn = new Countries();
+            Countries countryToReturn = new Countries();
 
-            userToReturn.Country_Id = (short)db_Row_Details_For_Country_Initialization["Country_Id"];
-            userToReturn.Country_English_Name = db_Row_Details_For_Country_Initialization["Country_English_Name"].ToString();
-            userToReturn.Country_Code = db_Row_Details_For_Country_Initialization["Country_Code"].ToString();
+            countryToReturn.Country_Id = (short)db_Row_Details_For_Country_Initialization["Country_Id"];
+            countryToReturn.Country_English_Name = db_Row_Details_For_Country_Initialization["Country_English_Name"].ToString();
+            countryToReturn.Country_Code = db_Row_Details_For_Country_Initialization["Country_Code"].ToString();
 
-            return userToReturn;
+            return countryToReturn;
         }
 
 

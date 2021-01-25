@@ -5,7 +5,22 @@
 <html>
 <head runat="server">
     <title>Demo Document Manager / Timeline dashboard chaos</title>
+    
+    <script src="/JS/jquery-3.5.1.min.js"></script>
+    <script src="/JS/jquery-ui.js"></script>
+    <script src="/JS/datepicker-he.js"></script>
+    <script src="/JS/bootstrap.js"></script>
+    
+    <link href="/CSS/jquery-ui.css" rel="stylesheet" />
+    <%--<link href="CSS/jquery-ui.theme.css" rel="stylesheet" />--%>
+
+    <link href="/CSS/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/CSS/bootstrap/bootstrap-grid.css" rel="stylesheet" />
+    <link href="/CSS/bootstrap/bootstrap-utilities.css" rel="stylesheet" />
+    <link href="/CSS/bootstrap/bootstrap-reboot.css" rel="stylesheet" />
+
     <link href="/CSS/Main.css" rel="stylesheet" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -21,19 +36,23 @@
             <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links">
                 <asp:HyperLink runat="server" ID="hyperlink_MainPage" NavigateUrl="default.aspx">Home link</asp:HyperLink>
                 &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Expenses" NavigateUrl="expenses.aspx">Expenses</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="hyperlink_Users" NavigateUrl="list_users.aspx">Users</asp:HyperLink>
                 &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Invoices" NavigateUrl="invoices.aspx">Invoices</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="hyperlink_Clients" NavigateUrl="list_clients.aspx">Clients</asp:HyperLink>
                 &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Documents" NavigateUrl="documents.aspx">Documents</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="hyperlink_Suppliers" NavigateUrl="list_suppliers.aspx">Suppliers</asp:HyperLink>
                 &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_BankAccounts" NavigateUrl="bankaccounts.aspx">Bank Accounts</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="hyperlink_Expenses" NavigateUrl="list_expenses.aspx">Expenses</asp:HyperLink>
                 &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Reports" NavigateUrl="reports.aspx">Reports</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="hyperlink_Invoices" NavigateUrl="list_invoices.aspx">Invoices</asp:HyperLink>
                 &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Users" NavigateUrl="users.aspx">Users</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="hyperlink_Documents" NavigateUrl="list_documents.aspx">Documents</asp:HyperLink>
                 &nbsp; &nbsp; &nbsp;
-
+            <asp:HyperLink runat="server" ID="hyperlink_BankAccounts" NavigateUrl="list_bankaccounts.aspx">Bank Accounts</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+            <asp:HyperLink runat="server" ID="hyperlink_Reports" NavigateUrl="list_reports.aspx">Reports</asp:HyperLink>
+                &nbsp; &nbsp; &nbsp;
+            
             <asp:LinkButton runat="server" ID="linkbutton_LogOff" Style="float: right" OnClick="linkbutton_LogOff_Click" Text="Log Off"></asp:LinkButton>
             </asp:Panel>
 

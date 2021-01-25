@@ -42,7 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessLayerFacade.cs" />
+    <Compile Include="Operations\Suppliers_Operations.cs" />
+    <Compile Include="Operations\ClientTypes_Operations.cs" />
+    <Compile Include="Operations\States_Operations.cs" />
     <Compile Include="Operations\Countries_Operations.cs" />
+    <Compile Include="Operations\Clients_Operations.cs" />
     <Compile Include="Operations\Users_Operations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLHelper.cs" />

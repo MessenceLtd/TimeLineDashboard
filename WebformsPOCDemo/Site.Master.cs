@@ -41,8 +41,12 @@ namespace WebformsPOCDemo
 
                 // It is possible that the current requested page is an inner submenu .. so hard code make sure its focused 
                 if (requestedUrl == "add_user.aspx") this.hyperlink_Users.CssClass = "active";
-                //if (requestedUrl == "add_client") this.hyperlink_client.CssClass = "active";
-                
+                if (requestedUrl == "add_client.aspx") this.hyperlink_Clients.CssClass = "active";
+                if (requestedUrl == "add_supplier.aspx") this.hyperlink_Suppliers.CssClass = "active";
+                if (requestedUrl == "add_expense.aspx") this.hyperlink_Expenses.CssClass = "active";
+                if (requestedUrl == "add_invoice.aspx") this.hyperlink_Invoices.CssClass = "active";
+                if (requestedUrl == "add_document.aspx") this.hyperlink_Documents.CssClass = "active";
+                if (requestedUrl == "add_bankaccount.aspx") this.hyperlink_BankAccounts.CssClass = "active";
 
             }
             else

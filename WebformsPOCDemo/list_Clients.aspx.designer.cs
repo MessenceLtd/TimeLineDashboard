@@ -11,7 +11,7 @@ namespace WebformsPOCDemo
 {
 
 
-    public partial class Users
+    public partial class list_Clients
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Panel panel_HeaderLinks;
 
         /// <summary>
-        /// lbl_Users_List_Search_Label control.
+        /// lbl_Clients_List_Search_Label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Users_List_Search_Label;
+        protected global::System.Web.UI.WebControls.Label lbl_Clients_List_Search_Label;
 
         /// <summary>
         /// textbox_Search_Criteria control.
@@ -42,21 +42,48 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Search_Criteria;
 
         /// <summary>
-        /// button_Search_Users control.
+        /// button_Search_Clients control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Search_Users;
+        protected global::System.Web.UI.WebControls.Button button_Search_Clients;
 
         /// <summary>
-        /// dataGrid_Users_List control.
+        /// updatePanel_Users_List control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dataGrid_Users_List;
+        protected global::System.Web.UI.UpdatePanel updatePanel_Users_List;
+
+        /// <summary>
+        /// dataGrid_Clients_List control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid dataGrid_Clients_List;
+
+        /// <summary>
+        /// panel_Please_Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_Please_Search;
+
+        /// <summary>
+        /// panel_No_Results_Message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_No_Results_Message;
     }
 }

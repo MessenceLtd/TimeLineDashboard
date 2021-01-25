@@ -60,6 +60,33 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.HyperLink hyperlink_MainPage;
 
         /// <summary>
+        /// hyperlink_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Users;
+
+        /// <summary>
+        /// hyperlink_Clients control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Clients;
+
+        /// <summary>
+        /// hyperlink_Suppliers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Suppliers;
+
+        /// <summary>
         /// hyperlink_Expenses control.
         /// </summary>
         /// <remarks>
@@ -103,15 +130,6 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hyperlink_Reports;
-
-        /// <summary>
-        /// hyperlink_Users control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Users;
 
         /// <summary>
         /// linkbutton_LogOff control.

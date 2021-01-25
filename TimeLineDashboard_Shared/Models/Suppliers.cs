@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TimeLineDashboard.Shared.Models
+{
+    public class Suppliers
+    {
+        public int Supplier_Id { get; set; }
+        public int User_Id { get; set; }
+        public string Company_Name { get; set; }
+        public string Website_URL { get; set; }
+        public short Country_Id { get; set; }
+        public short State_Id { get; set; }
+        public string City { get; set; }
+        public string Address { get; set; }
+        public string ZipCode { get; set; }
+        public string Telephone { get; set; }
+        public string Mobile_Phone { get; set; }
+        public short Supplier_Type_Id { get; set; }
+        public string Supplier_Tax_Reference_Number { get; set; }
+        public string Main_Contact_FullName { get; set; }
+        public string Main_Contact_Email_Address { get; set; }
+        public string Main_Contact_Phone_Number { get; set; }
+        public int Record_Created_By_User_Id { get; set; }
+        public DateTime Record_Creation_DateTime_UTC { get; set; }
+        public int Record_Last_Updated_By_User_Id { get; set; }
+        public DateTime Record_Last_Updated_DateTime_UTC { get; set; }
+        public bool Is_Active { get; set; }
+        public DateTime Active_Last_Updated_dateTime_UTC { get; set; }
+        public int Active_Last_Updated_By_User_Id { get; set; }
+        public string Active_Last_Updated_Comments { get; set; }
+        public bool Is_Deleted { get; set; }
+        public int Record_Deleted_By_User_Id { get; set; }
+        public DateTime Record_Deleted_DateTime_UTC { get; set; }
+    }
+}

@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebformsPOCDemo.AppShared;
 
 namespace WebformsPOCDemo
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,10 +18,12 @@ namespace WebformsPOCDemo
 
         protected void button_Login_Click(object sender, EventArgs e)
         {
-            // Simulate logic logic 
+            
             if (this.textbox_UserName.Text == "admin" && this.textbox_Password.Text == "123" )
-            { 
-                FormsAuthentication.SetAuthCookie("admin", this.checkbox_RememberMe.Checked);
+            {
+                // Compiled temporary basic credentials.. 
+                // Store logged in user as administrator
+                FormsAuthentication.SetAuthCookie("1:Administrator", false);
                 this.Response.Redirect("default.aspx");
             }
 

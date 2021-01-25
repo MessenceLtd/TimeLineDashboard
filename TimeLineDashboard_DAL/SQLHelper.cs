@@ -146,7 +146,7 @@ namespace TimeLineDashboard.DAL
 
             if (spDataSetResult != null && spDataSetResult.Tables.Count > 0 && spDataSetResult.Tables[0].Rows.Count>0)
             {
-                spExecutionObjectResultToReturn = spDataSetResult.Tables[0].Rows[0];
+                spExecutionObjectResultToReturn = spDataSetResult.Tables[0].Rows[0][0];
             }
 
             return spExecutionObjectResultToReturn;

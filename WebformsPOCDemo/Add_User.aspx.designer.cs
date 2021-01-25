@@ -33,6 +33,24 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Email_Address;
 
         /// <summary>
+        /// validator_Email_Address_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Email_Address_Required;
+
+        /// <summary>
+        /// validator_Email_Adress_Regex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validator_Email_Adress_Regex;
+
+        /// <summary>
         /// textbox_Username control.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textbox_Username;
+
+        /// <summary>
+        /// validator_Username_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Username_Required;
 
         /// <summary>
         /// textbox_Password control.
@@ -51,6 +78,24 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Password;
 
         /// <summary>
+        /// validator_Password_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Password_Required;
+
+        /// <summary>
+        /// validator_Password_Strength control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validator_Password_Strength;
+
+        /// <summary>
         /// textbox_Password_Repeat control.
         /// </summary>
         /// <remarks>
@@ -60,6 +105,24 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Password_Repeat;
 
         /// <summary>
+        /// validator_Password_Repeat_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Password_Repeat_Required;
+
+        /// <summary>
+        /// validator_Password_Repeat_Matcher control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validator_Password_Repeat_Matcher;
+
+        /// <summary>
         /// textbox_First_Name control.
         /// </summary>
         /// <remarks>
@@ -67,6 +130,15 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textbox_First_Name;
+
+        /// <summary>
+        /// validator_First_Name_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_First_Name_Required;
 
         /// <summary>
         /// textbox_Middle_Name control.
@@ -87,6 +159,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Last_Name;
 
         /// <summary>
+        /// validator_Last_Name_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Last_Name_Required;
+
+        /// <summary>
         /// dropdown_Country control.
         /// </summary>
         /// <remarks>
@@ -94,6 +175,15 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropdown_Country;
+
+        /// <summary>
+        /// validator_Country_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Country_Required;
 
         /// <summary>
         /// up_StateUpdatePanel control.
@@ -123,6 +213,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.DropDownList dropdown_State;
 
         /// <summary>
+        /// validator_State_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_State_Required;
+
+        /// <summary>
         /// textbox_City control.
         /// </summary>
         /// <remarks>
@@ -130,6 +229,15 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textbox_City;
+
+        /// <summary>
+        /// validator_City_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_City_Required;
 
         /// <summary>
         /// textbox_Address control.
@@ -141,6 +249,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Address;
 
         /// <summary>
+        /// validator_Address_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Address_Required;
+
+        /// <summary>
         /// textbox_Zipcode control.
         /// </summary>
         /// <remarks>
@@ -150,6 +267,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Zipcode;
 
         /// <summary>
+        /// validator_Zipcode_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Zipcode_Required;
+
+        /// <summary>
         /// textbox_Mobile_Phone control.
         /// </summary>
         /// <remarks>
@@ -157,6 +283,15 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textbox_Mobile_Phone;
+
+        /// <summary>
+        /// validator_Mobile_Phone_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Mobile_Phone_Required;
 
         /// <summary>
         /// textbox_Additional_Phone_Number control.
@@ -177,6 +312,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Birth_Date;
 
         /// <summary>
+        /// validator_Birth_Date_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Birth_Date_Required;
+
+        /// <summary>
         /// dropdown_Gender control.
         /// </summary>
         /// <remarks>
@@ -184,6 +328,15 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropdown_Gender;
+
+        /// <summary>
+        /// validator_Gender_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Gender_Required;
 
         /// <summary>
         /// textbox_Heard_About_Application_From control.
@@ -220,5 +373,23 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button button_Create_User;
+
+        /// <summary>
+        /// button_Fill_Up_Form_Dummy_Data_For_Test control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Fill_Up_Form_Dummy_Data_For_Test;
+
+        /// <summary>
+        /// lbl_Insert_Process_Error_Result control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Insert_Process_Error_Result;
     }
 }

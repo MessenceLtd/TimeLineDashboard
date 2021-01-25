@@ -11,8 +11,9 @@
 
 .Pages-Wrapper {
     padding: 16px 16px 16px 16px;
-    height: calc(100% - 32px);
-    width: calc(100% - 32px);
+    /*height: calc(100% - 32px);*/
+    height:100%;
+    width:100%;
 }
 
 .header-links a {
@@ -22,16 +23,14 @@
 
 .header-links .active
 {
-    background-color:yellow;
-    font-weight:bold;
+    background-color: yellow;
+    font-weight: bold;
 }
 
 .header-links .active {
     background-color: yellow;
     font-weight: bold;
 }
-
-
 
 .Form_Group {
     padding-top: 3px;
@@ -43,12 +42,52 @@
     min-width: 200px;
     text-align: right;
     padding-right: 6px;
+    float: left;
+    padding-top: 6px;
 }
 
+.Form_Group .Form_Label_Wrapper.No_Min_Width {
+    min-width:initial;
+}
 
 .Form_Group .Form_Control 
 {
+    display: inline-block;
+    min-width:420px;
+}
+
+.Form_Group .Form_Control input
+{
+    width:200px;
+}
+
+.Form_Group .Form_Control input.long-input {
+    width: 400px;
+}
+
+.Form_Group .Form_Control select.Big_ComboBox {
+    width: 400px;
+}
+
+.Form_Group .Form_Control select.Small_ComboBox {
+    width: 150px;
+}
+
+.Form_Group .Form_Control input[type='checkbox'] 
+{
+    width:auto;
+    position:relative;
+    top:8px;
+}
+
+.Form_Group .Validator{
+    /*float:left;*/
+}
+
+.Form_Group .Form_Control textarea {
     display: inline;
+    width: 400px;
+    height: 51px;
 }
 
 
