@@ -43,7 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationHelper.cs" />
+    <Compile Include="Models\Documents.cs" />
+    <Compile Include="Models\Currencies.cs" />
+    <Compile Include="Models\Document_Types.cs" />
+    <Compile Include="Models\ExpenseType.cs" />
+    <Compile Include="Models\InvoiceType.cs" />
+    <Compile Include="Models\SupplierType.cs" />
     <Compile Include="Models\ClientType.cs" />
+    <Compile Include="Models\Countries_Vat_History.cs" />
+    <Compile Include="Models\Invoices.cs" />
+    <Compile Include="Models\Expenses.cs" />
     <Compile Include="Models\Suppliers.cs" />
     <Compile Include="Models\States.cs" />
     <Compile Include="Models\Clients.cs" />

@@ -62,6 +62,28 @@ namespace TimeLineDashboard.DAL.Operations
             client_Type_To_Return.Type_Code = dataRow["Type_Code"].ToString();
             client_Type_To_Return.Description = dataRow["Description"].ToString();
 
+            if (dataRow.Table.Columns.IndexOf("Record_Created_By_User_Id") > -1)
+            {
+                client_Type_To_Return.Record_Created_By_User_Id = (int)dataRow["Record_Created_By_User_Id"];
+                client_Type_To_Return.Record_Creation_DateTime_UTC = (DateTime)dataRow["Record_Creation_DateTime_UTC"];
+            }
+
+            if (dataRow.Table.Columns.IndexOf("Record_Last_Updated_By_User_Id") > -1)
+            {
+                client_Type_To_Return.Record_Last_Updated_By_User_Id = (int)dataRow["Record_Last_Updated_By_User_Id"];
+                client_Type_To_Return.Record_Last_Updated_DateTime_UTC = (DateTime)dataRow["Record_Last_Updated_DateTime_UTC"];
+            }
+
+            if (dataRow.Table.Columns.IndexOf("Is_Active") > -1)
+            {
+                client_Type_To_Return.Is_Active = (bool)dataRow["Is_Active"];
+            }
+
+            if (dataRow.Table.Columns.IndexOf("Is_Visible") > -1)
+            {
+                client_Type_To_Return.Is_Active = (bool)dataRow["Is_Visible"];
+            }
+
             return client_Type_To_Return;
         }
 

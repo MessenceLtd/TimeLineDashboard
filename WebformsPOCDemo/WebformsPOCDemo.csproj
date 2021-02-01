@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Add_Client.aspx" />
+    <Content Include="Add_Document.aspx" />
+    <Content Include="Add_Expense.aspx" />
+    <Content Include="Add_Invoice.aspx" />
     <Content Include="Add_Supplier.aspx" />
     <Content Include="Add_User.aspx" />
     <Content Include="CSS\images\ui-bg_glass_75_d0e5f5_1x400.png" />
@@ -115,6 +118,27 @@
     <Compile Include="Add_Client.aspx.designer.cs">
       <DependentUpon>Add_Client.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Add_Document.aspx.cs">
+      <DependentUpon>Add_Document.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Document.aspx.designer.cs">
+      <DependentUpon>Add_Document.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Expense.aspx.cs">
+      <DependentUpon>Add_Expense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Expense.aspx.designer.cs">
+      <DependentUpon>Add_Expense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Invoice.aspx.cs">
+      <DependentUpon>Add_Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Invoice.aspx.designer.cs">
+      <DependentUpon>Add_Invoice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Add_Supplier.aspx.cs">
       <DependentUpon>Add_Supplier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +156,7 @@
     <Compile Include="AppShared\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="AppShared\Common.cs" />
     <Compile Include="list_BankAccounts.aspx.cs">
       <DependentUpon>list_BankAccounts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

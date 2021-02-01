@@ -12,7 +12,7 @@
     <br /><br />
     <hr />
     <br /><br />
-    <label for="<%=textbox_Search_Criteria.ClientID %>">Enter Search Criteria:</label>&nbsp;
+    <label for="<%=textbox_Search_Criteria.ClientID %>">Enter Search Criteria:</label> 
     <asp:TextBox runat="server" ID="textbox_Search_Criteria" ClientIDMode="Static" Width="200px"></asp:TextBox>
     &nbsp;&nbsp;
     <asp:Button runat="server" ID="button_Search_Users" OnClick="button_Search_Users_Click" Text="Search" CssClass="btn btn-primary" />

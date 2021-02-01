@@ -42,6 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessLayerFacade.cs" />
+    <Compile Include="Operations\InvoiceTypes_Operations.cs" />
+    <Compile Include="Operations\ExpenseTypes_Operations.cs" />
+    <Compile Include="Operations\DocumentTypes_Operations.cs" />
+    <Compile Include="Operations\Expenses_Operations.cs" />
+    <Compile Include="Operations\SupplierTypes_Operations.cs" />
+    <Compile Include="Operations\Currencies_Operations.cs" />
+    <Compile Include="Operations\Countries_Vat_History_Operations.cs" />
+    <Compile Include="Operations\Documents_Operations.cs" />
     <Compile Include="Operations\Suppliers_Operations.cs" />
     <Compile Include="Operations\ClientTypes_Operations.cs" />
     <Compile Include="Operations\States_Operations.cs" />

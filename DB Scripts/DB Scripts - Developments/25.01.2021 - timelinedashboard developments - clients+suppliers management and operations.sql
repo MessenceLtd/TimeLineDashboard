@@ -157,15 +157,15 @@ Where	[User_Id] = @User_Id And ( Is_Deleted Is Null Or Is_Deleted = 0 ) And
 Go
 
 
-ALTER Proc [dbo].[p_TLBoard_Get_Supplier_Details]
-@supplier_Id Int, 
+Alter Proc [dbo].[p_TLBoard_Get_Supplier_Details]
+@Supplier_Id Int, 
 @User_Id Int
 As
 
 Select	supplier.*
-From	t_TLBoard_Clients supplier
-Where	client.[supplier_Id] = @Client_Id And client.[User_Id] = @User_Id 
-		And ( client.Is_Deleted Is Null Or client.Is_Deleted = 0 )  
+From	t_TLBoard_Suppliers supplier
+Where	supplier.[Supplier_Id] = @Supplier_Id And supplier.[User_Id] = @User_Id 
+		And ( supplier.Is_Deleted Is Null Or supplier.Is_Deleted = 0 )  
 
 Go
 

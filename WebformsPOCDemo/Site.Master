@@ -10,14 +10,17 @@
     <script src="/JS/jquery-ui.js"></script>
     <script src="/JS/datepicker-he.js"></script>
     <script src="/JS/bootstrap.js"></script>
+    <%--<script src="/JS/jquery-ui-timepicker-addon.min.js"></script>--%>
     
-    <link href="/CSS/jquery-ui.css" rel="stylesheet" />
     <%--<link href="CSS/jquery-ui.theme.css" rel="stylesheet" />--%>
 
     <link href="/CSS/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="/CSS/bootstrap/bootstrap-grid.css" rel="stylesheet" />
     <link href="/CSS/bootstrap/bootstrap-utilities.css" rel="stylesheet" />
     <link href="/CSS/bootstrap/bootstrap-reboot.css" rel="stylesheet" />
+    <link href="/CSS/jquery-ui.css" rel="stylesheet" />
+
+    <%--<link href="CSS/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />--%>
 
     <link href="/CSS/Main.css" rel="stylesheet" />
 
@@ -56,8 +59,9 @@
             <asp:LinkButton runat="server" ID="linkbutton_LogOff" Style="float: right" OnClick="linkbutton_LogOff_Click" Text="Log Off"></asp:LinkButton>
             </asp:Panel>
 
+            <hr />
+
             <div>
-                <br />
                 <br />
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>

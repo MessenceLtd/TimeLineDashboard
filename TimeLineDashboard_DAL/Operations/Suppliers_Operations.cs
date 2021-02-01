@@ -28,7 +28,6 @@ namespace TimeLineDashboard.DAL.Operations
         }
         #endregion
 
-
         internal List<Suppliers> Get_Search( string p_Search_Criteria , int p_User_Id )
         {
             List<Suppliers> Suppliers_To_Return = new List<Suppliers>();
@@ -56,18 +55,18 @@ namespace TimeLineDashboard.DAL.Operations
         }
 
 
-        internal Suppliers Get_Supplier_Details_By_Supplier_Id(int p_Supplier_Id, int p_User_Id_Supplier_Owner )
+        internal Suppliers Get_Supplier_Details_By_Supplier_Id(int p_Supplier_Id, int p_User_Id_Searching_For_Supplier_Details)
         {
             Suppliers Supplier_To_Return = new Suppliers();
 
             SqlParameter spSupplier_Id = new SqlParameter("@Supplier_Id", SqlDbType.Int);
-            SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int);
-            
+            SqlParameter spUser_Id_Searching_For_Supplier_Details = new SqlParameter("@User_Id_Searching_For_Supplier_Details", SqlDbType.Int);
+
             spSupplier_Id.Value = p_Supplier_Id;
-            spUser_Id.Value = p_User_Id_Supplier_Owner;
+            spUser_Id_Searching_For_Supplier_Details.Value = p_User_Id_Searching_For_Supplier_Details;
 
             var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Supplier_Details",
-                new List<SqlParameter>() { spSupplier_Id, spUser_Id });
+                new List<SqlParameter>() { spSupplier_Id, spUser_Id_Searching_For_Supplier_Details });
 
             if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
             {
@@ -80,7 +79,7 @@ namespace TimeLineDashboard.DAL.Operations
         internal Suppliers Insert_New_Supplier_Administrative_Registration_Process(
             int p_User_Id, string p_Company_Name, string p_Website_URL, 
             short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
-            string p_Telephone, string p_Mobile_Phone,
+            byte? p_Default_Currency_Id, string p_Telephone, string p_Mobile_Phone,
             short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
@@ -97,6 +96,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spCity = new SqlParameter("@City", SqlDbType.NVarChar, 100);
             SqlParameter spAddress = new SqlParameter("@Address", SqlDbType.NVarChar, 150);
             SqlParameter spZipCode = new SqlParameter("@ZipCode", SqlDbType.VarChar, 10);
+            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
             SqlParameter spTelephone = new SqlParameter("@Telephone", SqlDbType.VarChar, 40);
             SqlParameter spMobile_Phone = new SqlParameter("@Mobile_Phone", SqlDbType.VarChar, 40);
             SqlParameter spSupplier_Type_Id = new SqlParameter("@Supplier_Type_Id", SqlDbType.SmallInt);
@@ -125,6 +125,12 @@ namespace TimeLineDashboard.DAL.Operations
             spCity.Value = p_City;
             spAddress.Value = p_Address;
             spZipCode.Value = p_ZipCode;
+
+            if (p_Default_Currency_Id.HasValue)
+                spDefault_Currency_Id.Value = p_Default_Currency_Id.Value;
+            else
+                spDefault_Currency_Id.Value = DBNull.Value;
+
             spTelephone.Value = p_Telephone;
             spMobile_Phone.Value = p_Mobile_Phone;
             spSupplier_Type_Id.Value = p_Supplier_Type_Id;
@@ -155,9 +161,9 @@ namespace TimeLineDashboard.DAL.Operations
 
             object new_Supplier_Id = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult("p_TLBoard_Insert_Supplier_Details",
                 new List<SqlParameter>() {
-                    spUser_Id , spCompany_Name, spWebsite_URL , spCountry_Id , 
-                    spState_Id , spCity , spAddress , spZipCode , 
-                    spTelephone , spMobile_Phone , spSupplier_Type_Id , 
+                    spUser_Id , spCompany_Name, spWebsite_URL , 
+                    spCountry_Id , spState_Id , spCity , spAddress , spZipCode ,
+                    spDefault_Currency_Id, spTelephone , spMobile_Phone , spSupplier_Type_Id , 
                     spSupplier_Tax_Reference_Number , spMain_Contact_FullName ,
                     spMain_Contact_Email_Address , spMain_Contact_Phone_Number ,
                     spSupplier_From_Date , spSupplier_To_Date , spFirst_Contract_Date ,
@@ -170,11 +176,37 @@ namespace TimeLineDashboard.DAL.Operations
                 int Supplier_Id_Registered = Convert.ToInt32(new_Supplier_Id);
                 if (Supplier_Id_Registered > 0)
                 {
-                    new_Registered_Supplier_To_Return = Get_Supplier_Details_By_Supplier_Id(Supplier_Id_Registered, p_User_Id);
+                    new_Registered_Supplier_To_Return = Get_Supplier_Details_By_Supplier_Id(Supplier_Id_Registered, p_Logged_In_Administrative_User_Id);
                 }
             }
 
             return new_Registered_Supplier_To_Return;
+        }
+
+        internal List<Suppliers> Get_All_By_User_Id(int p_User_Id, int p_Searching_User_Id)
+        {
+            List<Suppliers> Suppliers_To_Return = new List<Suppliers>();
+
+            SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int);
+            SqlParameter spSearching_User_Id = new SqlParameter("@Searching_User_Id", SqlDbType.Int);
+
+            spUser_Id.Value = p_User_Id;
+            spSearching_User_Id.Value = p_Searching_User_Id;
+
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Suppliers_List_By_User_Id",
+                new List<SqlParameter>() { spUser_Id, spSearching_User_Id });
+
+            if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+            {
+                Suppliers_To_Return = new List<Suppliers>(dataSet.Tables[0].Rows.Count);
+
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    Suppliers_To_Return.Add(Create_Supplier_Short_Details_From_Data_Row(dataSet.Tables[0].Rows[i]));
+                }
+            }
+
+            return Suppliers_To_Return;
         }
 
         private Suppliers Create_Supplier_Details_From_Data_Row(DataRow dbRowDetailsForUserInitialization)
@@ -197,6 +229,12 @@ namespace TimeLineDashboard.DAL.Operations
             {
                 Supplier_To_Return.Address = dbRowDetailsForUserInitialization["Address"].ToString();
                 Supplier_To_Return.ZipCode = dbRowDetailsForUserInitialization["ZipCode"].ToString();
+            }
+
+            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Default_Currency_Id") > -1 
+                && dbRowDetailsForUserInitialization["Default_Currency_Id"] != DBNull.Value)
+            {
+                Supplier_To_Return.Default_Currency_Id = (byte)dbRowDetailsForUserInitialization["Default_Currency_Id"];
             }
 
             if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Telephone") > -1) 
@@ -251,6 +289,17 @@ namespace TimeLineDashboard.DAL.Operations
                     Supplier_To_Return.Record_Deleted_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Deleted_DateTime_UTC"];
                 }
             }
+
+            return Supplier_To_Return;
+        }
+
+        private Suppliers Create_Supplier_Short_Details_From_Data_Row(DataRow dataRow)
+        {
+            Suppliers Supplier_To_Return = new Suppliers();
+
+            Supplier_To_Return.Supplier_Id = Convert.ToInt32(dataRow["Supplier_Id"]);
+            Supplier_To_Return.User_Id = Convert.ToInt32(dataRow["User_Id"]);
+            Supplier_To_Return.Company_Name = dataRow["Company_Name"].ToString();
 
             return Supplier_To_Return;
         }

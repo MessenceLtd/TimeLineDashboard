@@ -7,14 +7,14 @@
         <asp:HyperLink runat="server" Text="Add New Client" NavigateUrl="Add_Client.aspx"></asp:HyperLink>
     </asp:Panel>
 
-    clients list will go here with all the details
+    Clients list will go here with all the details
     <br /><br />
     <hr />
     <br /><br />
-    <asp:Label runat="server" ID="lbl_Clients_List_Search_Label">Enter Search Criteria:</asp:Label> 
-    <asp:TextBox runat="server" ID="textbox_Search_Criteria"></asp:TextBox>
-    &nbsp;
-    <asp:Button runat="server" ID="button_Search_Clients" OnClick="button_Search_Clients_Click" Text="Search" />
+    <label for="<%= textbox_Search_Criteria.ClientID %>">Enter Search Criteria:</label> 
+    <asp:TextBox runat="server" ID="textbox_Search_Criteria" Width="200px"></asp:TextBox>
+    &nbsp;&nbsp;
+    <asp:Button runat="server" ID="button_Search_Clients" OnClick="button_Search_Clients_Click" Text="Search" CssClass="btn btn-primary" />
 
     <asp:UpdatePanel runat="server" ID="updatePanel_Users_List">
 

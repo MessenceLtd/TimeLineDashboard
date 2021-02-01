@@ -24,15 +24,6 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Panel panel_HeaderLinks;
 
         /// <summary>
-        /// lbl_Suppliers_List_Search_Label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Suppliers_List_Search_Label;
-
-        /// <summary>
         /// textbox_Search_Criteria control.
         /// </summary>
         /// <remarks>

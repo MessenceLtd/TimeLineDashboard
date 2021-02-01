@@ -22,18 +22,9 @@ namespace WebformsPOCDemo
 
         private void Bind_Default_View()
         {
-            // bind the combobox of the countries
-            this.dropdown_Country.DataSource = Business_Logic_Layer_Facade.Instance.Countries_GetAll();
-            this.dropdown_Country.DataTextField = "Country_English_Name";
-            this.dropdown_Country.DataValueField = "Country_Id";
-            this.dropdown_Country.DataBind();
-            this.dropdown_Country.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            Common_Tools.Initialize_DropDown_Countries(this.dropdown_Country);
 
-            this.dropdown_Client_Type.DataSource = Business_Logic_Layer_Facade.Instance.ClientTypes_Get_All();
-            this.dropdown_Client_Type.DataTextField = "Type_Name";
-            this.dropdown_Client_Type.DataValueField = "Client_Type_Id";
-            this.dropdown_Client_Type.DataBind();
-            this.dropdown_Client_Type.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            Common_Tools.Initialize_DropDown_Client_Types(this.dropdown_Client_Type);
         }
 
         protected void dropdown_Country_SelectedIndexChanged(object sender, EventArgs e)

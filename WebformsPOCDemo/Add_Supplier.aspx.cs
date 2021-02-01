@@ -22,23 +22,25 @@ namespace WebformsPOCDemo
 
         private void Bind_Default_View()
         {
-            // bind the combobox of the countries
-            this.dropdown_Country.DataSource = Business_Logic_Layer_Facade.Instance.Countries_GetAll();
-            this.dropdown_Country.DataTextField = "Country_English_Name";
-            this.dropdown_Country.DataValueField = "Country_Id";
-            this.dropdown_Country.DataBind();
-            this.dropdown_Country.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            Common_Tools.Initialize_DropDown_Countries(this.dropdown_Country);
 
-            this.dropdown_Supplier_Type.DataSource = Business_Logic_Layer_Facade.Instance.ClientTypes_Get_All();
-            this.dropdown_Supplier_Type.DataTextField = "Type_Name";
-            this.dropdown_Supplier_Type.DataValueField = "Client_Type_Id";
-            this.dropdown_Supplier_Type.DataBind();
-            this.dropdown_Supplier_Type.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            Common_Tools.Initialize_DropDown_Currencies(this.dropdown_Currency);
+
+            Common_Tools.Initialize_DropDown_Supplier_Types(this.dropdown_Supplier_Type);
         }
 
         protected void dropdown_Country_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Bind_States_ComboBox();
+
+            // check if the country has a default currency 
+            short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
+            var country_Details = Business_Logic_Layer_Facade.Instance.Countries_Get_By_Country_Id(p_Country_Id);
+            if (country_Details.Primary_Currency_Id.HasValue)
+            {
+                this.dropdown_Currency.SelectedValue = country_Details.Primary_Currency_Id.Value.ToString();
+            }
+
         }
 
         private void Bind_States_ComboBox()
@@ -124,6 +126,13 @@ namespace WebformsPOCDemo
                 string p_City = this.textbox_City.Text;
                 string p_Address = this.textbox_Address.Text;
                 string p_ZipCode = this.textbox_Zipcode.Text;
+
+                byte? p_Default_Currency = new byte?();
+                if (!string.IsNullOrEmpty( this.dropdown_Currency.SelectedValue))
+                {
+                    p_Default_Currency = byte.Parse(this.dropdown_Currency.SelectedValue);
+                }
+
                 string p_Telephone = this.textbox_Telephone.Text;
                 string p_Mobile_Phone = this.textbox_Mobile_Phone.Text;
 
@@ -174,7 +183,7 @@ namespace WebformsPOCDemo
                 {
                     new_Supplier_Details = Business_Logic_Layer_Facade.Instance.Suppliers_Insert_New_Supplier_Administrative_Registration_Process(
                         p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                        p_State_Id, p_City, p_Address, p_ZipCode,
+                        p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency, 
                         p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
                         p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
                         p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -210,7 +219,6 @@ namespace WebformsPOCDemo
                         this.lbl_Insert_Process_Error_Result.Text += " (" + exception_During_Process_Extra_Data + ")";
                     }
                 }
-
             }
         }
 
@@ -222,6 +230,7 @@ namespace WebformsPOCDemo
             this.textbox_City.Text = "Dummy City";
             this.textbox_Address.Text = "dummy long address with elevetor number";
             this.textbox_Zipcode.Text = "1234567";
+            this.dropdown_Currency.SelectedValue = "1";
             this.textbox_Telephone.Text = "0123456789";
             this.textbox_Mobile_Phone.Text = "9876543210";
             this.textbox_Zipcode.Text = "Dummy Zipcode";

@@ -11,10 +11,11 @@ namespace TimeLineDashboard.Shared.Models
         public string Company_Name { get; set; }
         public string Website_URL { get; set; }
         public short Country_Id { get; set; }
-        public short State_Id { get; set; }
+        public short? State_Id { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
         public string ZipCode { get; set; }
+        public byte? Default_Currency_Id { get; set; }
         public string Telephone { get; set; }
         public string Mobile_Phone { get; set; }
         public short Supplier_Type_Id { get; set; }

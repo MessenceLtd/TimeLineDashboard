@@ -87,6 +87,29 @@ namespace TimeLineDashboard.DAL.Operations
             return affected_Rows > 0;
         }
 
+        internal List<Users> Get_Users_Administration_List(int p_User_Id_Authorized_Employee_Searching_Users)
+        {
+            List<Users> usersToReturn = new List<Users>();
+
+            SqlParameter spUser_Id_Authorized_Employee_Searching_Users = new SqlParameter("@User_Id_Authorized_Employee_Searching_Users", SqlDbType.NVarChar, 50);
+            spUser_Id_Authorized_Employee_Searching_Users.Value = p_User_Id_Authorized_Employee_Searching_Users;
+
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Users_Administration_List",
+                new List<SqlParameter>() { spUser_Id_Authorized_Employee_Searching_Users });
+
+            if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+            {
+                usersToReturn = new List<Users>(dataSet.Tables[0].Rows.Count);
+
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    usersToReturn.Add(CreateUserBasicDetailsFromDataRow(dataSet.Tables[0].Rows[i]));
+                }
+            }
+
+            return usersToReturn;
+        }
+
         internal Users Insert_New_User_Administrative_Registration_Process(
             string p_Username, 
             string p_Encrypted_Password, 
@@ -375,6 +398,20 @@ namespace TimeLineDashboard.DAL.Operations
                     userToReturn.Active_Last_Updated_Comments = dbRowDetailsForUserInitialization["Active_Last_Updated_Comments"].ToString();
                 }
             }
+
+            return userToReturn;
+        }
+
+        private Users CreateUserBasicDetailsFromDataRow(DataRow dbRowDetailsForUserInitialization)
+        {
+            Users userToReturn = new Users();
+
+            userToReturn.User_Id = (int)dbRowDetailsForUserInitialization["User_Id"];
+            userToReturn.Username = dbRowDetailsForUserInitialization["Username"].ToString();
+            userToReturn.First_Name = dbRowDetailsForUserInitialization["First_Name"].ToString();
+            userToReturn.Middle_Name = dbRowDetailsForUserInitialization["Middle_Name"].ToString();
+            userToReturn.Last_Name = dbRowDetailsForUserInitialization["Last_Name"].ToString();
+            userToReturn.Email = dbRowDetailsForUserInitialization["Email"].ToString();
 
             return userToReturn;
         }

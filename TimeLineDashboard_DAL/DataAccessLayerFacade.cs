@@ -32,6 +32,11 @@ namespace TimeLineDashboard.DAL
             return Countries_Operations.Instance.GetAll();
         }
 
+        public Countries Countries_Get_By_Country_Id(short p_Country_Id)
+        {
+            return Countries_Operations.Instance.Get_By_Country_Id(p_Country_Id);
+        }
+
         public List<States> States_GetAll()
         {
             return States_Operations.Instance.Get_All();
@@ -90,6 +95,16 @@ namespace TimeLineDashboard.DAL
                 p_Logged_In_Administrative_User_Id);
         }
 
+        public List<Document_Types> DocumentTypes_Get_All()
+        {
+            return Document_Types_Operations.Instance.Get_Document_Types();
+        }
+
+        public List<Users> Users_Get_Administration_List(int p_User_Id_Authorized_Employee_Searching_Users)
+        {
+            return Users_Operations.Instance.Get_Users_Administration_List(p_User_Id_Authorized_Employee_Searching_Users);
+        }
+
         public List<Clients> Clients_Get_Search(string p_Search_Criteria, int p_User_Id)
         {
             return Clients_Operations.Instance.Get_Search(p_Search_Criteria, p_User_Id);
@@ -122,9 +137,14 @@ namespace TimeLineDashboard.DAL
                 );
         }
 
+        public List<Currencies> Currencies_Get_All()
+        {
+            return Currencies_Operations.Instance.Get_Currecies();
+        }
+
         public Suppliers Suppliers_Insert_New_Client_Administrative_Registration_Process(
             int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id, 
-            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, 
+            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id, 
             string p_Telephone, string p_Mobile_Phone, short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, 
             string p_Main_Contact_FullName, string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number, 
             DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date, 
@@ -133,7 +153,7 @@ namespace TimeLineDashboard.DAL
         {
             return Suppliers_Operations.Instance.Insert_New_Supplier_Administrative_Registration_Process(
                 p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                p_State_Id, p_City, p_Address, p_ZipCode,
+                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id,
                 p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
                 p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
                 p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -143,9 +163,65 @@ namespace TimeLineDashboard.DAL
                 );
         }
 
+        public List<ExpenseType> ExpenseTypes_Get_All()
+        {
+            return ExpenseTypes_Operations.Instance.Get_Expense_Types();
+        }
+
+        public List<InvoiceType> InvoiceTypes_Get_All()
+        {
+            return InvoiceTypes_Operations.Instance.Get_Invoice_Types();
+        }
+
         public List<Suppliers> Suppliers_Get_Search(string p_Search_Criteria, int p_User_Id)
         {
             return Suppliers_Operations.Instance.Get_Search(p_Search_Criteria, p_User_Id);
+        }
+
+        public List<SupplierType> SupplierTypes_Get_All()
+        {
+            return SupplierTypes_Operations.Instance.Get_Supplier_Types();
+        }
+
+        public List<Suppliers> Suppliers_Get_All_By_User_Id(int p_User_Id, int p_Searching_User_Id)
+        {
+            return Suppliers_Operations.Instance.Get_All_By_User_Id(p_User_Id, p_Searching_User_Id);
+        }
+
+        public Expenses Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_Selection(int p_Supplier_Id, int p_User_Id_LoggedIn_Creating_Expense)
+        {
+            return Expenses_Operations.Instance.Get_Latest_Expense_By_Supplier_Id(p_Supplier_Id, p_User_Id_LoggedIn_Creating_Expense);
+        }
+
+        public Expenses Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_And_Expense_DateTime_Selection(
+            int p_Supplier_Id,
+            DateTime p_Expense_DateTime,
+            int p_User_Id_LoggedIn_Creating_Expense)
+        {
+            return Expenses_Operations.Instance.Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_And_Expense_DateTime_Selection(
+                p_Supplier_Id,
+                p_Expense_DateTime,
+                p_User_Id_LoggedIn_Creating_Expense);
+        }
+
+        public Suppliers Suppliers_Get_By_Supplier_Id(int p_Supplier_Id, int p_User_Id_Searching_For_Supplier_Details)
+        {
+            return Suppliers_Operations.Instance.Get_Supplier_Details_By_Supplier_Id(p_Supplier_Id, p_User_Id_Searching_For_Supplier_Details);
+        }
+
+        public List<Countries_Vat_History> Countries_Vat_History_Get_All()
+        {
+            return Countries_Vat_History_Operations.Instance.GetAll();
+        }
+
+        public List<Countries_Vat_History> Countries_Vat_History_Get_By_Country(short p_Country_Id)
+        {
+            return Countries_Vat_History_Operations.Instance.Get_All_By_Country(p_Country_Id);
+        }
+
+        public Countries_Vat_History Countries_Vat_History_Get_By_Country_And_Date(short p_Country_Id, DateTime p_Approximate_DateTime_For_Searches)
+        {
+            return Countries_Vat_History_Operations.Instance.Get_Latest_Vat_History_By_Country_And_Date(p_Country_Id, p_Approximate_DateTime_For_Searches);
         }
     }
 }

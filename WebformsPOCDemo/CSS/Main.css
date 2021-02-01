@@ -69,15 +69,34 @@
     width: 400px;
 }
 
+.Form_Group .Form_Control select.Regular_ComboBox {
+    width: 200px;
+}
+
 .Form_Group .Form_Control select.Small_ComboBox {
     width: 150px;
 }
 
-.Form_Group .Form_Control input[type='checkbox'] 
+.Form_Group .Form_Control select.Tiny_ComboBox {
+    width: 63px;
+    display:inline-block;
+    text-align:center;
+}
+
+.Form_Group .Form_Control select.Tiny_ComboBox option {
+    text-align: center;
+}
+
+.Form_Group .Form_Control select.Tiny_ComboBox:nth-of-type(2),
+.Form_Group .Form_Control select.Tiny_ComboBox:nth-of-type(3) 
 {
-    width:auto;
-    position:relative;
-    top:8px;
+    margin-left: 5px;
+}
+
+.Form_Group .Form_Control input[type='checkbox'] {
+    width: auto;
+    position: relative;
+    top: 8px;
 }
 
 .Form_Group .Validator{
