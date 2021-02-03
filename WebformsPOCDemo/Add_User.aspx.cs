@@ -22,12 +22,9 @@ namespace WebformsPOCDemo
 
         private void Bind_Default_View()
         {
-            // bind the combobox of the countries
-            this.dropdown_Country.DataSource = Business_Logic_Layer_Facade.Instance.Countries_GetAll();
-            this.dropdown_Country.DataTextField = "Country_English_Name";
-            this.dropdown_Country.DataValueField = "Country_Id";
-            this.dropdown_Country.DataBind();
-            this.dropdown_Country.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            Common_Tools.Initialize_DropDown_App_Permission_Types(this.dropdown_App_Permission_Type);
+
+            Common_Tools.Initialize_DropDown_Countries(dropdown_Country);
         }
 
         private void Bind_States_ComboBox()
@@ -103,6 +100,8 @@ namespace WebformsPOCDemo
 
                 string p_Username = this.textbox_Username.Text;
                 string p_Password = this.textbox_Password.Text;
+                byte p_App_Permission_Type_Id = byte.Parse(this.dropdown_App_Permission_Type.SelectedValue);
+
                 string p_First_Name = this.textbox_First_Name.Text;
                 string p_Middle_Name = this.textbox_Middle_Name.Text;
                 string p_Last_Name = this.textbox_Last_Name.Text;
@@ -139,6 +138,7 @@ namespace WebformsPOCDemo
                         new_User_Details = Business_Logic_Layer_Facade.Instance.Users_Insert_New_User_Administrative_Registration_Process(
                             p_Username,
                             p_Password,
+                            p_App_Permission_Type_Id,
                             p_First_Name,
                             p_Middle_Name,
                             p_Last_Name,

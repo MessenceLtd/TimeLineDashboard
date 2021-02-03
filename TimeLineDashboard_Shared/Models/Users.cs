@@ -10,14 +10,11 @@ namespace TimeLineDashboard.Shared.Models
         public string Username { get; set; }
         public string Encrypted_Password { get; set; }
         public string Encryption_Random_Salt { get; set; }
+        public byte App_Permission_Type_Id { get; set; }
         public string First_Name { get; set; }
         public string Middle_Name { get; set; }
         public string Last_Name { get; set; }
-
-        
-
         public string Email { get; set; }
-
         public string FullName_With_Email 
         { 
             get
@@ -25,7 +22,6 @@ namespace TimeLineDashboard.Shared.Models
                 return string.Concat(First_Name, " ", Last_Name, " (", Email, ")");
             } 
         }
-
         public short Country_Id { get; set; }
         public string Country_English_Name { get; set; }
         public short State_Id { get; set; }

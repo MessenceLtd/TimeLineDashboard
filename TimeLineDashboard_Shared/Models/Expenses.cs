@@ -16,13 +16,18 @@ namespace TimeLineDashboard.Shared.Models
         public decimal Total_Amount { get; set; }
         public DateTime Expense_Invoice_DateTime { get; set; }
         public int Invoiced_Client_On_User_Location_Id { get; set; }
-        public string Invoiced_To_CompanyName { get; set; }
-        public string Invoiced_To_PersonName { get; set; }
-        public string Invoiced_To_PhoneNumber { get; set; }
-        public string Invoiced_To_Address { get; set; }
+        public string Invoiced_Client_To_CompanyName { get; set; }
+        public string Invoiced_Client_To_PersonName { get; set; }
+        public string Invoiced_Client_To_PhoneNumber { get; set; }
+        public short? Invoiced_Client_To_Country_Id { get; set; }
+        public short? Invoiced_Client_To_State_Id { get; set; }
+        public string Invoiced_Client_To_City { get; set; }
+        public string Invoiced_Client_To_Address { get; set; }
+        public string Invoiced_Client_To_Zip { get; set; }
+        public string Invoiced_Client_To_EmailAddress { get; set; }
+        public byte Expense_Type_Id { get; set; }
         public string Invoice_Number { get; set; }
         public string Invoice_Reference_Number { get; set; }
-        public byte Invoice_Type_Id { get; set; }
         public string Invoice_Supplier_Company_Details { get; set; }
         public string Invoice_Supplier_Tax_Reference { get; set; }
         public short? Invoice_Supplier_Country_Id { get; set; }

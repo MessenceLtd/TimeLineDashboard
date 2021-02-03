@@ -81,7 +81,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public Users Users_Insert_New_User_Administrative_Registration_Process(
-            string p_Username, string p_Password, string p_First_Name, string p_Middle_Name,
+            string p_Username, string p_Password, byte p_App_Permission_Type_Id, string p_First_Name, string p_Middle_Name,
             string p_Last_Name, string p_Email, short p_Country_Id, short? p_State_Id,
             string p_City, string p_Address, string p_ZipCode, string p_Mobile_Phone, string p_Additional_Phone_Number,
             DateTime p_BirthDate, byte p_Gender, string p_Heard_About_Application_From, string p_Our_Administrative_Side_Notes,
@@ -96,7 +96,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
             string l_Encrypted_Password = Cryptography_Processor.GenerateHash(p_Password, l_Encryption_Random_Salt);
 
             new_Registered_User_To_Return = Data_Access_Layer_Facade.Instance.Users_Insert_New_User_Administrative_Registration_Process(
-                p_Username, l_Encrypted_Password, l_Encryption_Random_Salt, p_First_Name, p_Middle_Name,
+                p_Username, l_Encrypted_Password, l_Encryption_Random_Salt, p_App_Permission_Type_Id, p_First_Name, p_Middle_Name,
                 p_Last_Name, p_Email, p_Country_Id, p_State_Id, p_City, p_Address, p_ZipCode, p_Mobile_Phone, p_Additional_Phone_Number,
                 p_BirthDate, p_Gender, p_Heard_About_Application_From, p_Our_Administrative_Side_Notes,
                 p_Logged_In_Administrative_User_Id);
@@ -112,6 +112,49 @@ namespace TimeLineDashboard.BusinessLogicLayer
         public List<Users> Users_Get_Search(string p_Search_Criteria)
         {
             return Data_Access_Layer_Facade.Instance.Users_Get_Search(p_Search_Criteria);
+        }
+
+        public bool Users_Are_There_Any_Users_In_Database()
+        {
+            return Data_Access_Layer_Facade.Instance.Users_Are_There_Any_Users_In_Database();
+        }
+
+        public Users Users_Get_User_Details_By_Username_For_Authentication(string p_Username_For_Authentication)
+        {
+            try
+            {
+                var user_Details_By_Username_For_Authentication_To_Return = Data_Access_Layer_Facade.Instance.Users_Get_User_Details_By_Username_For_Authentication(p_Username_For_Authentication);
+            
+                if (user_Details_By_Username_For_Authentication_To_Return != null && user_Details_By_Username_For_Authentication_To_Return.User_Id > 0)
+                    return user_Details_By_Username_For_Authentication_To_Return;
+                else
+                    return null;
+            }
+            catch (Exception exc)
+            {
+                return null;
+            }
+        }
+
+        public bool Users_Is_Entered_Password_And_RandomSalt_Matches_DB_User_Details_Encrypted_Password(
+            string p_Entered_Password_For_Authenticaton, 
+            string p_User_Details_Encrypted_Password,
+            string p_User_Details_Encryption_Random_Salt)
+        {
+            return Cryptography_Processor.ArePasswordsEqual(
+                p_Entered_Password_For_Authenticaton,
+                p_User_Details_Encrypted_Password,
+                p_User_Details_Encryption_Random_Salt);
+        }
+
+        public List<App_Permission_Type> App_Permission_Types_Get_All()
+        {
+            return Data_Access_Layer_Facade.Instance.App_Permission_Types_Get_All();
+        }
+
+        public App_Permission_Type App_Permission_Types_Get_By_Type_Id(byte p_Permission_Type_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.App_Permission_Types_Get_By_Type_Id(p_Permission_Type_Id);
         }
 
         public bool Users_Delete_By_User_Id(int User_Id)
@@ -267,6 +310,31 @@ namespace TimeLineDashboard.BusinessLogicLayer
                         {
                             expense_To_Return.Currency_Id = supplier_Details.Default_Currency_Id.Value;
                         }
+                        else
+                        {
+                            // The supplier has no default currency. Try to use the default currency of the supplier country
+                            if (supplier_Details.Country_Id > 0)
+                            {
+                                var countryDetails = this.Countries_Get_By_Country_Id(supplier_Details.Country_Id);
+                                if (countryDetails.Primary_Currency_Id.HasValue)
+                                {
+                                    expense_To_Return.Currency_Id = countryDetails.Primary_Currency_Id.Value;
+                                }
+                                else
+                                {
+                                    // The country has no primary currency information. 
+                                    // Resort to USD as default currency. 
+                                    expense_To_Return.Currency_Id = 1;
+                                }
+                            }
+                            else
+                            { 
+                                // The supplier has no country information. 
+                                // Resort to USD as default currency. 
+                                expense_To_Return.Currency_Id = 1;
+                            }
+
+                        }
 
                         if (supplier_Details.Country_Id > 0)
                         {
@@ -279,6 +347,51 @@ namespace TimeLineDashboard.BusinessLogicLayer
             }
 
             return expense_To_Return;
+        }
+
+        public Expenses Expenses_Insert_New_Expense(
+            int p_User_Id, int p_Supplier_Id, DateTime p_Expense_Invoice_DateTime,
+            byte p_Currency_Id, decimal p_Total_Amount, decimal p_Vat_Percentage,
+            decimal p_Total_Without_Vat, decimal p_Total_Vat,
+            int? p_Invoiced_Client_On_User_Location_Id,
+            string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_PersonName,
+            string p_Invoiced_Client_To_PhoneNumber,
+            short? p_Invoiced_Client_To_Country_Id, short? p_Invoiced_Client_To_State_Id, string p_Invoiced_Client_To_City,
+            string p_Invoiced_Client_To_Address, string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress,
+            byte p_Expense_Type_Id,
+            string p_Invoice_Number, string p_Invoice_Reference_Number,
+            string p_Invoice_Supplier_Company_Details, string p_Invoice_Supplier_Tax_Reference, short? p_Invoice_Supplier_Country_Id,
+            short? p_Invoice_Supplier_State_Id, string p_Invoice_Supplier_City, string p_Invoice_Supplier_Address_Description,
+            string p_Invoice_Supplier_ZipCode, string p_Invoice_Supplier_WebAddress, string p_Invoice_Supplier_Phone_Number,
+            string p_Invoice_Supplier_Contact_FullName,
+            string p_Invoice_Content_Long_Description,
+            string p_User_Description,
+            string p_User_Comments,
+            string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
+            bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC,
+            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
+            bool p_Is_Active
+            )
+        {
+            return Data_Access_Layer_Facade.Instance.Expenses_Insert_New_Expense(
+                p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
+                p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
+                p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
+                p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip,
+                p_Invoiced_Client_To_EmailAddress, p_Expense_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
+                p_Invoice_Supplier_Company_Details, p_Invoice_Supplier_Tax_Reference, p_Invoice_Supplier_Country_Id,
+                p_Invoice_Supplier_State_Id, p_Invoice_Supplier_City, p_Invoice_Supplier_Address_Description,
+                p_Invoice_Supplier_ZipCode, p_Invoice_Supplier_WebAddress, p_Invoice_Supplier_Phone_Number,
+                p_Invoice_Supplier_Contact_FullName, p_Invoice_Content_Long_Description, p_User_Description,
+                p_User_Comments, p_Original_File_Name, p_Azure_Block_Blob_Reference,
+                p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
+                p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
+                p_Is_Active
+                );
         }
 
         public Expenses Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_Selection(int p_Supplier_Id, int p_User_Id_LoggedIn_Creating_Expense)

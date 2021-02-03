@@ -270,9 +270,10 @@ namespace TimeLineDashboard.DAL.Operations
             }
 
             Supplier_To_Return.Is_Active = (bool)dbRowDetailsForUserInitialization["Is_Active"];
-            if (Supplier_To_Return.Is_Active)
+            if (!Supplier_To_Return.Is_Active)
             {
-                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Active_Last_Updated_dateTime_UTC") > -1)
+                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Active_Last_Updated_dateTime_UTC") > -1 &&
+                    dbRowDetailsForUserInitialization["Active_Last_Updated_dateTime_UTC"] != DBNull.Value)
                 {
                     Supplier_To_Return.Active_Last_Updated_dateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Active_Last_Updated_dateTime_UTC"];
                     Supplier_To_Return.Active_Last_Updated_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Active_Last_Updated_By_User_Id"]);
@@ -283,7 +284,8 @@ namespace TimeLineDashboard.DAL.Operations
             Supplier_To_Return.Is_Deleted = (bool)dbRowDetailsForUserInitialization["Is_Deleted"];
             if (Supplier_To_Return.Is_Deleted)
             {
-                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Record_Deleted_By_User_Id") > -1)
+                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Record_Deleted_By_User_Id") > -1 &&
+                    dbRowDetailsForUserInitialization["Record_Deleted_By_User_Id"] != DBNull.Value)
                 {
                     Supplier_To_Return.Record_Deleted_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Deleted_By_User_Id"]);
                     Supplier_To_Return.Record_Deleted_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Deleted_DateTime_UTC"];

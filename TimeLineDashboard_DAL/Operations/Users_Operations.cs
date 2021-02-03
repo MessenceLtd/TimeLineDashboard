@@ -114,6 +114,7 @@ namespace TimeLineDashboard.DAL.Operations
             string p_Username, 
             string p_Encrypted_Password, 
             string p_Encryption_Random_Salt, 
+            byte p_App_Permission_Type_Id,
             string p_First_Name, 
             string p_Middle_Name, 
             string p_Last_Name, 
@@ -136,6 +137,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spUsername = new SqlParameter("@Username", SqlDbType.VarChar, 50);
             SqlParameter spEncrypted_Password = new SqlParameter("@Encrypted_Password", SqlDbType.VarChar, 120);
             SqlParameter spEncryption_Random_Salt = new SqlParameter("@Encryption_Random_Salt", SqlDbType.VarChar, 50);
+            SqlParameter spApp_Permission_Type_Id = new SqlParameter("@App_Permission_Type_Id", SqlDbType.TinyInt);
             SqlParameter spFirst_Name = new SqlParameter("@First_Name", SqlDbType.NVarChar, 60);
             SqlParameter spMiddle_Name = new SqlParameter("@Middle_Name", SqlDbType.NVarChar, 60);
             SqlParameter spLast_Name = new SqlParameter("@Last_Name", SqlDbType.NVarChar, 60);
@@ -157,6 +159,7 @@ namespace TimeLineDashboard.DAL.Operations
             spUsername.Value = p_Username;
             spEncrypted_Password.Value = p_Encrypted_Password;
             spEncryption_Random_Salt.Value = p_Encryption_Random_Salt;
+            spApp_Permission_Type_Id.Value = p_App_Permission_Type_Id;
             spFirst_Name.Value = p_First_Name;
             spMiddle_Name.Value = p_Middle_Name;
             spLast_Name.Value = p_Last_Name;
@@ -182,6 +185,7 @@ namespace TimeLineDashboard.DAL.Operations
                     spUsername, 
                     spEncrypted_Password, 
                     spEncryption_Random_Salt,
+                    spApp_Permission_Type_Id, 
                     spFirst_Name, 
                     spMiddle_Name, 
                     spLast_Name, 
@@ -210,6 +214,44 @@ namespace TimeLineDashboard.DAL.Operations
             }
 
             return new_Registered_User_To_Return;
+        }
+
+        internal Users Get_User_Details_By_Username_For_Authentication(string p_Username_For_Authentication)
+        {
+            Users usersToReturn = new Users();
+
+            SqlParameter spUsername_For_Authentication = new SqlParameter("@Username_For_Authentication", SqlDbType.NVarChar, 50);
+            spUsername_For_Authentication.Value = p_Username_For_Authentication;
+
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_User_Details_By_Username_For_Authentication",
+                new List<SqlParameter>() { spUsername_For_Authentication });
+
+            if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+            {
+                if (dataSet.Tables[0].Rows.Count > 1)
+                {
+                    // More then 1 user has been found. Throw exception
+                    throw new Exception("Too many users were found for the given username.");
+                }
+
+                usersToReturn = CreateUserDetailsFromDataRow(dataSet.Tables[0].Rows[0]);
+            }
+
+            return usersToReturn;
+        }
+
+        internal bool Are_There_Any_Users_In_Database()
+        {
+            bool are_There_Any_Users_In_Database_Result_To_Return = false;
+            
+            var object_Result_Are_There_Any_Users_In_Database = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult("p_TLBoard_Get_Users_Are_There_Any_Users");
+            
+            if (object_Result_Are_There_Any_Users_In_Database != null && object_Result_Are_There_Any_Users_In_Database is bool)
+            {
+                are_There_Any_Users_In_Database_Result_To_Return = (bool)object_Result_Are_There_Any_Users_In_Database;
+            }
+
+            return are_There_Any_Users_In_Database_Result_To_Return;
         }
 
         //internal Users Insert_New_User_Administrative_Registration_Process(Users p_New_User_Details, int p_Logged_In_Administrative_User_Id)
@@ -311,6 +353,7 @@ namespace TimeLineDashboard.DAL.Operations
 
             userToReturn.User_Id = (int)dbRowDetailsForUserInitialization["User_Id"];
             userToReturn.Username = dbRowDetailsForUserInitialization["Username"].ToString();
+            userToReturn.App_Permission_Type_Id = (byte)dbRowDetailsForUserInitialization["App_Permission_Type_Id"];
             userToReturn.First_Name = dbRowDetailsForUserInitialization["First_Name"].ToString();
             userToReturn.Middle_Name = dbRowDetailsForUserInitialization["Middle_Name"].ToString();
             userToReturn.Last_Name = dbRowDetailsForUserInitialization["Last_Name"].ToString();
@@ -389,7 +432,7 @@ namespace TimeLineDashboard.DAL.Operations
             }
 
             userToReturn.Is_Active = (bool)dbRowDetailsForUserInitialization["Is_Active"];
-            if (userToReturn.Is_Active)
+            if (!userToReturn.Is_Active)
             {
                 if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Active_Last_Updated_By_User_Id") > -1)
                 {
@@ -412,9 +455,9 @@ namespace TimeLineDashboard.DAL.Operations
             userToReturn.Middle_Name = dbRowDetailsForUserInitialization["Middle_Name"].ToString();
             userToReturn.Last_Name = dbRowDetailsForUserInitialization["Last_Name"].ToString();
             userToReturn.Email = dbRowDetailsForUserInitialization["Email"].ToString();
+            userToReturn.App_Permission_Type_Id = (byte)dbRowDetailsForUserInitialization["App_Permission_Type_Id"];
 
             return userToReturn;
         }
-
     }
 }

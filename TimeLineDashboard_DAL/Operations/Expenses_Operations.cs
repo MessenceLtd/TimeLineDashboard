@@ -87,11 +87,13 @@ namespace TimeLineDashboard.DAL.Operations
             decimal p_Total_Without_Vat, decimal p_Total_Vat, 
             int? p_Invoiced_Client_On_User_Location_Id,
             string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_PersonName, 
-            string p_Invoiced_Client_To_PhoneNumber, string p_Invoiced_Client_To_Address,
+            string p_Invoiced_Client_To_PhoneNumber,
+            short? p_Invoiced_Client_To_Country_Id , short? p_Invoiced_Client_To_State_Id, string p_Invoiced_Client_To_City, 
+            string p_Invoiced_Client_To_Address, string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress, 
             byte p_Expense_Type_Id, 
             string p_Invoice_Number, string p_Invoice_Reference_Number, 
-            string p_Invoice_Supplier_Company_Details, string p_Invoice_Supplier_Tax_Reference, short p_Invoice_Supplier_Country_Id, 
-            short? p_Invoice_Supplier_StateId , string p_Invoice_Supplier_City, string p_Invoice_Supplier_Address_Description,
+            string p_Invoice_Supplier_Company_Details, string p_Invoice_Supplier_Tax_Reference, short? p_Invoice_Supplier_Country_Id, 
+            short? p_Invoice_Supplier_State_Id , string p_Invoice_Supplier_City, string p_Invoice_Supplier_Address_Description,
             string p_Invoice_Supplier_ZipCode, string p_Invoice_Supplier_WebAddress, string p_Invoice_Supplier_Phone_Number,
             string p_Invoice_Supplier_Contact_FullName, 
             string p_Invoice_Content_Long_Description,
@@ -121,7 +123,12 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spInvoiced_Client_To_CompanyName = new SqlParameter("@Invoiced_Client_To_CompanyName", SqlDbType.NVarChar , 150);
             SqlParameter spInvoiced_Client_To_PersonName = new SqlParameter("@Invoiced_Client_To_PersonName", SqlDbType.NVarChar, 100);
             SqlParameter spInvoiced_Client_To_PhoneNumber = new SqlParameter("@Invoiced_Client_To_PhoneNumber", SqlDbType.NVarChar, 50);
+            SqlParameter spInvoiced_Client_To_Country_Id = new SqlParameter("@Invoiced_Client_To_Country_Id", SqlDbType.SmallInt);
+            SqlParameter spInvoiced_Client_To_State_Id = new SqlParameter("@Invoiced_Client_To_State_Id", SqlDbType.SmallInt);
+            SqlParameter spInvoiced_Client_To_City = new SqlParameter("@Invoiced_Client_To_City", SqlDbType.NVarChar , 100);
             SqlParameter spInvoiced_Client_To_Address = new SqlParameter("@Invoiced_Client_To_Address", SqlDbType.NVarChar, 120);
+            SqlParameter spInvoiced_Client_To_Zip = new SqlParameter("@Invoiced_Client_To_Zip", SqlDbType.NVarChar, 10);
+            SqlParameter spInvoiced_Client_To_EmailAddress = new SqlParameter("@Invoiced_Client_To_EmailAddress", SqlDbType.NVarChar, 120);
 
             SqlParameter spExpense_Type_Id = new SqlParameter("@Expense_Type_Id", SqlDbType.TinyInt);
             SqlParameter spInvoice_Number = new SqlParameter("@Invoice_Number", SqlDbType.NVarChar, 30 );
@@ -130,7 +137,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spInvoice_Supplier_Company_Details = new SqlParameter("@Invoice_Supplier_Company_Details", SqlDbType.NVarChar, 120);
             SqlParameter spInvoice_Supplier_Tax_Reference = new SqlParameter("@Invoice_Supplier_Tax_Reference", SqlDbType.NVarChar, 50);
             SqlParameter spInvoice_Supplier_Country_Id = new SqlParameter("@Invoice_Supplier_Country_Id", SqlDbType.SmallInt );
-            SqlParameter spInvoice_Supplier_StateId = new SqlParameter("@Invoice_Supplier_StateId", SqlDbType.SmallInt);
+            SqlParameter spInvoice_Supplier_State_Id = new SqlParameter("@Invoice_Supplier_State_Id", SqlDbType.SmallInt);
             SqlParameter spInvoice_Supplier_City = new SqlParameter("@Invoice_Supplier_City", SqlDbType.NVarChar, 100);
             SqlParameter spInvoice_Supplier_Address_Description = new SqlParameter("@Invoice_Supplier_Address_Description", SqlDbType.NVarChar, 255);
             SqlParameter spInvoice_Supplier_ZipCode = new SqlParameter("@Invoice_Supplier_ZipCode", SqlDbType.NVarChar, 10);
@@ -139,7 +146,7 @@ namespace TimeLineDashboard.DAL.Operations
 
             SqlParameter spInvoice_Supplier_Contact_FullName = new SqlParameter("@Invoice_Supplier_Contact_FullName", SqlDbType.NVarChar, 80);
             SqlParameter spInvoice_Content_Long_Description = new SqlParameter("@Invoice_Content_Long_Description", SqlDbType.NVarChar, 2000);
-            SqlParameter spUser_Description = new SqlParameter("@Invoice_Content_Long_Description", SqlDbType.NVarChar, 1000);
+            SqlParameter spUser_Description = new SqlParameter("@User_Description", SqlDbType.NVarChar, 1000);
             SqlParameter spUser_Comments = new SqlParameter("@User_Comments", SqlDbType.NVarChar, 1000);
             SqlParameter spOriginal_File_Name = new SqlParameter("@Original_File_Name", SqlDbType.NVarChar, 255);
             SqlParameter spAzure_Block_Blob_Reference = new SqlParameter("@Azure_Block_Blob_Reference", SqlDbType.NVarChar, 255);
@@ -147,9 +154,9 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spIs_Visible_To_Anonymous_Users = new SqlParameter("@Is_Visible_To_Anonymous_Users", SqlDbType.Bit);
             SqlParameter spIs_Available_For_Download_For_Anonymous_Users = new SqlParameter("@Is_Available_For_Download_For_Anonymous_Users", SqlDbType.Bit );
             SqlParameter spIs_Visible_To_Followers_Users = new SqlParameter("@Is_Visible_To_Followers_Users", SqlDbType.Bit);
-            SqlParameter spIs_Available_For_Download_For_Followers_Users = new SqlParameter("@Is_Visible_To_Followers_Users", SqlDbType.Bit);
+            SqlParameter spIs_Available_For_Download_For_Followers_Users = new SqlParameter("@Is_Available_For_Download_For_Followers_Users", SqlDbType.Bit);
 
-            SqlParameter spRecord_Created_By_User_Id = new SqlParameter("@Invoice_Supplier_Country_Id", SqlDbType.Int);
+            SqlParameter spRecord_Created_By_User_Id = new SqlParameter("@Record_Created_By_User_Id", SqlDbType.Int);
             SqlParameter spRecord_Creation_DateTime_UTC = new SqlParameter("@Record_Creation_DateTime_UTC", SqlDbType.DateTime);
             SqlParameter spRecord_Last_Updated_By_User_Id = new SqlParameter("@Record_Last_Updated_By_User_Id", SqlDbType.Int);
             SqlParameter spRecord_Last_Updated_DateTime_UTC = new SqlParameter("@Record_Last_Updated_DateTime_UTC", SqlDbType.DateTime);
@@ -174,18 +181,32 @@ namespace TimeLineDashboard.DAL.Operations
             spInvoiced_Client_To_CompanyName.Value = p_Invoiced_Client_To_CompanyName;
             spInvoiced_Client_To_PersonName.Value = p_Invoiced_Client_To_PersonName;
             spInvoiced_Client_To_PhoneNumber.Value = p_Invoiced_Client_To_PhoneNumber;
+            if (p_Invoiced_Client_To_Country_Id.HasValue)
+                spInvoiced_Client_To_Country_Id.Value = p_Invoiced_Client_To_Country_Id;
+            else
+                spInvoiced_Client_To_Country_Id.Value = DBNull.Value;
+            if (p_Invoiced_Client_To_State_Id.HasValue)
+                spInvoiced_Client_To_State_Id.Value = p_Invoiced_Client_To_State_Id;
+            else
+                spInvoiced_Client_To_State_Id.Value = DBNull.Value;
+            spInvoiced_Client_To_City.Value = p_Invoiced_Client_To_City;
             spInvoiced_Client_To_Address.Value = p_Invoiced_Client_To_Address;
+            spInvoiced_Client_To_Zip.Value = p_Invoiced_Client_To_Zip;
+            spInvoiced_Client_To_EmailAddress.Value = p_Invoiced_Client_To_EmailAddress;
 
             spExpense_Type_Id.Value = p_Expense_Type_Id;
             spInvoice_Number.Value = p_Invoice_Number;
             spInvoice_Reference_Number.Value = p_Invoice_Reference_Number;
             spInvoice_Supplier_Company_Details.Value = p_Invoice_Supplier_Company_Details;
             spInvoice_Supplier_Tax_Reference.Value = p_Invoice_Supplier_Tax_Reference;
-            spInvoice_Supplier_Country_Id.Value = p_Invoice_Supplier_Country_Id;
-            if (p_Invoice_Supplier_StateId.HasValue)
-                spInvoice_Supplier_StateId.Value = p_Invoice_Supplier_StateId;
+            if (p_Invoice_Supplier_Country_Id.HasValue)
+                spInvoice_Supplier_Country_Id.Value = p_Invoice_Supplier_Country_Id;
             else
-                spInvoice_Supplier_StateId.Value = DBNull.Value;
+                spInvoice_Supplier_Country_Id.Value = DBNull.Value;
+            if (p_Invoice_Supplier_State_Id.HasValue)
+                spInvoice_Supplier_State_Id.Value = p_Invoice_Supplier_State_Id;
+            else
+                spInvoice_Supplier_State_Id.Value = DBNull.Value;
             spInvoice_Supplier_City.Value = p_Invoice_Supplier_City;
             spInvoice_Supplier_Address_Description.Value = p_Invoice_Supplier_Address_Description;
             spInvoice_Supplier_ZipCode.Value = p_Invoice_Supplier_ZipCode;
@@ -216,14 +237,14 @@ namespace TimeLineDashboard.DAL.Operations
                     spCurrency_Id, spTotal_Amount, spVat_Percentage, 
                     spTotal_Without_Vat, spTotal_Vat, 
                     spInvoiced_Client_On_User_Location_Id,
-                    spInvoiced_Client_To_CompanyName, spInvoiced_Client_To_PersonName,
-                    spInvoiced_Client_To_PhoneNumber, spInvoiced_Client_To_Address,
+                    spInvoiced_Client_To_CompanyName, spInvoiced_Client_To_PersonName, spInvoiced_Client_To_PhoneNumber, 
+                    spInvoiced_Client_To_Country_Id, spInvoiced_Client_To_State_Id, spInvoiced_Client_To_City,
+                    spInvoiced_Client_To_Address, spInvoiced_Client_To_Zip, spInvoiced_Client_To_EmailAddress,
                     spExpense_Type_Id, spInvoice_Number, spInvoice_Reference_Number,
                     spInvoice_Supplier_Company_Details, spInvoice_Supplier_Tax_Reference,
-                    spInvoice_Supplier_Country_Id, spInvoice_Supplier_StateId, spInvoice_Supplier_City,
+                    spInvoice_Supplier_Country_Id, spInvoice_Supplier_State_Id, spInvoice_Supplier_City,
                     spInvoice_Supplier_Address_Description, spInvoice_Supplier_ZipCode, spInvoice_Supplier_WebAddress,
                     spInvoice_Supplier_Phone_Number, spInvoice_Supplier_Contact_FullName,
-
                     spInvoice_Content_Long_Description, spUser_Description, spUser_Comments, 
                     spOriginal_File_Name, spAzure_Block_Blob_Reference,
                     spIs_Visible_To_Anonymous_Users, spIs_Available_For_Download_For_Anonymous_Users,
@@ -231,7 +252,6 @@ namespace TimeLineDashboard.DAL.Operations
                     spRecord_Created_By_User_Id, spRecord_Creation_DateTime_UTC, 
                     spRecord_Last_Updated_By_User_Id, spRecord_Last_Updated_DateTime_UTC,
                     spIs_Active
-
                 });
 
             if (new_Expense_Id != null)
@@ -274,7 +294,7 @@ namespace TimeLineDashboard.DAL.Operations
 
         internal Expenses Get_Latest_Expense_By_Supplier_Id(int p_Supplier_Id, int p_User_Id_LoggedIn_Creating_Expense)
         {
-            Expenses Expense_To_Return = new Expenses();
+            Expenses Expense_To_Return = null;
 
             SqlParameter spSupplier_Id = new SqlParameter("@Supplier_Id", SqlDbType.Int);
             SqlParameter spSearching_User_Id = new SqlParameter("@Searching_User_Id", SqlDbType.Int);
@@ -340,13 +360,25 @@ namespace TimeLineDashboard.DAL.Operations
                 Expense_To_Return.Invoiced_Client_On_User_Location_Id = (int)dbRow["Invoiced_Client_On_User_Location_Id"];
             }
             
-            Expense_To_Return.Invoiced_To_CompanyName = dbRow["Invoiced_To_CompanyName"].ToString();
-            Expense_To_Return.Invoiced_To_PersonName = dbRow["Invoiced_To_PersonName"].ToString();
-            Expense_To_Return.Invoiced_To_PhoneNumber = dbRow["Invoiced_To_PhoneNumber"].ToString();
-            Expense_To_Return.Invoiced_To_Address = dbRow["Invoiced_To_Address"].ToString();
+            Expense_To_Return.Invoiced_Client_To_CompanyName = dbRow["Invoiced_Client_To_CompanyName"].ToString();
+            Expense_To_Return.Invoiced_Client_To_PersonName = dbRow["Invoiced_Client_To_PersonName"].ToString();
+            Expense_To_Return.Invoiced_Client_To_PhoneNumber = dbRow["Invoiced_Client_To_PhoneNumber"].ToString();
+            if (dbRow["Invoiced_Client_To_Country_Id"] != DBNull.Value)
+            {
+                Expense_To_Return.Invoiced_Client_To_Country_Id = (short)dbRow["Invoiced_Client_To_Country_Id"];
+                if (dbRow["Invoiced_Client_To_State_Id"] != DBNull.Value)
+                {
+                    Expense_To_Return.Invoiced_Client_To_State_Id = (short)dbRow["Invoiced_Client_To_State_Id"];
+                }
+            }
+            Expense_To_Return.Invoiced_Client_To_City = dbRow["Invoiced_Client_To_City"].ToString();
+            Expense_To_Return.Invoiced_Client_To_Address = dbRow["Invoiced_Client_To_Address"].ToString();
+            Expense_To_Return.Invoiced_Client_To_Zip = dbRow["Invoiced_Client_To_Zip"].ToString();
+            Expense_To_Return.Invoiced_Client_To_EmailAddress = dbRow["Invoiced_Client_To_EmailAddress"].ToString();
+
             Expense_To_Return.Invoice_Number = dbRow["Invoice_Number"].ToString();
             Expense_To_Return.Invoice_Reference_Number = dbRow["Invoice_Reference_Number"].ToString();
-            Expense_To_Return.Invoice_Type_Id = (byte)dbRow["Invoice_Type_Id"];
+            Expense_To_Return.Expense_Type_Id = (byte)dbRow["Expense_Type_Id"];
 
             Expense_To_Return.Invoice_Supplier_Company_Details = dbRow["Invoice_Supplier_Company_Details"].ToString();
             Expense_To_Return.Invoice_Supplier_Tax_Reference = dbRow["Invoice_Supplier_Tax_Reference"].ToString();
@@ -377,7 +409,7 @@ namespace TimeLineDashboard.DAL.Operations
             Expense_To_Return.Record_Last_Updated_By_User_Id = (int)dbRow["Record_Last_Updated_By_User_Id"];
             Expense_To_Return.Record_Last_Updated_DateTime_UTC = (DateTime)dbRow["Record_Last_Updated_DateTime_UTC"];
 
-            Expense_To_Return.Is_Visible_To_Anonymous_Users = (bool)dbRow["Record_Last_Updated_By_User_Id"];
+            Expense_To_Return.Is_Visible_To_Anonymous_Users = (bool)dbRow["Is_Visible_To_Anonymous_Users"];
             Expense_To_Return.Is_Available_For_Download_For_Anonymous_Users = (bool)dbRow["Is_Available_For_Download_For_Anonymous_Users"];
             Expense_To_Return.Is_Visible_To_Followers_Users = (bool)dbRow["Is_Visible_To_Followers_Users"];
             Expense_To_Return.Is_Available_For_Download_For_Followers_Users = (bool)dbRow["Is_Available_For_Download_For_Followers_Users"];

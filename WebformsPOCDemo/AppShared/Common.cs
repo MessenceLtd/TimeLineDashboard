@@ -124,5 +124,40 @@ namespace WebformsPOCDemo
             dropdown_Invoice_Type.DataBind();
             dropdown_Invoice_Type.Items.Insert(0, new ListItem("-- Select -- ", ""));
         }
+
+        internal static void Initialize_DropDown_App_Permission_Types(DropDownList dropdown_App_Permission_Type)
+        {
+            dropdown_App_Permission_Type.DataSource = Business_Logic_Layer_Facade.Instance.App_Permission_Types_Get_All();
+            dropdown_App_Permission_Type.DataTextField = "App_Permission_Type_Name";
+            dropdown_App_Permission_Type.DataValueField = "App_Permission_Type_Id";
+            dropdown_App_Permission_Type.DataBind();
+            dropdown_App_Permission_Type.Items.Insert(0, new ListItem("-- Select -- ", ""));
+        }
+
+        internal static DateTime Get_DateTime_From_ComboBoxes(
+            TextBox p_Date_TextBox,
+            DropDownList p_Hours_ComboBox,
+            DropDownList p_Minutes_ComboBox,
+            DropDownList p_Seconds_ComboBox)
+        {
+            DateTime date_Parsed = new DateTime();
+            try
+            {
+                date_Parsed = DateTime.ParseExact(p_Date_TextBox.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None);
+            }
+            catch { }
+
+            short hours = 0;
+            short minutes = 0;
+            short seconds = 0;
+
+            short.TryParse(p_Hours_ComboBox.SelectedValue, out hours);
+            short.TryParse(p_Minutes_ComboBox.SelectedValue, out minutes);
+            short.TryParse(p_Seconds_ComboBox.SelectedValue, out seconds);
+
+            DateTime date_To_Return = new DateTime(date_Parsed.Year, date_Parsed.Month, date_Parsed.Day, hours, minutes, seconds);
+
+            return date_To_Return;
+        }
     }
 }

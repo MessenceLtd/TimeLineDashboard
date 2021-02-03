@@ -8,12 +8,20 @@ namespace WebformsPOCDemo.AppShared
 {
     public class BasePage : Page
     {
-        const string k_Administrator_Permission_Type_Name = "Administrator";
+        protected const string k_Administrator_Permission_Type_Name = "Application_Administrator";
+        protected const string k_DashboardTimeLine_Company_Employee_Permission_Type_Name = "DashboardTimeLine_Company_Employee";
+        /// <summary>
+        /// Administrator first usage permission type is for the first usage of the system untill a real administrator or employeeId is created with the appropriate permission group.
+        /// Its userId will be 0 and the system will only authenticate if the users table is empty. 
+        /// The username & password of the first usage is on the private app settings
+        /// </summary>
+        protected const string k_Administrator_FirstUsage_Permission_Type_Name = "DashboardTimeLine_Company_Employee";
+        protected const int k_Administrator_FirstUsage_Permission_Type_Name_Default_User_ID = 0;
 
         private int _User_ID = -1;
         private string _s_User_Full_Name = string.Empty;
 
-        public int User_ID
+        public int Authenticated_User_ID
         {
             get
             {
@@ -32,7 +40,7 @@ namespace WebformsPOCDemo.AppShared
         {
             get
             {
-                if (this.User_ID <= 0)
+                if (this.Authenticated_User_ID <= 0)
                 {
                     //return k_Administrator_Permission_Type_Name;
                     // throw exception -- unindenifed user
@@ -54,6 +62,44 @@ namespace WebformsPOCDemo.AppShared
             {
                 // Get the permission from the authentication cookie that should be in format: {User_Id}:{Permission Type Name}
                 return (this._User_ID > 0);
+            }
+        }
+
+        public bool User_Is_Employee
+        {
+            get
+            {
+                bool is_Admin = false;
+
+                string[] user_Id_From_Formatted_Auth_Cookie_Values = this.User.Identity.Name.Split(':');
+                if (user_Id_From_Formatted_Auth_Cookie_Values.Length > 1)
+                {
+                    if (user_Id_From_Formatted_Auth_Cookie_Values[1] == k_DashboardTimeLine_Company_Employee_Permission_Type_Name)
+                    {
+                        is_Admin = true;
+                    }
+                }
+
+                return is_Admin;
+            }
+        }
+
+        public bool User_Is_Administrator
+        {
+            get
+            {
+                bool is_Admin = false;
+
+                string[] user_Id_From_Formatted_Auth_Cookie_Values = this.User.Identity.Name.Split(':');
+                if (user_Id_From_Formatted_Auth_Cookie_Values.Length > 1)
+                {
+                    if (user_Id_From_Formatted_Auth_Cookie_Values[1] == k_Administrator_Permission_Type_Name)
+                    {
+                        is_Admin = true;
+                    }
+                }
+
+                return is_Admin;
             }
         }
 

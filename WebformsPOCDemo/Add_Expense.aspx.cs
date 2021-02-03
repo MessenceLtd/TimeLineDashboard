@@ -30,6 +30,7 @@ namespace WebformsPOCDemo
             this.dropdown_User_Selection.DataBind();
             this.dropdown_User_Selection.Items.Insert(0, new ListItem("-- Select -- ", ""));
 
+            Common_Tools.Initialize_DropDown_Countries(this.dropdown_Invoiced_Client_To_Country);
             Common_Tools.Initialize_DropDown_Countries(this.dropdown_Invoice_Supplier_Country);
 
             // bind currencies 
@@ -43,120 +44,6 @@ namespace WebformsPOCDemo
             // bind expense types
             Common_Tools.Initialize_DropDown_Expense_Types(this.dropdown_Expense_Type);
         }
-
-        protected void button_Create_Supplier_Click(object sender, EventArgs e)
-        {
-            if (this.Page.IsValid)
-            {
-                //bool l_Supplier_Successfully_Created = false;
-                //int l_New_Supplier_Id = 0;
-
-                //string exception_During_Process = "";
-                //string exception_During_Process_Extra_Data = "";
-
-                //int p_User_Id = 1;
-                //string p_Company_Name = this.textbox_Company_Name.Text;
-                //string p_Website_URL = this.textbox_Website_URL.Text;
-                //short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
-                //short? p_State_Id = new short?();
-                //if (this.dropdown_State.Items.Count > 0)
-                //{
-                //    p_State_Id = short.Parse(this.dropdown_State.SelectedValue);
-                //}
-
-                //string p_City = this.textbox_City.Text;
-                //string p_Address = this.textbox_Address.Text;
-                //string p_ZipCode = this.textbox_Zipcode.Text;
-                //string p_Telephone = this.textbox_Telephone.Text;
-                //string p_Mobile_Phone = this.textbox_Mobile_Phone.Text;
-
-                //short p_Supplier_Type_Id = short.Parse(this.dropdown_Supplier_Type.SelectedValue);
-                //string p_Supplier_Tax_Reference_Number = this.textbox_Supplier_Tax_Reference_Number.Text;
-
-                //string p_Main_Contact_FullName = this.textbox_Main_Contact_FullName.Text;
-                //string p_Main_Contact_Email_Address = this.textbox_Main_Contact_Email_Address.Text;
-                //string p_Main_Contact_Phone_Number = this.textbox_Main_Contact_Phone_Number.Text;
-
-                //DateTime? p_Supplier_From_Date = new DateTime?();
-                //DateTime l_Supplier_From_Date_For_Parsing_Result = new DateTime();
-                //DateTime? p_Supplier_To_Date = new DateTime?();
-                //DateTime l_Supplier_To_Date_For_Parsing_Result = new DateTime();
-                //DateTime? p_First_Contract_Date = new DateTime?();
-                //DateTime l_First_Contract_Date_For_Parsing_Result = new DateTime();
-
-                //bool l_Parsed_Successfully = DateTime.TryParseExact(this.textbox_Supplier_From_Date.Text,
-                //    "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out l_Supplier_From_Date_For_Parsing_Result);
-                //if (l_Parsed_Successfully)
-                //{
-                //    p_Supplier_From_Date = l_Supplier_From_Date_For_Parsing_Result;
-                //}
-
-                //l_Parsed_Successfully = DateTime.TryParseExact(this.textbox_Supplier_To_Date.Text,
-                //    "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out l_Supplier_To_Date_For_Parsing_Result);
-                //if (l_Parsed_Successfully)
-                //{
-                //    p_Supplier_To_Date = l_Supplier_To_Date_For_Parsing_Result;
-                //}
-
-                //l_Parsed_Successfully = DateTime.TryParseExact(this.textbox_First_Contract_Date.Text,
-                //    "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out l_First_Contract_Date_For_Parsing_Result);
-                //if (l_Parsed_Successfully)
-                //{
-                //    p_First_Contract_Date = l_First_Contract_Date_For_Parsing_Result;
-                //}
-
-                //string p_First_Contract_Signed_With_Contact_Full_Name = this.textbox_First_Contract_Signed_With_Contact_Full_Name.Text;
-                //string p_First_Contract_Signed_In_Location_Description = this.textbox_First_Contract_Signed_In_Location_Description.Text;
-
-                //bool p_Is_Active = this.checkbox_Is_Active.Checked;
-                //int p_Logged_In_Administrative_User_Id = 1;
-
-                //TimeLineDashboard.Shared.Models.Suppliers new_Supplier_Details = null;
-
-                //try
-                //{
-                //    new_Supplier_Details = Business_Logic_Layer_Facade.Instance.Suppliers_Insert_New_Supplier_Administrative_Registration_Process(
-                //        p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                //        p_State_Id, p_City, p_Address, p_ZipCode,
-                //        p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
-                //        p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
-                //        p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
-                //        p_Supplier_From_Date, p_Supplier_To_Date, p_First_Contract_Date,
-                //        p_First_Contract_Signed_With_Contact_Full_Name, p_First_Contract_Signed_In_Location_Description,
-                //        p_Is_Active, p_Logged_In_Administrative_User_Id
-                //        );
-
-                //    l_New_Supplier_Id = new_Supplier_Details.Supplier_Id;
-                //    l_Supplier_Successfully_Created = true;
-                //}
-                //catch (Exception exc)
-                //{
-                //    exception_During_Process = exc.Message;
-                //    if (exc.InnerException != null)
-                //    {
-                //        exception_During_Process_Extra_Data = exc.InnerException.Message;
-                //    }
-                //}
-
-                //if (l_Supplier_Successfully_Created && l_New_Supplier_Id > 0)
-                //{
-                //    // The user details was successfully created.. 
-                //    // Show success message and redirect the user to view page or back to users page (depends on where the user came from)
-                //    Response.Redirect("list_Suppliers.aspx");
-                //}
-                //else
-                //{
-                //    // show error message to the user for the failed process
-                //    this.lbl_Insert_Process_Error_Result.Text = exception_During_Process;
-                //    if (!string.IsNullOrEmpty(exception_During_Process_Extra_Data))
-                //    {
-                //        this.lbl_Insert_Process_Error_Result.Text += " (" + exception_During_Process_Extra_Data + ")";
-                //    }
-                //}
-
-            }
-        }
-
         
         protected void dropdown_User_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -192,7 +79,146 @@ namespace WebformsPOCDemo
 
         protected void button_Create_Expense_Click(object sender, EventArgs e)
         {
+            if (this.Page.IsValid)
+            {
+                bool l_Expense_Successfully_Created = false;
+                int l_New_Expense_Id = 0;
 
+                string exception_During_Process = "";
+                string exception_During_Process_Extra_Data = "";
+
+                int p_User_Id = int.Parse( this.dropdown_User_Selection.SelectedValue);
+                int p_Supplier_Id = int.Parse(this.dropdown_Supplier.SelectedValue);
+
+                DateTime p_Expense_Invoice_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
+                    this.textbox_Expense_Invoice_DateTime,
+                    this.dropdown_Invoice_Time_Hours,
+                    this.dropdown_Invoice_Time_Minutes,
+                    this.dropdown_Invoice_Time_Seconds);
+
+                byte p_Currency_Id = byte.Parse(this.dropdown_Currency.SelectedValue);
+                decimal p_Total_Amount = decimal.Parse(this.textbox_Total_Amount.Text); 
+                decimal p_Vat_Percentage = decimal.Parse(this.textbox_Vat_Percentage.Text);
+                decimal p_Total_Without_Vat = decimal.Parse(this.textbox_Vat_Percentage.Text);
+                decimal p_Total_Vat = decimal.Parse(this.textbox_Vat_Percentage.Text);
+
+                int? p_Invoiced_Client_On_User_Location_Id = new int?();
+
+                string p_Invoiced_Client_To_CompanyName = this.textbox_Invoiced_To_CompanyName.Text;
+                string p_Invoiced_Client_To_PersonName = this.textbox_Invoiced_To_PersonName.Text;
+                string p_Invoiced_Client_To_PhoneNumber = this.textbox_Invoiced_Client_To_PhoneNumber.Text;
+
+                short? p_Invoiced_Client_To_Country_Id = new short?();
+                if (!string.IsNullOrEmpty(this.dropdown_Invoiced_Client_To_Country.SelectedValue))
+                {
+                    p_Invoiced_Client_To_Country_Id = short.Parse(this.dropdown_Invoiced_Client_To_Country.SelectedValue);
+                }
+                short? p_Invoiced_Client_To_State_Id = new short?();
+                if (!string.IsNullOrEmpty(this.dropdown_Invoiced_Client_To_State.SelectedValue))
+                {
+                    p_Invoiced_Client_To_State_Id = short.Parse(this.dropdown_Invoiced_Client_To_State.SelectedValue);
+                }
+
+                string p_Invoiced_Client_To_City = this.textbox_Invoiced_Client_To_City.Text;
+                string p_Invoiced_Client_To_Address = this.textbox_Invoiced_Client_To_Address.Text;
+                string p_Invoiced_Client_To_Zip = this.textbox_Invoiced_Client_To_Zip.Text;
+                string p_Invoiced_Client_To_EmailAddress = this.textbox_Invoiced_Client_To_EmailAddress.Text;
+
+                byte p_Expense_Type_Id = byte.Parse(this.dropdown_Expense_Type.SelectedValue);
+                string p_Invoice_Number = this.textbox_Invoice_Number.Text;
+                string p_Invoice_Reference_Number = this.textbox_Invoice_Reference_Number.Text;
+
+                string p_Invoice_Supplier_Company_Details = this.textbox_Invoice_Supplier_Company_Details.Text; 
+                string p_Invoice_Supplier_Tax_Reference = this.textbox_Invoice_Supplier_Tax_Reference.Text;
+
+                short? p_Invoice_Supplier_Country_Id = new short?();
+                if (!string.IsNullOrEmpty(this.dropdown_Invoiced_Client_To_Country.SelectedValue))
+                { 
+                    p_Invoice_Supplier_Country_Id = short.Parse(this.dropdown_Invoice_Supplier_Country.SelectedValue);
+                }
+                short? p_Invoice_Supplier_State_Id = new short?(); 
+                if (!string.IsNullOrEmpty(this.dropdown_Invoice_Supplier_State.SelectedValue))
+                { 
+                    p_Invoice_Supplier_State_Id = short.Parse(this.dropdown_Invoice_Supplier_State.SelectedValue);
+                }
+
+                string p_Invoice_Supplier_City = this.textbox_Invoice_Supplier_City.Text;
+                string p_Invoice_Supplier_Address_Description = this.textbox_Invoice_Supplier_Address_Description.Text;
+                string p_Invoice_Supplier_ZipCode = this.textbox_Invoice_Supplier_ZipCode.Text;
+                string p_Invoice_Supplier_WebAddress = this.textbox_Invoice_Supplier_WebAddress.Text;
+
+                string p_Invoice_Supplier_Phone_Number = this.textbox_Invoice_Supplier_Phone_Number.Text;
+                string p_Invoice_Supplier_Contact_FullName = this.textbox_Invoice_Supplier_Contact_FullName.Text;
+
+                string p_Invoice_Content_Long_Description = this.textbox_Invoice_Content_Long_Description.Text;
+                string p_User_Description = this.textbox_User_Description.Text;
+                string p_User_Comments = this.textbox_User_Description.Text;
+
+                string p_Original_File_Name = this.textbox_Original_File_Name.Text;
+                string p_Azure_Block_Blob_Reference = "N/A";
+
+                bool p_Is_Visible_To_Anonymous_Users = this.checkbox_Is_Visible_To_Anonymous_Users.Checked; 
+                bool p_Is_Available_For_Download_For_Anonymous_Users = this.checkbox_Is_Available_For_Download_For_Anonymous_Users.Checked;
+                bool p_Is_Visible_To_Followers_Users = this.checkbox_Is_Visible_To_Followers_Users.Checked;
+                bool p_Is_Available_For_Download_For_Followers_Users = this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked;
+
+                int p_Record_Created_By_User_Id = 1; //TODO !!! Add authenticated user_Id
+                DateTime p_Record_Creation_DateTime_UTC = DateTime.UtcNow;
+                int p_Record_Last_Updated_By_User_Id = 1; //TODO !!! Add authenticated user_Id
+                DateTime p_Record_Last_Updated_DateTime_UTC = DateTime.UtcNow;
+                bool p_Is_Active = this.checkbox_Is_Active.Checked;
+
+                TimeLineDashboard.Shared.Models.Expenses new_Expense_Details = null;
+
+                try
+                {
+                    new_Expense_Details = Business_Logic_Layer_Facade.Instance.Expenses_Insert_New_Expense(
+                        p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
+                        p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
+                        p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
+                        p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip,
+                        p_Invoiced_Client_To_EmailAddress, p_Expense_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
+                        p_Invoice_Supplier_Company_Details, p_Invoice_Supplier_Tax_Reference, p_Invoice_Supplier_Country_Id,
+                        p_Invoice_Supplier_State_Id, p_Invoice_Supplier_City, p_Invoice_Supplier_Address_Description,
+                        p_Invoice_Supplier_ZipCode, p_Invoice_Supplier_WebAddress, p_Invoice_Supplier_Phone_Number,
+                        p_Invoice_Supplier_Contact_FullName, p_Invoice_Content_Long_Description, p_User_Description,
+                        p_User_Comments, p_Original_File_Name, p_Azure_Block_Blob_Reference,
+                        p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                        p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                        p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
+                        p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
+                        p_Is_Active
+                        );
+
+                    l_New_Expense_Id = new_Expense_Details.Expense_Record_Id;
+                    l_Expense_Successfully_Created = true;
+                }
+                catch (Exception exc)
+                {
+                    exception_During_Process = exc.Message;
+                    if (exc.InnerException != null)
+                    {
+                        exception_During_Process_Extra_Data = exc.InnerException.Message;
+                    }
+                }
+
+                if (l_Expense_Successfully_Created && l_New_Expense_Id > 0)
+                {
+                    // The user details was successfully created.. 
+                    // Show success message and redirect the user to view page or back to users page (depends on where the user came from)
+                    Response.Redirect("list_Expenses.aspx");
+                }
+                else
+                {
+                    // show error message to the user for the failed process
+                    this.lbl_Insert_Process_Error_Result.Text = exception_During_Process;
+                    if (!string.IsNullOrEmpty(exception_During_Process_Extra_Data))
+                    {
+                        this.lbl_Insert_Process_Error_Result.Text += " (" + exception_During_Process_Extra_Data + ")";
+                    }
+                }
+
+            }
         }
 
         protected void textbox_Expense_Invoice_DateTime_TextChanged(object sender, EventArgs e)
@@ -296,7 +322,6 @@ namespace WebformsPOCDemo
                 if (country_Id == 14 || country_Id == 41 || country_Id == 237)
                 {
                     this.p_Invoice_Supplier_State_Wrapper_Panel.Visible = true;
-
                 }
                 else
                 {
@@ -306,6 +331,65 @@ namespace WebformsPOCDemo
             else
             {
                 this.p_Invoice_Supplier_State_Wrapper_Panel.Visible = false;
+            }
+        }
+
+        private void Bind_Invoiced_Client_States_ComboBox()
+        {
+            // check if the current selected country_id from the drop down has states
+            Hide_Or_Show_Invoiced_Client_States_And_Reset_Selection();
+            short Country_Id = 0;
+
+            if (!string.IsNullOrEmpty(this.dropdown_Invoiced_Client_To_Country.SelectedValue))
+            {
+                short.TryParse(this.dropdown_Invoiced_Client_To_Country.SelectedValue, out Country_Id);
+
+                if (Country_Id > 0)
+                {
+                    List<States> countryId_States = Business_Logic_Layer_Facade.Instance.States_GetStates_By_Country_Id(Country_Id);
+
+                    if (countryId_States.Count > 0)
+                    {
+                        this.dropdown_Invoiced_Client_To_State.DataSource = countryId_States;
+                        this.dropdown_Invoiced_Client_To_State.DataTextField = "State_Name";
+                        this.dropdown_Invoiced_Client_To_State.DataValueField = "State_Id";
+                        this.dropdown_Invoiced_Client_To_State.DataBind();
+
+                        this.dropdown_Invoiced_Client_To_State.Items.Insert(0, new ListItem("-- Select -- ", ""));
+                    }
+
+                    if (countryId_States != null && countryId_States.Count > 0)
+                    {
+                        this.p_Invoiced_Client_To_State_Wrapper_Panel.Visible = true;
+                    }
+                    else
+                    {
+                        this.p_Invoiced_Client_To_State_Wrapper_Panel.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void Hide_Or_Show_Invoiced_Client_States_And_Reset_Selection()
+        {
+            this.dropdown_Invoiced_Client_To_State.ClearSelection();
+            this.dropdown_Invoiced_Client_To_State.Items.Clear();
+
+            if (!string.IsNullOrEmpty(this.dropdown_Invoiced_Client_To_Country.SelectedValue))
+            {
+                int country_Id = int.Parse(this.dropdown_Invoiced_Client_To_Country.SelectedValue);
+                if (country_Id == 14 || country_Id == 41 || country_Id == 237)
+                {
+                    this.p_Invoiced_Client_To_State_Wrapper_Panel.Visible = true;
+                }
+                else
+                {
+                    this.p_Invoiced_Client_To_State_Wrapper_Panel.Visible = false;
+                }
+            }
+            else
+            {
+                this.p_Invoiced_Client_To_State_Wrapper_Panel.Visible = false;
             }
         }
 
@@ -329,7 +413,13 @@ namespace WebformsPOCDemo
                 //this.textbox_Invoiced_On_User_Location_Id.Text = ""
                 this.textbox_Invoiced_To_CompanyName.Text = "User Company Dummy AutoFill";
                 this.textbox_Invoiced_To_PersonName.Text = "User Company Dummy AutoFill";
-                this.textbox_Invoiced_To_Address.Text = "User Address Dummy AutoFill";
+                this.textbox_Invoiced_Client_To_PhoneNumber.Text = "DummyPhone";
+
+                this.dropdown_Invoiced_Client_To_Country.SelectedValue = "157";
+                this.textbox_Invoiced_Client_To_City.Text = "Dummy City";
+                this.textbox_Invoiced_Client_To_Address.Text = "Dummy Address";
+                this.textbox_Invoiced_Client_To_Zip.Text = "123321321";
+                this.textbox_Invoiced_Client_To_EmailAddress.Text = "dummyemail@dummydomain.com";
 
                 this.dropdown_Expense_Type.SelectedValue = "1";
 
@@ -364,6 +454,9 @@ namespace WebformsPOCDemo
             }
         }
 
-
+        protected void dropdown_Invoiced_Client_To_Country_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Bind_Invoiced_Client_States_ComboBox();
+        }
     }
 }

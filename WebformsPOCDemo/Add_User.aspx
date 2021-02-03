@@ -47,6 +47,13 @@
             <asp:RequiredFieldValidator runat="server" ID="validator_Username_Required" ErrorMessage="Please enter an username" Display="Dynamic" ControlToValidate="textbox_Username" CssClass="text-danger"></asp:RequiredFieldValidator>
         </div>
 
+        <asp:Panel runat="server" ID="panel_User_App_Permission_Type" CssClass="Form_Group">
+            <div class="Form_Label_Wrapper"><label for="<%= dropdown_App_Permission_Type.ClientID %>">Permission:</label></div>
+            <div class="Form_Control"><asp:DropDownList runat="server" ID="dropdown_App_Permission_Type" ClientIDMode="Static" CssClass="Big_ComboBox form-control"></asp:DropDownList></div>
+            <asp:RequiredFieldValidator runat="server" ID="validator_App_Permission_Type_Required" ErrorMessage="Please select a permission type" Display="Dynamic" 
+                ControlToValidate="dropdown_App_Permission_Type" CssClass="text-danger"></asp:RequiredFieldValidator>
+        </asp:Panel>
+
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Password.ClientID %>">Password:</label></div>
             <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Password" TextMode="Password" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>

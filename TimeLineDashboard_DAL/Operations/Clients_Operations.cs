@@ -232,7 +232,7 @@ namespace TimeLineDashboard.DAL.Operations
             }
 
             client_To_Return.Is_Active = (bool)dbRowDetailsForUserInitialization["Is_Active"];
-            if (client_To_Return.Is_Active)
+            if (!client_To_Return.Is_Active)
             {
                 if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Active_Last_Updated_dateTime_UTC") > -1)
                 {

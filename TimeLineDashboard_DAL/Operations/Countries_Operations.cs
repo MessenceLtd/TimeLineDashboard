@@ -39,11 +39,14 @@ namespace TimeLineDashboard.DAL.Operations
 
                 if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
                 {
-                    r_List_Countries.Clear();
-
-                    for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                    lock (r_List_Countries)
                     {
-                        r_List_Countries.Add(Create_Country_Entity_From_DataRow(dataSet.Tables[0].Rows[i]));
+                        r_List_Countries.Clear();
+
+                        for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                        {
+                            r_List_Countries.Add(Create_Country_Entity_From_DataRow(dataSet.Tables[0].Rows[i]));
+                        }
                     }
                 }
             }

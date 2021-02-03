@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using TimeLineDashboard.Shared.Models;
 using TimeLineDashboard.DAL;
+using System.Collections.Concurrent;
 
 namespace TimeLineDashboard.DAL.Operations
 {
@@ -29,7 +30,7 @@ namespace TimeLineDashboard.DAL.Operations
         }
         #endregion
 
-        private static readonly Dictionary<short, List<States>> list_Countries_States = new Dictionary<short, List<States>>();
+        private static readonly ConcurrentDictionary<short, List<States>> list_Countries_States = new ConcurrentDictionary<short, List<States>>();
 
         internal List<States> Get_All()
         {
@@ -79,7 +80,7 @@ namespace TimeLineDashboard.DAL.Operations
 
                 if (!list_Countries_States.ContainsKey(country_Id))
                 {
-                    list_Countries_States.Add(country_Id, new List<States>());
+                    list_Countries_States.TryAdd(country_Id, new List<States>());
                 }
 
                 list_Countries_States[country_Id].Add(states_To_Save[i]);

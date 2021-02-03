@@ -40,11 +40,14 @@ namespace TimeLineDashboard.DAL.Operations
 
                 if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
                 {
-                    r_List_Expense_Types.Clear();
-
-                    for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                    lock (r_List_Expense_Types)
                     {
-                        r_List_Expense_Types.Add(Create_Expense_Type_Details_From_Data_Row(dataSet.Tables[0].Rows[i]));
+                        r_List_Expense_Types.Clear();
+
+                        for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                        {
+                            r_List_Expense_Types.Add(Create_Expense_Type_Details_From_Data_Row(dataSet.Tables[0].Rows[i]));
+                        }
                     }
                 }
             }

@@ -46,6 +46,7 @@
     <Compile Include="Models\Documents.cs" />
     <Compile Include="Models\Currencies.cs" />
     <Compile Include="Models\Document_Types.cs" />
+    <Compile Include="Models\App_Permission_Type.cs" />
     <Compile Include="Models\ExpenseType.cs" />
     <Compile Include="Models\InvoiceType.cs" />
     <Compile Include="Models\SupplierType.cs" />

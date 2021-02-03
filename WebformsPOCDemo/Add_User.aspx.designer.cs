@@ -69,6 +69,33 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Username_Required;
 
         /// <summary>
+        /// panel_User_App_Permission_Type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_User_App_Permission_Type;
+
+        /// <summary>
+        /// dropdown_App_Permission_Type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_App_Permission_Type;
+
+        /// <summary>
+        /// validator_App_Permission_Type_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_App_Permission_Type_Required;
+
+        /// <summary>
         /// textbox_Password control.
         /// </summary>
         /// <remarks>

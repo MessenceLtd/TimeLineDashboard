@@ -55,7 +55,8 @@ namespace TimeLineDashboard.DAL
         public Users Users_Insert_New_User_Administrative_Registration_Process(
             string p_Username, 
             string p_Encrypted_Password, 
-            string p_Encryption_Random_Salt, 
+            string p_Encryption_Random_Salt,
+            byte p_App_Permission_Type_Id,
             string p_First_Name, 
             string p_Middle_Name, 
             string p_Last_Name, 
@@ -77,6 +78,7 @@ namespace TimeLineDashboard.DAL
                 p_Username, 
                 p_Encrypted_Password,
                 p_Encryption_Random_Salt,
+                p_App_Permission_Type_Id,
                 p_First_Name,
                 p_Middle_Name,
                 p_Last_Name,
@@ -137,6 +139,16 @@ namespace TimeLineDashboard.DAL
                 );
         }
 
+        public Users Users_Get_User_Details_By_Username_For_Authentication(string p_Username_For_Authentication)
+        {
+            return Users_Operations.Instance.Get_User_Details_By_Username_For_Authentication(p_Username_For_Authentication);
+        }
+
+        public bool Users_Are_There_Any_Users_In_Database()
+        {
+            return Users_Operations.Instance.Are_There_Any_Users_In_Database();
+        }
+
         public List<Currencies> Currencies_Get_All()
         {
             return Currencies_Operations.Instance.Get_Currecies();
@@ -161,6 +173,16 @@ namespace TimeLineDashboard.DAL
                 p_First_Contract_Signed_With_Contact_Full_Name, p_First_Contract_Signed_In_Location_Description,
                 p_Is_Active, p_Logged_In_Administrative_User_Id
                 );
+        }
+
+        public List<App_Permission_Type> App_Permission_Types_Get_All()
+        {
+            return App_Permission_Type_Operations.Instance.Get_App_Permission_Types();
+        }
+
+        public App_Permission_Type App_Permission_Types_Get_By_Type_Id(byte p_Permission_Type_Id)
+        {
+            return App_Permission_Type_Operations.Instance.Get_App_Permission_Types_By_Type_Id(p_Permission_Type_Id);
         }
 
         public List<ExpenseType> ExpenseTypes_Get_All()
@@ -202,6 +224,51 @@ namespace TimeLineDashboard.DAL
                 p_Supplier_Id,
                 p_Expense_DateTime,
                 p_User_Id_LoggedIn_Creating_Expense);
+        }
+
+        public Expenses Expenses_Insert_New_Expense(
+            int p_User_Id, int p_Supplier_Id, DateTime p_Expense_Invoice_DateTime,
+            byte p_Currency_Id, decimal p_Total_Amount, decimal p_Vat_Percentage,
+            decimal p_Total_Without_Vat, decimal p_Total_Vat,
+            int? p_Invoiced_Client_On_User_Location_Id,
+            string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_PersonName,
+            string p_Invoiced_Client_To_PhoneNumber,
+            short? p_Invoiced_Client_To_Country_Id, short? p_Invoiced_Client_To_State_Id, string p_Invoiced_Client_To_City,
+            string p_Invoiced_Client_To_Address, string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress,
+            byte p_Expense_Type_Id,
+            string p_Invoice_Number, string p_Invoice_Reference_Number,
+            string p_Invoice_Supplier_Company_Details, string p_Invoice_Supplier_Tax_Reference, short? p_Invoice_Supplier_Country_Id,
+            short? p_Invoice_Supplier_State_Id, string p_Invoice_Supplier_City, string p_Invoice_Supplier_Address_Description,
+            string p_Invoice_Supplier_ZipCode, string p_Invoice_Supplier_WebAddress, string p_Invoice_Supplier_Phone_Number,
+            string p_Invoice_Supplier_Contact_FullName,
+            string p_Invoice_Content_Long_Description,
+            string p_User_Description,
+            string p_User_Comments,
+            string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
+            bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC,
+            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
+            bool p_Is_Active
+            )
+        {
+            return Expenses_Operations.Instance.Insert_New_Expense_Administrative_Registration_Process(
+                p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
+                p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
+                p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id, 
+                p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip, 
+                p_Invoiced_Client_To_EmailAddress, p_Expense_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
+                p_Invoice_Supplier_Company_Details, p_Invoice_Supplier_Tax_Reference, p_Invoice_Supplier_Country_Id,
+                p_Invoice_Supplier_State_Id, p_Invoice_Supplier_City, p_Invoice_Supplier_Address_Description,
+                p_Invoice_Supplier_ZipCode, p_Invoice_Supplier_WebAddress, p_Invoice_Supplier_Phone_Number,
+                p_Invoice_Supplier_Contact_FullName, p_Invoice_Content_Long_Description, p_User_Description,
+                p_User_Comments, p_Original_File_Name, p_Azure_Block_Blob_Reference,
+                p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
+                p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
+                p_Is_Active
+                );
         }
 
         public Suppliers Suppliers_Get_By_Supplier_Id(int p_Supplier_Id, int p_User_Id_Searching_For_Supplier_Details)
