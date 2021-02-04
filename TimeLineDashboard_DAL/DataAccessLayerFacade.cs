@@ -175,6 +175,11 @@ namespace TimeLineDashboard.DAL
                 );
         }
 
+        public App_Permission_Type App_Permission_Types_Get_By_Permission_Type_Code(string p_Permission_Type_Code)
+        {
+            return App_Permission_Type_Operations.Instance.Get_App_Permission_Type_By_Permission_Type_Code(p_Permission_Type_Code);
+        }
+
         public List<App_Permission_Type> App_Permission_Types_Get_All()
         {
             return App_Permission_Type_Operations.Instance.Get_App_Permission_Types();
@@ -182,7 +187,7 @@ namespace TimeLineDashboard.DAL
 
         public App_Permission_Type App_Permission_Types_Get_By_Type_Id(byte p_Permission_Type_Id)
         {
-            return App_Permission_Type_Operations.Instance.Get_App_Permission_Types_By_Type_Id(p_Permission_Type_Id);
+            return App_Permission_Type_Operations.Instance.Get_App_Permission_Type_By_Type_Id(p_Permission_Type_Id);
         }
 
         public List<ExpenseType> ExpenseTypes_Get_All()

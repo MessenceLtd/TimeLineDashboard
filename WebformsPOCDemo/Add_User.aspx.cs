@@ -129,7 +129,7 @@ namespace WebformsPOCDemo
                     string p_Heard_About_Application_From = this.textbox_Heard_About_Application_From.Text;
                     string p_Our_Administrative_Side_Notes = this.textbox_Administrative_Side_Notes.Text;
 
-                    int p_Logged_In_Administrative_User_Id = 1; // ToDo -- get the logged in userId from the base page authentication logic
+                    int p_Logged_In_Authenticated_User_Id = base.Authenticated_User_ID; // ToDo -- Make sure the permission type of the authenticated user that is trying to create a user is appropriate.
 
                     TimeLineDashboard.Shared.Models.Users new_User_Details = null;
 
@@ -153,8 +153,8 @@ namespace WebformsPOCDemo
                             p_BirthDate,
                             p_Gender,
                             p_Heard_About_Application_From,
-                            p_Our_Administrative_Side_Notes, 
-                            p_Logged_In_Administrative_User_Id
+                            p_Our_Administrative_Side_Notes,
+                            p_Logged_In_Authenticated_User_Id
                             );
 
                         l_New_User_Id = new_User_Details.User_Id;

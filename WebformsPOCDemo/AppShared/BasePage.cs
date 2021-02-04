@@ -56,15 +56,6 @@ namespace WebformsPOCDemo.AppShared
             }
         }
 
-        public bool UserIsEmployee
-        {
-            get
-            {
-                // Get the permission from the authentication cookie that should be in format: {User_Id}:{Permission Type Name}
-                return (this._User_ID > 0);
-            }
-        }
-
         public bool User_Is_Employee
         {
             get

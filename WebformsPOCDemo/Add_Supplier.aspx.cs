@@ -113,7 +113,7 @@ namespace WebformsPOCDemo
                 string exception_During_Process = "";
                 string exception_During_Process_Extra_Data = "";
 
-                int p_User_Id = 1;
+                int p_User_Id = base.Authenticated_User_ID;
                 string p_Company_Name = this.textbox_Company_Name.Text;
                 string p_Website_URL = this.textbox_Website_URL.Text;
                 short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
@@ -175,7 +175,7 @@ namespace WebformsPOCDemo
                 string p_First_Contract_Signed_In_Location_Description = this.textbox_First_Contract_Signed_In_Location_Description.Text;
 
                 bool p_Is_Active = this.checkbox_Is_Active.Checked;
-                int p_Logged_In_Administrative_User_Id = 1;
+                int p_Logged_In_Administrative_User_Id = base.Authenticated_User_ID;
 
                 TimeLineDashboard.Shared.Models.Suppliers new_Supplier_Details = null;
 

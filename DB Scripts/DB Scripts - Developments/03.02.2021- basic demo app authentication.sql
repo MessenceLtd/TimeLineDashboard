@@ -228,7 +228,21 @@ Go
 --Truncate Table t_TLBoard_Users
 --Select * From t_TLBoard_Users
 
+-- Todo tasks.. 
+-- 
+/*
 
+1) Need more work on permissions / permission types (need to create a regular user for testings)
+2) Need to implement add invoice page (should work similar to add expense)
+3) Implement add document page
+4) Start to implement update pages (For 3 user permissions types -- Administrator(me) Company employee, User) / view details pages (User/Client/Supplier/Expense/Invoice/Document)
+5) Implement Application pages: Captcha / exceptions / login tries / Successful login sessions, Currenctly authenticated users/sessions (+ future ability to cancel session)
+6) Bank accounts entries 
+7) Credit card statements / payments 
+8) After all is working, Viewable and updatable  -- Add ability to connect to the entities above (Expenses, Invoices, Documents, Credit card statements ect.. )
+*** Credit card statements should also be linkable to expenses/invoices and other documents/ general information and/or future features (like contracts and more information)
+
+*/
 
 
 

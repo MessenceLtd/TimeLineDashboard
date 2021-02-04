@@ -55,7 +55,7 @@ namespace TimeLineDashboard.DAL.Operations
             return r_List_App_Permission_Types;
         }
 
-        internal App_Permission_Type Get_App_Permission_Types_By_Type_Id(byte p_App_Permission_Type_Id)
+        internal App_Permission_Type Get_App_Permission_Type_By_Type_Id(byte p_App_Permission_Type_Id)
         {
             App_Permission_Type app_Permission_Type_Details_To_Return = null;
 
@@ -76,6 +76,26 @@ namespace TimeLineDashboard.DAL.Operations
             return app_Permission_Type_Details_To_Return;
         }
 
+        internal App_Permission_Type Get_App_Permission_Type_By_Permission_Type_Code(string p_Permission_Type_Code)
+        {
+            App_Permission_Type app_Permission_Type_Details_To_Return = null;
+
+            if (r_List_App_Permission_Types == null || r_List_App_Permission_Types.Count <= 0)
+            {
+                this.Get_App_Permission_Types();
+            }
+
+            for (int i = 0; i < r_List_App_Permission_Types.Count; i++)
+            {
+                if (r_List_App_Permission_Types[i].App_Permission_Type_Code == p_Permission_Type_Code)
+                {
+                    app_Permission_Type_Details_To_Return = r_List_App_Permission_Types[i];
+                    break;
+                }
+            }
+
+            return app_Permission_Type_Details_To_Return;
+        }
 
         private App_Permission_Type Create_App_Permission_Type_Details_From_Data_Row(DataRow dataRow)
         {
@@ -88,5 +108,7 @@ namespace TimeLineDashboard.DAL.Operations
 
             return App_Permission_Type_To_Return;
         }
+
+        
     }
 }

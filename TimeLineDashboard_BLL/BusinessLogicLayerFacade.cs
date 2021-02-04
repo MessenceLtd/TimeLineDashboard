@@ -157,6 +157,11 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.App_Permission_Types_Get_By_Type_Id(p_Permission_Type_Id);
         }
 
+        public App_Permission_Type App_Permission_Types_Get_By_Permission_Type_Code(string p_Permission_Type_Code)
+        {
+            return Data_Access_Layer_Facade.Instance.App_Permission_Types_Get_By_Permission_Type_Code(p_Permission_Type_Code);
+        }
+
         public bool Users_Delete_By_User_Id(int User_Id)
         {
             throw new NotImplementedException();

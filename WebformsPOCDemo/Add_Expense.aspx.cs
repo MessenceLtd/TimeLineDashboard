@@ -6,10 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TimeLineDashboard.BusinessLogicLayer;
 using TimeLineDashboard.Shared.Models;
+using WebformsPOCDemo.AppShared;
 
 namespace WebformsPOCDemo
 {
-    public partial class Add_Expense : System.Web.UI.Page
+    public partial class Add_Expense : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,8 +22,6 @@ namespace WebformsPOCDemo
 
         private void Bind_Default_View()
         {
-            // bind the combobox of the countries
-
             // Bind users combo box if the current authenticated user is employee/administrator.
             this.dropdown_User_Selection.DataSource = Business_Logic_Layer_Facade.Instance.Users_Get_Administration_List(1);
             this.dropdown_User_Selection.DataTextField = "FullName_With_Email";
@@ -162,9 +161,9 @@ namespace WebformsPOCDemo
                 bool p_Is_Visible_To_Followers_Users = this.checkbox_Is_Visible_To_Followers_Users.Checked;
                 bool p_Is_Available_For_Download_For_Followers_Users = this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked;
 
-                int p_Record_Created_By_User_Id = 1; //TODO !!! Add authenticated user_Id
+                int p_Record_Created_By_User_Id = base.Authenticated_User_ID; //TODO !!! Add authenticated user_Id
                 DateTime p_Record_Creation_DateTime_UTC = DateTime.UtcNow;
-                int p_Record_Last_Updated_By_User_Id = 1; //TODO !!! Add authenticated user_Id
+                int p_Record_Last_Updated_By_User_Id = base.Authenticated_User_ID; //TODO !!! Add authenticated user_Id
                 DateTime p_Record_Last_Updated_DateTime_UTC = DateTime.UtcNow;
                 bool p_Is_Active = this.checkbox_Is_Active.Checked;
 
@@ -236,7 +235,7 @@ namespace WebformsPOCDemo
                 DateTime p_Expense_Invoice_DateTime = DateTime.ParseExact(this.textbox_Expense_Invoice_DateTime.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None);
 
                 // ask business logic to create a pre populate expense entity based on supplier selection
-                int p_Authenticated_User_Id = 1; // ToDo;
+                int p_Authenticated_User_Id = base.Authenticated_User_ID; // ToDo;
                 int p_Supplier_Id = int.Parse(this.dropdown_Supplier.SelectedValue);
                 var base_Expense_For_Auto_Complete = Business_Logic_Layer_Facade.Instance.Expenses_Get_Auto_Complete_Expense_Based_On_Supplier_And_DateTime_Selection(p_Supplier_Id, p_Expense_Invoice_DateTime, p_Authenticated_User_Id);
 
