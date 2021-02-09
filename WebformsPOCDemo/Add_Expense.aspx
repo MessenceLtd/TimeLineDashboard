@@ -4,9 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links">
-        <asp:HyperLink runat="server" Text="Add New Expense" CssClass="active" NavigateUrl="Add_Expense.aspx"></asp:HyperLink>
-    </asp:Panel>
+    <div class="page-title my-3 text-center">
+        <h2 class="display-5">Add Expense</h2>
+        <p class="lead">The advanced way to keep track on all your expenses.</p>
+    </div>
 
     <hr />
 
@@ -21,12 +22,12 @@
         </asp:Panel>
 
 
-
         <div class="Form_Group">
             <div class="Form_Label_Wrapper">
                 <label style="font-weight: bold" for="<%= textbox_Expense_Invoice_DateTime.ClientID %>">Expense Date:</label></div>
             <div class="Form_Control">
-                <asp:TextBox runat="server" ID="textbox_Expense_Invoice_DateTime" ClientIDMode="Static" CssClass="form-control" OnTextChanged="textbox_Expense_Invoice_DateTime_TextChanged"></asp:TextBox></div>
+                <asp:TextBox runat="server" ID="textbox_Expense_Invoice_DateTime" ClientIDMode="Static" autocomplete="off" 
+                    CssClass="form-control" AutoPostBack="true" OnTextChanged="textbox_Expense_Invoice_DateTime_TextChanged"></asp:TextBox></div>
             <asp:RequiredFieldValidator runat="server" ID="validator_Expense_Invoice_DateTime_Required" ErrorMessage="Please enter an expense date" Display="Dynamic" ControlToValidate="textbox_Expense_Invoice_DateTime" CssClass="text-danger"></asp:RequiredFieldValidator>
         </div>
 

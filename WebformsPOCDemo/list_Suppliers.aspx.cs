@@ -33,7 +33,7 @@ namespace WebformsPOCDemo
         {
             if (!string.IsNullOrEmpty(this.textbox_Search_Criteria.Text))
             {
-                var list_Of_Suppliers_Searched = Business_Logic_Layer_Facade.Instance.Suppliers_Get_Search(this.textbox_Search_Criteria.Text, 1);
+                var list_Of_Suppliers_Searched = Business_Logic_Layer_Facade.Instance.Suppliers_Get_Search(this.textbox_Search_Criteria.Text, base.Authenticated_User_ID);
 
                 if (list_Of_Suppliers_Searched != null && list_Of_Suppliers_Searched.Count > 0)
                 {

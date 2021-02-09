@@ -3,9 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links">       
-        <asp:HyperLink runat="server" Text="Add New Client" CssClass="active" NavigateUrl="Add_Client.aspx"></asp:HyperLink>
-    </asp:Panel>
+    <div class="page-title my-3 text-center">
+        <h2 class="display-5">Add Client</h2>
+        <p class="lead">Keep track on all your client and contacts.</p>
+    </div>
 
     <hr />
 

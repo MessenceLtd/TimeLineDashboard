@@ -109,6 +109,9 @@
     <Content Include="view_user.aspx" />
     <Content Include="Web.config" />
     <Content Include="list_Clients.aspx" />
+    <Content Include="wuc_Breadcrumbs_Navigation.ascx" />
+    <Content Include="wuc_Footer.ascx" />
+    <Content Include="wuc_Top_Menu.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add_Client.aspx.cs">
@@ -276,6 +279,27 @@
     </Compile>
     <Compile Include="view_user.aspx.designer.cs">
       <DependentUpon>view_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wuc_Breadcrumbs_Navigation.ascx.cs">
+      <DependentUpon>wuc_Breadcrumbs_Navigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wuc_Breadcrumbs_Navigation.ascx.designer.cs">
+      <DependentUpon>wuc_Breadcrumbs_Navigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="wuc_Footer.ascx.cs">
+      <DependentUpon>wuc_Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wuc_Footer.ascx.designer.cs">
+      <DependentUpon>wuc_Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="wuc_Top_Menu.ascx.cs">
+      <DependentUpon>wuc_Top_Menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wuc_Top_Menu.ascx.designer.cs">
+      <DependentUpon>wuc_Top_Menu.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

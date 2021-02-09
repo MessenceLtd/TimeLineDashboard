@@ -4614,4 +4614,9 @@
   }
 }
 
+/* Custom changes */
+.mr-auto{
+    margin-right:auto;
+}
+
 /*# sourceMappingURL=bootstrap-utilities.css.map */

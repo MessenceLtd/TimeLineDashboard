@@ -112,6 +112,11 @@ namespace TimeLineDashboard.DAL
             return Clients_Operations.Instance.Get_Search(p_Search_Criteria, p_User_Id);
         }
 
+        public List<Clients> Clients_Get_All_By_User_Id(int p_User_Id_To_Return_Clients, int p_Authenticated_User_ID)
+        {
+            return Clients_Operations.Instance.Get_All_By_User_Id(p_User_Id_To_Return_Clients, p_Authenticated_User_ID);
+        }
+
         public List<ClientType> ClientTypes_Get_All()
         {
             return ClientTypes_Operations.Instance.Get_Client_Types();
@@ -294,6 +299,97 @@ namespace TimeLineDashboard.DAL
         public Countries_Vat_History Countries_Vat_History_Get_By_Country_And_Date(short p_Country_Id, DateTime p_Approximate_DateTime_For_Searches)
         {
             return Countries_Vat_History_Operations.Instance.Get_Latest_Vat_History_By_Country_And_Date(p_Country_Id, p_Approximate_DateTime_For_Searches);
+        }
+
+        public Invoices Invoices_Insert_New_Invoice_Details(
+            int p_User_Id, int p_Client_Id, DateTime p_Invoice_DateTime,
+            byte p_Currency_Id, decimal p_Total_Amount, decimal p_Vat_Percentage,
+            decimal p_Total_Without_Vat, decimal p_Total_Vat,
+            DateTime? p_Creation_DateTime,
+            int? p_Invoiced_Client_On_User_Location_Id,
+            string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_Tax_Reference,
+            string p_Invoiced_Client_To_PersonName, string p_Invoiced_Client_To_PhoneNumber,
+            short? p_Invoiced_Client_To_Country_Id, short? p_Invoiced_Client_To_State_Id, string p_Invoiced_Client_To_City,
+            string p_Invoiced_Client_To_Address, string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress,
+            byte p_Invoice_Type_Id, string p_Invoice_Number, string p_Invoice_Reference_Number,
+            string p_Invoice_Content_Long_Description, string p_User_Description,
+            string p_User_Comments, string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
+            bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC,
+            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
+            bool p_Is_Active)
+        {
+            return Invoices_Operations.Instance.Insert_New_Invoice_Details(p_User_Id, p_Client_Id, p_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
+                p_Total_Without_Vat, p_Total_Vat, p_Creation_DateTime, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
+                p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName,
+                p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
+                p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip,
+                p_Invoiced_Client_To_EmailAddress, p_Invoice_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
+                p_Invoice_Content_Long_Description, p_User_Description,
+                p_User_Comments, p_Original_File_Name, p_Azure_Block_Blob_Reference,
+                p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
+                p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
+                p_Is_Active);
+        }
+
+        public General_Documents GeneralDocuments_Insert_New_General_Document_Details(
+            int p_User_Id, short p_General_Document_Type, string p_Title,
+            string p_Description, DateTime p_Document_Creation_DateTime,
+
+            string p_Sent_By_Entity_Name, short? p_Sent_By_Entity_Country_Id,
+            short? p_Sent_By_Entity_State_Id, string p_Sent_By_Entity_City,
+            string p_Sent_By_Entity_Address, string p_Sent_By_Entity_ZipCode,
+            DateTime p_Sent_By_Entity_DateTime, string p_Sent_By_Entity_Email_Address,
+
+            string p_Sent_To_Entity_Name, short? p_Sent_To_Entity_Country_Id,
+            short? p_Sent_To_Entity_State_Id, string p_Sent_To_Entity_City,
+            string p_Sent_To_Entity_Address, string p_Sent_To_Entity_ZipCode,
+            string p_Sent_To_Entity_Email_Address,
+
+            DateTime? p_Recieved_Document_DateTime,
+            short? p_Recieved_In_Country_Id, short? p_Recieved_In_State_Id,
+            string p_Recieved_In_City, string p_Recieved_In_Address,
+            string p_Recieved_In_ZipCode, string p_Recieved_In_Email_Address,
+
+            string p_User_Comments, int? p_Recieved_By_User_Id, DateTime? p_Recieved_DateTime,
+            string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
+            bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC,
+            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
+            bool p_Is_Active
+            )
+        {
+            return General_Documents_Operations.Instance.Insert_New_General_Document_Details(
+                p_User_Id, p_General_Document_Type, p_Title,
+                p_Description, p_Document_Creation_DateTime,
+
+                p_Sent_By_Entity_Name, p_Sent_By_Entity_Country_Id,
+                p_Sent_By_Entity_State_Id, p_Sent_By_Entity_City,
+                p_Sent_By_Entity_Address, p_Sent_By_Entity_ZipCode,
+                p_Sent_By_Entity_DateTime, p_Sent_By_Entity_Email_Address,
+
+                p_Sent_To_Entity_Name, p_Sent_To_Entity_Country_Id,
+                p_Sent_To_Entity_State_Id, p_Sent_To_Entity_City,
+                p_Sent_To_Entity_Address, p_Sent_To_Entity_ZipCode,
+                p_Sent_To_Entity_Email_Address,
+
+                p_Recieved_Document_DateTime,
+                p_Recieved_In_Country_Id, p_Recieved_In_State_Id,
+                p_Recieved_In_City, p_Recieved_In_Address,
+                p_Recieved_In_ZipCode, p_Recieved_In_Email_Address,
+
+                p_User_Comments, p_Recieved_By_User_Id, p_Recieved_DateTime,
+                p_Original_File_Name, p_Azure_Block_Blob_Reference,
+                p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
+                p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
+                p_Is_Active
+            );
         }
     }
 }

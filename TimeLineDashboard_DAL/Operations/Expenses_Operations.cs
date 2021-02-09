@@ -221,7 +221,7 @@ namespace TimeLineDashboard.DAL.Operations
             spAzure_Block_Blob_Reference.Value = p_Azure_Block_Blob_Reference;
 
             spIs_Visible_To_Anonymous_Users.Value = p_Is_Visible_To_Anonymous_Users;
-            spIs_Available_For_Download_For_Anonymous_Users.Value = p_Is_Visible_To_Anonymous_Users;
+            spIs_Available_For_Download_For_Anonymous_Users.Value = p_Is_Available_For_Download_For_Anonymous_Users;
             spIs_Visible_To_Followers_Users.Value = p_Is_Visible_To_Followers_Users;
             spIs_Available_For_Download_For_Followers_Users.Value = p_Is_Available_For_Download_For_Followers_Users;
 

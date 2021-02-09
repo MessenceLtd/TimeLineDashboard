@@ -1,72 +1,58 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebformsPOCDemo.Site" %>
 
-<!DOCTYPE html>
+<%@ Register Src="~/wuc_Top_Menu.ascx" TagPrefix="uc1" TagName="wuc_Top_Menu" %>
+<%@ Register Src="~/wuc_Footer.ascx" TagPrefix="uc1" TagName="wuc_Footer" %>
+<%@ Register Src="~/wuc_Breadcrumbs_Navigation.ascx" TagPrefix="uc1" TagName="wuc_Breadcrumbs_Navigation" %>
 
+
+
+<!DOCTYPE html>
 <html>
 <head runat="server">
     <title>Demo Document Manager / Timeline dashboard chaos</title>
-    
+
     <script src="/JS/jquery-3.5.1.min.js"></script>
     <script src="/JS/jquery-ui.js"></script>
     <script src="/JS/datepicker-he.js"></script>
-    <script src="/JS/bootstrap.js"></script>
+    <%--<script src="/JS/bootstrap.js"></script>--%>
+    <script src="/JS/bootstrap.bundle.4.6.min.js"></script>
     <%--<script src="/JS/jquery-ui-timepicker-addon.min.js"></script>--%>
-    
+
     <%--<link href="CSS/jquery-ui.theme.css" rel="stylesheet" />--%>
 
     <link href="/CSS/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="/CSS/bootstrap/bootstrap-grid.css" rel="stylesheet" />
-    <link href="/CSS/bootstrap/bootstrap-utilities.css" rel="stylesheet" />
+
     <link href="/CSS/bootstrap/bootstrap-reboot.css" rel="stylesheet" />
     <link href="/CSS/jquery-ui.css" rel="stylesheet" />
 
     <%--<link href="CSS/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />--%>
-
+    <link href="/CSS/bootstrap/dark-mode.css" rel="stylesheet" />
     <link href="/CSS/Main.css" rel="stylesheet" />
+    <link href="/CSS/bootstrap/bootstrap-utilities.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
+<body class="dark-mode">
 
+    <form id="form1" runat="server" class="d-flex flex-column h-100">
         <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
-        <div class="Pages-Wrapper">
-            <!-- Top Menu  -->
-            DEMO Timeline dashboard for AZURE Integrations
-        <hr />
+        <main class="flex-shrink-0">
+            <uc1:wuc_Top_Menu runat="server" ID="wuc_Top_Menu" />
 
-            <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links">
-                <asp:HyperLink runat="server" ID="hyperlink_MainPage" NavigateUrl="default.aspx">Home link</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Users" NavigateUrl="list_users.aspx">Users</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Clients" NavigateUrl="list_clients.aspx">Clients</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Suppliers" NavigateUrl="list_suppliers.aspx">Suppliers</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Expenses" NavigateUrl="list_expenses.aspx">Expenses</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Invoices" NavigateUrl="list_invoices.aspx">Invoices</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Documents" NavigateUrl="list_documents.aspx">Documents</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_BankAccounts" NavigateUrl="list_bankaccounts.aspx">Bank Accounts</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            <asp:HyperLink runat="server" ID="hyperlink_Reports" NavigateUrl="list_reports.aspx">Reports</asp:HyperLink>
-                &nbsp; &nbsp; &nbsp;
-            
-            <asp:LinkButton runat="server" ID="linkbutton_LogOff" Style="float: right" OnClick="linkbutton_LogOff_Click" Text="Log Off"></asp:LinkButton>
-            </asp:Panel>
-
-            <hr />
-
-            <div>
-                <br />
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
+            <div class="Pages-Wrapper">
+                <!-- Breadcrumbs -->
+                <uc1:wuc_Breadcrumbs_Navigation runat="server" ID="wuc_Breadcrumbs_Navigation" />
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
-        </div>
+        </main>
+
+        <uc1:wuc_Footer runat="server" ID="wuc_Footer" />
     </form>
+
 </body>
 </html>

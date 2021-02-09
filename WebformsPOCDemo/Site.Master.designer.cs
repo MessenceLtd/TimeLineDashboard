@@ -42,103 +42,22 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// panel_HeaderLinks control.
+        /// wuc_Top_Menu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel_HeaderLinks;
+        protected global::WebformsPOCDemo.wuc_Top_Menu wuc_Top_Menu;
 
         /// <summary>
-        /// hyperlink_MainPage control.
+        /// wuc_Breadcrumbs_Navigation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_MainPage;
-
-        /// <summary>
-        /// hyperlink_Users control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Users;
-
-        /// <summary>
-        /// hyperlink_Clients control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Clients;
-
-        /// <summary>
-        /// hyperlink_Suppliers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Suppliers;
-
-        /// <summary>
-        /// hyperlink_Expenses control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Expenses;
-
-        /// <summary>
-        /// hyperlink_Invoices control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Invoices;
-
-        /// <summary>
-        /// hyperlink_Documents control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Documents;
-
-        /// <summary>
-        /// hyperlink_BankAccounts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_BankAccounts;
-
-        /// <summary>
-        /// hyperlink_Reports control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Reports;
-
-        /// <summary>
-        /// linkbutton_LogOff control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbutton_LogOff;
+        protected global::WebformsPOCDemo.wuc_Breadcrumbs_Navigation wuc_Breadcrumbs_Navigation;
 
         /// <summary>
         /// ContentPlaceHolder1 control.
@@ -148,5 +67,14 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+
+        /// <summary>
+        /// wuc_Footer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebformsPOCDemo.wuc_Footer wuc_Footer;
     }
 }

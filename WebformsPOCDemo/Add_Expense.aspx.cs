@@ -23,7 +23,7 @@ namespace WebformsPOCDemo
         private void Bind_Default_View()
         {
             // Bind users combo box if the current authenticated user is employee/administrator.
-            this.dropdown_User_Selection.DataSource = Business_Logic_Layer_Facade.Instance.Users_Get_Administration_List(1);
+            this.dropdown_User_Selection.DataSource = Business_Logic_Layer_Facade.Instance.Users_Get_Administration_List(base.Authenticated_User_ID);
             this.dropdown_User_Selection.DataTextField = "FullName_With_Email";
             this.dropdown_User_Selection.DataValueField = "User_Id";
             this.dropdown_User_Selection.DataBind();
@@ -55,7 +55,7 @@ namespace WebformsPOCDemo
             if (!string.IsNullOrEmpty(this.dropdown_User_Selection.SelectedValue))
             {
                 int p_Selected_User_Id_To_Return_Suppliers = int.Parse(this.dropdown_User_Selection.SelectedValue);
-                var list_Users_Suppliers = Business_Logic_Layer_Facade.Instance.Suppliers_Get_All_By_User_Id(p_Selected_User_Id_To_Return_Suppliers, 1);
+                var list_Users_Suppliers = Business_Logic_Layer_Facade.Instance.Suppliers_Get_All_By_User_Id(p_Selected_User_Id_To_Return_Suppliers, base.Authenticated_User_ID);
 
                 this.dropdown_Supplier.DataSource = list_Users_Suppliers;
                 this.dropdown_Supplier.DataTextField = "Company_Name";
@@ -98,8 +98,8 @@ namespace WebformsPOCDemo
                 byte p_Currency_Id = byte.Parse(this.dropdown_Currency.SelectedValue);
                 decimal p_Total_Amount = decimal.Parse(this.textbox_Total_Amount.Text); 
                 decimal p_Vat_Percentage = decimal.Parse(this.textbox_Vat_Percentage.Text);
-                decimal p_Total_Without_Vat = decimal.Parse(this.textbox_Vat_Percentage.Text);
-                decimal p_Total_Vat = decimal.Parse(this.textbox_Vat_Percentage.Text);
+                decimal p_Total_Without_Vat = decimal.Parse(this.textbox_Total_Without_Vat.Text);
+                decimal p_Total_Vat = decimal.Parse(this.textbox_Total_Vat.Text);
 
                 int? p_Invoiced_Client_On_User_Location_Id = new int?();
 
@@ -161,9 +161,9 @@ namespace WebformsPOCDemo
                 bool p_Is_Visible_To_Followers_Users = this.checkbox_Is_Visible_To_Followers_Users.Checked;
                 bool p_Is_Available_For_Download_For_Followers_Users = this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked;
 
-                int p_Record_Created_By_User_Id = base.Authenticated_User_ID; //TODO !!! Add authenticated user_Id
+                int p_Record_Created_By_User_Id = base.Authenticated_User_ID;
                 DateTime p_Record_Creation_DateTime_UTC = DateTime.UtcNow;
-                int p_Record_Last_Updated_By_User_Id = base.Authenticated_User_ID; //TODO !!! Add authenticated user_Id
+                int p_Record_Last_Updated_By_User_Id = base.Authenticated_User_ID;
                 DateTime p_Record_Last_Updated_DateTime_UTC = DateTime.UtcNow;
                 bool p_Is_Active = this.checkbox_Is_Active.Checked;
 

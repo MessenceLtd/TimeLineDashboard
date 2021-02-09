@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationHelper.cs" />
-    <Compile Include="Models\Documents.cs" />
+    <Compile Include="Models\General_Documents.cs" />
     <Compile Include="Models\Currencies.cs" />
     <Compile Include="Models\Document_Types.cs" />
     <Compile Include="Models\App_Permission_Type.cs" />

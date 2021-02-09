@@ -177,6 +177,32 @@ namespace TimeLineDashboard.DAL.Operations
             return new_Registered_Client_To_Return;
         }
 
+        internal List<Clients> Get_All_By_User_Id(int p_User_Id_To_Return_Clients, int p_Authenticated_User_ID)
+        {
+            List<Clients> clients_To_Return = new List<Clients>();
+
+            SqlParameter spUser_Id_To_Return_Clients = new SqlParameter("@User_Id_To_Return_Clients", SqlDbType.NVarChar, 50);
+            SqlParameter spAuthenticated_User_ID = new SqlParameter("@Authenticated_User_ID", SqlDbType.Int);
+
+            spUser_Id_To_Return_Clients.Value = p_User_Id_To_Return_Clients;
+            spAuthenticated_User_ID.Value = p_Authenticated_User_ID;
+
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Clients_All_By_User_Id",
+                new List<SqlParameter>() { spUser_Id_To_Return_Clients, spAuthenticated_User_ID });
+
+            if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+            {
+                clients_To_Return = new List<Clients>(dataSet.Tables[0].Rows.Count);
+
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    clients_To_Return.Add(Create_Client_Details_From_Data_Row(dataSet.Tables[0].Rows[i]));
+                }
+            }
+
+            return clients_To_Return;
+        }
+
         private Clients Create_Client_Details_From_Data_Row(DataRow dbRowDetailsForUserInitialization)
         {
             Clients client_To_Return = new Clients();

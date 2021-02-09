@@ -15,15 +15,6 @@ namespace WebformsPOCDemo
     {
 
         /// <summary>
-        /// panel_HeaderLinks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel_HeaderLinks;
-
-        /// <summary>
         /// panel_User_Selection control.
         /// </summary>
         /// <remarks>
@@ -51,22 +42,22 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_User_Selection_Required;
 
         /// <summary>
-        /// panel_Document_Type_Selection control.
+        /// panel_General_Document_Type_Selection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel_Document_Type_Selection;
+        protected global::System.Web.UI.WebControls.Panel panel_General_Document_Type_Selection;
 
         /// <summary>
-        /// dropdown_Document_Type control.
+        /// dropdown_General_Document_Type control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdown_Document_Type;
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_General_Document_Type;
 
         /// <summary>
         /// validator_Document_Type_Required control.
@@ -150,22 +141,202 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Sent_By_Entity_Name;
 
         /// <summary>
-        /// textbox_Sent_To_Address control.
+        /// dropdown_Sent_By_Entity_Country control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_To_Address;
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Sent_By_Entity_Country;
 
         /// <summary>
-        /// textbox_Recieved_Document_Date control.
+        /// up_Sent_By_Entity_State control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox_Recieved_Document_Date;
+        protected global::System.Web.UI.UpdatePanel up_Sent_By_Entity_State;
+
+        /// <summary>
+        /// p_Sent_By_Entity_State_Wrapper_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel p_Sent_By_Entity_State_Wrapper_Panel;
+
+        /// <summary>
+        /// dropdown_Sent_By_Entity_State control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Sent_By_Entity_State;
+
+        /// <summary>
+        /// textbox_Sent_By_Entity_City control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_By_Entity_City;
+
+        /// <summary>
+        /// textbox_Sent_By_Entity_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_By_Entity_Address;
+
+        /// <summary>
+        /// textbox_Sent_By_Entity_ZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_By_Entity_ZipCode;
+
+        /// <summary>
+        /// textbox_Sent_By_Entity_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_By_Entity_DateTime;
+
+        /// <summary>
+        /// dropdown_Sent_By_Entity_Time_Hours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Sent_By_Entity_Time_Hours;
+
+        /// <summary>
+        /// dropdown_Sent_By_Entity_Time_Minutes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Sent_By_Entity_Time_Minutes;
+
+        /// <summary>
+        /// dropdown_Sent_By_Entity_Time_Seconds control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Sent_By_Entity_Time_Seconds;
+
+        /// <summary>
+        /// textbox_Sent_By_Entity_Email_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_By_Entity_Email_Address;
+
+        /// <summary>
+        /// textbox_Sent_To_Entity_Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_To_Entity_Name;
+
+        /// <summary>
+        /// dropdown_Sent_To_Entity_Country control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Sent_To_Entity_Country;
+
+        /// <summary>
+        /// up_Sent_To_Entity_State control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_Sent_To_Entity_State;
+
+        /// <summary>
+        /// p_Sent_To_Entity_State_Wrapper_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel p_Sent_To_Entity_State_Wrapper_Panel;
+
+        /// <summary>
+        /// dropdown_Sent_To_Entity_State control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Sent_To_Entity_State;
+
+        /// <summary>
+        /// textbox_Sent_To_Entity_City control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_To_Entity_City;
+
+        /// <summary>
+        /// textbox_Sent_To_Entity_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_To_Entity_Address;
+
+        /// <summary>
+        /// textbox_Sent_To_Entity_ZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_To_Entity_ZipCode;
+
+        /// <summary>
+        /// textbox_Sent_To_Entity_Email_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Sent_To_Entity_Email_Address;
+
+        /// <summary>
+        /// textbox_Recieved_Document_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Recieved_Document_DateTime;
 
         /// <summary>
         /// dropdown_Recieved_Document_Time_Hours control.
@@ -249,6 +420,24 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Recieved_In_Address;
 
         /// <summary>
+        /// textbox_Recieved_In_ZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Recieved_In_ZipCode;
+
+        /// <summary>
+        /// textbox_Recieved_In_Email_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Recieved_In_Email_Address;
+
+        /// <summary>
         /// textbox_User_Comments control.
         /// </summary>
         /// <remarks>
@@ -256,6 +445,51 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textbox_User_Comments;
+
+        /// <summary>
+        /// dropdown_Recieved_By_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Recieved_By_User;
+
+        /// <summary>
+        /// textbox_Recieved_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Recieved_DateTime;
+
+        /// <summary>
+        /// dropdown_Recieved_Time_Hours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Recieved_Time_Hours;
+
+        /// <summary>
+        /// dropdown_Recieved_Time_Minutes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Recieved_Time_Minutes;
+
+        /// <summary>
+        /// dropdown_Recieved_Time_Seconds control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Recieved_Time_Seconds;
 
         /// <summary>
         /// textbox_Original_File_Name control.
