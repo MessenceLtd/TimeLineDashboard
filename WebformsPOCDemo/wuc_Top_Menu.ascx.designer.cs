@@ -42,6 +42,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.HyperLink hyperlink_Users;
 
         /// <summary>
+        /// placeHolder_Users_Links control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolder_Users_Links;
+
+        /// <summary>
         /// hyperlink_Clients control.
         /// </summary>
         /// <remarks>

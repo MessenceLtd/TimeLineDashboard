@@ -99,6 +99,12 @@
     <Content Include="JS\jquery-ui.js" />
     <Content Include="list_Suppliers.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="manage_Client.aspx" />
+    <Content Include="manage_Document.aspx" />
+    <Content Include="manage_Expense.aspx" />
+    <Content Include="manage_Invoice.aspx" />
+    <Content Include="manage_Supplier.aspx" />
+    <Content Include="manage_User.aspx" />
     <Content Include="Reports.aspx" />
     <Content Include="list_Users.aspx" />
     <Content Include="view_Client.aspx" />
@@ -208,6 +214,48 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_Client.aspx.cs">
+      <DependentUpon>manage_Client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_Client.aspx.designer.cs">
+      <DependentUpon>manage_Client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_Document.aspx.cs">
+      <DependentUpon>manage_Document.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_Document.aspx.designer.cs">
+      <DependentUpon>manage_Document.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_Expense.aspx.cs">
+      <DependentUpon>manage_Expense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_Expense.aspx.designer.cs">
+      <DependentUpon>manage_Expense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_Invoice.aspx.cs">
+      <DependentUpon>manage_Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_Invoice.aspx.designer.cs">
+      <DependentUpon>manage_Invoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_Supplier.aspx.cs">
+      <DependentUpon>manage_Supplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_Supplier.aspx.designer.cs">
+      <DependentUpon>manage_Supplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_User.aspx.cs">
+      <DependentUpon>manage_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_User.aspx.designer.cs">
+      <DependentUpon>manage_User.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports.aspx.cs">

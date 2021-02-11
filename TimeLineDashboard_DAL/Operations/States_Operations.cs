@@ -86,7 +86,29 @@ namespace TimeLineDashboard.DAL.Operations
                 list_Countries_States[country_Id].Add(states_To_Save[i]);
             }
         }
+        internal States Get_By_State_Id(short p_State_Id)
+        {
+            States state_To_Return = null;
+            bool state_Details_Found = false;
 
+            foreach (var key in list_Countries_States.Keys)
+            {
+                foreach (States state in list_Countries_States[key])
+                {
+                    if (state.State_Id == p_State_Id)
+                    {
+                        state_To_Return = state;
+                        state_Details_Found = true;
+                        break;
+                    }
+                }
+
+                if (state_Details_Found) 
+                    break;
+            }
+
+            return state_To_Return;
+        }
 
         private States Create_State_Entity_From_DataRow(DataRow db_Row_Details_For_State_Initialization)
         {
@@ -100,6 +122,6 @@ namespace TimeLineDashboard.DAL.Operations
             return stateToReturn;
         }
 
-
+       
     }
 }

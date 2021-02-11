@@ -55,6 +55,26 @@ namespace TimeLineDashboard.DAL.Operations
             return r_List_Currencies;
         }
 
+        internal Currencies Get_By_Id(byte p_Currency_Id)
+        {
+            Currencies currency_To_Return = null;
+
+            if (r_List_Currencies.Count == 0)
+            {
+                this.Get_Currecies();
+            }
+
+            for (int i = 0; i < r_List_Currencies.Count; i++)
+            {
+                if (r_List_Currencies[i].Currency_Id == p_Currency_Id)
+                {
+                    currency_To_Return = r_List_Currencies[i];
+                    break;
+                }
+            }
+
+            return currency_To_Return;
+        }
 
         private Currencies Create_Currency_Details_From_Data_Row(DataRow dataRow)
         {
@@ -72,6 +92,5 @@ namespace TimeLineDashboard.DAL.Operations
 
             return client_Type_To_Return;
         }
-
     }
 }

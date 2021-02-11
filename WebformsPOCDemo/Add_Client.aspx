@@ -143,6 +143,7 @@
             <div class="Form_Control"><asp:CheckBox runat="server" ID="checkbox_Is_Active" Checked="true" ClientIDMode="Static" /></div>
         </div>
 
+
         <hr />
         <div>
             <asp:Button runat="server" ID="button_Create_Client" Text="Create Client" OnClick="button_Create_Client_Click" CssClass="btn btn-primary" /> 
@@ -193,8 +194,6 @@
         });
 
     </script>
-
-
 
 
 </asp:Content>

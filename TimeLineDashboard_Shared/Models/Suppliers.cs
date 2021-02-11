@@ -23,9 +23,16 @@ namespace TimeLineDashboard.Shared.Models
         public string Main_Contact_FullName { get; set; }
         public string Main_Contact_Email_Address { get; set; }
         public string Main_Contact_Phone_Number { get; set; }
+        public DateTime? Supplier_From_Date { get; set; }
+        public DateTime? Supplier_To_Date { get; set; }
+        public DateTime? First_Contract_Date { get; set; }
+        public string First_Contract_Signed_With_Contact_Full_Name { get; set; }
+        public string First_Contract_Signed_In_Location_Description { get; set; }
         public int Record_Created_By_User_Id { get; set; }
+        public Users Record_Created_By_User_Details { get; set; }
         public DateTime Record_Creation_DateTime_UTC { get; set; }
         public int Record_Last_Updated_By_User_Id { get; set; }
+        public Users Record_Last_Updated_By_User_Details { get; set; }
         public DateTime Record_Last_Updated_DateTime_UTC { get; set; }
         public bool Is_Active { get; set; }
         public DateTime Active_Last_Updated_dateTime_UTC { get; set; }

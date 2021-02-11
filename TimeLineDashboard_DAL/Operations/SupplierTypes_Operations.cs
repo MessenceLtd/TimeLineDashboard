@@ -55,6 +55,26 @@ namespace TimeLineDashboard.DAL.Operations
             return r_List_Supplier_Types;
         }
 
+        internal SupplierType Get_By_Id(short p_Supplier_Type_Id)
+        {
+            SupplierType Supplier_Type_To_Return = null;
+
+            if (r_List_Supplier_Types.Count == 0)
+            {
+                this.Get_Supplier_Types();
+            }
+
+            for (int i = 0; i < r_List_Supplier_Types.Count; i++)
+            {
+                if (r_List_Supplier_Types[i].Supplier_Type_Id == p_Supplier_Type_Id)
+                {
+                    Supplier_Type_To_Return = r_List_Supplier_Types[i];
+                    break;
+                }
+            }
+
+            return Supplier_Type_To_Return;
+        }
 
         private SupplierType Create_Supplier_Type_Details_From_Data_Row(DataRow dataRow)
         {
@@ -89,6 +109,5 @@ namespace TimeLineDashboard.DAL.Operations
 
             return Supplier_Type_To_Return;
         }
-
     }
 }

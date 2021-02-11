@@ -55,6 +55,26 @@ namespace TimeLineDashboard.DAL.Operations
             return r_List_Client_Types;
         }
 
+        internal ClientType Get_By_Id(short p_Client_Type_Id)
+        {
+            ClientType client_Type_To_Return = null;
+
+            if (r_List_Client_Types.Count == 0 )
+            {
+                this.Get_Client_Types();
+            }
+
+            for (int i=0;i< r_List_Client_Types.Count;i++)
+            {
+                if (r_List_Client_Types[i].Client_Type_Id == p_Client_Type_Id)
+                { 
+                    client_Type_To_Return = r_List_Client_Types[i];
+                    break;
+                }
+            }
+
+            return client_Type_To_Return;
+        }
 
         private ClientType Create_Client_Type_Details_From_Data_Row(DataRow dataRow)
         {
@@ -89,6 +109,5 @@ namespace TimeLineDashboard.DAL.Operations
 
             return client_Type_To_Return;
         }
-
     }
 }

@@ -12,8 +12,18 @@
                     <li class="nav-item">
                         <asp:HyperLink runat="server" ID="hyperlink_MainPage" CssClass="nav-link" ClientIDMode="Static" NavigateUrl="default.aspx">Home</asp:HyperLink>
                     </li>
-                    <li class="nav-item">
-                        <asp:HyperLink runat="server" ID="hyperlink_Users" CssClass="nav-link" ClientIDMode="Static" NavigateUrl="list_users.aspx">Users</asp:HyperLink>
+                    <li class="nav-item dropdown">
+                        <asp:HyperLink runat="server" ID="hyperlink_Users" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_users">Users</asp:HyperLink>
+                        <asp:PlaceHolder runat="server" ID="placeHolder_Users_Links">
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="list_users.aspx">Users list</a></li>
+                                <li><a class="dropdown-item" href="add_user.aspx">Add new user</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
                         <asp:HyperLink runat="server" ID="hyperlink_Clients" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_clients">Clients</asp:HyperLink>

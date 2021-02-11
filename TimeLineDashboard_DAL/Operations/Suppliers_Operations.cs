@@ -183,6 +183,109 @@ namespace TimeLineDashboard.DAL.Operations
             return new_Registered_Supplier_To_Return;
         }
 
+        internal bool Update_Supplier_Details(
+            int p_Supplier_Id, string p_Company_Name, string p_Website_URL,
+            short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
+            byte? p_Default_Currency_Id, string p_Telephone, string p_Mobile_Phone,
+            short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
+            string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
+            DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
+            string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description,
+            bool p_Is_Active, int p_Updating_User_Id)
+        {
+            bool updated_Successfully = false;
+
+            SqlParameter spSupplier_Id = new SqlParameter("@Supplier_Id", SqlDbType.Int);
+            SqlParameter spCompany_Name = new SqlParameter("@Company_Name", SqlDbType.NVarChar, 150);
+            SqlParameter spWebsite_URL = new SqlParameter("@Website_URL", SqlDbType.NVarChar, 150);
+            SqlParameter spCountry_Id = new SqlParameter("@Country_Id", SqlDbType.SmallInt);
+            SqlParameter spState_Id = new SqlParameter("@State_Id", SqlDbType.SmallInt);
+            SqlParameter spCity = new SqlParameter("@City", SqlDbType.NVarChar, 100);
+            SqlParameter spAddress = new SqlParameter("@Address", SqlDbType.NVarChar, 150);
+            SqlParameter spZipCode = new SqlParameter("@ZipCode", SqlDbType.VarChar, 10);
+            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
+            SqlParameter spTelephone = new SqlParameter("@Telephone", SqlDbType.VarChar, 40);
+            SqlParameter spMobile_Phone = new SqlParameter("@Mobile_Phone", SqlDbType.VarChar, 40);
+            SqlParameter spSupplier_Type_Id = new SqlParameter("@Supplier_Type_Id", SqlDbType.SmallInt);
+            SqlParameter spSupplier_Tax_Reference_Number = new SqlParameter("@Supplier_Tax_Reference_Number", SqlDbType.NVarChar, 50);
+            SqlParameter spMain_Contact_FullName = new SqlParameter("@Main_Contact_FullName", SqlDbType.NVarChar, 100);
+            SqlParameter spMain_Contact_Email_Address = new SqlParameter("@Main_Contact_Email_Address", SqlDbType.NVarChar, 100);
+            SqlParameter spMain_Contact_Phone_Number = new SqlParameter("@Main_Contact_Phone_Number", SqlDbType.NVarChar, 100);
+            SqlParameter spSupplier_From_Date = new SqlParameter("@Supplier_From_Date", SqlDbType.DateTime);
+            SqlParameter spSupplier_To_Date = new SqlParameter("@Supplier_To_Date", SqlDbType.DateTime);
+            SqlParameter spFirst_Contract_Date = new SqlParameter("@First_Contract_Date", SqlDbType.DateTime);
+            SqlParameter spFirst_Contract_Signed_With_Contact_Full_Name = new SqlParameter("@First_Contract_Signed_With_Contact_Full_Name", SqlDbType.NVarChar, 200);
+            SqlParameter spFirst_Contract_Signed_In_Location_Description = new SqlParameter("@First_Contract_Signed_In_Location_Description", SqlDbType.NVarChar, 400);
+            SqlParameter spIs_Active = new SqlParameter("@Is_Active", SqlDbType.Bit);
+            SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
+
+            spSupplier_Id.Value = p_Supplier_Id;
+            spCompany_Name.Value = p_Company_Name;
+            spWebsite_URL.Value = p_Website_URL;
+            spCountry_Id.Value = p_Country_Id;
+
+            if (p_State_Id.HasValue)
+                spState_Id.Value = p_State_Id;
+            else
+                spState_Id.Value = DBNull.Value;
+
+            spCity.Value = p_City;
+            spAddress.Value = p_Address;
+            spZipCode.Value = p_ZipCode;
+
+            if (p_Default_Currency_Id.HasValue)
+                spDefault_Currency_Id.Value = p_Default_Currency_Id.Value;
+            else
+                spDefault_Currency_Id.Value = DBNull.Value;
+
+            spTelephone.Value = p_Telephone;
+            spMobile_Phone.Value = p_Mobile_Phone;
+            spSupplier_Type_Id.Value = p_Supplier_Type_Id;
+            spSupplier_Tax_Reference_Number.Value = p_Supplier_Tax_Reference_Number;
+            spMain_Contact_FullName.Value = p_Main_Contact_FullName;
+            spMain_Contact_Email_Address.Value = p_Main_Contact_Email_Address;
+            spMain_Contact_Phone_Number.Value = p_Main_Contact_Phone_Number;
+
+            if (p_Supplier_From_Date.HasValue)
+                spSupplier_From_Date.Value = p_Supplier_From_Date.Value;
+            else
+                spSupplier_From_Date.Value = DBNull.Value;
+
+            if (p_Supplier_To_Date.HasValue)
+                spSupplier_To_Date.Value = p_Supplier_To_Date.Value;
+            else
+                spSupplier_To_Date.Value = DBNull.Value;
+
+            if (p_First_Contract_Date.HasValue)
+                spFirst_Contract_Date.Value = p_First_Contract_Date.Value;
+            else
+                spFirst_Contract_Date.Value = DBNull.Value;
+
+            spFirst_Contract_Signed_With_Contact_Full_Name.Value = p_First_Contract_Signed_With_Contact_Full_Name;
+            spFirst_Contract_Signed_In_Location_Description.Value = p_First_Contract_Signed_In_Location_Description;
+            spIs_Active.Value = p_Is_Active;
+            spUpdating_User_Id.Value = p_Updating_User_Id;
+
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Update_Supplier_Details",
+                new List<SqlParameter>() {
+                    spSupplier_Id , spCompany_Name, spWebsite_URL ,
+                    spCountry_Id , spState_Id , spCity , spAddress , spZipCode ,
+                    spDefault_Currency_Id, spTelephone , spMobile_Phone , spSupplier_Type_Id ,
+                    spSupplier_Tax_Reference_Number , spMain_Contact_FullName ,
+                    spMain_Contact_Email_Address , spMain_Contact_Phone_Number ,
+                    spSupplier_From_Date , spSupplier_To_Date , spFirst_Contract_Date ,
+                    spFirst_Contract_Signed_With_Contact_Full_Name , spFirst_Contract_Signed_In_Location_Description ,
+                    spIs_Active , spUpdating_User_Id
+                });
+
+            if (affected_Rows > 0)
+            {
+                updated_Successfully = true;
+            }
+
+            return updated_Successfully;
+        }
+
         internal List<Suppliers> Get_All_By_User_Id(int p_User_Id, int p_Searching_User_Id)
         {
             List<Suppliers> Suppliers_To_Return = new List<Suppliers>();
@@ -261,11 +364,47 @@ namespace TimeLineDashboard.DAL.Operations
                 Supplier_To_Return.Main_Contact_Phone_Number = dbRowDetailsForUserInitialization["Main_Contact_Phone_Number"].ToString();
             }
 
+            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Supplier_From_Date") > -1)
+            {
+                if (dbRowDetailsForUserInitialization["Supplier_From_Date"] != DBNull.Value)
+                {
+                    Supplier_To_Return.Supplier_From_Date = (DateTime)dbRowDetailsForUserInitialization["Supplier_From_Date"];
+                }
+
+                if (dbRowDetailsForUserInitialization["Supplier_To_Date"] != DBNull.Value)
+                {
+                    Supplier_To_Return.Supplier_To_Date = (DateTime)dbRowDetailsForUserInitialization["Supplier_To_Date"];
+                }
+
+                if (dbRowDetailsForUserInitialization["First_Contract_Date"] != DBNull.Value)
+                {
+                    Supplier_To_Return.First_Contract_Date = (DateTime)dbRowDetailsForUserInitialization["First_Contract_Date"];
+                }
+
+                Supplier_To_Return.First_Contract_Signed_With_Contact_Full_Name = dbRowDetailsForUserInitialization["First_Contract_Signed_With_Contact_Full_Name"].ToString();
+                Supplier_To_Return.First_Contract_Signed_In_Location_Description = dbRowDetailsForUserInitialization["First_Contract_Signed_In_Location_Description"].ToString();
+            }
+
             if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Record_Creation_DateTime_UTC") >-1)
-            { 
+            {
                 Supplier_To_Return.Record_Created_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Created_By_User_Id"]);
+                Supplier_To_Return.Record_Created_By_User_Details = new Users();
+                Supplier_To_Return.Record_Created_By_User_Details.User_Id = Supplier_To_Return.Record_Created_By_User_Id;
+                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Created_By_First_Name") > -1)
+                {
+                    Supplier_To_Return.Record_Created_By_User_Details.First_Name = dbRowDetailsForUserInitialization["Created_By_First_Name"].ToString();
+                    Supplier_To_Return.Record_Created_By_User_Details.Last_Name = dbRowDetailsForUserInitialization["Created_By_Last_Name"].ToString();
+                }
                 Supplier_To_Return.Record_Creation_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Creation_DateTime_UTC"];
+
                 Supplier_To_Return.Record_Last_Updated_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Last_Updated_By_User_Id"]);
+                Supplier_To_Return.Record_Last_Updated_By_User_Details = new Users();
+                Supplier_To_Return.Record_Last_Updated_By_User_Details.User_Id = Supplier_To_Return.Record_Last_Updated_By_User_Id;
+                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Last_Updated_By_First_Name") > -1)
+                {
+                    Supplier_To_Return.Record_Last_Updated_By_User_Details.First_Name = dbRowDetailsForUserInitialization["Last_Updated_By_First_Name"].ToString();
+                    Supplier_To_Return.Record_Last_Updated_By_User_Details.Last_Name = dbRowDetailsForUserInitialization["Last_Updated_By_Last_Name"].ToString();
+                }
                 Supplier_To_Return.Record_Last_Updated_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Last_Updated_DateTime_UTC"];
             }
 

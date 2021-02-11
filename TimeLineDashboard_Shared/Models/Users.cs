@@ -19,7 +19,10 @@ namespace TimeLineDashboard.Shared.Models
         { 
             get
             {
-                return string.Concat(First_Name, " ", Last_Name, " (", Email, ")");
+                if (!string.IsNullOrEmpty(this.Email))
+                    return string.Concat(this.First_Name, " ", this.Last_Name, " (", this.Email, ")");
+                else
+                    return string.Concat(this.First_Name, " ", this.Last_Name);
             } 
         }
         public short Country_Id { get; set; }

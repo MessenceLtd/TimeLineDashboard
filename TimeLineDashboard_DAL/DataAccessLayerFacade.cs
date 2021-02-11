@@ -144,6 +144,26 @@ namespace TimeLineDashboard.DAL
                 );
         }
 
+        public Currencies Currencies_Get_By_Id(byte p_Currency_Id)
+        {
+            return Currencies_Operations.Instance.Get_By_Id(p_Currency_Id);
+        }
+
+        public SupplierType SupplierTypes_Get_By_Id(short p_Supplier_Type_Id)
+        {
+            return SupplierTypes_Operations.Instance.Get_By_Id(p_Supplier_Type_Id);
+        }
+
+        public ClientType ClientTypes_Get_By_Id(short p_Client_Type_Id)
+        {
+            return ClientTypes_Operations.Instance.Get_By_Id(p_Client_Type_Id);
+        }
+
+        public States States_Get_By_State_Id(short p_State_Id)
+        {
+            return States_Operations.Instance.Get_By_State_Id(p_State_Id);
+        }
+
         public Users Users_Get_User_Details_By_Username_For_Authentication(string p_Username_For_Authentication)
         {
             return Users_Operations.Instance.Get_User_Details_By_Username_For_Authentication(p_Username_For_Authentication);
@@ -180,6 +200,31 @@ namespace TimeLineDashboard.DAL
                 );
         }
 
+        public bool Clients_Update_Client_Details(
+            int p_Client_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
+            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, string p_Telephone, string p_Mobile_Phone,
+            short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName,
+            string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
+            DateTime? p_Client_From_Date, DateTime? p_Client_To_Date, DateTime? p_First_Contract_Date,
+            string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description,
+            bool p_Is_Active, int p_Authenticated_User_ID )
+        {
+            bool updated_Successfully = false;
+
+            updated_Successfully = Clients_Operations.Instance.Update_Client_Details(
+                p_Client_Id, p_Company_Name, p_Website_URL, p_Country_Id,
+                p_State_Id, p_City, p_Address, p_ZipCode,
+                p_Telephone, p_Mobile_Phone, p_Client_Type_Id,
+                p_Client_Tax_Reference_Number, p_Main_Contact_FullName,
+                p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
+                p_Client_From_Date, p_Client_To_Date, p_First_Contract_Date,
+                p_First_Contract_Signed_With_Contact_Full_Name, p_First_Contract_Signed_In_Location_Description,
+                p_Is_Active, p_Authenticated_User_ID
+            );
+
+            return updated_Successfully;
+        }
+
         public App_Permission_Type App_Permission_Types_Get_By_Permission_Type_Code(string p_Permission_Type_Code)
         {
             return App_Permission_Type_Operations.Instance.Get_App_Permission_Type_By_Permission_Type_Code(p_Permission_Type_Code);
@@ -203,6 +248,11 @@ namespace TimeLineDashboard.DAL
         public List<InvoiceType> InvoiceTypes_Get_All()
         {
             return InvoiceTypes_Operations.Instance.Get_Invoice_Types();
+        }
+
+        public Clients Clients_Get_By_Id(int p_Client_Id, int p_User_Id_Client_Owner)
+        {
+            return Clients_Operations.Instance.Get_Client_Details_By_Client_Id(p_Client_Id, p_User_Id_Client_Owner);
         }
 
         public List<Suppliers> Suppliers_Get_Search(string p_Search_Criteria, int p_User_Id)
@@ -279,6 +329,27 @@ namespace TimeLineDashboard.DAL
                 p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
                 p_Is_Active
                 );
+        }
+
+        public bool Suppliers_Update_Supplier_Details(
+            int p_Supplier_Id, string p_Company_Name, string p_Website_URL,
+            short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
+            byte? p_Default_Currency_Id, string p_Telephone, string p_Mobile_Phone,
+            short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
+            string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
+            DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
+            string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description,
+            bool p_Is_Active, int p_Updating_User_Id )
+        {
+            return Suppliers_Operations.Instance.Update_Supplier_Details(
+                p_Supplier_Id, p_Company_Name, p_Website_URL, p_Country_Id,
+                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id,
+                p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
+                p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
+                p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
+                p_Supplier_From_Date, p_Supplier_To_Date, p_First_Contract_Date,
+                p_First_Contract_Signed_With_Contact_Full_Name, p_First_Contract_Signed_In_Location_Description,
+                p_Is_Active, p_Updating_User_Id);
         }
 
         public Suppliers Suppliers_Get_By_Supplier_Id(int p_Supplier_Id, int p_User_Id_Searching_For_Supplier_Details)

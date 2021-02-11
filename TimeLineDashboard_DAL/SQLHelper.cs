@@ -102,7 +102,8 @@ namespace TimeLineDashboard.DAL
 
             using (SqlConnection scConnection = new SqlConnection(ConnectionString))
             {
-                //SqlConnection scConnection = new SqlConnection(ConnectionString);
+                scConnection.Open();
+
                 using (SqlCommand scCommand = new SqlCommand(sbSql_Select.ToString(), scConnection))
                 {
                     // set the parameters

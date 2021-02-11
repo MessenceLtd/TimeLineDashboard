@@ -94,6 +94,58 @@ namespace WebformsPOCDemo.AppShared
             }
         }
 
+        protected void Change_View_Mode_FormControls_Wrappers(bool is_View_ReadOnly)
+        {
+            // Search the current page for the controls that starts with : formControl_Wrapper_Edit  or formControl_Wrapper_ReadOnly
+            // And change thier visiblity based on the current selected view mode parameter.
+            for (int i=0; i< this.Controls.Count;i++)
+            {
+                if (!string.IsNullOrEmpty(this.Controls[i].ID))
+                {
+                    if (this.Controls[i].ID.StartsWith("formControl_Wrapper_Edit"))
+                    {
+                        this.Controls[i].Visible = !is_View_ReadOnly;
+                    }
+
+                    if (this.Controls[i].ID.StartsWith("formControl_Wrapper_ReadOnly"))
+                    {
+                        this.Controls[i].Visible = is_View_ReadOnly;
+                    }
+                }
+
+                if (this.Controls[i].Controls.Count > 0)
+                {
+                    Change_View_Mode_FormControls_Wrappers(this.Controls[i], is_View_ReadOnly);
+                }
+            }
+        }
+
+        protected void Change_View_Mode_FormControls_Wrappers(Control control, bool is_View_ReadOnly)
+        {
+            // Search the current page for the controls that starts with : formControl_Wrapper_Edit  or formControl_Wrapper_ReadOnly
+            // And change thier visiblity based on the current selected view mode parameter.
+            for (int i = 0; i < control.Controls.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(control.Controls[i].ID))
+                {
+                    if (control.Controls[i].ID.StartsWith("formControl_Wrapper_Edit"))
+                    {
+                        control.Controls[i].Visible = !is_View_ReadOnly;
+                    }
+
+                    if (control.Controls[i].ID.StartsWith("formControl_Wrapper_ReadOnly"))
+                    {
+                        control.Controls[i].Visible = is_View_ReadOnly;
+                    }
+                }
+
+                if (control.Controls.Count > 0)
+                {
+                    Change_View_Mode_FormControls_Wrappers(control.Controls[i], is_View_ReadOnly);
+                }
+            }
+        }
+
     }
 
     

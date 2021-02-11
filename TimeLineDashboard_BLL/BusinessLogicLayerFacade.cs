@@ -106,6 +106,26 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return new_Registered_User_To_Return;
         }
 
+        public Currencies Currencies_Get_By_Id(byte p_Currency_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.Currencies_Get_By_Id(p_Currency_Id);
+        }
+
+        public ClientType ClientTypes_Get_By_Id(short p_Client_Type_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.ClientTypes_Get_By_Id(p_Client_Type_Id);
+        }
+
+        public States States_Get_By_State_Id(short p_State_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.States_Get_By_State_Id(p_State_Id);
+        }
+
+        public SupplierType SupplierTypes_Get_By_Id(short p_Supplier_Type_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.SupplierTypes_Get_By_Id(p_Supplier_Type_Id);
+        }
+
         public List<Currencies> Currencies_Get_List()
         {
             return Data_Access_Layer_Facade.Instance.Currencies_Get_All();
@@ -164,6 +184,31 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.App_Permission_Types_Get_By_Permission_Type_Code(p_Permission_Type_Code);
         }
 
+        public bool Clients_Update_Client_Details(
+            int p_Client_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id, 
+            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, string p_Telephone, string p_Mobile_Phone, 
+            short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName, 
+            string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number, 
+            DateTime? p_Client_From_Date, DateTime? p_Client_To_Date, DateTime? p_First_Contract_Date, 
+            string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description, 
+            bool p_Is_Active, int p_Authenticated_User_ID)
+        {
+            bool updated_Successfully = false;
+
+            updated_Successfully =  Data_Access_Layer_Facade.Instance.Clients_Update_Client_Details(
+                p_Client_Id, p_Company_Name, p_Website_URL, p_Country_Id,
+                p_State_Id, p_City, p_Address, p_ZipCode,
+                p_Telephone, p_Mobile_Phone, p_Client_Type_Id,
+                p_Client_Tax_Reference_Number, p_Main_Contact_FullName,
+                p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
+                p_Client_From_Date, p_Client_To_Date, p_First_Contract_Date,
+                p_First_Contract_Signed_With_Contact_Full_Name, p_First_Contract_Signed_In_Location_Description,
+                p_Is_Active, p_Authenticated_User_ID
+            );
+
+            return updated_Successfully;
+        }
+
         public bool Users_Delete_By_User_Id(int User_Id)
         {
             throw new NotImplementedException();
@@ -183,6 +228,11 @@ namespace TimeLineDashboard.BusinessLogicLayer
         public List<Clients> Clients_Get_Search(string p_Search_Criteria, int p_User_Id)
         {
             return Data_Access_Layer_Facade.Instance.Clients_Get_Search(p_Search_Criteria, p_User_Id);
+        }
+
+        public Clients Clients_Get_By_Id(int p_Client_Id, int p_User_Id_Client_Owner)
+        {
+            return Data_Access_Layer_Facade.Instance.Clients_Get_By_Id(p_Client_Id, p_User_Id_Client_Owner);
         }
 
         public Clients Clients_Insert_New_Client_Administrative_Registration_Process(
@@ -261,6 +311,27 @@ namespace TimeLineDashboard.BusinessLogicLayer
             int p_Client_Id, DateTime p_Invoice_Invoice_DateTime, int p_Authenticated_User_Id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool Suppliers_Update_Supplier_Details(
+            int p_Supplier_Id, string p_Company_Name, string p_Website_URL,
+            short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
+            byte? p_Default_Currency_Id, string p_Telephone, string p_Mobile_Phone,
+            short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
+            string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
+            DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
+            string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description,
+            bool p_Is_Active, int p_Updating_User_Id )
+        {
+            return Data_Access_Layer_Facade.Instance.Suppliers_Update_Supplier_Details(
+                p_Supplier_Id, p_Company_Name, p_Website_URL, p_Country_Id,
+                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id,
+                p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
+                p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
+                p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
+                p_Supplier_From_Date, p_Supplier_To_Date, p_First_Contract_Date,
+                p_First_Contract_Signed_With_Contact_Full_Name, p_First_Contract_Signed_In_Location_Description,
+                p_Is_Active, p_Updating_User_Id );
         }
 
         public List<Expenses> Expenses_Get_Search(string text)
