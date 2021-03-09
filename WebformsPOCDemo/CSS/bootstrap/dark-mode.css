@@ -636,7 +636,21 @@
   color: #777;
 }
 
-
 .dark-mode footer {
     background-color: #282828 !important;
 }
+
+.dark-mode form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #bebebe;
+    background-color: #171717;
+    border: solid 1px #404040;
+}
+
+
+
+
+
+

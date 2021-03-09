@@ -33,6 +33,14 @@
         </div>
 
         <div class="Form_Group">
+            <div class="Form_Label_Wrapper"><label for="<%= dropdown_Currency.ClientID %>">Default Currency:</label></div>
+            <asp:Panel ID="formControl_Wrapper_Edit_Currency" runat="server" Visible="true" CssClass="Form_Control"><asp:DropDownList 
+                runat="server" ID="dropdown_Currency" ClientIDMode="Static" CssClass="Regular_ComboBox form-control"></asp:DropDownList></asp:Panel>
+            <asp:Panel ID="formControl_Wrapper_ReadOnly_Currency" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel"><asp:Label 
+                runat="server" ID="label_Currency"></asp:Label></asp:Panel>
+        </div>
+
+        <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= dropdown_Country.ClientID %>">Country:</label></div>
             <asp:Panel ID="formControl_Wrapper_Edit_Country" runat="server" Visible="true" CssClass="Form_Control"><asp:DropDownList 
                 runat="server" ID="dropdown_Country" ClientIDMode="Static" AutoPostBack="True" OnSelectedIndexChanged="dropdown_Country_SelectedIndexChanged" 
@@ -156,7 +164,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Client_From_Date.ClientID %>">Client From Date:</label></div>
             <asp:Panel ID="formControl_Wrapper_Edit_Client_From_Date" runat="server" Visible="true" CssClass="Form_Control"><asp:TextBox 
-                runat="server" ID="textbox_Client_From_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></asp:Panel>
+                runat="server" ID="textbox_Client_From_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></asp:Panel>
             <asp:Panel ID="formControl_Wrapper_ReadOnly_Client_From_Date" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel"><asp:Label 
                 runat="server" ID="label_Client_From_Date"></asp:Label></asp:Panel>
         </div>
@@ -164,7 +172,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Client_To_Date.ClientID %>">Client To Date:</label></div>
             <asp:Panel ID="formControl_Wrapper_Edit_Client_To_Date" runat="server" Visible="true" CssClass="Form_Control"><asp:TextBox runat="server" 
-                ID="textbox_Client_To_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></asp:Panel>
+                ID="textbox_Client_To_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></asp:Panel>
             <asp:Panel ID="formControl_Wrapper_ReadOnly_Client_To_Date" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel"><asp:Label 
                 runat="server" ID="label_Client_To_Date"></asp:Label></asp:Panel>
         </div>
@@ -172,7 +180,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_First_Contract_Date.ClientID %>">First Contract Date:</label></div>
             <asp:Panel ID="formControl_Wrapper_Edit_First_Contract_Date" runat="server" Visible="true" CssClass="Form_Control"><asp:TextBox runat="server" ID="textbox_First_Contract_Date" 
-                ClientIDMode="Static" CssClass="form-control"></asp:TextBox></asp:Panel>
+                ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></asp:Panel>
             <asp:Panel ID="formControl_Wrapper_ReadOnly_First_Contract_Date" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel"><asp:Label 
                 runat="server" ID="label_First_Contract_Date"></asp:Label></asp:Panel>
         </div>
@@ -244,42 +252,6 @@
         <br /><br /><br /><br />
 
     </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-            $("#<%= textbox_Client_From_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_Client_To_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_First_Contract_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-        });
-
-    </script>
 
 
 </asp:Content>

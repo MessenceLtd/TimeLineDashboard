@@ -17,19 +17,18 @@
     &nbsp;&nbsp;
     <asp:Button runat="server" ID="button_Search_Users" OnClick="button_Search_Users_Click" Text="Search" CssClass="btn btn-primary" />
 
-    <asp:UpdatePanel runat="server" ID="updatePanel_Users_List">
+    <asp:UpdatePanel runat="server" ID="updatePanel_Search_Result">
 
         <ContentTemplate>
 
             <asp:DataGrid runat="server" ID="dataGrid_Users_List" AutoGenerateColumns="false" CssClass="table table-striped table-hover" Visible="false">
-        
                 <Columns>
                     <asp:BoundColumn DataField="User_Id" HeaderText="ID"></asp:BoundColumn>
                     <asp:BoundColumn DataField="Email" HeaderText="Email"></asp:BoundColumn>
                     <asp:BoundColumn DataField="Username" HeaderText="Username"></asp:BoundColumn>
                 </Columns>
-
             </asp:DataGrid>
+
             <hr />
             <asp:Panel runat="server" ID="panel_Please_Search" class="alert alert-primary">
                 <label for="<%=textbox_Search_Criteria.ClientID %>">Please use the search criteria to search for users.</label>

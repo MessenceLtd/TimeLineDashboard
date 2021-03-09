@@ -23,8 +23,8 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper">
                 <label style="font-weight: bold" for="<%= textbox_Invoice_DateTime.ClientID %>">Invoice Date:</label></div>
-            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Invoice_DateTime" ClientIDMode="Static" 
-                CssClass="form-control" OnTextChanged="textbox_Invoice_DateTime_TextChanged"></asp:TextBox></div>
+            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Invoice_DateTime" autocomplete="off" ClientIDMode="Static" 
+                CssClass="form-control InitializeDatePicker" AutoPostBack="true" OnTextChanged="textbox_Invoice_DateTime_TextChanged"></asp:TextBox></div>
             <asp:RequiredFieldValidator runat="server" ID="validator_Invoice_DateTime_Required" ErrorMessage="Please enter an invoice date" Display="Dynamic" ControlToValidate="textbox_Invoice_DateTime" CssClass="text-danger"></asp:RequiredFieldValidator>
         </div>
 
@@ -109,8 +109,8 @@
                 <div class="Form_Group">
                     <div class="Form_Label_Wrapper">
                         <label style="font-weight: bold" for="<%= textbox_Creation_DateTime.ClientID %>">Creation Date:</label></div>
-                    <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Creation_DateTime" ClientIDMode="Static" 
-                        CssClass="form-control"></asp:TextBox></div>
+                    <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Creation_DateTime" ClientIDMode="Static" autocomplete="off"
+                        CssClass="form-control InitializeDatePicker"></asp:TextBox></div>
                 </div>
 
                 <div class="Form_Group">
@@ -322,35 +322,5 @@
         <br />
 
     </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-
-            $("#<%= textbox_Invoice_DateTime.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_Creation_DateTime.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            
-
-        });
-
-    </script>
 
 </asp:Content>

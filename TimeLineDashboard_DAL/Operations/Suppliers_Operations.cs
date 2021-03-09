@@ -28,18 +28,50 @@ namespace TimeLineDashboard.DAL.Operations
         }
         #endregion
 
-        internal List<Suppliers> Get_Search( string p_Search_Criteria , int p_User_Id )
+        internal List<Suppliers> Get_Search(
+            int p_User_Id,
+            short? p_Filter_By_Type,
+            short? p_Filter_By_Country,
+            short? p_Filter_By_State,
+            string p_Filter_By_City_Or_Address_Or_ZipCode,
+            string p_Filter_By_CompanyName_Or_Person_Fullname)
         {
             List<Suppliers> Suppliers_To_Return = new List<Suppliers>();
 
-            SqlParameter spSearch_Criteria = new SqlParameter("@Search_Criteria", SqlDbType.NVarChar, 50);
-            SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int );
+            SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int);
+            SqlParameter spFilter_By_Type = new SqlParameter("@Filter_By_Type", SqlDbType.SmallInt);
+            SqlParameter spFilter_By_Country = new SqlParameter("@Filter_By_Country", SqlDbType.SmallInt);
+            SqlParameter spFilter_By_State = new SqlParameter("@Filter_By_State", SqlDbType.SmallInt);
+            SqlParameter spFilter_By_City_Or_Address_Or_ZipCode = new SqlParameter("@Filter_By_City_Or_Address_Or_ZipCode", SqlDbType.NVarChar, 50);
+            SqlParameter spFilter_By_CompanyName_Or_Person_Fullname = new SqlParameter("@Filter_By_CompanyName_Or_Person_Fullname", SqlDbType.NVarChar, 50);
 
-            spSearch_Criteria.Value = p_Search_Criteria;
             spUser_Id.Value = p_User_Id;
+            if (p_Filter_By_Type.HasValue)
+                spFilter_By_Type.Value = p_Filter_By_Type.Value;
+            else
+                spFilter_By_Type.Value = DBNull.Value;
+
+            if (p_Filter_By_Country.HasValue)
+                spFilter_By_Country.Value = p_Filter_By_Country.Value;
+            else
+                spFilter_By_Country.Value = DBNull.Value;
+
+            if (p_Filter_By_State.HasValue)
+                spFilter_By_State.Value = p_Filter_By_State.Value;
+            else
+                spFilter_By_State.Value = DBNull.Value;
+
+            spFilter_By_City_Or_Address_Or_ZipCode.Value = p_Filter_By_City_Or_Address_Or_ZipCode;
+            spFilter_By_CompanyName_Or_Person_Fullname.Value = p_Filter_By_CompanyName_Or_Person_Fullname;
 
             var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Suppliers_Search", 
-                new List<SqlParameter>() { spSearch_Criteria , spUser_Id });
+                new List<SqlParameter>() { 
+                    spUser_Id,
+                    spFilter_By_Type,
+                    spFilter_By_Country,
+                    spFilter_By_State,
+                    spFilter_By_City_Or_Address_Or_ZipCode,
+                    spFilter_By_CompanyName_Or_Person_Fullname });
 
             if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
             {
@@ -312,122 +344,127 @@ namespace TimeLineDashboard.DAL.Operations
             return Suppliers_To_Return;
         }
 
-        private Suppliers Create_Supplier_Details_From_Data_Row(DataRow dbRowDetailsForUserInitialization)
+        private Suppliers Create_Supplier_Details_From_Data_Row(DataRow dbRow)
         {
             Suppliers Supplier_To_Return = new Suppliers();
 
-            Supplier_To_Return.Supplier_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Supplier_Id"]);
-            Supplier_To_Return.User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["User_Id"]);
-            Supplier_To_Return.Company_Name = dbRowDetailsForUserInitialization["Company_Name"].ToString();
-            Supplier_To_Return.Website_URL = dbRowDetailsForUserInitialization["Website_URL"].ToString();
-            Supplier_To_Return.Country_Id = (short)dbRowDetailsForUserInitialization["Country_Id"];
+            Supplier_To_Return.Supplier_Id = Convert.ToInt32(dbRow["Supplier_Id"]);
+            Supplier_To_Return.User_Id = Convert.ToInt32(dbRow["User_Id"]);
+            Supplier_To_Return.Company_Name = dbRow["Company_Name"].ToString();
+            Supplier_To_Return.Website_URL = dbRow["Website_URL"].ToString();
+            Supplier_To_Return.Country_Id = (short)dbRow["Country_Id"];
 
-            if (dbRowDetailsForUserInitialization["State_Id"] != DBNull.Value)
+            if (dbRow.Table.Columns.IndexOf("Country_Name") > -1)
             {
-                Supplier_To_Return.State_Id = (short)dbRowDetailsForUserInitialization["State_Id"];
+                Supplier_To_Return.Country_Name = dbRow["Country_Name"].ToString();
             }
 
-            Supplier_To_Return.City = dbRowDetailsForUserInitialization["City"].ToString();
-            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Address") > -1)
+            if (dbRow["State_Id"] != DBNull.Value)
             {
-                Supplier_To_Return.Address = dbRowDetailsForUserInitialization["Address"].ToString();
-                Supplier_To_Return.ZipCode = dbRowDetailsForUserInitialization["ZipCode"].ToString();
+                Supplier_To_Return.State_Id = (short)dbRow["State_Id"];
             }
 
-            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Default_Currency_Id") > -1 
-                && dbRowDetailsForUserInitialization["Default_Currency_Id"] != DBNull.Value)
+            Supplier_To_Return.City = dbRow["City"].ToString();
+            if (dbRow.Table.Columns.IndexOf("Address") > -1)
             {
-                Supplier_To_Return.Default_Currency_Id = (byte)dbRowDetailsForUserInitialization["Default_Currency_Id"];
+                Supplier_To_Return.Address = dbRow["Address"].ToString();
+                Supplier_To_Return.ZipCode = dbRow["ZipCode"].ToString();
             }
 
-            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Telephone") > -1) 
+            if (dbRow.Table.Columns.IndexOf("Default_Currency_Id") > -1 
+                && dbRow["Default_Currency_Id"] != DBNull.Value)
+            {
+                Supplier_To_Return.Default_Currency_Id = (byte)dbRow["Default_Currency_Id"];
+            }
+
+            if (dbRow.Table.Columns.IndexOf("Telephone") > -1) 
             { 
-                Supplier_To_Return.Telephone = dbRowDetailsForUserInitialization["Telephone"].ToString();
+                Supplier_To_Return.Telephone = dbRow["Telephone"].ToString();
             }
 
-            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Mobile_Phone") > -1)
+            if (dbRow.Table.Columns.IndexOf("Mobile_Phone") > -1)
             {
-                Supplier_To_Return.Mobile_Phone = dbRowDetailsForUserInitialization["Mobile_Phone"].ToString();
+                Supplier_To_Return.Mobile_Phone = dbRow["Mobile_Phone"].ToString();
             }
  
-            Supplier_To_Return.Supplier_Type_Id = (short)dbRowDetailsForUserInitialization["Supplier_Type_Id"];
+            Supplier_To_Return.Supplier_Type_Id = (short)dbRow["Supplier_Type_Id"];
 
-            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Supplier_Tax_Reference_Number") > -1)
+            if (dbRow.Table.Columns.IndexOf("Supplier_Tax_Reference_Number") > -1)
             { 
-                Supplier_To_Return.Supplier_Tax_Reference_Number = dbRowDetailsForUserInitialization["Supplier_Tax_Reference_Number"].ToString();
+                Supplier_To_Return.Supplier_Tax_Reference_Number = dbRow["Supplier_Tax_Reference_Number"].ToString();
             }
 
-            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Main_Contact_FullName") > -1 )
+            if (dbRow.Table.Columns.IndexOf("Main_Contact_FullName") > -1 )
             { 
-                Supplier_To_Return.Main_Contact_FullName = dbRowDetailsForUserInitialization["Main_Contact_FullName"].ToString();
-                Supplier_To_Return.Main_Contact_Email_Address = dbRowDetailsForUserInitialization["Main_Contact_Email_Address"].ToString();
-                Supplier_To_Return.Main_Contact_Phone_Number = dbRowDetailsForUserInitialization["Main_Contact_Phone_Number"].ToString();
+                Supplier_To_Return.Main_Contact_FullName = dbRow["Main_Contact_FullName"].ToString();
+                Supplier_To_Return.Main_Contact_Email_Address = dbRow["Main_Contact_Email_Address"].ToString();
+                Supplier_To_Return.Main_Contact_Phone_Number = dbRow["Main_Contact_Phone_Number"].ToString();
             }
 
-            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Supplier_From_Date") > -1)
+            if (dbRow.Table.Columns.IndexOf("Supplier_From_Date") > -1)
             {
-                if (dbRowDetailsForUserInitialization["Supplier_From_Date"] != DBNull.Value)
+                if (dbRow["Supplier_From_Date"] != DBNull.Value)
                 {
-                    Supplier_To_Return.Supplier_From_Date = (DateTime)dbRowDetailsForUserInitialization["Supplier_From_Date"];
+                    Supplier_To_Return.Supplier_From_Date = (DateTime)dbRow["Supplier_From_Date"];
                 }
 
-                if (dbRowDetailsForUserInitialization["Supplier_To_Date"] != DBNull.Value)
+                if (dbRow["Supplier_To_Date"] != DBNull.Value)
                 {
-                    Supplier_To_Return.Supplier_To_Date = (DateTime)dbRowDetailsForUserInitialization["Supplier_To_Date"];
+                    Supplier_To_Return.Supplier_To_Date = (DateTime)dbRow["Supplier_To_Date"];
                 }
 
-                if (dbRowDetailsForUserInitialization["First_Contract_Date"] != DBNull.Value)
+                if (dbRow["First_Contract_Date"] != DBNull.Value)
                 {
-                    Supplier_To_Return.First_Contract_Date = (DateTime)dbRowDetailsForUserInitialization["First_Contract_Date"];
+                    Supplier_To_Return.First_Contract_Date = (DateTime)dbRow["First_Contract_Date"];
                 }
 
-                Supplier_To_Return.First_Contract_Signed_With_Contact_Full_Name = dbRowDetailsForUserInitialization["First_Contract_Signed_With_Contact_Full_Name"].ToString();
-                Supplier_To_Return.First_Contract_Signed_In_Location_Description = dbRowDetailsForUserInitialization["First_Contract_Signed_In_Location_Description"].ToString();
+                Supplier_To_Return.First_Contract_Signed_With_Contact_Full_Name = dbRow["First_Contract_Signed_With_Contact_Full_Name"].ToString();
+                Supplier_To_Return.First_Contract_Signed_In_Location_Description = dbRow["First_Contract_Signed_In_Location_Description"].ToString();
             }
 
-            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Record_Creation_DateTime_UTC") >-1)
+            if (dbRow.Table.Columns.IndexOf("Record_Creation_DateTime_UTC") >-1)
             {
-                Supplier_To_Return.Record_Created_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Created_By_User_Id"]);
+                Supplier_To_Return.Record_Created_By_User_Id = Convert.ToInt32(dbRow["Record_Created_By_User_Id"]);
                 Supplier_To_Return.Record_Created_By_User_Details = new Users();
                 Supplier_To_Return.Record_Created_By_User_Details.User_Id = Supplier_To_Return.Record_Created_By_User_Id;
-                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Created_By_First_Name") > -1)
+                if (dbRow.Table.Columns.IndexOf("Created_By_First_Name") > -1)
                 {
-                    Supplier_To_Return.Record_Created_By_User_Details.First_Name = dbRowDetailsForUserInitialization["Created_By_First_Name"].ToString();
-                    Supplier_To_Return.Record_Created_By_User_Details.Last_Name = dbRowDetailsForUserInitialization["Created_By_Last_Name"].ToString();
+                    Supplier_To_Return.Record_Created_By_User_Details.First_Name = dbRow["Created_By_First_Name"].ToString();
+                    Supplier_To_Return.Record_Created_By_User_Details.Last_Name = dbRow["Created_By_Last_Name"].ToString();
                 }
-                Supplier_To_Return.Record_Creation_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Creation_DateTime_UTC"];
+                Supplier_To_Return.Record_Creation_DateTime_UTC = (DateTime)dbRow["Record_Creation_DateTime_UTC"];
 
-                Supplier_To_Return.Record_Last_Updated_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Last_Updated_By_User_Id"]);
+                Supplier_To_Return.Record_Last_Updated_By_User_Id = Convert.ToInt32(dbRow["Record_Last_Updated_By_User_Id"]);
                 Supplier_To_Return.Record_Last_Updated_By_User_Details = new Users();
                 Supplier_To_Return.Record_Last_Updated_By_User_Details.User_Id = Supplier_To_Return.Record_Last_Updated_By_User_Id;
-                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Last_Updated_By_First_Name") > -1)
+                if (dbRow.Table.Columns.IndexOf("Last_Updated_By_First_Name") > -1)
                 {
-                    Supplier_To_Return.Record_Last_Updated_By_User_Details.First_Name = dbRowDetailsForUserInitialization["Last_Updated_By_First_Name"].ToString();
-                    Supplier_To_Return.Record_Last_Updated_By_User_Details.Last_Name = dbRowDetailsForUserInitialization["Last_Updated_By_Last_Name"].ToString();
+                    Supplier_To_Return.Record_Last_Updated_By_User_Details.First_Name = dbRow["Last_Updated_By_First_Name"].ToString();
+                    Supplier_To_Return.Record_Last_Updated_By_User_Details.Last_Name = dbRow["Last_Updated_By_Last_Name"].ToString();
                 }
-                Supplier_To_Return.Record_Last_Updated_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Last_Updated_DateTime_UTC"];
+                Supplier_To_Return.Record_Last_Updated_DateTime_UTC = (DateTime)dbRow["Record_Last_Updated_DateTime_UTC"];
             }
 
-            Supplier_To_Return.Is_Active = (bool)dbRowDetailsForUserInitialization["Is_Active"];
+            Supplier_To_Return.Is_Active = (bool)dbRow["Is_Active"];
             if (!Supplier_To_Return.Is_Active)
             {
-                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Active_Last_Updated_dateTime_UTC") > -1 &&
-                    dbRowDetailsForUserInitialization["Active_Last_Updated_dateTime_UTC"] != DBNull.Value)
+                if (dbRow.Table.Columns.IndexOf("Active_Last_Updated_dateTime_UTC") > -1 &&
+                    dbRow["Active_Last_Updated_dateTime_UTC"] != DBNull.Value)
                 {
-                    Supplier_To_Return.Active_Last_Updated_dateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Active_Last_Updated_dateTime_UTC"];
-                    Supplier_To_Return.Active_Last_Updated_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Active_Last_Updated_By_User_Id"]);
-                    Supplier_To_Return.Active_Last_Updated_Comments = dbRowDetailsForUserInitialization["Active_Last_Updated_Comments"].ToString();
+                    Supplier_To_Return.Active_Last_Updated_dateTime_UTC = (DateTime)dbRow["Active_Last_Updated_dateTime_UTC"];
+                    Supplier_To_Return.Active_Last_Updated_By_User_Id = Convert.ToInt32(dbRow["Active_Last_Updated_By_User_Id"]);
+                    Supplier_To_Return.Active_Last_Updated_Comments = dbRow["Active_Last_Updated_Comments"].ToString();
                 }
             }
 
-            Supplier_To_Return.Is_Deleted = (bool)dbRowDetailsForUserInitialization["Is_Deleted"];
+            Supplier_To_Return.Is_Deleted = (bool)dbRow["Is_Deleted"];
             if (Supplier_To_Return.Is_Deleted)
             {
-                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Record_Deleted_By_User_Id") > -1 &&
-                    dbRowDetailsForUserInitialization["Record_Deleted_By_User_Id"] != DBNull.Value)
+                if (dbRow.Table.Columns.IndexOf("Record_Deleted_By_User_Id") > -1 &&
+                    dbRow["Record_Deleted_By_User_Id"] != DBNull.Value)
                 {
-                    Supplier_To_Return.Record_Deleted_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Deleted_By_User_Id"]);
-                    Supplier_To_Return.Record_Deleted_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Deleted_DateTime_UTC"];
+                    Supplier_To_Return.Record_Deleted_By_User_Id = Convert.ToInt32(dbRow["Record_Deleted_By_User_Id"]);
+                    Supplier_To_Return.Record_Deleted_DateTime_UTC = (DateTime)dbRow["Record_Deleted_DateTime_UTC"];
                 }
             }
 

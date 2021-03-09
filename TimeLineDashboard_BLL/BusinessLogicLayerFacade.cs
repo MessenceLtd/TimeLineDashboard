@@ -40,9 +40,21 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.Countries_Get_By_Country_Id(p_Country_Id);
         }
 
-        public List<General_Documents> GeneralDocuments_Get_Search(string p_Search_Criteria, int p_User_Id)
+        public List<General_Documents> GeneralDocuments_Get_Search(
+            int p_User_Id,
+            short? p_Filter_By_Type,
+            short? p_Filter_By_Country,
+            short? p_Filter_By_State,
+            string p_Filter_By_City_Or_Address_Or_ZipCode,
+            string p_Filter_By_CompanyName_Or_Person_Fullname )
         {
-            throw new NotImplementedException();
+            return Data_Access_Layer_Facade.Instance.GeneralDocuments_Get_Search(
+                p_User_Id,
+                p_Filter_By_Type,
+                p_Filter_By_Country,
+                p_Filter_By_State,
+                p_Filter_By_City_Or_Address_Or_ZipCode,
+                p_Filter_By_CompanyName_Or_Person_Fullname);
         }
 
         public List<Document_Types> DocumentTypes_Get_All()
@@ -50,9 +62,21 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.DocumentTypes_Get_All();
         }
 
-        public List<Invoices> Invoices_Get_Search(string text)
+        public List<Invoices> Invoices_Get_Search(
+            int p_User_Id,
+            short? p_Filter_By_Type,
+            short? p_Filter_By_Country,
+            short? p_Filter_By_State,
+            string p_Filter_By_City_Or_Address_Or_ZipCode,
+            string p_Filter_By_CompanyName_Or_Person_Fullname)
         {
-            throw new NotImplementedException();
+            return Data_Access_Layer_Facade.Instance.Invoices_Get_Search(
+                p_User_Id,
+                p_Filter_By_Type,
+                p_Filter_By_Country,
+                p_Filter_By_State,
+                p_Filter_By_City_Or_Address_Or_ZipCode,
+                p_Filter_By_CompanyName_Or_Person_Fullname );
         }
 
         public List<States> States_GetAll()
@@ -104,6 +128,16 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Logged_In_Administrative_User_Id);
 
             return new_Registered_User_To_Return;
+        }
+
+        public General_Documents GeneralDocuments_Get_By_Id(int p_General_Document_Record_Id, int p_User_Id_Document_Owner)
+        {
+            return Data_Access_Layer_Facade.Instance.GeneralDocuments_Get_By_Id(p_General_Document_Record_Id, p_User_Id_Document_Owner);
+        }
+
+        public Invoices Invoices_Get_By_Id(int invoice_Record_Id, int user_Id_Invoice_Owner)
+        {
+            return Data_Access_Layer_Facade.Instance.Invoices_Get_By_Id(invoice_Record_Id, user_Id_Invoice_Owner);
         }
 
         public Currencies Currencies_Get_By_Id(byte p_Currency_Id)
@@ -185,7 +219,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public bool Clients_Update_Client_Details(
-            int p_Client_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id, 
+            int p_Client_Id, string p_Company_Name, string p_Website_URL, byte? p_Default_Currency, short p_Country_Id, 
             short? p_State_Id, string p_City, string p_Address, string p_ZipCode, string p_Telephone, string p_Mobile_Phone, 
             short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName, 
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number, 
@@ -196,7 +230,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
             bool updated_Successfully = false;
 
             updated_Successfully =  Data_Access_Layer_Facade.Instance.Clients_Update_Client_Details(
-                p_Client_Id, p_Company_Name, p_Website_URL, p_Country_Id,
+                p_Client_Id, p_Company_Name, p_Website_URL, p_Default_Currency, p_Country_Id,
                 p_State_Id, p_City, p_Address, p_ZipCode,
                 p_Telephone, p_Mobile_Phone, p_Client_Type_Id,
                 p_Client_Tax_Reference_Number, p_Main_Contact_FullName,
@@ -225,9 +259,21 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.ClientTypes_Get_All();
         }
 
-        public List<Clients> Clients_Get_Search(string p_Search_Criteria, int p_User_Id)
+        public List<Clients> Clients_Get_Search(
+            int p_User_Id,
+            short? p_Filter_By_Type,
+            short? p_Filter_By_Country,
+            short? p_Filter_By_State,
+            string p_Filter_By_City_Or_Address_Or_ZipCode,
+            string p_Filter_By_CompanyName_Or_Person_Fullname )
         {
-            return Data_Access_Layer_Facade.Instance.Clients_Get_Search(p_Search_Criteria, p_User_Id);
+            return Data_Access_Layer_Facade.Instance.Clients_Get_Search(
+                p_User_Id,
+                p_Filter_By_Type,
+                p_Filter_By_Country,
+                p_Filter_By_State,
+                p_Filter_By_City_Or_Address_Or_ZipCode,
+                p_Filter_By_CompanyName_Or_Person_Fullname );
         }
 
         public Clients Clients_Get_By_Id(int p_Client_Id, int p_User_Id_Client_Owner)
@@ -236,7 +282,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public Clients Clients_Insert_New_Client_Administrative_Registration_Process(
-            int p_User_Id, string p_Company_Name, string p_Website_URL , short p_Country_Id,
+            int p_User_Id, string p_Company_Name, string p_Website_URL, byte? p_Default_Currency, short p_Country_Id,
             short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
             string p_Telephone, string p_Mobile_Phone,
             short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName,
@@ -246,7 +292,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
             bool p_Is_Active, int p_Logged_In_Administrative_User_Id)
         {
             return Data_Access_Layer_Facade.Instance.Clients_Insert_New_Client_Administrative_Registration_Process(
-                p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
+                p_User_Id, p_Company_Name, p_Website_URL, p_Default_Currency, p_Country_Id,
                 p_State_Id, p_City, p_Address, p_ZipCode,
                 p_Telephone, p_Mobile_Phone, p_Client_Type_Id,
                 p_Client_Tax_Reference_Number, p_Main_Contact_FullName,
@@ -292,9 +338,21 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.Suppliers_Get_By_Supplier_Id(p_Supplier_Id, p_User_Id_Searching_For_Supplier_Details);
         }
 
-        public List<Suppliers> Suppliers_Get_Search(string p_Search_Criteria, int p_User_Id)
+        public List<Suppliers> Suppliers_Get_Search(
+            int p_User_Id,
+            short? p_Filter_By_Type,
+            short? p_Filter_By_Country,
+            short? p_Filter_By_State,
+            string p_Filter_By_City_Or_Address_Or_ZipCode,
+            string p_Filter_By_CompanyName_Or_Person_Fullname)
         {
-            return Data_Access_Layer_Facade.Instance.Suppliers_Get_Search(p_Search_Criteria, p_User_Id);
+            return Data_Access_Layer_Facade.Instance.Suppliers_Get_Search(
+                p_User_Id,
+                p_Filter_By_Type,
+                p_Filter_By_Country,
+                p_Filter_By_State,
+                p_Filter_By_City_Or_Address_Or_ZipCode,
+                p_Filter_By_CompanyName_Or_Person_Fullname );
         }
 
         public List<Suppliers> Suppliers_Get_All_By_User_Id(int p_User_Id, int p_Searching_User_Id)
@@ -307,10 +365,130 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.SupplierTypes_Get_All();
         }
 
-        public Expenses Invoices_Get_Auto_Complete_Invoice_Based_On_Client_And_DateTime_Selection(
-            int p_Client_Id, DateTime p_Invoice_Invoice_DateTime, int p_Authenticated_User_Id)
+        public Invoices Invoices_Get_Auto_Complete_Invoice_Based_On_Client_And_DateTime_Selection(
+            int p_Client_Id, DateTime p_Invoice_Invoice_DateTime, int p_User_Id_LoggedIn_Creating_Invoice)
         {
-            throw new NotImplementedException();
+            Invoices Invoice_To_Return = new Invoices();
+
+            if (p_Client_Id > 0 && p_User_Id_LoggedIn_Creating_Invoice > 0)
+            {
+                // try to get the latest Client's Invoice to auto fillup the relevant details of the page
+                // ToDo -- Add data range search for possinle users who wants to slowly update/upload information and they should pick the datetime first
+                var latest_Invoice = this.Invoices_Get_Invoice_Latest_Entry_Based_On_Client_Id_Selection(p_Client_Id, p_User_Id_LoggedIn_Creating_Invoice);
+                if (latest_Invoice != null)
+                {
+                    // A latest Invoice was found for the current Client. Return the basic needed information from the latest Invoice
+                    // If the Invoice has been created BEFORE the datetime the user has selected for the new Invoice then the last Invoice of the Client can be used for the autocomplete 
+                    if (latest_Invoice.Invoice_DateTime < p_Invoice_Invoice_DateTime)
+                    {
+                        Invoice_To_Return = latest_Invoice;
+                    }
+                    else
+                    {
+                        // The Invoice the user is trying to create is older then the last Invoice for the current Client 
+                        // Try to find any Invoice that can suit the auto complete accoring to the selected datetime of the user
+                        var lastest_Invoice_By_DateTime = this.Invoices_Get_Invoice_Latest_Entry_Based_On_Client_Id_And_Invoice_DateTime_Selection(p_Client_Id, p_Invoice_Invoice_DateTime, p_User_Id_LoggedIn_Creating_Invoice);
+                        if (lastest_Invoice_By_DateTime.Invoice_Record_Id > 0)
+                        {
+                            Invoice_To_Return = lastest_Invoice_By_DateTime;
+                        }
+                        else
+                        {
+                            Invoice_To_Return = latest_Invoice;
+                        }
+                    }
+                }
+                else
+                {
+                    // no latest Invoice was found in the database. Set the auto complete Invoice to basic Client's details
+                    // Get the Client details from the database 
+                    var Client_Details = this.Clients_Get_By_Id(p_Client_Id, p_User_Id_LoggedIn_Creating_Invoice);
+                    if (Client_Details != null)
+                    {
+                        //Invoice_To_Return.
+                        Invoice_To_Return.Invoiced_Client_To_CompanyName = Client_Details.Company_Name;
+                        Invoice_To_Return.Invoiced_Client_To_Tax_Reference = Client_Details.Client_Tax_Reference_Number;
+                        Invoice_To_Return.Invoiced_Client_To_Country_Id = Client_Details.Country_Id;
+                        Invoice_To_Return.Invoiced_Client_To_State_Id = Client_Details.State_Id;
+                        Invoice_To_Return.Invoiced_Client_To_City = Client_Details.City;
+                        Invoice_To_Return.Invoiced_Client_To_Address = Client_Details.Address;
+                        Invoice_To_Return.Invoiced_Client_To_Zip = Client_Details.ZipCode;
+                        Invoice_To_Return.Invoiced_Client_To_PhoneNumber = Client_Details.Main_Contact_Phone_Number;
+                        Invoice_To_Return.Invoiced_Client_To_PersonName = Client_Details.Main_Contact_FullName;
+
+                        if (Client_Details.Default_Currency_Id.HasValue)
+                        {
+                            Invoice_To_Return.Currency_Id = Client_Details.Default_Currency_Id.Value;
+                        }
+                        else
+                        {
+                            // The Client has no default currency. Try to use the default currency of the Client country
+                            if (Client_Details.Country_Id > 0)
+                            {
+                                var countryDetails = this.Countries_Get_By_Country_Id(Client_Details.Country_Id);
+                                if (countryDetails.Primary_Currency_Id.HasValue)
+                                {
+                                    Invoice_To_Return.Currency_Id = countryDetails.Primary_Currency_Id.Value;
+                                }
+                                else
+                                {
+                                    // The country has no primary currency information. 
+                                    // Resort to USD as default currency. 
+                                    Invoice_To_Return.Currency_Id = 1;
+                                }
+                            }
+                            else
+                            {
+                                // The Client has no country information. 
+                                // Resort to USD as default currency. 
+                                Invoice_To_Return.Currency_Id = 1;
+                            }
+
+                        }
+
+                        if (Client_Details.Country_Id > 0)
+                        {
+                            //var latest_Vat_History_Of_Country = Data_Access_Layer_Facade.Countries_Vat_History_Get_By_Country
+                            var latest_Vat_History_Of_Country = Data_Access_Layer_Facade.Instance.Countries_Vat_History_Get_By_Country_And_Date(Client_Details.Country_Id, p_Invoice_Invoice_DateTime);
+                            Invoice_To_Return.Vat_Percentage = latest_Vat_History_Of_Country.Vat_Percentage;
+                        }
+                    }
+                }
+            }
+
+            return Invoice_To_Return;
+        }
+
+        public bool GeneralDocuments_Update_Document_Details(
+            int p_General_Document_Id, short p_General_Document_Type_Id, string p_Title, 
+            string p_Description, DateTime? p_Document_Creation_DateTime, 
+            string p_Sent_By_Entity_Name, short? p_Sent_By_Entity_Country_Id, 
+            short? p_Sent_By_Entity_State_Id, string p_Sent_By_Entity_City, string p_Sent_By_Entity_Address, 
+            string p_Sent_By_Entity_ZipCode, DateTime? p_Sent_By_Entity_DateTime, 
+            string p_Sent_By_Entity_Email_Address, string p_Sent_To_Entity_Name, 
+            short? p_Sent_To_Entity_Country_Id, short? p_Sent_To_Entity_State_Id, string p_Sent_To_Entity_City, 
+            string p_Sent_To_Entity_Address, string p_Sent_To_Entity_ZipCode, string p_Sent_To_Entity_Email_Address, 
+            DateTime? p_Recieved_Document_DateTime, short? p_Recieved_In_Country_Id, short? p_Recieved_In_State_Id, 
+            string p_Recieved_In_City, string p_Recieved_In_Address, string p_Recieved_In_ZipCode, 
+            string p_Recieved_In_Email_Address, string p_User_Comments, int? p_Recieved_By_User_Id, DateTime? p_Recieved_DateTime, 
+            bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users, 
+            bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users, 
+            bool p_Is_Active, int p_Updating_User_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.GeneralDocuments_Update_Document_Details(
+                p_General_Document_Id, p_General_Document_Type_Id, p_Title,
+                p_Description, p_Document_Creation_DateTime, p_Sent_By_Entity_Name, p_Sent_By_Entity_Country_Id,
+                p_Sent_By_Entity_State_Id, p_Sent_By_Entity_City, p_Sent_By_Entity_Address,
+                p_Sent_By_Entity_ZipCode, p_Sent_By_Entity_DateTime,
+                p_Sent_By_Entity_Email_Address, p_Sent_To_Entity_Name,
+                p_Sent_To_Entity_Country_Id, p_Sent_To_Entity_State_Id, p_Sent_To_Entity_City,
+                p_Sent_To_Entity_Address, p_Sent_To_Entity_ZipCode, p_Sent_To_Entity_Email_Address,
+                p_Recieved_Document_DateTime, p_Recieved_In_Country_Id, p_Recieved_In_State_Id,
+                p_Recieved_In_City, p_Recieved_In_Address, p_Recieved_In_ZipCode,
+                p_Recieved_In_Email_Address, p_User_Comments, p_Recieved_By_User_Id, p_Recieved_DateTime,
+                p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Is_Active, p_Updating_User_Id);
         }
 
         public bool Suppliers_Update_Supplier_Details(
@@ -334,9 +512,21 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Is_Active, p_Updating_User_Id );
         }
 
-        public List<Expenses> Expenses_Get_Search(string text)
+        public List<Expenses> Expenses_Get_Search(
+            int p_User_Id,
+            short? p_Filter_By_Type,
+            short? p_Filter_By_Country,
+            short? p_Filter_By_State,
+            string p_Filter_By_City_Or_Address_Or_ZipCode,
+            string p_Filter_By_CompanyName_Or_Person_Fullname)
         {
-            throw new NotImplementedException();
+            return Data_Access_Layer_Facade.Instance.Expenses_Get_Search(
+                p_User_Id,
+                p_Filter_By_Type,
+                p_Filter_By_Country,
+                p_Filter_By_State,
+                p_Filter_By_City_Or_Address_Or_ZipCode,
+                p_Filter_By_CompanyName_Or_Person_Fullname);
         }
 
         public Expenses Expenses_Get_Auto_Complete_Expense_Based_On_Supplier_And_DateTime_Selection(int p_Supplier_Id, DateTime p_Expense_Invoice_DateTime, int p_User_Id_LoggedIn_Creating_Expense)
@@ -433,13 +623,83 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return expense_To_Return;
         }
 
+        public bool Expenses_Update_Expense_Details(
+            int p_Expense_Record_Id, int p_Supplier_Id, DateTime? p_Expense_Invoice_DateTime, 
+            byte p_Currency_Id, decimal p_Total_Amount, decimal p_Vat_Percentage, decimal p_Total_Without_Vat, 
+            decimal p_Total_Vat, int? p_Invoiced_Client_On_User_Location_Id, 
+            string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_Tax_Reference, 
+            string p_Invoiced_Client_To_PersonName, string p_Invoiced_Client_To_PhoneNumber, 
+            short? p_Invoiced_Client_To_Country_Id, short? p_Invoiced_Client_To_State_Id, 
+            string p_Invoiced_Client_To_City, string p_Invoiced_Client_To_Address, 
+            string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress, 
+            byte p_Expense_Type_Id, string p_Invoice_Number, string p_Invoice_Reference_Number, 
+            string p_Invoice_Supplier_Company_Details, string p_Invoice_Supplier_Tax_Reference, short? p_Invoice_Supplier_Country_Id, 
+            short? p_Invoice_Supplier_State_Id, string p_Invoice_Supplier_City, string p_Invoice_Supplier_Address_Description, 
+            string p_Invoice_Supplier_ZipCode, string p_Invoice_Supplier_WebAddress, 
+            string p_Invoice_Supplier_Phone_Number, string p_Invoice_Supplier_Contact_FullName, 
+            string p_Invoice_Content_Long_Description, string p_User_Description, string p_User_Comments, 
+            bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users, 
+            bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Updating_User_Id, bool p_Is_Active)
+        {
+            return Data_Access_Layer_Facade.Instance.Expenses_Update_Expense_Details(
+                p_Expense_Record_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
+                p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
+                p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
+                p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip,
+                p_Invoiced_Client_To_EmailAddress, p_Expense_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
+                p_Invoice_Supplier_Company_Details, p_Invoice_Supplier_Tax_Reference, p_Invoice_Supplier_Country_Id,
+                p_Invoice_Supplier_State_Id, p_Invoice_Supplier_City, p_Invoice_Supplier_Address_Description,
+                p_Invoice_Supplier_ZipCode, p_Invoice_Supplier_WebAddress, p_Invoice_Supplier_Phone_Number,
+                p_Invoice_Supplier_Contact_FullName, p_Invoice_Content_Long_Description, p_User_Description,
+                p_User_Comments, 
+                p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Updating_User_Id, p_Is_Active 
+                );
+        }
+
+        public bool Invoices_Update_Invoice_Details(
+           int p_Invoice_Record_Id, int p_Client_Id, DateTime? p_Invoice_DateTime,
+           byte p_Currency_Id, decimal p_Total_Amount, decimal p_Vat_Percentage,
+           decimal p_Total_Without_Vat, decimal p_Total_Vat,
+           DateTime? p_Creation_DateTime,
+           int? p_Invoiced_Client_On_User_Location_Id,
+           string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_Tax_Reference,
+           string p_Invoiced_Client_To_PersonName, string p_Invoiced_Client_To_PhoneNumber,
+           short? p_Invoiced_Client_To_Country_Id, short? p_Invoiced_Client_To_State_Id, string p_Invoiced_Client_To_City,
+           string p_Invoiced_Client_To_Address, string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress,
+           byte p_Invoice_Type_Id, string p_Invoice_Number, string p_Invoice_Reference_Number,
+           string p_Invoice_Content_Long_Description,
+           string p_User_Description,
+           string p_User_Comments,
+           bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
+           bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
+           bool p_Is_Active, int p_Updating_UserId)
+        {
+            return Data_Access_Layer_Facade.Instance.Invoices_Update_Invoice_Details(
+                p_Invoice_Record_Id, p_Client_Id, p_Invoice_DateTime,
+                p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
+                p_Total_Without_Vat, p_Total_Vat,
+                p_Creation_DateTime, p_Invoiced_Client_On_User_Location_Id,
+                p_Invoiced_Client_To_CompanyName, p_Invoiced_Client_To_Tax_Reference,
+                p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber,
+                p_Invoiced_Client_To_Country_Id, p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City,
+                p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip, p_Invoiced_Client_To_EmailAddress,
+                p_Invoice_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
+                p_Invoice_Content_Long_Description, p_User_Description,
+                p_User_Comments, p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Is_Active, p_Updating_UserId);
+        }
+
         public Expenses Expenses_Insert_New_Expense(
-            int p_User_Id, int p_Supplier_Id, DateTime p_Expense_Invoice_DateTime,
+            int p_User_Id, int p_Supplier_Id, DateTime? p_Expense_Invoice_DateTime,
             byte p_Currency_Id, decimal p_Total_Amount, decimal p_Vat_Percentage,
             decimal p_Total_Without_Vat, decimal p_Total_Vat,
             int? p_Invoiced_Client_On_User_Location_Id,
-            string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_PersonName,
-            string p_Invoiced_Client_To_PhoneNumber,
+            string p_Invoiced_Client_To_CompanyName,string p_Invoiced_Client_To_Tax_Reference, 
+            string p_Invoiced_Client_To_PersonName, string p_Invoiced_Client_To_PhoneNumber,
             short? p_Invoiced_Client_To_Country_Id, short? p_Invoiced_Client_To_State_Id, string p_Invoiced_Client_To_City,
             string p_Invoiced_Client_To_Address, string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress,
             byte p_Expense_Type_Id,
@@ -461,8 +721,8 @@ namespace TimeLineDashboard.BusinessLogicLayer
         {
             return Data_Access_Layer_Facade.Instance.Expenses_Insert_New_Expense(
                 p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
-                p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
-                p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
+                p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName, 
+                p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
                 p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip,
                 p_Invoiced_Client_To_EmailAddress, p_Expense_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
                 p_Invoice_Supplier_Company_Details, p_Invoice_Supplier_Tax_Reference, p_Invoice_Supplier_Country_Id,
@@ -478,8 +738,14 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 );
         }
 
+        public Expenses Expenses_Get_By_Id(int p_Expense_Record_Id, int p_User_Id_Expense_Owner)
+        {
+            return Data_Access_Layer_Facade.Instance.Expenses_Get_By_Id(p_Expense_Record_Id, p_User_Id_Expense_Owner);
+        }
+
+
         public Invoices Invoices_Insert_New_Invoice_Details(
-            int p_User_Id, int p_Client_Id, DateTime p_Invoice_DateTime,
+            int p_User_Id, int p_Client_Id, DateTime? p_Invoice_DateTime,
             byte p_Currency_Id, decimal p_Total_Amount, decimal p_Vat_Percentage,
             decimal p_Total_Without_Vat, decimal p_Total_Vat,
             DateTime? p_Creation_DateTime, 
@@ -520,6 +786,11 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_Selection(p_Supplier_Id, p_User_Id_LoggedIn_Creating_Expense);
         }
 
+        public Invoices Invoices_Get_Invoice_Latest_Entry_Based_On_Client_Id_Selection(int p_Client_Id, int p_User_Id_LoggedIn_Creating_Invoice)
+        {
+            return Data_Access_Layer_Facade.Instance.Invoices_Get_Invoice_Latest_Entry_Based_On_Client_Id_Selection(p_Client_Id, p_User_Id_LoggedIn_Creating_Invoice);
+        }
+
         public Expenses Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_And_Expense_DateTime_Selection(int p_Supplier_Id , DateTime p_Expense_DateTime, int p_User_Id_LoggedIn_Creating_Expense)
         {
             return Data_Access_Layer_Facade.Instance.Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_And_Expense_DateTime_Selection(
@@ -528,14 +799,22 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_User_Id_LoggedIn_Creating_Expense);
         }
 
+        public Invoices Invoices_Get_Invoice_Latest_Entry_Based_On_Client_Id_And_Invoice_DateTime_Selection(int p_Client_Id, DateTime p_Invoice_DateTime, int p_User_Id_LoggedIn_Creating_Invoice)
+        {
+            return Data_Access_Layer_Facade.Instance.Invoices_Get_Invoice_Latest_Entry_Based_On_Client_Id_And_Invoice_DateTime_Selection(
+                p_Client_Id,
+                p_Invoice_DateTime,
+                p_User_Id_LoggedIn_Creating_Invoice);
+        }
+
         public General_Documents GeneralDocuments_Insert_New_General_Document_Details(
             int p_User_Id, short p_General_Document_Type, string p_Title,
-            string p_Description, DateTime p_Document_Creation_DateTime,
+            string p_Description, DateTime? p_Document_Creation_DateTime,
 
             string p_Sent_By_Entity_Name, short? p_Sent_By_Entity_Country_Id,
             short? p_Sent_By_Entity_State_Id, string p_Sent_By_Entity_City,
             string p_Sent_By_Entity_Address, string p_Sent_By_Entity_ZipCode,
-            DateTime p_Sent_By_Entity_DateTime, string p_Sent_By_Entity_Email_Address,
+            DateTime? p_Sent_By_Entity_DateTime, string p_Sent_By_Entity_Email_Address,
 
             string p_Sent_To_Entity_Name, short? p_Sent_To_Entity_Country_Id,
             short? p_Sent_To_Entity_State_Id, string p_Sent_To_Entity_City,

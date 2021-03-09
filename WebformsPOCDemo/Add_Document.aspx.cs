@@ -68,7 +68,7 @@ namespace WebformsPOCDemo
                 int p_User_Id = int.Parse(this.dropdown_User_Selection.SelectedValue);
                 short p_General_Document_Type_Id = short.Parse(this.dropdown_General_Document_Type.SelectedValue);
 
-                DateTime p_Document_Creation_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
+                DateTime? p_Document_Creation_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
                     this.textbox_Document_Creation_Date,
                     this.dropdown_Document_Creation_Time_Hours,
                     this.dropdown_Document_Creation_Time_Minutes,
@@ -92,7 +92,7 @@ namespace WebformsPOCDemo
                 string p_Sent_By_Entity_City = this.textbox_Sent_By_Entity_City.Text;
                 string p_Sent_By_Entity_Address = this.textbox_Sent_By_Entity_Address.Text;
                 string p_Sent_By_Entity_ZipCode = this.textbox_Sent_By_Entity_ZipCode.Text;
-                DateTime p_Sent_By_Entity_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
+                DateTime? p_Sent_By_Entity_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
                     this.textbox_Sent_By_Entity_DateTime,
                     this.dropdown_Sent_By_Entity_Time_Hours,
                     this.dropdown_Sent_By_Entity_Time_Minutes,

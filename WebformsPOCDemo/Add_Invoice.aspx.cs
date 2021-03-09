@@ -92,7 +92,7 @@ namespace WebformsPOCDemo
                 int p_User_Id = int.Parse(this.dropdown_User_Selection.SelectedValue);
                 int p_Client_Id = int.Parse(this.dropdown_Client.SelectedValue);
 
-                DateTime p_Invoice_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
+                DateTime? p_Invoice_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
                     this.textbox_Invoice_DateTime,
                     this.dropdown_Invoice_Time_Hours,
                     this.dropdown_Invoice_Time_Minutes,
@@ -104,7 +104,7 @@ namespace WebformsPOCDemo
                 decimal p_Total_Without_Vat = decimal.Parse(this.textbox_Total_Without_Vat.Text);
                 decimal p_Total_Vat = decimal.Parse(this.textbox_Total_Vat.Text);
 
-                DateTime p_Creation_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
+                DateTime? p_Creation_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
                     this.textbox_Creation_DateTime,
                     this.dropdown_Invoice_Creation_Time_Hours,
                     this.dropdown_Invoice_Creation_Time_Minutes,
@@ -232,27 +232,30 @@ namespace WebformsPOCDemo
                         string.IsNullOrEmpty(this.textbox_Invoiced_Client_To_Address.Text))
                 {
                     this.textbox_Vat_Percentage.Text = base_Invoice_For_Auto_Complete.Vat_Percentage.ToString();
-                    this.textbox_Invoiced_Client_To_Address.Text = base_Invoice_For_Auto_Complete.Invoice_Supplier_Company_Details;
-                    this.textbox_Invoiced_To_Tax_Reference.Text = base_Invoice_For_Auto_Complete.Invoice_Supplier_Company_Details;
-                    if (base_Invoice_For_Auto_Complete.Invoice_Supplier_Country_Id.HasValue)
+                    //this.textbox_Invoiced_Client_To_Address.Text = base_Invoice_For_Auto_Complete.Invoiced_Client_To_Address;
+                    this.textbox_Invoiced_To_Tax_Reference.Text = base_Invoice_For_Auto_Complete.Invoiced_Client_To_Tax_Reference;
+                    if (base_Invoice_For_Auto_Complete.Invoiced_Client_To_Country_Id.HasValue)
                     {
-                        this.dropdown_Invoiced_Client_To_Country.SelectedValue = base_Invoice_For_Auto_Complete.Invoice_Supplier_Country_Id.Value.ToString();
+                        this.dropdown_Invoiced_Client_To_Country.SelectedValue = base_Invoice_For_Auto_Complete.Invoiced_Client_To_Country_Id.Value.ToString();
                         this.Bind_Invoiced_Client_States_ComboBox();
 
-                        if (base_Invoice_For_Auto_Complete.Invoice_Supplier_State_Id.HasValue)
+                        if (base_Invoice_For_Auto_Complete.Invoiced_Client_To_State_Id.HasValue)
                         {
-                            this.dropdown_Invoiced_Client_To_State.SelectedValue = base_Invoice_For_Auto_Complete.Invoice_Supplier_State_Id.Value.ToString();
+                            this.dropdown_Invoiced_Client_To_State.SelectedValue = base_Invoice_For_Auto_Complete.Invoiced_Client_To_State_Id.Value.ToString();
                         }
                     }
 
-                    this.textbox_Invoiced_Client_To_City.Text = base_Invoice_For_Auto_Complete.Invoice_Supplier_City;
-                    this.textbox_Invoiced_Client_To_Address.Text = base_Invoice_For_Auto_Complete.Invoice_Supplier_Address_Description;
-                    this.textbox_Invoiced_Client_To_Zip.Text = base_Invoice_For_Auto_Complete.Invoice_Supplier_ZipCode;
-                    this.textbox_Invoiced_Client_To_EmailAddress.Text = base_Invoice_For_Auto_Complete.Invoice_Supplier_WebAddress;
-                    this.textbox_Invoiced_Client_To_PhoneNumber.Text = base_Invoice_For_Auto_Complete.Invoice_Supplier_Phone_Number;
-                    this.textbox_Invoiced_To_PersonName.Text = base_Invoice_For_Auto_Complete.Invoice_Supplier_Contact_FullName;
+                    this.textbox_Invoiced_Client_To_City.Text = base_Invoice_For_Auto_Complete.Invoiced_Client_To_City;
+                    this.textbox_Invoiced_Client_To_Address.Text = base_Invoice_For_Auto_Complete.Invoiced_Client_To_Address;
+                    this.textbox_Invoiced_Client_To_Zip.Text = base_Invoice_For_Auto_Complete.Invoiced_Client_To_Zip;
+                    this.textbox_Invoiced_Client_To_EmailAddress.Text = base_Invoice_For_Auto_Complete.Invoiced_Client_To_EmailAddress;
+                    this.textbox_Invoiced_Client_To_PhoneNumber.Text = base_Invoice_For_Auto_Complete.Invoiced_Client_To_PhoneNumber;
+                    this.textbox_Invoiced_To_PersonName.Text = base_Invoice_For_Auto_Complete.Invoiced_Client_To_PersonName;
 
-                    this.dropdown_Currency.SelectedValue = base_Invoice_For_Auto_Complete.Currency_Id.ToString();
+                    if (base_Invoice_For_Auto_Complete.Currency_Id > 0 )
+                    { 
+                        this.dropdown_Currency.SelectedValue = base_Invoice_For_Auto_Complete.Currency_Id.ToString();
+                    }
                 }
             }
         }
@@ -316,65 +319,9 @@ namespace WebformsPOCDemo
             }
         }
 
-        protected void button_Fill_Up_Form_Dummy_Data_For_Test_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(this.dropdown_User_Selection.SelectedValue))
-            {
-                //this.dropdown_User_Selection.SelectedValue = "1";
-                //this.Bind_DropDown_Supplier_After_User_Id_Selection();
-                this.textbox_Invoice_DateTime.Text = "23/07/2019";
-                this.dropdown_Invoice_Time_Hours.SelectedValue = "15";
-                this.dropdown_Invoice_Time_Minutes.SelectedValue = "44";
-                this.dropdown_Invoice_Time_Seconds.SelectedValue = "26";
-                this.dropdown_Client.SelectedValue = "1";
-                this.dropdown_Currency.SelectedValue = "28";
-                this.textbox_Total_Amount.Text = "1170";
-                this.textbox_Vat_Percentage.Text = "17";
-                this.textbox_Total_Without_Vat.Text = "1000";
-                this.textbox_Total_Vat.Text = "170";
-
-                this.textbox_Creation_DateTime.Text = "23/07/2006";
-                this.dropdown_Invoice_Creation_Time_Hours.SelectedValue = "12";
-                this.dropdown_Invoice_Creation_Time_Minutes.SelectedValue = "23";
-                this.dropdown_Invoice_Creation_Time_Seconds.SelectedValue = "54";
-
-                //this.textbox_Invoiced_On_User_Location_Id.Text = ""
-                this.textbox_Invoiced_To_CompanyName.Text = "User Company Dummy AutoFill";
-                this.textbox_Invoiced_To_Tax_Reference.Text = "TaxRef###11223";
-                this.textbox_Invoiced_To_PersonName.Text = "User Company Dummy AutoFill";
-                this.textbox_Invoiced_Client_To_PhoneNumber.Text = "DummyPhone";
-
-                this.dropdown_Invoiced_Client_To_Country.SelectedValue = "157";
-                this.textbox_Invoiced_Client_To_City.Text = "Dummy City";
-                this.textbox_Invoiced_Client_To_Address.Text = "Dummy Address";
-                this.textbox_Invoiced_Client_To_Zip.Text = "123321321";
-                this.textbox_Invoiced_Client_To_EmailAddress.Text = "dummyemail@dummydomain.com";
-
-                this.dropdown_Invoice_Type.SelectedValue = "1";
-
-                this.textbox_Invoice_Number.Text = "1234";
-                this.textbox_Invoice_Reference_Number.Text = "Dummy AutoNum 4321";
-
-                this.textbox_Invoice_Content_Long_Description.Text = "Long description from dummy auto fill goes here!";
-                this.textbox_User_Description.Text = "Users thoughts about this specific expense and maybe suppliers service";
-                this.textbox_User_Comments.Text = "Users comments for himself or followers / other wierd privacy setting";
-                this.textbox_Original_File_Name.Text = "Mega long expense file name with desc.pdf";
-
-                this.checkbox_Is_Visible_To_Anonymous_Users.Checked = false;
-                this.checkbox_Is_Available_For_Download_For_Anonymous_Users.Checked = false;
-                this.checkbox_Is_Visible_To_Followers_Users.Checked = false;
-                this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked = false;
-                this.checkbox_Is_Active.Checked = true;
-            }
-            else
-            {
-                this.lbl_Insert_Process_Error_Result.Text = "Please select a user for dummy data testing";
-            }
-        }
-
         protected void dropdown_Invoiced_Client_To_Country_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Bind_Invoiced_Client_States_ComboBox();
-        }
+        }       
     }
 }

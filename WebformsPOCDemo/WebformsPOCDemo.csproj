@@ -87,6 +87,9 @@
     <Content Include="CSS\images\ui-icons_d8e7f3_256x240.png" />
     <Content Include="CSS\images\ui-icons_f9bd01_256x240.png" />
     <Content Include="CSS\jquery-ui.theme.css" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\viewdetails.png" />
+    <Content Include="JS\Common.js" />
     <Content Include="list_BankAccounts.aspx" />
     <Content Include="CSS\jquery-ui.css" />
     <Content Include="CSS\Main.css" />

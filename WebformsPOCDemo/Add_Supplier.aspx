@@ -122,18 +122,18 @@
 
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Supplier_From_Date.ClientID %>">Supplier From Date:</label></div>
-            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Supplier_From_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
+            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Supplier_From_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Supplier_To_Date.ClientID %>">Supplier To Date:</label></div>
-            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Supplier_To_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
+            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Supplier_To_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_First_Contract_Date.ClientID %>">First Contract Date:</label></div>
             <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_First_Contract_Date" 
-                ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
+                ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
@@ -167,41 +167,5 @@
         <br /><br /><br /><br />
 
     </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-            $("#<%= textbox_Supplier_From_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_Supplier_To_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_First_Contract_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-        });
-
-    </script>
 
 </asp:Content>

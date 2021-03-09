@@ -163,7 +163,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Supplier_From_Date.ClientID %>">Supplier From Date:</label></div>
             <asp:Panel ID="formControl_Wrapper_Edit_Supplier_From_Date" runat="server" Visible="true" CssClass="Form_Control"><asp:TextBox runat="server" 
-                ID="textbox_Supplier_From_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></asp:Panel>
+                ID="textbox_Supplier_From_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></asp:Panel>
             <asp:Panel ID="formControl_Wrapper_ReadOnly_Supplier_From_Date" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel"><asp:Label runat="server" 
                 ID="label_Supplier_From_Date"></asp:Label></asp:Panel>
         </div>
@@ -171,7 +171,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Supplier_To_Date.ClientID %>">Supplier To Date:</label></div>
             <asp:Panel ID="formControl_Wrapper_Edit_Supplier_To_Date" runat="server" Visible="true" CssClass="Form_Control"><asp:TextBox runat="server" 
-                ID="textbox_Supplier_To_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></asp:Panel>
+                ID="textbox_Supplier_To_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></asp:Panel>
             <asp:Panel ID="formControl_Wrapper_ReadOnly_Supplier_To_Date" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel"><asp:Label runat="server" 
                 ID="label_Supplier_To_Date"></asp:Label></asp:Panel>
         </div>
@@ -179,7 +179,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_First_Contract_Date.ClientID %>">First Contract Date:</label></div>
             <asp:Panel ID="formControl_Wrapper_Edit_First_Contract_Date" runat="server" Visible="true" CssClass="Form_Control"><asp:TextBox runat="server" ID="textbox_First_Contract_Date" 
-                ClientIDMode="Static" CssClass="form-control"></asp:TextBox></asp:Panel>
+                ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></asp:Panel>
             <asp:Panel ID="formControl_Wrapper_ReadOnly_First_Contract_Date" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel"><asp:Label runat="server" 
                 ID="label_First_Contract_Date"></asp:Label></asp:Panel>
         </div>
@@ -251,41 +251,5 @@
         <br /><br /><br /><br />
 
     </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-            $("#<%= textbox_Supplier_From_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_Supplier_To_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_First_Contract_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-        });
-
-    </script>
 
 </asp:Content>

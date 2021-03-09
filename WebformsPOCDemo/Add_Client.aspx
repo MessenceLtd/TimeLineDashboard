@@ -28,6 +28,11 @@
         </div>
 
         <div class="Form_Group">
+            <div class="Form_Label_Wrapper"><label for="<%= dropdown_Currency.ClientID %>">Default Currency:</label></div>
+            <div class="Form_Control"><asp:DropDownList runat="server" ID="dropdown_Currency" ClientIDMode="Static" CssClass="Regular_ComboBox form-control"></asp:DropDownList></div>
+        </div>
+
+        <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= dropdown_Country.ClientID %>">Country:</label></div>
             <div class="Form_Control"><asp:DropDownList runat="server" ID="dropdown_Country" ClientIDMode="Static" AutoPostBack="True" OnSelectedIndexChanged="dropdown_Country_SelectedIndexChanged" CssClass="Big_ComboBox form-control"></asp:DropDownList></div>
             <asp:RequiredFieldValidator runat="server" ID="validator_Country_Required" ErrorMessage="Please select a country" Display="Dynamic" ControlToValidate="dropdown_Country" CssClass="text-danger"></asp:RequiredFieldValidator>
@@ -112,18 +117,17 @@
 
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Client_From_Date.ClientID %>">Client From Date:</label></div>
-            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Client_From_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
+            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Client_From_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Client_To_Date.ClientID %>">Client To Date:</label></div>
-            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Client_To_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
+            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Client_To_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_First_Contract_Date.ClientID %>">First Contract Date:</label></div>
-            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_First_Contract_Date" 
-                ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
+            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_First_Contract_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
@@ -158,42 +162,6 @@
         <br /><br /><br /><br />
 
     </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-            $("#<%= textbox_Client_From_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_Client_To_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_First_Contract_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-        });
-
-    </script>
 
 
 </asp:Content>

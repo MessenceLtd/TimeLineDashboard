@@ -30,7 +30,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Document_Creation_Date.ClientID %>">Document Creation Date:</label></div>
             <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Document_Creation_Date" ClientIDMode="Static" 
-                CssClass="form-control"></asp:TextBox></div>
+                CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
             <asp:RequiredFieldValidator runat="server" ID="validator_Document_Creation_Date_Required" ErrorMessage="Please enter a document date" Display="Dynamic" 
                 ControlToValidate="textbox_Document_Creation_Date" CssClass="text-danger"></asp:RequiredFieldValidator>
         </div>
@@ -104,7 +104,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Sent_By_Entity_DateTime.ClientID %>">Sending Date:</label></div>
             <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Sent_By_Entity_DateTime" ClientIDMode="Static" 
-                CssClass="form-control"></asp:TextBox></div>
+                CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
@@ -179,7 +179,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Recieved_Document_DateTime.ClientID %>">Recieved Document Date:</label></div>
             <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Recieved_Document_DateTime" ClientIDMode="Static" 
-                CssClass="form-control"></asp:TextBox></div>
+                CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
@@ -245,7 +245,7 @@
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Recieved_DateTime.ClientID %>">Recieved Date:</label></div>
             <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Recieved_DateTime" ClientIDMode="Static" 
-                CssClass="form-control"></asp:TextBox></div>
+                CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
         </div>
 
         <div class="Form_Group">
@@ -299,53 +299,5 @@
         </div>
         <br /><br /><br />
     </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-
-            $("#<%= textbox_Document_Creation_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_Sent_By_Entity_DateTime.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_Recieved_Document_DateTime.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-            $("#<%= textbox_Recieved_DateTime.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-        });
-
-    </script>
 
 </asp:Content>

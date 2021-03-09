@@ -88,6 +88,11 @@ namespace WebformsPOCDemo
                 this.textbox_Website_URL.Text = clientDetails.Website_URL;
                 this.label_Website_URL.Text = clientDetails.Website_URL;
 
+                Common_Tools.Set_ComboBox_Selected_Value_And_Label_Text(
+                    clientDetails.Default_Currency_Id.ToString(),
+                    this.dropdown_Currency,
+                    this.label_Currency);
+
                 this.dropdown_Country.SelectedValue = clientDetails.Country_Id.ToString();
                 this.label_Country.Text = Business_Logic_Layer_Facade.Instance.Countries_Get_By_Country_Id(clientDetails.Country_Id).Country_English_Name;
                 this.Bind_States_ComboBox();
@@ -242,6 +247,13 @@ namespace WebformsPOCDemo
                 int p_Client_Id = int.Parse(this.Request.QueryString["id"]);
                 string p_Company_Name = this.textbox_Company_Name.Text;
                 string p_Website_URL = this.textbox_Website_URL.Text;
+
+                byte? p_Default_Currency = new byte?();
+                if (!string.IsNullOrEmpty(this.dropdown_Currency.SelectedValue))
+                {
+                    p_Default_Currency = byte.Parse(this.dropdown_Currency.SelectedValue);
+                }
+
                 short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
                 short? p_State_Id = new short?();
                 if (this.dropdown_State.Items.Count > 0)
@@ -299,7 +311,7 @@ namespace WebformsPOCDemo
                 try
                 {
                     l_Client_Successfully_Updated = Business_Logic_Layer_Facade.Instance.Clients_Update_Client_Details(
-                        p_Client_Id, p_Company_Name, p_Website_URL, p_Country_Id,
+                        p_Client_Id, p_Company_Name, p_Website_URL, p_Default_Currency, p_Country_Id,
                         p_State_Id, p_City, p_Address, p_ZipCode,
                         p_Telephone, p_Mobile_Phone, p_Client_Type_Id,
                         p_Client_Tax_Reference_Number, p_Main_Contact_FullName,

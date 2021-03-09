@@ -7,25 +7,23 @@ namespace TimeLineDashboard.Shared.Models
     public class Invoices
     {
         public int Invoice_Record_Id { get; set; }
-
         public int User_Id { get; set; }
-
         public int Client_Id { get; set; }
-
         public DateTime Invoice_DateTime { get; set; }
         public byte Currency_Id { get; set; }
-
+        public string Currency_Symbol { get; set; }
         public decimal Total_Without_Vat { get; set; }
         public decimal Total_Vat { get; set; }
         public decimal Vat_Percentage { get; set; }
         public decimal Total_Amount { get; set; }
-        public DateTime Creation_DateTime { get; set; }
+        public DateTime? Creation_DateTime { get; set; }
         public int? Invoiced_Client_On_User_Location_Id { get; set; }
         public string Invoiced_Client_To_CompanyName { get; set; }
         public string Invoiced_Client_To_Tax_Reference { get; set; }
         public string Invoiced_Client_To_PersonName { get; set; }
         public string Invoiced_Client_To_PhoneNumber { get; set; }
         public short? Invoiced_Client_To_Country_Id { get; set; }
+        public string Invoiced_Client_To_Country_Name { get; set; }
         public short? Invoiced_Client_To_State_Id { get; set; }
         public string Invoiced_Client_To_City { get; set; }
         public string Invoiced_Client_To_Address { get; set; }
@@ -44,16 +42,18 @@ namespace TimeLineDashboard.Shared.Models
         public bool Is_Visible_To_Followers_Users { get; set; }
         public bool Is_Available_For_Download_For_Followers_Users { get; set; }
         public int Record_Created_By_User_Id { get; set; }
+        public Users Record_Created_By_User_Details { get; set; }
         public DateTime Record_Creation_DateTime_UTC { get; set; }
         public int Record_Last_Updated_By_User_Id { get; set; }
+        public Users Record_Last_Updated_By_User_Details { get; set; }
         public DateTime Record_Last_Updated_DateTime_UTC { get; set; }
         public bool Is_Active { get; set; }
-        public DateTime Active_Last_Updated_DateTime_UTC { get; set; }
+        public DateTime? Active_Last_Updated_DateTime_UTC { get; set; }
         public int Active_Last_Updated_By_User_Id { get; set; }
         public string Active_Last_Updated_Comments { get; set; }
         public bool Is_Deleted { get; set; }
         public int Record_Deleted_By_User_Id { get; set; }
-        public DateTime Record_Deleted_DateTime_UTC { get; set; }
+        public DateTime? Record_Deleted_DateTime_UTC { get; set; }
 
     }
 }

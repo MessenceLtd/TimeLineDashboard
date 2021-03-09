@@ -114,6 +114,42 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.RegularExpressionValidator validator_Website_URL_Regex;
 
         /// <summary>
+        /// formControl_Wrapper_Edit_Currency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel formControl_Wrapper_Edit_Currency;
+
+        /// <summary>
+        /// dropdown_Currency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Currency;
+
+        /// <summary>
+        /// formControl_Wrapper_ReadOnly_Currency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel formControl_Wrapper_ReadOnly_Currency;
+
+        /// <summary>
+        /// label_Currency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_Currency;
+
+        /// <summary>
         /// formControl_Wrapper_Edit_Country control.
         /// </summary>
         /// <remarks>

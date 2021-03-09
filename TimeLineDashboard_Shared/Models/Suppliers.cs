@@ -11,6 +11,7 @@ namespace TimeLineDashboard.Shared.Models
         public string Company_Name { get; set; }
         public string Website_URL { get; set; }
         public short Country_Id { get; set; }
+        public string Country_Name { get; set; }
         public short? State_Id { get; set; }
         public string City { get; set; }
         public string Address { get; set; }

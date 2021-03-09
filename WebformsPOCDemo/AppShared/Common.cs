@@ -32,7 +32,7 @@ namespace WebformsPOCDemo
             dropdown_Country.DataTextField = "Country_English_Name";
             dropdown_Country.DataValueField = "Country_Id";
             dropdown_Country.DataBind();
-            dropdown_Country.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            dropdown_Country.Items.Insert(0, new ListItem("-- Select Country -- ", ""));
         }
 
         internal static void Initialize_DropDown_Hours(DropDownList dropdown_Hours_Selection)
@@ -77,7 +77,7 @@ namespace WebformsPOCDemo
             dropdown_Currency_Selection.DataTextField = "Formatted_Currency_Display_For_Selection";
             dropdown_Currency_Selection.DataValueField = "Currency_Id";
             dropdown_Currency_Selection.DataBind();
-            dropdown_Currency_Selection.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            dropdown_Currency_Selection.Items.Insert(0, new ListItem("-- Select Currency -- ", ""));
         }
 
         internal static void Initialize_DropDown_Client_Types(DropDownList dropdown_Client_Type_Selection)
@@ -86,7 +86,7 @@ namespace WebformsPOCDemo
             dropdown_Client_Type_Selection.DataTextField = "Type_Name";
             dropdown_Client_Type_Selection.DataValueField = "Client_Type_Id";
             dropdown_Client_Type_Selection.DataBind();
-            dropdown_Client_Type_Selection.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            dropdown_Client_Type_Selection.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
         }
 
         internal static void Initialize_DropDown_Supplier_Types(DropDownList dropdown_Supplier_Type_Selection)
@@ -95,7 +95,7 @@ namespace WebformsPOCDemo
             dropdown_Supplier_Type_Selection.DataTextField = "Type_Name";
             dropdown_Supplier_Type_Selection.DataValueField = "Supplier_Type_Id";
             dropdown_Supplier_Type_Selection.DataBind();
-            dropdown_Supplier_Type_Selection.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            dropdown_Supplier_Type_Selection.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
         }
 
         internal static void Initialize_DropDown_Document_Types(DropDownList dropdown_Document_Type_Selection)
@@ -104,7 +104,7 @@ namespace WebformsPOCDemo
             dropdown_Document_Type_Selection.DataTextField = "Document_Type_Name";
             dropdown_Document_Type_Selection.DataValueField = "General_Document_Type_Id";
             dropdown_Document_Type_Selection.DataBind();
-            dropdown_Document_Type_Selection.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            dropdown_Document_Type_Selection.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
         }
 
         internal static void Initialize_DropDown_Expense_Types(DropDownList dropdown_Expense_Type)
@@ -113,7 +113,7 @@ namespace WebformsPOCDemo
             dropdown_Expense_Type.DataTextField = "Expense_Type_Name";
             dropdown_Expense_Type.DataValueField = "Expense_Type_Id";
             dropdown_Expense_Type.DataBind();
-            dropdown_Expense_Type.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            dropdown_Expense_Type.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
         }
 
         internal static void Initialize_DropDown_Invoice_Types(DropDownList dropdown_Invoice_Type)
@@ -122,7 +122,7 @@ namespace WebformsPOCDemo
             dropdown_Invoice_Type.DataTextField = "Invoice_Type_Name";
             dropdown_Invoice_Type.DataValueField = "Invoice_Type_Id";
             dropdown_Invoice_Type.DataBind();
-            dropdown_Invoice_Type.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            dropdown_Invoice_Type.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
         }
 
         internal static void Initialize_DropDown_App_Permission_Types(DropDownList dropdown_App_Permission_Type)
@@ -131,21 +131,26 @@ namespace WebformsPOCDemo
             dropdown_App_Permission_Type.DataTextField = "App_Permission_Type_Name";
             dropdown_App_Permission_Type.DataValueField = "App_Permission_Type_Id";
             dropdown_App_Permission_Type.DataBind();
-            dropdown_App_Permission_Type.Items.Insert(0, new ListItem("-- Select -- ", ""));
+            dropdown_App_Permission_Type.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
         }
 
-        internal static DateTime Get_DateTime_From_ComboBoxes(
+        internal static DateTime? Get_DateTime_From_ComboBoxes(
             TextBox p_Date_TextBox,
             DropDownList p_Hours_ComboBox,
             DropDownList p_Minutes_ComboBox,
             DropDownList p_Seconds_ComboBox)
         {
+            DateTime? date_To_Return = new DateTime?();
+
             DateTime date_Parsed = new DateTime();
+            bool parsed_Successfully = false;
             try
             {
-                date_Parsed = DateTime.ParseExact(p_Date_TextBox.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None);
+                parsed_Successfully =  DateTime.TryParseExact(p_Date_TextBox.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out date_Parsed);
             }
-            catch { }
+            catch {
+                parsed_Successfully = false;
+            }
 
             short hours = 0;
             short minutes = 0;
@@ -155,9 +160,61 @@ namespace WebformsPOCDemo
             short.TryParse(p_Minutes_ComboBox.SelectedValue, out minutes);
             short.TryParse(p_Seconds_ComboBox.SelectedValue, out seconds);
 
-            DateTime date_To_Return = new DateTime(date_Parsed.Year, date_Parsed.Month, date_Parsed.Day, hours, minutes, seconds);
+            if (parsed_Successfully)
+            {
+                date_To_Return = new DateTime(date_Parsed.Year, date_Parsed.Month, date_Parsed.Day, hours, minutes, seconds);
+            }
 
             return date_To_Return;
         }
+
+        internal static void Set_DateTime_To_ComboBoxes_And_Label(
+            DateTime? dateTimeToSet, 
+            TextBox p_TextBox_Date,
+            Label p_Label_Date,
+            DropDownList p_Hours_ComboBox,
+            DropDownList p_Minutes_ComboBox,
+            DropDownList p_Seconds_ComboBox, 
+            Label p_Label_Time)
+        {
+            if (dateTimeToSet.HasValue)
+            { 
+                p_TextBox_Date.Text = dateTimeToSet.Value.ToString("dd/MM/yyyy");
+                p_Label_Date.Text = dateTimeToSet.Value.ToString("dd/MM/yyyy");
+                p_Hours_ComboBox.SelectedValue = dateTimeToSet.Value.Hour.ToString();
+                p_Minutes_ComboBox.SelectedValue = dateTimeToSet.Value.Minute.ToString();
+                p_Seconds_ComboBox.SelectedValue = dateTimeToSet.Value.Second.ToString();
+                p_Label_Time.Text = dateTimeToSet.Value.ToString("HH:mm:ss");
+            }
+        }
+
+        internal static void Set_ComboBox_Selected_Value_And_Label_Text(
+            string value_To_Set_Selected, 
+            DropDownList p_ComboBox_To_Set_Selected_Value,
+            Label p_Label_To_Set_Selected_Text
+            )
+        {
+            if (p_ComboBox_To_Set_Selected_Value.Items.Count > 0)
+            {
+                ListItem item_To_Set_Selected = p_ComboBox_To_Set_Selected_Value.Items.FindByValue(value_To_Set_Selected);
+                if (item_To_Set_Selected != null)
+                {
+                    p_ComboBox_To_Set_Selected_Value.SelectedValue = value_To_Set_Selected;
+                    p_Label_To_Set_Selected_Text.Text = item_To_Set_Selected.Text;
+                }
+            }
+        }
+
+        internal static void Set_Number_Text_Value_To_TextBox_Label_Text(
+            decimal numeric_Value,
+            TextBox p_TextBox_To_Set_Value,
+            Label p_Label_To_Set_Value
+            )
+        {
+            p_TextBox_To_Set_Value.Text = numeric_Value.ToString("0,#.00");
+            p_Label_To_Set_Value.Text = numeric_Value.ToString("0,#.00");
+        }
+
+       
     }
 }

@@ -8,24 +8,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script type="text/javascript">
-
-        $(function ()
-        {
-            $("#<%= textbox_Birth_Date.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy", 
-                    changeMonth: true,
-                    changeYear: true, 
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-        });
-        
-    </script>
-
-
     <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links">       
         <asp:HyperLink runat="server" Text="Add New User" CssClass="active" NavigateUrl="Add_User.aspx"></asp:HyperLink>
     </asp:Panel>
@@ -136,7 +118,7 @@
 
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Birth_Date.ClientID %>">Birth Date:</label></div>
-            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Birth_Date" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
+            <div class="Form_Control"><asp:TextBox runat="server" ID="textbox_Birth_Date" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></div>
             <asp:RequiredFieldValidator runat="server" ID="validator_Birth_Date_Required" ErrorMessage="Please enter a birth date" Display="Dynamic" ControlToValidate="textbox_Birth_Date" CssClass="text-danger"></asp:RequiredFieldValidator>
         </div>
 

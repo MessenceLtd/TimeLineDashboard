@@ -22,6 +22,8 @@ namespace WebformsPOCDemo
 
         private void Bind_Default_View()
         {
+            Common_Tools.Initialize_DropDown_Currencies(this.dropdown_Currency);
+
             Common_Tools.Initialize_DropDown_Countries(this.dropdown_Country);
 
             Common_Tools.Initialize_DropDown_Client_Types(this.dropdown_Client_Type);
@@ -105,6 +107,13 @@ namespace WebformsPOCDemo
                 int p_User_Id = base.Authenticated_User_ID;
                 string p_Company_Name = this.textbox_Company_Name.Text;
                 string p_Website_URL = this.textbox_Website_URL.Text;
+
+                byte? p_Default_Currency = new byte?();
+                if (!string.IsNullOrEmpty(this.dropdown_Currency.SelectedValue))
+                {
+                    p_Default_Currency = byte.Parse(this.dropdown_Currency.SelectedValue);
+                }
+
                 short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
                 short? p_State_Id = new short?();
                 if (this.dropdown_State.Items.Count > 0)
@@ -164,7 +173,7 @@ namespace WebformsPOCDemo
                 try
                 {
                     new_Client_Details = Business_Logic_Layer_Facade.Instance.Clients_Insert_New_Client_Administrative_Registration_Process(
-                        p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
+                        p_User_Id, p_Company_Name, p_Website_URL, p_Default_Currency, p_Country_Id,
                         p_State_Id, p_City, p_Address, p_ZipCode,
                         p_Telephone, p_Mobile_Phone, p_Client_Type_Id, 
                         p_Client_Tax_Reference_Number, p_Main_Contact_FullName,

@@ -27,7 +27,7 @@
                 <label style="font-weight: bold" for="<%= textbox_Expense_Invoice_DateTime.ClientID %>">Expense Date:</label></div>
             <div class="Form_Control">
                 <asp:TextBox runat="server" ID="textbox_Expense_Invoice_DateTime" ClientIDMode="Static" autocomplete="off" 
-                    CssClass="form-control" AutoPostBack="true" OnTextChanged="textbox_Expense_Invoice_DateTime_TextChanged"></asp:TextBox></div>
+                    CssClass="form-control InitializeDatePicker" AutoPostBack="true" OnTextChanged="textbox_Expense_Invoice_DateTime_TextChanged"></asp:TextBox></div>
             <asp:RequiredFieldValidator runat="server" ID="validator_Expense_Invoice_DateTime_Required" ErrorMessage="Please enter an expense date" Display="Dynamic" ControlToValidate="textbox_Expense_Invoice_DateTime" CssClass="text-danger"></asp:RequiredFieldValidator>
         </div>
 
@@ -120,6 +120,13 @@
                         <label for="<%= textbox_Invoiced_To_CompanyName.ClientID %>">Invoiced to Company:</label></div>
                     <div class="Form_Control">
                         <asp:TextBox runat="server" ID="textbox_Invoiced_To_CompanyName" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
+                </div>
+
+                <div class="Form_Group">
+                    <div class="Form_Label_Wrapper">
+                        <label for="<%= textbox_Invoiced_Client_To_Tax_Reference.ClientID %>">Invoiced to TAX Reference:</label></div>
+                    <div class="Form_Control">
+                        <asp:TextBox runat="server" ID="textbox_Invoiced_Client_To_Tax_Reference" ClientIDMode="Static" CssClass="form-control"></asp:TextBox></div>
                 </div>
 
                 <div class="Form_Group">
@@ -382,23 +389,5 @@
         <br />
 
     </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-
-            $("#<%= textbox_Expense_Invoice_DateTime.ClientID %>").datepicker(
-                {
-                    showWeek: false,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-120:+0",
-                    regional: 'he'
-                });
-
-        });
-
-    </script>
 
 </asp:Content>

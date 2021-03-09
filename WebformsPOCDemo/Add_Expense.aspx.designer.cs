@@ -240,6 +240,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_Invoiced_To_CompanyName;
 
         /// <summary>
+        /// textbox_Invoiced_Client_To_Tax_Reference control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Invoiced_Client_To_Tax_Reference;
+
+        /// <summary>
         /// textbox_Invoiced_To_PersonName control.
         /// </summary>
         /// <remarks>

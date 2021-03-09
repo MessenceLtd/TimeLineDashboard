@@ -5,20 +5,24 @@
 <%@ Register Src="~/wuc_Breadcrumbs_Navigation.ascx" TagPrefix="uc1" TagName="wuc_Breadcrumbs_Navigation" %>
 
 
-
 <!DOCTYPE html>
 <html>
 <head runat="server">
     <title>Demo Document Manager / Timeline dashboard chaos</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="/JS/jquery-3.5.1.min.js"></script>
     <script src="/JS/jquery-ui.js"></script>
     <script src="/JS/datepicker-he.js"></script>
     <%--<script src="/JS/bootstrap.js"></script>--%>
     <script src="/JS/bootstrap.bundle.4.6.min.js"></script>
+
     <%--<script src="/JS/jquery-ui-timepicker-addon.min.js"></script>--%>
 
     <%--<link href="CSS/jquery-ui.theme.css" rel="stylesheet" />--%>
+    <script src="/JS/Common.js"></script>
+
 
     <link href="/CSS/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="/CSS/bootstrap/bootstrap-grid.css" rel="stylesheet" />
@@ -37,7 +41,7 @@
 <body class="dark-mode">
 
     <form id="form1" runat="server" class="d-flex flex-column h-100">
-        <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
+        <asp:ScriptManager runat="server" ID="ScriptManager1" LoadScriptsBeforeUI="true"></asp:ScriptManager>
         <main class="flex-shrink-0">
             <uc1:wuc_Top_Menu runat="server" ID="wuc_Top_Menu" />
 

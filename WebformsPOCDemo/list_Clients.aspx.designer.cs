@@ -24,13 +24,94 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Panel panel_HeaderLinks;
 
         /// <summary>
-        /// textbox_Search_Criteria control.
+        /// updatePanel_States control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox_Search_Criteria;
+        protected global::System.Web.UI.UpdatePanel updatePanel_States;
+
+        /// <summary>
+        /// dropdown_Type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Type;
+
+        /// <summary>
+        /// label_Filter_By_Type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal label_Filter_By_Type;
+
+        /// <summary>
+        /// dropdown_Country control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Country;
+
+        /// <summary>
+        /// label_Filter_By_Country control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal label_Filter_By_Country;
+
+        /// <summary>
+        /// panel_States control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_States;
+
+        /// <summary>
+        /// dropdown_State control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_State;
+
+        /// <summary>
+        /// label_Filter_By_State control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal label_Filter_By_State;
+
+        /// <summary>
+        /// text_Filter_By_CityAddressZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox text_Filter_By_CityAddressZipCode;
+
+        /// <summary>
+        /// text_Filter_By_CompanyNamePeopleName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox text_Filter_By_CompanyNamePeopleName;
 
         /// <summary>
         /// button_Search_Clients control.
@@ -42,13 +123,13 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Button button_Search_Clients;
 
         /// <summary>
-        /// updatePanel_Users_List control.
+        /// updatePanel_Search_Result control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanel_Users_List;
+        protected global::System.Web.UI.UpdatePanel updatePanel_Search_Result;
 
         /// <summary>
         /// dataGrid_Clients_List control.

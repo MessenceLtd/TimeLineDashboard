@@ -29,18 +29,50 @@ namespace TimeLineDashboard.DAL.Operations
         #endregion
 
 
-        internal List<Clients> Get_Search( string p_Search_Criteria , int p_User_Id )
+        internal List<Clients> Get_Search(
+            int p_User_Id, 
+            short? p_Filter_By_Type, 
+            short? p_Filter_By_Country,
+            short? p_Filter_By_State,
+            string p_Filter_By_City_Or_Address_Or_ZipCode,
+            string p_Filter_By_CompanyName_Or_Person_Fullname )
         {
             List<Clients> clients_To_Return = new List<Clients>();
 
-            SqlParameter spSearch_Criteria = new SqlParameter("@Search_Criteria", SqlDbType.NVarChar, 50);
             SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int );
+            SqlParameter spFilter_By_Type = new SqlParameter("@Filter_By_Type", SqlDbType.SmallInt);
+            SqlParameter spFilter_By_Country = new SqlParameter("@Filter_By_Country", SqlDbType.SmallInt);
+            SqlParameter spFilter_By_State = new SqlParameter("@Filter_By_State", SqlDbType.SmallInt);
+            SqlParameter spFilter_By_City_Or_Address_Or_ZipCode = new SqlParameter("@Filter_By_City_Or_Address_Or_ZipCode", SqlDbType.NVarChar, 50);
+            SqlParameter spFilter_By_CompanyName_Or_Person_Fullname = new SqlParameter("@Filter_By_CompanyName_Or_Person_Fullname", SqlDbType.NVarChar , 50);
 
-            spSearch_Criteria.Value = p_Search_Criteria;
             spUser_Id.Value = p_User_Id;
+            if (p_Filter_By_Type.HasValue)
+                spFilter_By_Type.Value = p_Filter_By_Type.Value;
+            else
+                spFilter_By_Type.Value = DBNull.Value;
+            
+            if (p_Filter_By_Country.HasValue)
+                spFilter_By_Country.Value = p_Filter_By_Country.Value;
+            else
+                spFilter_By_Country.Value = DBNull.Value;
+
+            if (p_Filter_By_State.HasValue)
+                spFilter_By_State.Value = p_Filter_By_State.Value;
+            else
+                spFilter_By_State.Value = DBNull.Value;
+
+            spFilter_By_City_Or_Address_Or_ZipCode.Value = p_Filter_By_City_Or_Address_Or_ZipCode;
+            spFilter_By_CompanyName_Or_Person_Fullname.Value = p_Filter_By_CompanyName_Or_Person_Fullname;
 
             var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Clients_Search", 
-                new List<SqlParameter>() { spSearch_Criteria , spUser_Id });
+                new List<SqlParameter>() { 
+                    spUser_Id, 
+                    spFilter_By_Type, 
+                    spFilter_By_Country, 
+                    spFilter_By_State, 
+                    spFilter_By_City_Or_Address_Or_ZipCode, 
+                    spFilter_By_CompanyName_Or_Person_Fullname });
 
             if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
             {
@@ -78,7 +110,7 @@ namespace TimeLineDashboard.DAL.Operations
         }
 
         internal Clients Insert_New_Client_Administrative_Registration_Process(
-            int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
+            int p_User_Id, string p_Company_Name, string p_Website_URL, byte? p_Default_Currency_Id, short p_Country_Id,
             short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
             string p_Telephone, string p_Mobile_Phone,
             short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName,
@@ -92,6 +124,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int);
             SqlParameter spCompany_Name = new SqlParameter("@Company_Name", SqlDbType.NVarChar , 150);
             SqlParameter spWebsite_URL = new SqlParameter("@Website_URL", SqlDbType.NVarChar, 150);
+            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
             SqlParameter spCountry_Id = new SqlParameter("@Country_Id", SqlDbType.SmallInt );
             SqlParameter spState_Id = new SqlParameter("@State_Id", SqlDbType.SmallInt);
             SqlParameter spCity = new SqlParameter("@City", SqlDbType.NVarChar, 100);
@@ -115,6 +148,12 @@ namespace TimeLineDashboard.DAL.Operations
             spUser_Id.Value = p_User_Id;
             spCompany_Name.Value = p_Company_Name;
             spWebsite_URL.Value = p_Website_URL;
+
+            if (p_Default_Currency_Id.HasValue)
+                spDefault_Currency_Id.Value = p_Default_Currency_Id.Value;
+            else
+                spDefault_Currency_Id.Value = DBNull.Value;
+
             spCountry_Id.Value = p_Country_Id;
             
             if (p_State_Id.HasValue)
@@ -155,7 +194,7 @@ namespace TimeLineDashboard.DAL.Operations
 
             object new_Client_Id = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult("p_TLBoard_Insert_Client_Details",
                 new List<SqlParameter>() {
-                    spUser_Id , spCompany_Name, spWebsite_URL , spCountry_Id , 
+                    spUser_Id , spCompany_Name, spWebsite_URL, spDefault_Currency_Id, spCountry_Id , 
                     spState_Id , spCity , spAddress , spZipCode , 
                     spTelephone , spMobile_Phone , spClient_Type_Id , 
                     spClient_Tax_Reference_Number , spMain_Contact_FullName ,
@@ -178,7 +217,7 @@ namespace TimeLineDashboard.DAL.Operations
         }
 
         internal bool Update_Client_Details(
-            int p_Client_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
+            int p_Client_Id, string p_Company_Name, string p_Website_URL, byte? p_Default_Currency_Id, short p_Country_Id,
             short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
             string p_Telephone, string p_Mobile_Phone,
             short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName,
@@ -192,6 +231,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spClient_Id = new SqlParameter("@Client_Id", SqlDbType.Int);
             SqlParameter spCompany_Name = new SqlParameter("@Company_Name", SqlDbType.NVarChar, 150);
             SqlParameter spWebsite_URL = new SqlParameter("@Website_URL", SqlDbType.NVarChar, 150);
+            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
             SqlParameter spCountry_Id = new SqlParameter("@Country_Id", SqlDbType.SmallInt);
             SqlParameter spState_Id = new SqlParameter("@State_Id", SqlDbType.SmallInt);
             SqlParameter spCity = new SqlParameter("@City", SqlDbType.NVarChar, 100);
@@ -215,6 +255,12 @@ namespace TimeLineDashboard.DAL.Operations
             spClient_Id.Value = p_Client_Id;
             spCompany_Name.Value = p_Company_Name;
             spWebsite_URL.Value = p_Website_URL;
+
+            if (p_Default_Currency_Id.HasValue)
+                spDefault_Currency_Id.Value = p_Default_Currency_Id.Value;
+            else
+                spDefault_Currency_Id.Value = DBNull.Value;
+
             spCountry_Id.Value = p_Country_Id;
 
             if (p_State_Id.HasValue)
@@ -255,7 +301,7 @@ namespace TimeLineDashboard.DAL.Operations
 
             int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Update_Client_Details",
                 new List<SqlParameter>() {
-                    spClient_Id , spCompany_Name, spWebsite_URL , spCountry_Id ,
+                    spClient_Id , spCompany_Name, spWebsite_URL, spDefault_Currency_Id, spCountry_Id ,
                     spState_Id , spCity , spAddress , spZipCode ,
                     spTelephone , spMobile_Phone , spClient_Type_Id ,
                     spClient_Tax_Reference_Number , spMain_Contact_FullName ,
@@ -307,11 +353,22 @@ namespace TimeLineDashboard.DAL.Operations
             client_To_Return.User_Id = Convert.ToInt32(dbRow["User_Id"]);
             client_To_Return.Company_Name = dbRow["Company_Name"].ToString();
             client_To_Return.Website_URL = dbRow["Website_URL"].ToString();
-            client_To_Return.Country_Id = (short)dbRow["Country_Id"];
 
+            if (dbRow.Table.Columns.IndexOf("Default_Currency_Id") > -1
+                && dbRow["Default_Currency_Id"] != DBNull.Value)
+            {
+                client_To_Return.Default_Currency_Id = (byte)dbRow["Default_Currency_Id"];
+            }
+
+            client_To_Return.Country_Id = (short)dbRow["Country_Id"];
             if (dbRow["State_Id"] != DBNull.Value)
             {
                 client_To_Return.State_Id = (short)dbRow["State_Id"];
+            }
+
+            if (dbRow.Table.Columns.IndexOf("Country_Name") > -1)
+            {
+                client_To_Return.Country_Name = dbRow["Country_Name"].ToString();
             }
 
             client_To_Return.City = dbRow["City"].ToString();

@@ -89,7 +89,7 @@ namespace WebformsPOCDemo
                 int p_User_Id = int.Parse( this.dropdown_User_Selection.SelectedValue);
                 int p_Supplier_Id = int.Parse(this.dropdown_Supplier.SelectedValue);
 
-                DateTime p_Expense_Invoice_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
+                DateTime? p_Expense_Invoice_DateTime = Common_Tools.Get_DateTime_From_ComboBoxes(
                     this.textbox_Expense_Invoice_DateTime,
                     this.dropdown_Invoice_Time_Hours,
                     this.dropdown_Invoice_Time_Minutes,
@@ -104,6 +104,7 @@ namespace WebformsPOCDemo
                 int? p_Invoiced_Client_On_User_Location_Id = new int?();
 
                 string p_Invoiced_Client_To_CompanyName = this.textbox_Invoiced_To_CompanyName.Text;
+                string p_Invoiced_Client_To_Tax_Reference = this.textbox_Invoiced_Client_To_Tax_Reference.Text;
                 string p_Invoiced_Client_To_PersonName = this.textbox_Invoiced_To_PersonName.Text;
                 string p_Invoiced_Client_To_PhoneNumber = this.textbox_Invoiced_Client_To_PhoneNumber.Text;
 
@@ -173,8 +174,8 @@ namespace WebformsPOCDemo
                 {
                     new_Expense_Details = Business_Logic_Layer_Facade.Instance.Expenses_Insert_New_Expense(
                         p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
-                        p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
-                        p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
+                        p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName, 
+                        p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
                         p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip,
                         p_Invoiced_Client_To_EmailAddress, p_Expense_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
                         p_Invoice_Supplier_Company_Details, p_Invoice_Supplier_Tax_Reference, p_Invoice_Supplier_Country_Id,
@@ -240,8 +241,8 @@ namespace WebformsPOCDemo
                 var base_Expense_For_Auto_Complete = Business_Logic_Layer_Facade.Instance.Expenses_Get_Auto_Complete_Expense_Based_On_Supplier_And_DateTime_Selection(p_Supplier_Id, p_Expense_Invoice_DateTime, p_Authenticated_User_Id);
 
                 // Fillup details if the user has not entered values in ~2 main textboxes (that should be auto completed with default values 
-                if (    string.IsNullOrEmpty(this.textbox_Invoice_Supplier_City.Text) &&
-                        string.IsNullOrEmpty(this.textbox_Invoice_Supplier_Address_Description.Text ) )
+                //if (    string.IsNullOrEmpty(this.textbox_Invoice_Supplier_City.Text) &&
+                //        string.IsNullOrEmpty(this.textbox_Invoice_Supplier_Address_Description.Text ) )
                 {
                     this.textbox_Vat_Percentage.Text = base_Expense_For_Auto_Complete.Vat_Percentage.ToString();
                     this.textbox_Invoice_Supplier_Address_Description.Text = base_Expense_For_Auto_Complete.Invoice_Supplier_Company_Details;
@@ -392,6 +393,11 @@ namespace WebformsPOCDemo
             }
         }
 
+        protected void dropdown_Invoiced_Client_To_Country_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Bind_Invoiced_Client_States_ComboBox();
+        }
+
         protected void button_Fill_Up_Form_Dummy_Data_For_Test_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(this.dropdown_User_Selection.SelectedValue))
@@ -453,9 +459,6 @@ namespace WebformsPOCDemo
             }
         }
 
-        protected void dropdown_Invoiced_Client_To_Country_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.Bind_Invoiced_Client_States_ComboBox();
-        }
+        
     }
 }
