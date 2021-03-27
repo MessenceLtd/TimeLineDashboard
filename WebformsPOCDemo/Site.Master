@@ -40,7 +40,7 @@
 </head>
 <body class="dark-mode">
 
-    <form id="form1" runat="server" class="d-flex flex-column h-100">
+    <form id="form1" runat="server" class="d-flex flex-column h-100" autocomplete="off">
         <asp:ScriptManager runat="server" ID="ScriptManager1" LoadScriptsBeforeUI="true"></asp:ScriptManager>
         <main class="flex-shrink-0">
             <uc1:wuc_Top_Menu runat="server" ID="wuc_Top_Menu" />

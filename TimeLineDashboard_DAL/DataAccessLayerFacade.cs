@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TimeLineDashboard.Shared.Models;
 using TimeLineDashboard.DAL.Operations;
 using System.Data;
+using TimeLineDashboard.Shared.Responses;
 
 namespace TimeLineDashboard.DAL
 {
@@ -53,29 +54,29 @@ namespace TimeLineDashboard.DAL
         }
 
         public Users Users_Insert_New_User_Administrative_Registration_Process(
-            string p_Username, 
-            string p_Encrypted_Password, 
+            string p_Username,
+            string p_Encrypted_Password,
             string p_Encryption_Random_Salt,
             byte p_App_Permission_Type_Id,
-            string p_First_Name, 
-            string p_Middle_Name, 
-            string p_Last_Name, 
-            string p_Email, 
-            short  p_Country_Id, 
-            short? p_State_Id, 
-            string p_City, 
-            string p_Address, 
-            string p_ZipCode, 
-            string p_Mobile_Phone, 
+            string p_First_Name,
+            string p_Middle_Name,
+            string p_Last_Name,
+            string p_Email,
+            short p_Country_Id,
+            short? p_State_Id,
+            string p_City,
+            string p_Address,
+            string p_ZipCode,
+            string p_Mobile_Phone,
             string p_Additional_Phone_Number,
-            DateTime p_BirthDate, 
-            byte p_Gender, 
-            string p_Heard_About_Application_From, 
+            DateTime p_BirthDate,
+            byte p_Gender,
+            string p_Heard_About_Application_From,
             string p_Our_Administrative_Side_Notes,
             int p_Logged_In_Administrative_User_Id)
         {
             return Users_Operations.Instance.Insert_New_User_Administrative_Registration_Process(
-                p_Username, 
+                p_Username,
                 p_Encrypted_Password,
                 p_Encryption_Random_Salt,
                 p_App_Permission_Type_Id,
@@ -116,9 +117,9 @@ namespace TimeLineDashboard.DAL
             string p_Filter_By_CompanyName_Or_Person_Fullname)
         {
             return Clients_Operations.Instance.Get_Search(
-                p_User_Id, 
-                p_Filter_By_Type, 
-                p_Filter_By_Country, 
+                p_User_Id,
+                p_Filter_By_Type,
+                p_Filter_By_Country,
                 p_Filter_By_State,
                 p_Filter_By_City_Or_Address_Or_ZipCode,
                 p_Filter_By_CompanyName_Or_Person_Fullname);
@@ -202,12 +203,12 @@ namespace TimeLineDashboard.DAL
         }
 
         public Suppliers Suppliers_Insert_New_Client_Administrative_Registration_Process(
-            int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id, 
-            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id, 
-            string p_Telephone, string p_Mobile_Phone, short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, 
-            string p_Main_Contact_FullName, string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number, 
-            DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date, 
-            string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description, 
+            int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
+            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id,
+            string p_Telephone, string p_Mobile_Phone, short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number,
+            string p_Main_Contact_FullName, string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
+            DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
+            string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description,
             bool p_Is_Active, int p_Logged_In_Administrative_User_Id)
         {
             return Suppliers_Operations.Instance.Insert_New_Supplier_Administrative_Registration_Process(
@@ -229,7 +230,7 @@ namespace TimeLineDashboard.DAL
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Client_From_Date, DateTime? p_Client_To_Date, DateTime? p_First_Contract_Date,
             string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description,
-            bool p_Is_Active, int p_Authenticated_User_ID )
+            bool p_Is_Active, int p_Authenticated_User_ID)
         {
             bool updated_Successfully = false;
 
@@ -283,15 +284,15 @@ namespace TimeLineDashboard.DAL
             short? p_Filter_By_Country,
             short? p_Filter_By_State,
             string p_Filter_By_City_Or_Address_Or_ZipCode,
-            string p_Filter_By_CompanyName_Or_Person_Fullname )
+            string p_Filter_By_CompanyName_Or_Person_Fullname)
         {
             return Suppliers_Operations.Instance.Get_Search(
-                p_User_Id, 
-                p_Filter_By_Type, 
-                p_Filter_By_Country, 
-                p_Filter_By_State, 
-                p_Filter_By_City_Or_Address_Or_ZipCode, 
-                p_Filter_By_CompanyName_Or_Person_Fullname );
+                p_User_Id,
+                p_Filter_By_Type,
+                p_Filter_By_Country,
+                p_Filter_By_State,
+                p_Filter_By_City_Or_Address_Or_ZipCode,
+                p_Filter_By_CompanyName_Or_Person_Fullname);
         }
 
         public List<SupplierType> SupplierTypes_Get_All()
@@ -312,13 +313,13 @@ namespace TimeLineDashboard.DAL
             string p_Filter_By_City_Or_Address_Or_ZipCode,
             string p_Filter_By_CompanyName_Or_Person_Fullname)
         {
-                return Expenses_Operations.Instance.Get_Search(
-                    p_User_Id,
-                    p_Filter_By_Type,
-                    p_Filter_By_Country,
-                    p_Filter_By_State,
-                    p_Filter_By_City_Or_Address_Or_ZipCode,
-                    p_Filter_By_CompanyName_Or_Person_Fullname );
+            return Expenses_Operations.Instance.Get_Search(
+                p_User_Id,
+                p_Filter_By_Type,
+                p_Filter_By_Country,
+                p_Filter_By_State,
+                p_Filter_By_City_Or_Address_Or_ZipCode,
+                p_Filter_By_CompanyName_Or_Person_Fullname);
         }
 
         public Expenses Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_Selection(int p_Supplier_Id, int p_User_Id_LoggedIn_Creating_Expense)
@@ -342,7 +343,7 @@ namespace TimeLineDashboard.DAL
             byte p_Currency_Id, decimal p_Total_Amount, decimal p_Vat_Percentage,
             decimal p_Total_Without_Vat, decimal p_Total_Vat,
             int? p_Invoiced_Client_On_User_Location_Id,
-            string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_Tax_Reference, 
+            string p_Invoiced_Client_To_CompanyName, string p_Invoiced_Client_To_Tax_Reference,
             string p_Invoiced_Client_To_PersonName, string p_Invoiced_Client_To_PhoneNumber,
             short? p_Invoiced_Client_To_Country_Id, short? p_Invoiced_Client_To_State_Id, string p_Invoiced_Client_To_City,
             string p_Invoiced_Client_To_Address, string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress,
@@ -365,9 +366,9 @@ namespace TimeLineDashboard.DAL
         {
             return Expenses_Operations.Instance.Insert_New_Expense_Administrative_Registration_Process(
                 p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
-                p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName, 
-                p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id, 
-                p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip, 
+                p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
+                p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
+                p_Invoiced_Client_To_State_Id, p_Invoiced_Client_To_City, p_Invoiced_Client_To_Address, p_Invoiced_Client_To_Zip,
                 p_Invoiced_Client_To_EmailAddress, p_Expense_Type_Id, p_Invoice_Number, p_Invoice_Reference_Number,
                 p_Invoice_Supplier_Company_Details, p_Invoice_Supplier_Tax_Reference, p_Invoice_Supplier_Country_Id,
                 p_Invoice_Supplier_State_Id, p_Invoice_Supplier_City, p_Invoice_Supplier_Address_Description,
@@ -390,7 +391,7 @@ namespace TimeLineDashboard.DAL
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
             string p_First_Contract_Signed_With_Contact_Full_Name, string p_First_Contract_Signed_In_Location_Description,
-            bool p_Is_Active, int p_Updating_User_Id )
+            bool p_Is_Active, int p_Updating_User_Id)
         {
             return Suppliers_Operations.Instance.Update_Supplier_Details(
                 p_Supplier_Id, p_Company_Name, p_Website_URL, p_Country_Id,
@@ -648,14 +649,14 @@ namespace TimeLineDashboard.DAL
                 p_Invoice_Content_Long_Description, p_User_Description,
                 p_User_Comments, p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
-                p_Is_Active, p_Updating_UserId );
+                p_Is_Active, p_Updating_UserId);
         }
 
         public Expenses Expenses_Get_By_Id(int p_Expense_Record_Id, int p_User_Id_Expense_Owner)
         {
             return Expenses_Operations.Instance.Get_Expense_Details_By_Expense_Id(
-                p_Expense_Record_Id, 
-                p_User_Id_Expense_Owner, 
+                p_Expense_Record_Id,
+                p_User_Id_Expense_Owner,
                 p_User_Id_Expense_Owner);
         }
 
@@ -673,6 +674,199 @@ namespace TimeLineDashboard.DAL
                 p_Client_Id,
                 p_Invoice_DateTime,
                 p_User_Id_LoggedIn_Creating_Invoice);
+        }
+
+        public Bank_Account_Transactions BankAccount_Transactions_Get_Transaction_Details_By_Transaction_Id(
+                    int p_Bank_Account_Transaction_Id,
+                    int p_User_Id_Bank_Account_Transaction_Owner,
+                    int p_User_Id_Searching_For_Bank_Account_Transaction_Details)
+        {
+            return BankAccount_Transactions.Instance.Get_Bank_Account_Transaction_Details_By_Transaction_Id(
+                p_Bank_Account_Transaction_Id,
+                p_User_Id_Bank_Account_Transaction_Owner,
+                p_User_Id_Searching_For_Bank_Account_Transaction_Details
+                );
+        }
+
+        public Bank_Account_Transactions BankAccount_Transactions_Insert_New_Transaction_Details(
+            int p_Bank_Account_Id,
+            decimal p_Transaction_Account_Balance,
+            DateTime p_Transaction_Actual_DateTime,
+            decimal p_Positive_Amount_Entered,
+            decimal p_Negative_Amount_Paid,
+            DateTime? p_Transaction_Value_DateTime,
+            string p_Reference_Number,
+            string p_Transaction_Bank_Description,
+            string p_Transaction_Bank_Inner_Reference_Code,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            int p_Creating_User_Id)
+        {
+            return BankAccount_Transactions.Instance.Insert_New_Bank_Account_Transaction_Details(
+                p_Bank_Account_Id,
+                p_Transaction_Account_Balance,
+                p_Transaction_Actual_DateTime,
+                p_Positive_Amount_Entered,
+                p_Negative_Amount_Paid,
+                p_Transaction_Value_DateTime,
+                p_Reference_Number,
+                p_Transaction_Bank_Description,
+                p_Transaction_Bank_Inner_Reference_Code,
+                p_Is_Visible_To_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users,
+                p_Creating_User_Id
+                );
+        }
+
+        public bool BankAccount_Transactions_Update_Transaction_Details(
+            int p_Bank_Account_Transaction_Id,
+            decimal p_Transaction_Account_Balance,
+            DateTime p_Transaction_Actual_DateTime,
+            decimal p_Positive_Amount_Entered,
+            decimal p_Negative_Amount_Paid,
+            DateTime? p_Transaction_Value_DateTime,
+            string p_Reference_Number,
+            string p_Transaction_Bank_Description,
+            string p_Transaction_Bank_Inner_Reference_Code,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            int p_Updating_User_Id)
+        {
+            return BankAccount_Transactions.Instance.Update_Bank_Account_Transaction_Details(
+                    p_Bank_Account_Transaction_Id,
+                    p_Transaction_Account_Balance,
+                    p_Transaction_Actual_DateTime,
+                    p_Positive_Amount_Entered,
+                    p_Negative_Amount_Paid,
+                    p_Transaction_Value_DateTime,
+                    p_Reference_Number,
+                    p_Transaction_Bank_Description,
+                    p_Transaction_Bank_Inner_Reference_Code,
+                    p_Is_Visible_To_Anonymous_Users,
+                    p_Is_Visible_To_Followers_Users,
+                    p_Updating_User_Id
+                );
+        }
+
+        public Bank_Account_Transactions_Response_For_UI BankAccount_Transactions_Get_Transactions_By_Bank_Account_Id_And_User_Id(
+            int p_Page_Number,
+            int p_Rows_Per_Page,
+            int p_Bank_Account_Id,
+            int p_User_Id_Bank_Account_Owner,
+            int p_User_Id_Searching_For_Bank_Account_Transactions)
+        {
+            return BankAccount_Transactions.Instance.Get_Bank_Account_Transactions_By_Bank_Account_Id_And_User_Id(
+                    p_Page_Number,
+                    p_Rows_Per_Page,
+                    p_Bank_Account_Id,
+                    p_User_Id_Bank_Account_Owner,
+                    p_User_Id_Searching_For_Bank_Account_Transactions
+                );
+        }
+
+        public List<Bank_Account_Transactions> BankAccount_Transactions_Get_Transactions_By_Bank_Account_Id_And_User_Id_And_TransactionsIDs_Array(
+            int p_Bank_Account_Id,
+            int[] p_Transcations_IDs_Array,
+            int p_User_Id_Searching_For_Bank_Account_Transactions)
+        {
+            return BankAccount_Transactions.Instance.Get_Transactions_By_Bank_Account_Id_And_User_Id_And_TransactionsIDs_Array(
+                    p_Bank_Account_Id,
+                    p_Transcations_IDs_Array,
+                    p_User_Id_Searching_For_Bank_Account_Transactions
+                );
+        }
+
+        public bool BankAccount_Transactions_Delete_Transaction(
+            int p_Bank_Account_Id,
+            int p_Bank_Account_Transaction_Id,
+            int p_Updating_User_Id
+            )
+        {
+            return BankAccount_Transactions.Instance.Delete_Bank_Account_Transaction(
+                    p_Bank_Account_Id,
+                    p_Bank_Account_Transaction_Id,
+                    p_Updating_User_Id
+                );
+        }
+
+        public List<Bank_Accounts> BankAccounts_Get_Search(int p_User_Id)
+        {
+            return Bank_Accounts_Operations.Instance.Get_Search(p_User_Id);
+        }
+
+        public List<Bank_Accounts> Get_All_By_User_Id(int p_User_Id_To_Return_Bank_Accounts, int p_Authenticated_User_ID)
+        {
+            return this.BankAccounts_Get_Search(p_User_Id_To_Return_Bank_Accounts);
+        }
+
+        public Bank_Accounts BankAccounts_Get_Bank_Account_Details(int p_Bank_Account_Id, int p_User_Id_Bank_Account_Owner)
+        {
+            return Bank_Accounts_Operations.Instance.Get_Bank_Account_Details_By_Bank_Account_Id(p_Bank_Account_Id, p_User_Id_Bank_Account_Owner);
+        }
+
+        public Bank_Accounts BankAccounts_Insert_New_Bank_Account_Details(
+            string p_Bank_Name, string p_Bank_Number,
+            string p_Branch_Name, string p_Branch_Number,
+            string p_Account_Number, string p_Account_Name,
+            string p_IBAN, byte? p_Currency_Id,
+            DateTime? p_Opened_Account_DateTime, short? p_Branch_Country_Id,
+            short? p_Branch_State_Id, string p_Branch_City,
+            string p_Branch_Address_Description, string p_Branch_ZipCode,
+            string p_Branch_Phone, string p_Branch_Main_Email_Address,
+            string p_Branch_Main_Contact, string p_Main_Contact_Phone_Number,
+            DateTime? p_Account_Active_From_Date, DateTime? p_Account_Active_To_Date,
+            bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
+            bool p_Is_Active,
+            int p_Creating_User_Id)
+        {
+            return Bank_Accounts_Operations.Instance.Insert_New_Bank_Account_Details(
+                p_Bank_Name, p_Bank_Number,
+                p_Branch_Name, p_Branch_Number,
+                p_Account_Number, p_Account_Name,
+                p_IBAN, p_Currency_Id,
+                p_Opened_Account_DateTime, p_Branch_Country_Id,
+                p_Branch_State_Id, p_Branch_City,
+                p_Branch_Address_Description, p_Branch_ZipCode,
+                p_Branch_Phone, p_Branch_Main_Email_Address,
+                p_Branch_Main_Contact, p_Main_Contact_Phone_Number,
+                p_Account_Active_From_Date, p_Account_Active_To_Date,
+                p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Is_Active,
+                p_Creating_User_Id);
+        }
+
+        public bool BankAccounts_Update_Bank_Account_Details(
+            int p_Bank_Account_Id,
+            string p_Bank_Name, string p_Bank_Number,
+            string p_Branch_Name, string p_Branch_Number,
+            string p_Account_Number, string p_Account_Name,
+            string p_IBAN, byte? p_Currency_Id,
+            DateTime? p_Opened_Account_DateTime, short? p_Branch_Country_Id,
+            short? p_Branch_State_Id, string p_Branch_City,
+            string p_Branch_Address_Description, string p_Branch_ZipCode,
+            string p_Branch_Phone, string p_Branch_Main_Email_Address,
+            string p_Branch_Main_Contact, string p_Main_Contact_Phone_Number,
+            DateTime? p_Account_Active_From_Date, DateTime? p_Account_Active_To_Date,
+            bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
+            bool p_Is_Active, int p_Creating_User_Id)
+        {
+            return Bank_Accounts_Operations.Instance.Update_Bank_Account_Details(
+                p_Bank_Account_Id, p_Bank_Name,
+                p_Bank_Number, p_Branch_Name, p_Branch_Number,
+                p_Account_Number, p_Account_Name,
+                p_IBAN, p_Currency_Id,
+                p_Opened_Account_DateTime, p_Branch_Country_Id,
+                p_Branch_State_Id, p_Branch_City,
+                p_Branch_Address_Description, p_Branch_ZipCode,
+                p_Branch_Phone, p_Branch_Main_Email_Address,
+                p_Branch_Main_Contact, p_Main_Contact_Phone_Number,
+                p_Account_Active_From_Date, p_Account_Active_To_Date,
+                p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
+                p_Is_Active, p_Creating_User_Id);
         }
     }
 }

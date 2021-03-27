@@ -188,6 +188,41 @@ namespace WebformsPOCDemo
             }
         }
 
+        internal static void Set_DateTime_To_TextBox_And_Label(
+            DateTime? dateTimeToSet,
+            TextBox p_TextBox_Date,
+            Label p_Label_Date)
+        {
+            if (dateTimeToSet.HasValue)
+            {
+                p_TextBox_Date.Text = dateTimeToSet.Value.ToString("dd/MM/yyyy");
+                p_Label_Date.Text = dateTimeToSet.Value.ToString("dd/MM/yyyy");
+            }
+        }
+
+        internal static DateTime? Try_Parse_DateTime_By_Current_Culture(string input)
+        {
+            DateTime? returnValue = new DateTime?();
+
+            DateTime date_Parsed = new DateTime();
+            bool parsed_Successfully = false;
+            try
+            {
+                parsed_Successfully = DateTime.TryParseExact(input, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out date_Parsed);
+            }
+            catch
+            {
+                parsed_Successfully = false;
+            }
+
+            if (parsed_Successfully)
+            {
+                returnValue = date_Parsed;
+            }
+
+            return returnValue;
+        }
+
         internal static void Set_ComboBox_Selected_Value_And_Label_Text(
             string value_To_Set_Selected, 
             DropDownList p_ComboBox_To_Set_Selected_Value,
@@ -196,11 +231,14 @@ namespace WebformsPOCDemo
         {
             if (p_ComboBox_To_Set_Selected_Value.Items.Count > 0)
             {
-                ListItem item_To_Set_Selected = p_ComboBox_To_Set_Selected_Value.Items.FindByValue(value_To_Set_Selected);
-                if (item_To_Set_Selected != null)
+                if (!string.IsNullOrEmpty(value_To_Set_Selected))
                 {
-                    p_ComboBox_To_Set_Selected_Value.SelectedValue = value_To_Set_Selected;
-                    p_Label_To_Set_Selected_Text.Text = item_To_Set_Selected.Text;
+                    ListItem item_To_Set_Selected = p_ComboBox_To_Set_Selected_Value.Items.FindByValue(value_To_Set_Selected);
+                    if (item_To_Set_Selected != null)
+                    {
+                        p_ComboBox_To_Set_Selected_Value.SelectedValue = value_To_Set_Selected;
+                        p_Label_To_Set_Selected_Text.Text = item_To_Set_Selected.Text;
+                    }
                 }
             }
         }
@@ -211,8 +249,8 @@ namespace WebformsPOCDemo
             Label p_Label_To_Set_Value
             )
         {
-            p_TextBox_To_Set_Value.Text = numeric_Value.ToString("0,#.00");
-            p_Label_To_Set_Value.Text = numeric_Value.ToString("0,#.00");
+            p_TextBox_To_Set_Value.Text = numeric_Value.ToString("#,0.##");
+            p_Label_To_Set_Value.Text = numeric_Value.ToString("#,0.##");
         }
 
        

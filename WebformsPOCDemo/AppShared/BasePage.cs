@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace WebformsPOCDemo.AppShared
 {
     public class BasePage : Page
     {
+        public const int k_Records_Per_Page = 25;
+
         protected const string k_Administrator_Permission_Type_Name = "Application_Administrator";
         protected const string k_DashboardTimeLine_Company_Employee_Permission_Type_Name = "DashboardTimeLine_Company_Employee";
         /// <summary>
@@ -146,7 +150,77 @@ namespace WebformsPOCDemo.AppShared
             }
         }
 
-    }
 
-    
+        protected void Build_Pagination_Pages(int Total_Records_Returned_From_DB, PlaceHolder ph_Pagination)
+        {
+            int Total_Pages = Total_Records_Returned_From_DB / k_Records_Per_Page;
+            if (Total_Records_Returned_From_DB % k_Records_Per_Page > 0)
+            {
+                Total_Pages++;
+            }
+
+            if (Total_Pages > 1)
+            {
+                string requestedPage = this.Request.Path;
+
+                ph_Pagination.Visible = true;
+
+                int id = int.Parse(this.Request.QueryString["id"]);
+
+                int Current_Page_Number = 1;
+                if (!string.IsNullOrEmpty(this.Request.QueryString["page"]))
+                {
+                    Current_Page_Number = int.Parse(this.Request.QueryString["page"]);
+                }
+                
+
+                if (Current_Page_Number == 1)
+                {
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).Attributes["class"] = "page-item disabled";
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).InnerHtml = "<span class=\"page-link\">Previous</span>";
+                }
+                else
+                {
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).Attributes["class"] = "page-item";
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).InnerHtml = "<a class=\"page-link\" href=\""+ requestedPage + "?id=" + id + "&page=" + (Current_Page_Number - 1) + "\">Previous</a>";
+                }
+
+                Control ph_Pagination_Links = ph_Pagination.FindControl("ph_Pagination_Links");
+
+                for (int i = 1; i <= Total_Pages; i++)
+                {
+                    HtmlGenericControl liLink = new HtmlGenericControl("li");
+                    liLink.Attributes["class"] = "page-item";
+
+                    if (i == Current_Page_Number)
+                    {
+                        liLink.InnerHtml = "<span class=\"page-link\">" + i + "<!--<span class=\"sr-only\">(current)</span>--></span>";
+                        liLink.Attributes["class"] += " active";
+                    }
+                    else
+                    {
+
+                        liLink.InnerHtml = "<a class=\"page-link\" href=\""+ requestedPage + "?id=" + id + "&page=" + i + "\">" + i + "</a>";
+                    }
+
+                    ph_Pagination_Links.Controls.Add(liLink);
+                }
+
+                if (Current_Page_Number == Total_Pages)
+                {
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).Attributes["class"] = "page-item disabled";
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).InnerHtml = "<span class=\"page-link\">Next</span>";
+                }
+                else
+                {
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).Attributes["class"] = "page-item";
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).InnerHtml = "<a class=\"page-link\" href=\"" + requestedPage + "?id=" + id + "&page=" + (Current_Page_Number + 1) + "\">Next</a>";
+                }
+            }
+            else
+            {
+                ph_Pagination.Visible = false;
+            }
+        }
+    }
 }

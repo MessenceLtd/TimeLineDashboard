@@ -26,7 +26,8 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Clients" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_clients">Clients</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Clients" CssClass="nav-link dropdown-toggle" 
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_clients">Clients</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Clients_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_clients.aspx">Clients list</a></li>
@@ -39,7 +40,8 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Suppliers" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_suppliers">Suppliers</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Suppliers" CssClass="nav-link dropdown-toggle" 
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_suppliers">Suppliers</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Suppliers_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_suppliers.aspx">Suppliers list</a></li>
@@ -52,7 +54,8 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Expenses" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_expenses">Expenses</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Expenses" CssClass="nav-link dropdown-toggle" 
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_expenses">Expenses</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Expenses_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_expenses.aspx">Expenses list</a></li>
@@ -126,8 +129,7 @@
 
             <div class="form-check form-switch">
 
-
-                <input class="form-check-input" type="checkbox" id="darkMode">
+                <input class="form-check-input" type="checkbox" id="darkMode" onkeypress="return toggleDarkModeFromKeyBoard(event)">
                 <label class="form-check-label" for="darkMode">Dark Mode</label>
             </div>
             <ul class="navbar-nav px-3">
@@ -152,19 +154,44 @@
         return localStorage.getItem(name);
     }
 
-    function toggleDarkMode(e) {
+    function toggleDarkModeFromKeyBoard(e)
+    {
+        if (e.keyCode == 13) // return key
+        {
+            toggleDarkMode();
+        }
+
+        if (e.keyCode == 32) // space key
+        {
+            e.preventDefault();
+        }
+
+        return false;
+    }
+
+    function toggleDarkMode(e)
+    {
         if (document.body.classList.contains("dark-mode")) {
             document.body.classList.remove("dark-mode");
             darkModeOn = false;
             createStorage("my_preferredMode", "light-mode");
+            document.getElementById('darkMode').checked = false;
         } else {
             document.body.classList.add("dark-mode");
             darkModeOn = true;
             createStorage("my_preferredMode", "dark-mode");
+            document.getElementById('darkMode').checked = true;
         }
     }
 
-    document.getElementById("darkMode").addEventListener("click", toggleDarkMode);
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        document.getElementById("darkMode").addEventListener('change', toggleDarkMode);
+
+    });
+
+    
+
     document.addEventListener("DOMContentLoaded", function () {
         if (readStorage("my_preferredMode")) {
             if (readStorage("my_preferredMode") == "dark-mode") {

@@ -6,11 +6,8 @@
     <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links">       
         <asp:HyperLink runat="server" Text="Add New Expense" NavigateUrl="Add_Expense.aspx"></asp:HyperLink>
     </asp:Panel>
-
-    Expenses list will go here with all the details and stuff
-    <br /><br />
     <hr />
-    <br /><br />
+    <br />
     
     <asp:UpdatePanel runat="server" ID="updatePanel_States" class="row g-2" UpdateMode="Conditional">
         <ContentTemplate>

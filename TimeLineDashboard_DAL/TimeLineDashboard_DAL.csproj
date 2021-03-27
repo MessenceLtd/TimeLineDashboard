@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="DataAccessLayerFacade.cs" />
     <Compile Include="Operations\AppPermissionTypes_Operations.cs" />
+    <Compile Include="Operations\BankAccount_Transactions_Operations.cs" />
+    <Compile Include="Operations\BankAccount_Operations.cs" />
     <Compile Include="Operations\Invoices_Operations.cs" />
     <Compile Include="Operations\InvoiceTypes_Operations.cs" />
     <Compile Include="Operations\ExpenseTypes_Operations.cs" />

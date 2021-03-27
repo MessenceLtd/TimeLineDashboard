@@ -171,8 +171,31 @@
     }
 }
 
+.navbar-dark .navbar-nav .show > .nav-link
+{
+    white-space:nowrap;
+}
 
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .nav-link.active {
+    font-weight: bold;
+}
 
+.navbar-nav .nav-item
+{
+    letter-spacing:0.5px;
+}
+
+.pagination {
+    padding-top: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden
+{
+    display:none;
+}
 
 
 

@@ -42,7 +42,15 @@ namespace WebformsPOCDemo
                         string permission_Type_Code = permission_Type_Details.App_Permission_Type_Code;
                         FormsAuthentication.SetAuthCookie(user_DB_Details.User_Id + ":" + permission_Type_Code, false);
                         this.Response.Cookies.Set(new HttpCookie("Logged_In_User_Full_Name", user_DB_Details.FullName_With_Email));
-                        this.Response.Redirect("default.aspx");
+
+                        if ( string.IsNullOrEmpty( this.Request.QueryString["ReturnUrl"]))
+                        {
+                            this.Response.Redirect("default.aspx");
+                        }
+                        else
+                        {
+                            this.Response.Redirect(this.Request.QueryString["ReturnUrl"]);
+                        }
                     }
                 }
                 else

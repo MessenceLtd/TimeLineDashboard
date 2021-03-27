@@ -31,11 +31,12 @@ namespace TimeLineDashboard.DAL
                     sbSql_Select.Append(",");
 
                 sbSql_Select.Append(spQueryParams[i].ParameterName);
+                if (spQueryParams[i].Direction == ParameterDirection.Output)
+                    sbSql_Select.Append(" OutPut");
             }
 
             using (SqlConnection scConnection = new SqlConnection(ConnectionString))
             {
-                //SqlConnection scConnection = new SqlConnection(ConnectionString);
                 using (SqlCommand scCommand = new SqlCommand(sbSql_Select.ToString(), scConnection))
                 {
                     // set the parameters
@@ -44,10 +45,7 @@ namespace TimeLineDashboard.DAL
 
                     using (SqlDataAdapter sdaAdapt = new SqlDataAdapter())
                     { 
-                        sdaAdapt.SelectCommand = scCommand;
-                    
-                        //if (scConnection.State.Equals(ConnectionState.Closed))
-                        //    scConnection.Open();
+                        sdaAdapt.SelectCommand = scCommand;                   
 
                         DataSet dsSpSelect = new DataSet();
                         sdaAdapt.Fill(dsSpSelect);
@@ -98,6 +96,8 @@ namespace TimeLineDashboard.DAL
                     sbSql_Select.Append(",");
 
                 sbSql_Select.Append(spQueryParams[i].ParameterName);
+                if (spQueryParams[i].Direction == ParameterDirection.Output)
+                    sbSql_Select.Append(" OutPut");
             }
 
             using (SqlConnection scConnection = new SqlConnection(ConnectionString))

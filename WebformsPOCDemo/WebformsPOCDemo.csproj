@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Add_BankAccount.aspx" />
     <Content Include="Add_Client.aspx" />
     <Content Include="Add_Document.aspx" />
     <Content Include="Add_Expense.aspx" />
@@ -87,6 +88,12 @@
     <Content Include="CSS\images\ui-icons_d8e7f3_256x240.png" />
     <Content Include="CSS\images\ui-icons_f9bd01_256x240.png" />
     <Content Include="CSS\jquery-ui.theme.css" />
+    <Content Include="Images\addmore2.png" />
+    <Content Include="Images\addmore.png" />
+    <Content Include="Images\cancel.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\viewdetails2.png" />
+    <Content Include="Images\save.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\viewdetails.png" />
     <Content Include="JS\Common.js" />
@@ -102,6 +109,8 @@
     <Content Include="JS\jquery-ui.js" />
     <Content Include="list_Suppliers.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="manage_BankAccount.aspx" />
+    <Content Include="manage_BankAccountTransactions.aspx" />
     <Content Include="manage_Client.aspx" />
     <Content Include="manage_Document.aspx" />
     <Content Include="manage_Expense.aspx" />
@@ -123,6 +132,13 @@
     <Content Include="wuc_Top_Menu.ascx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_BankAccount.aspx.cs">
+      <DependentUpon>Add_BankAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_BankAccount.aspx.designer.cs">
+      <DependentUpon>Add_BankAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Add_Client.aspx.cs">
       <DependentUpon>Add_Client.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,6 +233,20 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_BankAccount.aspx.cs">
+      <DependentUpon>manage_BankAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_BankAccount.aspx.designer.cs">
+      <DependentUpon>manage_BankAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_BankAccountTransactions.aspx.cs">
+      <DependentUpon>manage_BankAccountTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_BankAccountTransactions.aspx.designer.cs">
+      <DependentUpon>manage_BankAccountTransactions.aspx</DependentUpon>
     </Compile>
     <Compile Include="manage_Client.aspx.cs">
       <DependentUpon>manage_Client.aspx</DependentUpon>
