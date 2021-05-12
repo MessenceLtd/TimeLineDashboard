@@ -72,7 +72,8 @@ namespace TimeLineDashboard_BLL
         {
             string azure_Uploaded_File_Blob_Reference_To_Return = "";
 
-            string FileName_For_Azure = Path.GetFileNameWithoutExtension(p_File_Name) + "-" + Guid.NewGuid().ToString() + Path.GetExtension(p_File_Name);
+            //string FileName_For_Azure = Path.GetFileNameWithoutExtension(p_File_Name) + "-" + Guid.NewGuid().ToString() + Path.GetExtension(p_File_Name);
+            string FileName_For_Azure = Guid.NewGuid().ToString() + Path.GetExtension(p_File_Name);
 
             try
             {

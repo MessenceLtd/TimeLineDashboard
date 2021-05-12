@@ -199,8 +199,7 @@ namespace WebformsPOCDemo
                         p_User_Comments, p_Original_File_Name, p_File_Content_To_Save_In_Azure,
                         p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                         p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
-                        p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
-                        p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
+                        p_Record_Created_By_User_Id, base.Authenticated_Permission_Type,
                         p_Is_Active
                         );
 

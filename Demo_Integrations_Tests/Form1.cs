@@ -85,12 +85,12 @@ namespace Demo_Integrations_Tests
             string file_Name = this.textbox_SelectedFilePath.Text;
             byte[] file_Content = File.ReadAllBytes(this.textbox_SelectedFilePath.Text);
 
-            bool success = Business_Logic_Layer_Facade.Instance.Upload_File_To_Azure(
+            string success_Block_Blob_Ref = Business_Logic_Layer_Facade.Instance.Upload_File_To_Azure(
                 file_Content, 
                 file_Name, 
                 azure_test_container);
 
-            if (success)
+            if (!string.IsNullOrEmpty(success_Block_Blob_Ref))
             {
                 this.textBox1.Text = "Process finished! ";
             }

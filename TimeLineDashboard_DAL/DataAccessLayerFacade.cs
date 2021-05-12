@@ -390,8 +390,7 @@ namespace TimeLineDashboard.DAL
             string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
-            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC,
-            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
+            int p_Record_Created_By_User_Id, 
             bool p_Is_Active
             )
         {
@@ -408,8 +407,7 @@ namespace TimeLineDashboard.DAL
                 p_User_Comments, p_Original_File_Name, p_Azure_Block_Blob_Reference,
                 p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
-                p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
-                p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
+                p_Record_Created_By_User_Id, 
                 p_Is_Active
                 );
         }

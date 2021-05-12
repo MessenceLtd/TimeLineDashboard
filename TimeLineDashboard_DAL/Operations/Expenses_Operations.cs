@@ -133,8 +133,7 @@ namespace TimeLineDashboard.DAL.Operations
             string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
-            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC, 
-            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
+            int p_Record_Created_By_User_Id, 
             bool p_Is_Active 
             )
         {
@@ -189,12 +188,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spIs_Available_For_Download_For_Followers_Users = new SqlParameter("@Is_Available_For_Download_For_Followers_Users", SqlDbType.Bit);
 
             SqlParameter spRecord_Created_By_User_Id = new SqlParameter("@Record_Created_By_User_Id", SqlDbType.Int);
-            SqlParameter spRecord_Creation_DateTime_UTC = new SqlParameter("@Record_Creation_DateTime_UTC", SqlDbType.DateTime);
-            SqlParameter spRecord_Last_Updated_By_User_Id = new SqlParameter("@Record_Last_Updated_By_User_Id", SqlDbType.Int);
-            SqlParameter spRecord_Last_Updated_DateTime_UTC = new SqlParameter("@Record_Last_Updated_DateTime_UTC", SqlDbType.DateTime);
-            
             SqlParameter spIs_Active = new SqlParameter("@Is_Active", SqlDbType.Bit);
-
 
             spUser_Id.Value = p_User_Id;
             spSupplier_Id.Value = p_Supplier_Id;
@@ -265,9 +259,6 @@ namespace TimeLineDashboard.DAL.Operations
             spIs_Available_For_Download_For_Followers_Users.Value = p_Is_Available_For_Download_For_Followers_Users;
 
             spRecord_Created_By_User_Id.Value = p_Record_Created_By_User_Id;
-            spRecord_Creation_DateTime_UTC.Value = p_Record_Creation_DateTime_UTC;
-            spRecord_Last_Updated_By_User_Id.Value = p_Record_Last_Updated_By_User_Id;
-            spRecord_Last_Updated_DateTime_UTC.Value = p_Record_Last_Updated_DateTime_UTC;
             spIs_Active.Value = p_Is_Active;
 
             object new_Expense_Id = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult("p_TLBoard_Insert_Expense_Details",
@@ -289,8 +280,7 @@ namespace TimeLineDashboard.DAL.Operations
                     spOriginal_File_Name, spAzure_Block_Blob_Reference,
                     spIs_Visible_To_Anonymous_Users, spIs_Available_For_Download_For_Anonymous_Users,
                     spIs_Visible_To_Followers_Users, spIs_Available_For_Download_For_Followers_Users,
-                    spRecord_Created_By_User_Id, spRecord_Creation_DateTime_UTC, 
-                    spRecord_Last_Updated_By_User_Id, spRecord_Last_Updated_DateTime_UTC,
+                    spRecord_Created_By_User_Id, 
                     spIs_Active
                 });
 

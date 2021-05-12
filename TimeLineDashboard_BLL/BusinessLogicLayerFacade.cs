@@ -109,6 +109,19 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.Users_Get_Details_By_User_Id(p_User_Id, p_Authenticated_User_Id);
         }
 
+        private void Validate_Operation_For_Authenticated_User(
+            int p_User_Id,
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission_Type)
+        {
+            if (p_User_Id != p_Authenticated_User_Id &&
+                p_Authenticated_User_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.Application_Administrator &&
+                p_Authenticated_User_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.DashboardTimeLine_Company_Employee)
+            {
+                throw new Exception("Permission Error! The authenticated user is not permitted to get the user details");
+            }
+        }
+
         public List<Clients> Clients_Get_All_By_User_Id(int p_Selected_User_Id_To_Return_Clients, int p_Authenticated_User_ID)
         {
             return Data_Access_Layer_Facade.Instance.Clients_Get_All_By_User_Id(p_Selected_User_Id_To_Return_Clients, p_Authenticated_User_ID);
@@ -753,15 +766,45 @@ namespace TimeLineDashboard.BusinessLogicLayer
             string p_Original_File_Name, byte[] p_File_Content_To_Save_In_Azure,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
-            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC,
-            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
+            int p_Record_Created_By_User_Id, 
+            App_Permission_Type p_Creating_User_Permission, 
             bool p_Is_Active
             )
         {
             Expenses new_Created_Expenses_To_Return = null;
 
+            this.Validate_Operation_For_Authenticated_User(p_User_Id, p_Record_Created_By_User_Id, p_Creating_User_Permission);
+
             // Try to save in azure and if successfull, get the Azure_Block_Blob_Reference 
-            string p_Azure_Block_Blob_Reference = "";
+            string p_Azure_Block_Blob_Reference = string.Empty;
+            bool l_Process_Tried_To_Upload_File_And_Failed = false;
+
+            if (p_File_Content_To_Save_In_Azure!= null && p_File_Content_To_Save_In_Azure.Length>0)
+            {
+                string l_Azure_Block_Blob_Uploaded_Reference
+                    = this.Upload_File_To_Azure(
+                        p_File_Content_To_Save_In_Azure, 
+                        p_Original_File_Name,
+                        p_User_Id,
+                        p_Record_Created_By_User_Id, 
+                        p_Creating_User_Permission );
+
+                if (!string.IsNullOrEmpty(l_Azure_Block_Blob_Uploaded_Reference))
+                {
+                    // File uploaded to azure successfully
+                    p_Azure_Block_Blob_Reference = l_Azure_Block_Blob_Uploaded_Reference;
+                }
+                else
+                {
+                    // Azure upload process has failed. The user should get an alert and insert process should be stopped.
+                    l_Process_Tried_To_Upload_File_And_Failed = true;
+                }
+            }
+
+            if (l_Process_Tried_To_Upload_File_And_Failed)
+            {
+                throw new Exception("Failed to upload the file :( Please try again later or contact us!");
+            }
 
             new_Created_Expenses_To_Return =  Data_Access_Layer_Facade.Instance.Expenses_Insert_New_Expense(
                 p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
@@ -776,9 +819,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_User_Comments, p_Original_File_Name, p_Azure_Block_Blob_Reference,
                 p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
-                p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
-                p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
-                p_Is_Active
+                p_Record_Created_By_User_Id, p_Is_Active
                 );
 
             return new_Created_Expenses_To_Return;
@@ -1333,25 +1374,40 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Is_Active, p_Creating_User_Id);
         }
         
-        public bool Upload_File_To_Azure(
+        public string Upload_File_To_Azure(
             byte[] p_File_Content,
             string p_File_Name,
             string p_Azure_Container_Name)
         {
-            bool success = false;
-
             string new_Blob_Reference = 
                 Azure_Integration.Instance.Upload_File_To_Azure_Storage_Blob_Container(
                     p_File_Content, 
                     p_File_Name, 
                     p_Azure_Container_Name);
 
-            if (!string.IsNullOrEmpty(new_Blob_Reference))
+            return new_Blob_Reference;
+        }
+
+        public string Upload_File_To_Azure(
+            byte[] p_File_Content,
+            string p_File_Name,
+            int p_Upload_For_User_Id , 
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission
+            )
+        {
+            string l_Uploaded_Azure_Block_Blob_Reference = string.Empty;
+
+            var user_Details = this.Users_Get_Details_By_User_Id(p_Upload_For_User_Id, p_Authenticated_User_Id, p_Authenticated_User_Permission);
+
+            if (user_Details != null)
             {
-                success = true;
+                string l_User_Azure_Container_Reference = user_Details.Azure_Container_Ref;
+
+                l_Uploaded_Azure_Block_Blob_Reference = this.Upload_File_To_Azure(p_File_Content, p_File_Name, l_User_Azure_Container_Reference);
             }
 
-            return success;
+            return l_Uploaded_Azure_Block_Blob_Reference;
         }
 
         public Expense_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI 
