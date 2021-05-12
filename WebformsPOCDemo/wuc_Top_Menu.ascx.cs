@@ -102,5 +102,16 @@ namespace WebformsPOCDemo
             FormsAuthentication.SignOut();
             this.Response.Redirect("login.aspx");
         }
+
+        protected void button_Language_Swap_Event_Click(object sender, EventArgs e)
+        {
+            string current_Requested_Page_Url = this.Request.Url.PathAndQuery.ToString();
+
+            string new_Lanauge_Code = this.hidden_New_Language_To_Swap.Value;
+
+            Common_Tools.Set_Language_Cookie(new_Lanauge_Code);
+
+            Response.Redirect(current_Requested_Page_Url);
+        }
     }
 }

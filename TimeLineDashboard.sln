@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLineDashboard_DAL", "Ti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLineDashboard_Shared", "TimeLineDashboard_Shared\TimeLineDashboard_Shared.csproj", "{79FB351A-9FF8-4C18-8D3A-DFF3BDF4381D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_Integrations_Tests", "Demo_Integrations_Tests\Demo_Integrations_Tests.csproj", "{2F407BCF-DF84-46C9-8918-7022AA0E04D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{79FB351A-9FF8-4C18-8D3A-DFF3BDF4381D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79FB351A-9FF8-4C18-8D3A-DFF3BDF4381D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79FB351A-9FF8-4C18-8D3A-DFF3BDF4381D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F407BCF-DF84-46C9-8918-7022AA0E04D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F407BCF-DF84-46C9-8918-7022AA0E04D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F407BCF-DF84-46C9-8918-7022AA0E04D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F407BCF-DF84-46C9-8918-7022AA0E04D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

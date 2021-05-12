@@ -94,14 +94,19 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
 
-        public Users Users_Get_Details_By_User_Id(int User_Id)
+        public Users Users_Get_Details_By_User_Id(
+            int p_User_Id, 
+            int p_Authenticated_User_Id, 
+            App_Permission_Type p_Authenticated_User_Permission_Type)
         {
-            throw new NotImplementedException();
-        }
+            if (p_User_Id != p_Authenticated_User_Id  &&
+                p_Authenticated_User_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.Application_Administrator &&
+                p_Authenticated_User_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.DashboardTimeLine_Company_Employee ) 
+            {
+                throw new Exception("Permission Error! The authenticated user is not permitted to get the user details");
+            }
 
-        public Users Users_Update_User_Details(Users p_New_User_Details, int p_Updating_User_Id)
-        {
-            throw new NotImplementedException();
+            return Data_Access_Layer_Facade.Instance.Users_Get_Details_By_User_Id(p_User_Id, p_Authenticated_User_Id);
         }
 
         public List<Clients> Clients_Get_All_By_User_Id(int p_Selected_User_Id_To_Return_Clients, int p_Authenticated_User_ID)
@@ -112,7 +117,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         public Users Users_Insert_New_User_Administrative_Registration_Process(
             string p_Username, string p_Password, byte p_App_Permission_Type_Id, string p_First_Name, string p_Middle_Name,
             string p_Last_Name, string p_Email, short p_Country_Id, short? p_State_Id,
-            string p_City, string p_Address, string p_ZipCode, string p_Mobile_Phone, string p_Additional_Phone_Number,
+            string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id, string p_Mobile_Phone, string p_Additional_Phone_Number,
             DateTime p_BirthDate, byte p_Gender, string p_Heard_About_Application_From, string p_Our_Administrative_Side_Notes,
             int p_Logged_In_Administrative_User_Id)
         {
@@ -126,7 +131,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
             new_Registered_User_To_Return = Data_Access_Layer_Facade.Instance.Users_Insert_New_User_Administrative_Registration_Process(
                 p_Username, l_Encrypted_Password, l_Encryption_Random_Salt, p_App_Permission_Type_Id, p_First_Name, p_Middle_Name,
-                p_Last_Name, p_Email, p_Country_Id, p_State_Id, p_City, p_Address, p_ZipCode, p_Mobile_Phone, p_Additional_Phone_Number,
+                p_Last_Name, p_Email, p_Country_Id, p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id, p_Mobile_Phone, p_Additional_Phone_Number,
                 p_BirthDate, p_Gender, p_Heard_About_Application_From, p_Our_Administrative_Side_Notes,
                 p_Logged_In_Administrative_User_Id);
 
@@ -146,6 +151,11 @@ namespace TimeLineDashboard.BusinessLogicLayer
         public Currencies Currencies_Get_By_Id(byte p_Currency_Id)
         {
             return Data_Access_Layer_Facade.Instance.Currencies_Get_By_Id(p_Currency_Id);
+        }
+
+        public Currencies Currencies_Get_By_Code(string p_Currency_Code)
+        {
+            return Data_Access_Layer_Facade.Instance.Currencies_Get_By_Code(p_Currency_Code);
         }
 
         public ClientType ClientTypes_Get_By_Id(short p_Client_Type_Id)
@@ -246,9 +256,35 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return updated_Successfully;
         }
 
-        public bool Users_Delete_By_User_Id(int User_Id)
+        public bool Users_Update_User_Details(
+            int p_User_Id, string p_Username, string p_First_Name, string p_Middle_Name, 
+            string p_Last_Name, string p_Email, short p_Country_Id, short? p_State_Id, 
+            string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id, string p_Mobile_Phone, 
+            string p_Additional_Phone_Number, DateTime? p_Birth_Date, byte? p_Gender, 
+            DateTime? p_Registration_Date, string p_Azure_Container_Ref, 
+            string p_Heard_About_Application_From, string p_Our_Administrative_Side_Notes, 
+            bool p_Is_Active, int p_Authenticated_User_ID, App_Permission_Type authenticated_Permission_Type)
         {
-            throw new NotImplementedException();
+            bool updated_Successfully = false;
+
+            if (p_User_Id != p_Authenticated_User_ID && 
+                authenticated_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.DashboardTimeLine_Company_Employee &&
+                authenticated_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.Application_Administrator )
+            {
+                throw new Exception("Permission Error! The authenticated user is not permitted to get the user details");
+            }
+
+            updated_Successfully = Data_Access_Layer_Facade.Instance.Users_Update_User_Details(
+                p_User_Id, p_Username, p_First_Name, p_Middle_Name,
+                p_Last_Name, p_Email, p_Country_Id, p_State_Id,
+                p_City, p_Address, p_ZipCode, p_Default_Currency_Id, p_Mobile_Phone,
+                p_Additional_Phone_Number, p_Birth_Date, p_Gender,
+                p_Registration_Date, p_Azure_Container_Ref,
+                p_Heard_About_Application_From, p_Our_Administrative_Side_Notes,
+                p_Is_Active, p_Authenticated_User_ID
+            );
+
+            return updated_Successfully;
         }
 
         public List<States> States_GetStates_By_Country_Id(short Country_Id)
@@ -317,7 +353,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
         public Suppliers Suppliers_Insert_New_Supplier_Administrative_Registration_Process(
             int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
-            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency,
+            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency,decimal? p_Default_Vat_Percentage,
             string p_Telephone, string p_Mobile_Phone, short p_Supplier_Type_Id,
             string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
@@ -327,7 +363,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         {
             return Data_Access_Layer_Facade.Instance.Suppliers_Insert_New_Client_Administrative_Registration_Process(
                 p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency,
+                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency, p_Default_Vat_Percentage,
                 p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
                 p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
                 p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -497,7 +533,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         public bool Suppliers_Update_Supplier_Details(
             int p_Supplier_Id, string p_Company_Name, string p_Website_URL,
             short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
-            byte? p_Default_Currency_Id, string p_Telephone, string p_Mobile_Phone,
+            byte? p_Default_Currency_Id, decimal? p_Default_Vat_Percentage, string p_Telephone, string p_Mobile_Phone,
             short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
@@ -506,7 +542,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         {
             return Data_Access_Layer_Facade.Instance.Suppliers_Update_Supplier_Details(
                 p_Supplier_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id,
+                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id, p_Default_Vat_Percentage,
                 p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
                 p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
                 p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -714,7 +750,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
             string p_Invoice_Content_Long_Description,
             string p_User_Description,
             string p_User_Comments,
-            string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
+            string p_Original_File_Name, byte[] p_File_Content_To_Save_In_Azure,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
             int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC,
@@ -722,7 +758,12 @@ namespace TimeLineDashboard.BusinessLogicLayer
             bool p_Is_Active
             )
         {
-            return Data_Access_Layer_Facade.Instance.Expenses_Insert_New_Expense(
+            Expenses new_Created_Expenses_To_Return = null;
+
+            // Try to save in azure and if successfull, get the Azure_Block_Blob_Reference 
+            string p_Azure_Block_Blob_Reference = "";
+
+            new_Created_Expenses_To_Return =  Data_Access_Layer_Facade.Instance.Expenses_Insert_New_Expense(
                 p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
                 p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
                 p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
@@ -739,6 +780,8 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
                 p_Is_Active
                 );
+
+            return new_Created_Expenses_To_Return;
         }
 
         public Expenses Expenses_Get_By_Id(int p_Expense_Record_Id, int p_User_Id_Expense_Owner)
@@ -939,6 +982,40 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 );
         }
 
+        public bool BankAccount_Transactions_Update_Transaction_Details(
+            int p_Bank_Account_Transaction_Id,
+            decimal p_Transaction_Account_Balance,
+            DateTime p_Transaction_Actual_DateTime,
+            decimal p_Positive_Amount_Entered,
+            decimal p_Negative_Amount_Paid,
+            DateTime? p_Transaction_Value_DateTime,
+            string p_Reference_Number,
+            string p_Transaction_Bank_Description,
+            string p_Transaction_Bank_Inner_Reference_Code,
+            string p_User_Description,
+            string p_User_Comments,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            int p_Updating_User_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.BankAccount_Transactions_Update_Transaction_Details(
+                    p_Bank_Account_Transaction_Id,
+                    p_Transaction_Account_Balance,
+                    p_Transaction_Actual_DateTime,
+                    p_Positive_Amount_Entered,
+                    p_Negative_Amount_Paid,
+                    p_Transaction_Value_DateTime,
+                    p_Reference_Number,
+                    p_Transaction_Bank_Description,
+                    p_Transaction_Bank_Inner_Reference_Code,
+                    p_User_Description,
+                    p_User_Comments,
+                    p_Is_Visible_To_Anonymous_Users,
+                    p_Is_Visible_To_Followers_Users,
+                    p_Updating_User_Id
+                );
+        }
+
         public Bank_Account_Transactions_Response_For_UI BankAccount_Transactions_Get_Transactions_By_Bank_Account_Id_And_User_Id(
             int p_Page_Number,
             int p_Rows_Per_Page,
@@ -1043,119 +1120,6 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
             transactions_Table.Rows.Add(new_Transaction_Row);
         }
-
-        public int BankAccount_Transactions_Save_Transactions_From_UI_To_Database(
-            int p_Bank_Account_Id,
-            List<Bank_Account_Transactions_To_DB_Sync_From_UI> transactions_From_UI,
-            int p_Saving_User_Id
-            )
-        {
-            int successfully_Processed_Transactions = 0;
-
-            transactions_From_UI.Sort((x, y) => x.Bank_Account_Transaction_Id.CompareTo(y.Bank_Account_Transaction_Id));
-            // Todo: Probably i need to sort the negative transactionIds seperatly to support same day transactions
-
-            int[] bankAccount_Transactions_Ids = transactions_From_UI.Where(t => t.Bank_Account_Transaction_Id > 0).Select(t => t.Bank_Account_Transaction_Id).ToArray();
-            // Select the bankAccountsTransactions In the database to compare values to know if to actually update the records in the database.
-            List<Bank_Account_Transactions> transactions_To_Check_If_Updated = 
-                this.BankAccounts_Transactions_Get_Transactions_By_Transactions_ArrayOfIds(p_Bank_Account_Id, bankAccount_Transactions_Ids, p_Saving_User_Id);
-
-            for (int i = 0; i < transactions_From_UI.Count; i++)
-            {
-                Bank_Account_Transactions_To_DB_Sync_From_UI transaction_To_DB_Sync_From_UI = transactions_From_UI[i];
-
-                if (transaction_To_DB_Sync_From_UI.Is_New_Record)
-                {
-                    var newTransaction = this.BankAccount_Transactions_Insert_New_Transaction_Details(
-                        p_Bank_Account_Id,
-                        transaction_To_DB_Sync_From_UI.Transaction_Account_Balance,
-                        transaction_To_DB_Sync_From_UI.Transaction_Actual_DateTime,
-                        transaction_To_DB_Sync_From_UI.Positive_Amount_Entered,
-                        transaction_To_DB_Sync_From_UI.Negative_Amount_Paid,
-                        transaction_To_DB_Sync_From_UI.Transaction_Value_DateTime,
-                        transaction_To_DB_Sync_From_UI.Reference_Number,
-                        transaction_To_DB_Sync_From_UI.Transaction_Bank_Description,
-                        transaction_To_DB_Sync_From_UI.Transaction_Bank_Inner_Reference_Code,
-                        transaction_To_DB_Sync_From_UI.Is_Visible_To_Anonymous_Users,
-                        transaction_To_DB_Sync_From_UI.Is_Visible_To_Followers_Users,
-                        p_Saving_User_Id
-                        );
-
-                    if (newTransaction.Bank_Account_Transaction_Id > 0)
-                    {
-                        successfully_Processed_Transactions++;
-                    }
-                }
-                else
-                {
-                    if (!transaction_To_DB_Sync_From_UI.Is_Deleted)
-                    {
-                        var transaction_Details_In_Database = transactions_To_Check_If_Updated.Single(t => t.Bank_Account_Transaction_Id == transaction_To_DB_Sync_From_UI.Bank_Account_Transaction_Id);
-
-                        bool transaction_Should_Be_Updated = false;
-
-                        if (transaction_Details_In_Database.Transaction_Account_Balance != transaction_To_DB_Sync_From_UI.Transaction_Account_Balance
-                             || transaction_Details_In_Database.Transaction_Actual_DateTime != transaction_To_DB_Sync_From_UI.Transaction_Actual_DateTime
-                             || transaction_Details_In_Database.Positive_Amount_Entered != transaction_To_DB_Sync_From_UI.Positive_Amount_Entered
-                             || transaction_Details_In_Database.Negative_Amount_Paid != transaction_To_DB_Sync_From_UI.Negative_Amount_Paid
-                             || transaction_Details_In_Database.Transaction_Value_DateTime != transaction_To_DB_Sync_From_UI.Transaction_Value_DateTime
-                             || transaction_Details_In_Database.Reference_Number != transaction_To_DB_Sync_From_UI.Reference_Number
-                             || transaction_Details_In_Database.Transaction_Bank_Description != transaction_To_DB_Sync_From_UI.Transaction_Bank_Description
-                             || transaction_Details_In_Database.Transaction_Bank_Inner_Reference_Code != transaction_To_DB_Sync_From_UI.Transaction_Bank_Inner_Reference_Code
-                             || transaction_Details_In_Database.Is_Visible_To_Anonymous_Users != transaction_To_DB_Sync_From_UI.Is_Visible_To_Anonymous_Users
-                             || transaction_Details_In_Database.Is_Visible_To_Followers_Users != transaction_To_DB_Sync_From_UI.Is_Visible_To_Followers_Users
-                             )
-                        {
-                            transaction_Should_Be_Updated = true;
-                        }
-
-                        if (transaction_Should_Be_Updated)
-                        {
-                            bool updated_Successfully = this.BankAccount_Transactions_Update_Transaction_Details(
-                                transaction_To_DB_Sync_From_UI.Bank_Account_Transaction_Id,
-                                transaction_To_DB_Sync_From_UI.Transaction_Account_Balance,
-                                transaction_To_DB_Sync_From_UI.Transaction_Actual_DateTime,
-                                transaction_To_DB_Sync_From_UI.Positive_Amount_Entered,
-                                transaction_To_DB_Sync_From_UI.Negative_Amount_Paid,
-                                transaction_To_DB_Sync_From_UI.Transaction_Value_DateTime,
-                                transaction_To_DB_Sync_From_UI.Reference_Number,
-                                transaction_To_DB_Sync_From_UI.Transaction_Bank_Description,
-                                transaction_To_DB_Sync_From_UI.Transaction_Bank_Inner_Reference_Code,
-                                transaction_To_DB_Sync_From_UI.Is_Visible_To_Anonymous_Users,
-                                transaction_To_DB_Sync_From_UI.Is_Visible_To_Followers_Users,
-                                p_Saving_User_Id
-                                );
-
-                            if (updated_Successfully)
-                            {
-                                successfully_Processed_Transactions++;
-                            }
-                        }
-                        else
-                        {
-                            // The transaction is the same as in the database so no need to update it. 
-                            successfully_Processed_Transactions++;
-                        }
-                    }
-                    else
-                    {
-                        // The transaction got deleted. Mark it as deleted in the DB..
-                        if (this.BankAccount_Transactions_Delete_Transaction(
-                            p_Bank_Account_Id,
-                            transaction_To_DB_Sync_From_UI.Bank_Account_Transaction_Id,
-                            p_Saving_User_Id
-                            ))
-                        {
-                            successfully_Processed_Transactions++;
-                        }
-                    }
-
-                }
-            }
-
-            return successfully_Processed_Transactions;
-        }
-
 
         public int BankAccount_Transactions_Save_Transactions_From_UI_To_Database(
             int p_Bank_Account_Id,
@@ -1368,5 +1332,264 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
                 p_Is_Active, p_Creating_User_Id);
         }
-    }
+        
+        public bool Upload_File_To_Azure(
+            byte[] p_File_Content,
+            string p_File_Name,
+            string p_Azure_Container_Name)
+        {
+            bool success = false;
+
+            string new_Blob_Reference = 
+                Azure_Integration.Instance.Upload_File_To_Azure_Storage_Blob_Container(
+                    p_File_Content, 
+                    p_File_Name, 
+                    p_Azure_Container_Name);
+
+            if (!string.IsNullOrEmpty(new_Blob_Reference))
+            {
+                success = true;
+            }
+
+            return success;
+        }
+
+        public Expense_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI 
+            Expenses_Get_AutoComplete_Suggestion_Based_On_Uploaded_FileName(
+                string p_Uploaded_File_Name, 
+                int p_User_Id, 
+                int p_Authenticated_User_Id)
+        {
+            Expense_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI suggestions_To_Return
+                = new Expense_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI();
+
+            // The following formats are supported:
+            /*
+                14.04.2021 - Total 44.88 nis - pelephone - mobile services for 15.03.2021 - 14.04.2021.pdf
+                18.02.2021 1825 - Total 273.91 nis - Mega Kimonaut Ltd - Groceries food and general items.pdf
+            */
+
+            // Algorithm description:
+            /*
+                1) Try to extract date from the first part
+                2) If date extraction passed -- try to extract total value
+                3) If total value extracted try to extract supplier reference (Search for a supplier based on the first words until 1 supplier is found)
+                4) If there is more content after the found supplier - use it as decription response
+                    If a supplier was not found, use the description - if there is any.
+                
+                For the vat value / total amounts -- If a date and a supplier was extracted, Use the supplier's country/state vat value. 
+                If no supplier was found, Use the default vat value/totals from the user's country 
+                If a currency code was found in step 2 of the total amount extraction -- use this currency. 
+                If a currency was not detected, Use the default currency of the user
+             */
+            string step_Description_For_Exception_Logging = "Start";
+            try
+            {
+                // 1) Try to extract date from the first part
+                step_Description_For_Exception_Logging = "Date extraction";
+                string date_String_Extracted =
+                    p_Uploaded_File_Name.Substring(0, p_Uploaded_File_Name.IndexOf("-"));
+
+                // Check if the date_String contains hours/minutes
+                string hours_String_Extracted = "";
+                string minutes_String_Extracted = "";
+                if (date_String_Extracted.Length > 12)
+                {
+                    if (date_String_Extracted.IndexOf(" ") > -1 )
+                    { 
+                        hours_String_Extracted = date_String_Extracted.Substring(date_String_Extracted.IndexOf(" ")+1, 2);
+                        minutes_String_Extracted = date_String_Extracted.Substring(date_String_Extracted.IndexOf(" ")+3, 2);
+
+                        date_String_Extracted = date_String_Extracted.Substring(0, date_String_Extracted.IndexOf(" ")+1).Trim();
+                    }
+                }
+
+                if (string.IsNullOrEmpty(hours_String_Extracted) || string.IsNullOrEmpty(minutes_String_Extracted))
+                {
+                    hours_String_Extracted = "0";
+                    minutes_String_Extracted = "0";
+                }
+
+                step_Description_For_Exception_Logging = "Date extraction - Parsing date as dd.MM.yyyy";
+                DateTime parsedDate = DateTime.ParseExact(date_String_Extracted, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None);
+
+                parsedDate = parsedDate.AddHours(double.Parse(hours_String_Extracted));
+                parsedDate = parsedDate.AddMinutes(double.Parse(minutes_String_Extracted));
+
+                suggestions_To_Return.Expense_Invoice_DateTime = parsedDate;
+            }
+            catch (Exception exc)
+            {
+
+            }
+
+            // 2) If date extraction passed -- try to extract total value
+            if (suggestions_To_Return.Expense_Invoice_DateTime.HasValue)
+            {
+                try
+                {
+                    step_Description_For_Exception_Logging = "Extracting Total Value + currency";
+
+                    int l_Total_Value_Expression_From_Index = p_Uploaded_File_Name.IndexOf("- ") + 2;
+                    int l_Total_Value_Expression_To_Index = p_Uploaded_File_Name.IndexOf(" -", l_Total_Value_Expression_From_Index);
+
+                    string total_Value_With_Currency_Expression_Extracted
+                        = p_Uploaded_File_Name.Substring(l_Total_Value_Expression_From_Index, l_Total_Value_Expression_To_Index - l_Total_Value_Expression_From_Index);
+
+                    total_Value_With_Currency_Expression_Extracted = total_Value_With_Currency_Expression_Extracted.ToLower();
+                    if (total_Value_With_Currency_Expression_Extracted.IndexOf("total ") > -1)
+                    {
+                        total_Value_With_Currency_Expression_Extracted = total_Value_With_Currency_Expression_Extracted.Replace("total ", "");
+                    }
+
+                    if (total_Value_With_Currency_Expression_Extracted.IndexOf(" ") > -1)
+                    {
+                        total_Value_With_Currency_Expression_Extracted = total_Value_With_Currency_Expression_Extracted.TrimStart().TrimEnd();
+                    }
+
+                    step_Description_For_Exception_Logging = "Extracting Total Value + currency - part 2 parsing";
+                    string total_Value_Only_From_Extracted_Expression = total_Value_With_Currency_Expression_Extracted.Split(' ')[0];
+
+                    total_Value_Only_From_Extracted_Expression = total_Value_Only_From_Extracted_Expression.Trim();
+
+                    decimal parsed_Extracted_Total_Value = decimal.Parse(total_Value_Only_From_Extracted_Expression);
+                    
+                    Currencies parsed_Currency = null;
+
+                    if (total_Value_With_Currency_Expression_Extracted.IndexOf(" ") > -1)
+                    {
+                        string currency_Code_From_Extracted_Expression = total_Value_With_Currency_Expression_Extracted.Split(' ')[1];
+                        currency_Code_From_Extracted_Expression = currency_Code_From_Extracted_Expression.Trim();
+
+                        parsed_Currency = this.Currencies_Get_By_Code(currency_Code_From_Extracted_Expression);
+                    }
+
+                    suggestions_To_Return.Total_Amount = parsed_Extracted_Total_Value;
+
+                    if (parsed_Currency != null)
+                    {
+                        suggestions_To_Return.Currency_Id = parsed_Currency.Currency_Id;
+                    }
+                }
+                catch (Exception exc)
+                {
+
+                }
+
+                step_Description_For_Exception_Logging = "Extracting Supplier - start";
+
+                try
+                {
+                    int starting_Index_Supplier_Details = p_Uploaded_File_Name.IndexOf('-', p_Uploaded_File_Name.IndexOf('-') + 1 ) + 1 ;
+                    int length_Supplier_Name_Details_For_Extraction = p_Uploaded_File_Name.IndexOf('-', starting_Index_Supplier_Details ) - starting_Index_Supplier_Details;
+                    string supplier_Details_Extracted = p_Uploaded_File_Name.Substring(starting_Index_Supplier_Details, length_Supplier_Name_Details_For_Extraction);
+                    
+                    supplier_Details_Extracted = supplier_Details_Extracted.Trim();
+                    
+                    step_Description_For_Exception_Logging = "Extracting Supplier - by splitting white spaces vesus db suppliers list";
+
+                    var supplier_Details_Entity = this.Try_To_Find_Supplier_Id_By_Supplier_Details_From_Filename(
+                        supplier_Details_Extracted,
+                        p_User_Id,
+                        p_Authenticated_User_Id
+                        );
+
+                    if (supplier_Details_Entity != null)
+                    {
+                        suggestions_To_Return.Supplier_Id = supplier_Details_Entity.Supplier_Id;
+
+                        // if the supplier has a default vat value then set it for suggestions and try to auto fill other total amount parts.
+                        if (supplier_Details_Entity.Default_Vat_Percentage.HasValue && 
+                            supplier_Details_Entity.Default_Vat_Percentage.Value > 0 && 
+                            suggestions_To_Return.Total_Amount.HasValue &&
+                            suggestions_To_Return.Total_Amount.Value > 0)
+                        {
+                            //suggestions_To_Return.Total_Vat  supplier_Details_Entity.Default_Vat_Percentage
+                            suggestions_To_Return.Vat_Percentage = supplier_Details_Entity.Default_Vat_Percentage;
+                            suggestions_To_Return.Total_Without_Vat =
+                                suggestions_To_Return.Total_Amount / ((suggestions_To_Return.Vat_Percentage + 100) / 100);
+                            suggestions_To_Return.Total_Vat = suggestions_To_Return.Total_Amount - suggestions_To_Return.Total_Without_Vat;
+                        }
+                    }
+                }
+                catch(Exception exc)
+                {
+
+                }
+            }
+
+            return suggestions_To_Return;
+        }
+
+        private Suppliers Try_To_Find_Supplier_Id_By_Supplier_Details_From_Filename(
+            string p_Supplier_Details_Extracted,
+            int p_User_Id,
+            int p_Authenticated_User_Id )
+        {
+            Suppliers supplier_Details_To_Return = null;
+            int? supplier_Id_To_Return = new int?();
+
+            var suppliers = this.Suppliers_Get_All_By_User_Id(p_User_Id, p_Authenticated_User_Id);
+            for (int s = 0; s < suppliers.Count; s++)
+            {
+                suppliers[s].Company_Name = suppliers[s].Company_Name.ToLower();
+            }
+
+            // Split the supplier details extracted by white spaces and try to search the array of the suppliers for the first supplier that matches the details.
+            string[] supplier_Details_Parts = p_Supplier_Details_Extracted.ToLower().Split(' ');
+
+            Dictionary<int, short> supplier_Coordinates_Strength = new Dictionary<int, short>();
+
+            for (int p = 0; p < supplier_Details_Parts.Length; p++)
+            {
+                for (int s = 0; s < suppliers.Count; s++)
+                {
+                    if (suppliers[s].Company_Name.IndexOf(supplier_Details_Parts[p], StringComparison.InvariantCultureIgnoreCase) > -1)
+                    {
+                        int supplier_Id = suppliers[s].Supplier_Id;
+                        if (supplier_Coordinates_Strength.Keys.Any(x => x == supplier_Id))
+                        {
+                            supplier_Coordinates_Strength[supplier_Id]++;
+                        }
+                        else
+                        { 
+                            supplier_Coordinates_Strength.Add(supplier_Id, 1);
+                        }
+                    }
+                }
+            }
+
+            // get the maximum strength that should match the supplier_id to return
+            short max_Strength_Helper_To_Return = 0;
+            foreach ( var pair in supplier_Coordinates_Strength)
+            {
+                if (pair.Value > max_Strength_Helper_To_Return)
+                {
+                    supplier_Id_To_Return = pair.Key;
+                    max_Strength_Helper_To_Return = pair.Value;
+                }
+            }
+
+            if (supplier_Id_To_Return.HasValue)
+            {
+                supplier_Details_To_Return = suppliers.SingleOrDefault(s => s.Supplier_Id == supplier_Id_To_Return.Value);
+            }
+            
+            return supplier_Details_To_Return;
+        }
+
+        public decimal Countries_Get_Latest_Vat_Value_By_Country_Id(short p_Country_Id)
+        {
+            decimal latest_Vat_Of_Country_To_Return = 0;
+
+            var latest_Vat_History_Of_Country = Data_Access_Layer_Facade.Instance.Countries_Vat_History_Get_By_Country(p_Country_Id);
+
+            if (latest_Vat_History_Of_Country != null && latest_Vat_History_Of_Country.Count > 0)
+            {
+                latest_Vat_Of_Country_To_Return = latest_Vat_History_Of_Country[0].Vat_Percentage;
+            }
+
+            return latest_Vat_Of_Country_To_Return;
+        }
+    } 
 }

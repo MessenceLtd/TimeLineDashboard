@@ -64,6 +64,7 @@
     <Compile Include="Models\Countries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\Bank_Account_Transactions_To_DB_Sync_For_UI.cs" />
+    <Compile Include="Responses\Expense_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_Response_For_UI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

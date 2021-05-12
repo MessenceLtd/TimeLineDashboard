@@ -402,6 +402,42 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Label label_Currency;
 
         /// <summary>
+        /// formControl_Wrapper_Edit_Default_Vat_Percentage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel formControl_Wrapper_Edit_Default_Vat_Percentage;
+
+        /// <summary>
+        /// textbox_Default_Vat_Percentage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Default_Vat_Percentage;
+
+        /// <summary>
+        /// formControl_Wrapper_ReadOnly_Default_Vat_Percentage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel formControl_Wrapper_ReadOnly_Default_Vat_Percentage;
+
+        /// <summary>
+        /// label_Default_Vat_Percentage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_Default_Vat_Percentage;
+
+        /// <summary>
         /// formControl_Wrapper_Edit_Telephone control.
         /// </summary>
         /// <remarks>

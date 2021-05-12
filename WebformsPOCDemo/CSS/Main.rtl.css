@@ -1,0 +1,24 @@
+﻿
+body,html, form 
+{
+    direction:rtl;
+}
+
+
+.navbar-nav
+{
+    padding-right:0px;
+}
+
+
+.navbar-nav.Language_Wrapper
+{
+    margin-right:auto;
+    margin-left:16px
+}
+
+.dropdown-toggle::after
+{
+    margin-right:6px;
+    margin-left:4px;
+}

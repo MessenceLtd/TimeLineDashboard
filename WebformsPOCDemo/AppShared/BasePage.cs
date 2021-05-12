@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using TimeLineDashboard.BusinessLogicLayer;
+using TimeLineDashboard.Shared.Models;
 
 namespace WebformsPOCDemo.AppShared
 {
@@ -12,18 +14,27 @@ namespace WebformsPOCDemo.AppShared
     {
         public const int k_Records_Per_Page = 25;
 
-        protected const string k_Administrator_Permission_Type_Name = "Application_Administrator";
-        protected const string k_DashboardTimeLine_Company_Employee_Permission_Type_Name = "DashboardTimeLine_Company_Employee";
+        //protected const string k_Administrator_Permission_Type_Name = "Application_Administrator";
+        //protected const string k_DashboardTimeLine_Company_Employee_Permission_Type_Name = "DashboardTimeLine_Company_Employee";
         /// <summary>
         /// Administrator first usage permission type is for the first usage of the system untill a real administrator or employeeId is created with the appropriate permission group.
         /// Its userId will be 0 and the system will only authenticate if the users table is empty. 
         /// The username & password of the first usage is on the private app settings
         /// </summary>
-        protected const string k_Administrator_FirstUsage_Permission_Type_Name = "DashboardTimeLine_Company_Employee";
+        //protected const string k_Administrator_FirstUsage_Permission_Type_Name = "DashboardTimeLine_Company_Employee";
         protected const int k_Administrator_FirstUsage_Permission_Type_Name_Default_User_ID = 0;
 
         private int _User_ID = -1;
         private string _s_User_Full_Name = string.Empty;
+
+        protected override void InitializeCulture()
+        {
+            // check if language cookie is present and set it as current culture 
+            Common_Tools.Change_Current_Thread_Culture_By_Language_Cookie();
+
+            base.InitializeCulture();
+        }
+
 
         public int Authenticated_User_ID
         {
@@ -37,6 +48,34 @@ namespace WebformsPOCDemo.AppShared
                 }
 
                 return this._User_ID;
+            }
+        }
+
+        public string Authenticated_Permission_Type_Code
+        {
+            get
+            {
+                string permission_Code_From_Authentication_Cookie = this.User.Identity.Name.Split(':')[1];
+                return permission_Code_From_Authentication_Cookie;
+            }
+        }
+
+        public App_Permission_Type Authenticated_Permission_Type
+        {
+            get
+            {
+                string l_Authenticated_Permission_Type_Code = this.Authenticated_Permission_Type_Code;
+
+                App_Permission_Type app_Permission_To_Return 
+                    = Business_Logic_Layer_Facade.Instance.
+                        App_Permission_Types_Get_By_Permission_Type_Code(l_Authenticated_Permission_Type_Code);
+
+                if (app_Permission_To_Return == null)
+                {
+                    throw new NullReferenceException("Permission '" + l_Authenticated_Permission_Type_Code + "' could not be initialized.");
+                }
+
+                return app_Permission_To_Return;
             }
         }
 
@@ -64,18 +103,18 @@ namespace WebformsPOCDemo.AppShared
         {
             get
             {
-                bool is_Admin = false;
+                bool is_Employee = false;
 
                 string[] user_Id_From_Formatted_Auth_Cookie_Values = this.User.Identity.Name.Split(':');
                 if (user_Id_From_Formatted_Auth_Cookie_Values.Length > 1)
                 {
-                    if (user_Id_From_Formatted_Auth_Cookie_Values[1] == k_DashboardTimeLine_Company_Employee_Permission_Type_Name)
+                    if (user_Id_From_Formatted_Auth_Cookie_Values[1] == App_Permission_Type.Permission_Type.DashboardTimeLine_Company_Employee.ToString())
                     {
-                        is_Admin = true;
+                        is_Employee = true;
                     }
                 }
 
-                return is_Admin;
+                return is_Employee;
             }
         }
 
@@ -88,7 +127,7 @@ namespace WebformsPOCDemo.AppShared
                 string[] user_Id_From_Formatted_Auth_Cookie_Values = this.User.Identity.Name.Split(':');
                 if (user_Id_From_Formatted_Auth_Cookie_Values.Length > 1)
                 {
-                    if (user_Id_From_Formatted_Auth_Cookie_Values[1] == k_Administrator_Permission_Type_Name)
+                    if (user_Id_From_Formatted_Auth_Cookie_Values[1] == App_Permission_Type.Permission_Type.Application_Administrator.ToString())
                     {
                         is_Admin = true;
                     }

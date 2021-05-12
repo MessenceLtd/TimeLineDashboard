@@ -81,11 +81,11 @@ namespace TimeLineDashboard.DAL.Operations
             List<Countries_Vat_History> country_All_Vat_History = this.Get_All_By_Country(p_Country_Id);
 
             // the vat history list is initialized from the database p_TLBoard_Get_Countries_Vat_History_Get_All with changed data in ascending order
-            for (int i = 0; i < r_List_Countries_Vat_History.Count; i++)
+            for (int i = 0; i < country_All_Vat_History.Count; i++)
             {
-                if (r_List_Countries_Vat_History[i].Vat_Changed_Date < p_Approximate_DateTime_For_Searches)
+                if (country_All_Vat_History[i].Vat_Changed_Date < p_Approximate_DateTime_For_Searches)
                 {
-                    country_Latest_Vat_History_By_Country_And_Date_To_Return = r_List_Countries_Vat_History[i];
+                    country_Latest_Vat_History_By_Country_And_Date_To_Return = country_All_Vat_History[i];
                     break;
                 }
             }

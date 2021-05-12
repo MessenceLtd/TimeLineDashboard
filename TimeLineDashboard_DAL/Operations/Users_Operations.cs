@@ -51,7 +51,7 @@ namespace TimeLineDashboard.DAL.Operations
             return usersToReturn;
         }
 
-        internal Users Get_User_Details_By_User_Id(int p_User_Id)
+        internal Users Get_User_Details_By_User_Id(int p_User_Id, int p_Authenticated_User_Id)
         {
             Users usersToReturn = new Users();
 
@@ -123,7 +123,8 @@ namespace TimeLineDashboard.DAL.Operations
             short? p_State_Id, 
             string p_City, 
             string p_Address, 
-            string p_ZipCode, 
+            string p_ZipCode,
+            byte? p_Default_Currency_Id,
             string p_Mobile_Phone, 
             string p_Additional_Phone_Number,
             DateTime p_BirthDate,
@@ -147,6 +148,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spCity = new SqlParameter("@City", SqlDbType.NVarChar, 80);
             SqlParameter spAddress = new SqlParameter("@Address", SqlDbType.NVarChar, 120);
             SqlParameter spZipCode = new SqlParameter("@ZipCode", SqlDbType.NVarChar, 10);
+            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
             SqlParameter spMobile_Phone = new SqlParameter("@Mobile_Phone", SqlDbType.VarChar, 20);
             SqlParameter spAdditional_Phone_Number = new SqlParameter("@Additional_Phone_Number", SqlDbType.VarChar, 20);
             SqlParameter spBirth_Date = new SqlParameter("@Birth_Date", SqlDbType.DateTime);
@@ -172,6 +174,12 @@ namespace TimeLineDashboard.DAL.Operations
             spCity.Value = p_City;
             spAddress.Value = p_Address;
             spZipCode.Value = p_ZipCode;
+
+            if (p_Default_Currency_Id.HasValue)
+                spDefault_Currency_Id.Value = p_Default_Currency_Id.Value;
+            else
+                spDefault_Currency_Id.Value = DBNull.Value;
+
             spMobile_Phone.Value = p_Mobile_Phone;
             spAdditional_Phone_Number.Value = p_Additional_Phone_Number;
             spBirth_Date.Value = p_BirthDate;
@@ -195,6 +203,7 @@ namespace TimeLineDashboard.DAL.Operations
                     spCity,
                     spAddress,
                     spZipCode,
+                    spDefault_Currency_Id,
                     spMobile_Phone,
                     spAdditional_Phone_Number,
                     spBirth_Date,
@@ -209,7 +218,7 @@ namespace TimeLineDashboard.DAL.Operations
                 int user_Id_Registered = Convert.ToInt32(new_User_Id);
                 if (user_Id_Registered > 0)
                 {
-                    new_Registered_User_To_Return = Get_User_Details_By_User_Id(user_Id_Registered);
+                    new_Registered_User_To_Return = Get_User_Details_By_User_Id(user_Id_Registered, p_Logged_In_Administrative_User_Id);
                 }
             }
 
@@ -254,98 +263,151 @@ namespace TimeLineDashboard.DAL.Operations
             return are_There_Any_Users_In_Database_Result_To_Return;
         }
 
-        //internal Users Insert_New_User_Administrative_Registration_Process(Users p_New_User_Details, int p_Logged_In_Administrative_User_Id)
-        //{
-        //    Users new_Registered_User_To_Return = null;
+        internal bool Update_User_Details(
+            int p_User_Id, string p_Username, string p_First_Name, string p_Middle_Name,
+            string p_Last_Name, string p_Email, short p_Country_Id, short? p_State_Id,
+            string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id , string p_Mobile_Phone,
+            string p_Additional_Phone_Number, DateTime? p_Birth_Date, byte? p_Gender,
+            DateTime? p_Registration_Date, string p_Azure_Container_Ref,
+            string p_Heard_About_Application_From, string p_Our_Administrative_Side_Notes,
+            bool p_Is_Active, int p_Updating_User_Id)
+        {
+            bool updated_Successfully = false;
 
-        //    // Insert the user to the database
-        //    throw new NotImplementedException();
+            SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int);
+            SqlParameter spUsername = new SqlParameter("@Username", SqlDbType.VarChar, 50);
+            SqlParameter spFirst_Name = new SqlParameter("@First_Name", SqlDbType.NVarChar, 60);
+            SqlParameter spMiddle_Name = new SqlParameter("@Middle_Name", SqlDbType.NVarChar, 60);
+            SqlParameter spLast_Name = new SqlParameter("@Last_Name", SqlDbType.NVarChar, 60);
+            SqlParameter spEmail = new SqlParameter("@Email", SqlDbType.VarChar, 100);
+            SqlParameter spCountry_Id = new SqlParameter("@Country_Id", SqlDbType.SmallInt);
+            SqlParameter spState_Id = new SqlParameter("@State_Id", SqlDbType.SmallInt);
+            SqlParameter spCity = new SqlParameter("@City", SqlDbType.NVarChar, 80);
+            SqlParameter spAddress = new SqlParameter("@Address", SqlDbType.NVarChar, 120);
+            SqlParameter spZipCode = new SqlParameter("@ZipCode", SqlDbType.VarChar, 20);
+            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
+            SqlParameter spMobile_Phone = new SqlParameter("@Mobile_Phone", SqlDbType.VarChar, 20);
+            SqlParameter spAdditional_Phone_Number = new SqlParameter("@Additional_Phone_Number", SqlDbType.VarChar, 20);
+            SqlParameter spBirth_Date = new SqlParameter("@Birth_Date", SqlDbType.DateTime);
+            SqlParameter spGender = new SqlParameter("@Gender", SqlDbType.TinyInt);
+            SqlParameter spRegistration_DateTime_UTC = new SqlParameter("@Registration_DateTime_UTC", SqlDbType.DateTime);
+            SqlParameter spAzure_Container_Ref = new SqlParameter("@Azure_Container_Ref", SqlDbType.VarChar, 60);
+            SqlParameter spHeard_About_Application_From = new SqlParameter("@Heard_About_Application_From", SqlDbType.NVarChar, 500);
+            SqlParameter spOur_Administrative_Side_Notes = new SqlParameter("@Our_Administrative_Side_Notes", SqlDbType.NVarChar, 500);
+            SqlParameter spIs_Active = new SqlParameter("@Is_Active", SqlDbType.Bit);
+            SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
 
-        //    // Get the new user entity from the database with the new User_Id
+            spUser_Id.Value = p_User_Id;
+            spUsername.Value = p_Username;
+            spFirst_Name.Value = p_First_Name;
+            spMiddle_Name.Value = p_Middle_Name;
+            spLast_Name.Value = p_Last_Name;
+            spEmail.Value = p_Email;
+            spCountry_Id.Value = p_Country_Id;
 
-        //    return new_Registered_User_To_Return;
-        //}
+            if (p_State_Id.HasValue)
+                spState_Id.Value = p_State_Id;
+            else
+                spState_Id.Value = DBNull.Value;
 
-        //internal Users InsertUser(Users userDetailsToInsert)
-        //{
-        //    Users newUserDetailsToReturn = null;
+            spCity.Value = p_City;
+            spAddress.Value = p_Address;
+            spZipCode.Value = p_ZipCode;
+            
+            if (p_Default_Currency_Id.HasValue)
+                spDefault_Currency_Id.Value = p_Default_Currency_Id;
+            else
+                spDefault_Currency_Id.Value = DBNull.Value;
 
-        //    SqlParameter spFirstName = new SqlParameter("@"+ k_FirstName_ColumnName, SqlDbType.NVarChar, 50);
-        //    SqlParameter spLastName = new SqlParameter("@"+ k_LastName_ColumnName, SqlDbType.NVarChar, 50);
-        //    SqlParameter spMiddleName = new SqlParameter("@"+ k_MiddleName_ColumnName, SqlDbType.NVarChar, 50);
-        //    SqlParameter spUsername = new SqlParameter("@"+ k_Username_ColumnName, SqlDbType.NVarChar, 100);
-        //    SqlParameter spEmail = new SqlParameter("@"+ k_Email_ColumnName, SqlDbType.NVarChar, 100);
-        //    SqlParameter spEcryptedPassword = new SqlParameter("@"+k_EcryptedPassword_ColumnName, SqlDbType.NVarChar, 100);
-        //    SqlParameter spEncryptionRandomSalt = new SqlParameter("@"+k_EncryptionRandomSalt_ColumnName, SqlDbType.NVarChar, 100);
-        //    SqlParameter spBirthDate = new SqlParameter("@" + k_BirthDate_ColumnName, SqlDbType.DateTime);
-        //    SqlParameter spCountryCode = new SqlParameter("@" + k_CountryCode_ColumnName, SqlDbType.NVarChar, 20);
-        //    SqlParameter spCountryName = new SqlParameter("@" + k_CountryName_ColumnName, SqlDbType.NVarChar, 80);
-        //    SqlParameter spRegistrationDate = new SqlParameter("@" + k_RegistrationDate_ColumnName, SqlDbType.DateTime);
-        //    SqlParameter spIsActive = new SqlParameter("@" + k_IsActive_ColumnName, SqlDbType.Bit);
+            spMobile_Phone.Value = p_Mobile_Phone;
+            spAdditional_Phone_Number.Value = p_Additional_Phone_Number;
 
-        //    spFirstName.Value = userDetailsToInsert.FirstName;
-        //    spLastName.Value = userDetailsToInsert.LastName;
-        //    if (string.IsNullOrEmpty(userDetailsToInsert.MiddleName))
-        //        spMiddleName.Value = DBNull.Value;
-        //    else
-        //        spMiddleName.Value = userDetailsToInsert.MiddleName;
+            if (p_Birth_Date.HasValue)
+                spBirth_Date.Value = p_Birth_Date.Value;
+            else
+                spBirth_Date.Value = DBNull.Value;
 
-        //    spUsername.Value = userDetailsToInsert.Username;
-        //    spEmail.Value = userDetailsToInsert.Email;
-        //    spEcryptedPassword.Value = userDetailsToInsert.EcryptedPassword;
-        //    spEncryptionRandomSalt.Value = userDetailsToInsert.EncryptionRandomSalt;
-        //    spBirthDate.Value = userDetailsToInsert.BirthDate;
-        //    spCountryCode.Value = userDetailsToInsert.CountryCode;
-        //    spCountryName.Value = userDetailsToInsert.CountryName;
-        //    spRegistrationDate.Value = userDetailsToInsert.RegistrationDate;
-        //    spIsActive.Value = userDetailsToInsert.IsActive;
+            if (p_Gender.HasValue)
+                spGender.Value = p_Gender.Value;
+            else
+                spGender.Value = DBNull.Value;
 
-        //    DataSet newUserDetailDataset = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
-        //        "spTLDB_InsertUser", new List<SqlParameter> { spFirstName, spLastName, spMiddleName, spUsername, spEmail, spEcryptedPassword, spEncryptionRandomSalt, spBirthDate, spCountryCode, spCountryName, spRegistrationDate, spIsActive });
+            if (p_Registration_Date.HasValue)
+                spRegistration_DateTime_UTC.Value = p_Registration_Date.Value;
+            else
+                spRegistration_DateTime_UTC.Value = DBNull.Value;
 
-        //    if (newUserDetailDataset!= null && newUserDetailDataset.Tables[0].Rows.Count>0)
-        //    {
-        //        newUserDetailsToReturn = CreateUserDetailsFromDataRow(newUserDetailDataset.Tables[0].Rows[0]);
-        //    }
+            spAzure_Container_Ref.Value = p_Azure_Container_Ref;
+            spHeard_About_Application_From.Value = p_Heard_About_Application_From;
+            spOur_Administrative_Side_Notes.Value = p_Our_Administrative_Side_Notes;
+            spIs_Active.Value = p_Is_Active;
+            spUpdating_User_Id.Value = p_Updating_User_Id;
 
-        //    return newUserDetailsToReturn;
-        //}
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Update_User_Details",
+                new List<SqlParameter>() {
+                    spUser_Id, 
+                    spUsername, 
+                    spFirst_Name, 
+                    spMiddle_Name, 
+                    spLast_Name, 
+                    spEmail, 
+                    spCountry_Id , 
+                    spState_Id, 
+                    spCity,  
+                    spAddress, 
+                    spZipCode,
+                    spDefault_Currency_Id, 
+                    spMobile_Phone, 
+                    spAdditional_Phone_Number, 
+                    spBirth_Date, 
+                    spGender,spRegistration_DateTime_UTC, 
+                    spAzure_Container_Ref, 
+                    spHeard_About_Application_From, 
+                    spOur_Administrative_Side_Notes, 
+                    spIs_Active, 
+                    spUpdating_User_Id 
+                });
 
-        //internal Users GetUserDetailsById(int userId)
-        //{
-        //    Users userDetailsToReturn = null;
+            if (affected_Rows > 0)
+            {
+                updated_Successfully = true;
+            }
 
-        //    SqlParameter spUserId = new SqlParameter("@" + k_UserId_ColumnName, SqlDbType.Int);
-        //    spUserId.Value = userId;
+            return updated_Successfully;
+        }
 
-        //    var userDetailsDBResult = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
-        //        "spTLDB_SelectUserDetailsByUserId", new List<SqlParameter> { spUserId });
+        internal bool Update_User_Details_New_Password(
+            int p_User_Id, 
+            string p_Encrypted_Password, 
+            string p_Encryption_Random_Salt, 
+            int p_Updating_User_Id)
+        {
+            bool updated_Successfully = false;
 
-        //    if (userDetailsDBResult!= null && userDetailsDBResult.Tables[0].Rows.Count == 1)
-        //    {
-        //        userDetailsToReturn = CreateUserDetailsFromDataRow(userDetailsDBResult.Tables[0].Rows[0]);
-        //    }
+            SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int);
+            SqlParameter spEncrypted_Password = new SqlParameter("@Encrypted_Password", SqlDbType.VarChar, 120);
+            SqlParameter spEncryption_Random_Salt = new SqlParameter("@Encryption_Random_Salt", SqlDbType.VarChar, 120);
+            SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
 
-        //    return userDetailsToReturn;
-        //}
+            spUser_Id.Value = p_User_Id;
+            spEncrypted_Password.Value = p_Encrypted_Password;
+            spEncryption_Random_Salt.Value = p_Encryption_Random_Salt;
+            spUpdating_User_Id.Value = p_Updating_User_Id;
 
-        //internal Users GetUserDetailsByUsername(string userName)
-        //{
-        //    Users userDetailsToReturn = null;
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Update_User_Details_Set_New_Password",
+                new List<SqlParameter>() {
+                    spUser_Id, spEncrypted_Password, 
+                    spEncryption_Random_Salt, spUpdating_User_Id
+                });
 
-        //    SqlParameter spUserName = new SqlParameter("@" + k_Username_ColumnName, SqlDbType.NVarChar, 100);
-        //    spUserName.Value = userName;
+            if (affected_Rows > 0)
+            {
+                updated_Successfully = true;
+            }
 
-        //    var userDetailsDBResult = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
-        //        "spTLDB_SelectUserDetailsByUsername", new List<SqlParameter> { spUserName });
+            return updated_Successfully;
+        }
 
-        //    if (userDetailsDBResult != null && userDetailsDBResult.Tables[0].Rows.Count == 1)
-        //    {
-        //        userDetailsToReturn = CreateUserDetailsFromDataRow(userDetailsDBResult.Tables[0].Rows[0]);
-        //    }
-
-        //    return userDetailsToReturn;
-        //}
 
         private Users CreateUserDetailsFromDataRow(DataRow dbRowDetailsForUserInitialization)
         {
@@ -353,7 +415,7 @@ namespace TimeLineDashboard.DAL.Operations
 
             userToReturn.User_Id = (int)dbRowDetailsForUserInitialization["User_Id"];
             userToReturn.Username = dbRowDetailsForUserInitialization["Username"].ToString();
-            userToReturn.App_Permission_Type_Id = (byte)dbRowDetailsForUserInitialization["App_Permission_Type_Id"];
+            userToReturn.App_Permission_Type_Id = (App_Permission_Type.Permission_Type)Enum.Parse(typeof(App_Permission_Type.Permission_Type), dbRowDetailsForUserInitialization["App_Permission_Type_Id"].ToString());
             userToReturn.First_Name = dbRowDetailsForUserInitialization["First_Name"].ToString();
             userToReturn.Middle_Name = dbRowDetailsForUserInitialization["Middle_Name"].ToString();
             userToReturn.Last_Name = dbRowDetailsForUserInitialization["Last_Name"].ToString();
@@ -389,6 +451,14 @@ namespace TimeLineDashboard.DAL.Operations
                 userToReturn.ZipCode = dbRowDetailsForUserInitialization["ZipCode"].ToString();
             }
 
+            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Default_Currency_Id") > -1)
+            {
+                if (dbRowDetailsForUserInitialization["Default_Currency_Id"] != DBNull.Value)
+                { 
+                    userToReturn.Default_Currency_Id = (byte)dbRowDetailsForUserInitialization["Default_Currency_Id"];
+                }
+            }
+
             userToReturn.Mobile_Phone = dbRowDetailsForUserInitialization["Mobile_Phone"].ToString();
             userToReturn.Additional_Phone_Number = dbRowDetailsForUserInitialization["Additional_Phone_Number"].ToString();
 
@@ -398,12 +468,20 @@ namespace TimeLineDashboard.DAL.Operations
             }
 
             userToReturn.Gender = (byte)dbRowDetailsForUserInitialization["Gender"];
+            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Gender_Name") > -1)
+            {
+                userToReturn.Gender_Name = dbRowDetailsForUserInitialization["Gender_Name"].ToString();
+            }
 
             if (dbRowDetailsForUserInitialization["Registration_DateTime_UTC"] != DBNull.Value)
             {
                 userToReturn.Registration_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Registration_DateTime_UTC"];
             }
 
+            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Azure_Container_Ref") > -1)
+            {
+                userToReturn.Azure_Container_Ref = dbRowDetailsForUserInitialization["Azure_Container_Ref"].ToString();
+            }
 
             if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Heard_About_Application_From") > -1)
             {
@@ -415,10 +493,31 @@ namespace TimeLineDashboard.DAL.Operations
                 userToReturn.Our_Administrative_Side_Notes = dbRowDetailsForUserInitialization["Our_Administrative_Side_Notes"].ToString();
             }
 
-            userToReturn.Record_Creation_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Creation_DateTime_UTC"];
-            userToReturn.Record_Created_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Created_By_User_Id"]);
-            userToReturn.Record_Last_Updated_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Last_Updated_DateTime_UTC"];
-            userToReturn.Record_Last_Updated_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Last_Updated_By_User_Id"]);
+            if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Record_Created_By_User_Id") > -1  )
+            {
+                userToReturn.Record_Created_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Created_By_User_Id"]);
+
+                userToReturn.Record_Created_By_User_Details = new Users();
+                userToReturn.Record_Created_By_User_Details.User_Id = userToReturn.Record_Created_By_User_Id;
+                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Created_By_First_Name") > -1)
+                {
+                    userToReturn.Record_Created_By_User_Details.First_Name = dbRowDetailsForUserInitialization["Created_By_First_Name"].ToString();
+                    userToReturn.Record_Created_By_User_Details.Last_Name = dbRowDetailsForUserInitialization["Created_By_Last_Name"].ToString();
+                }
+
+                userToReturn.Record_Creation_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Creation_DateTime_UTC"];
+
+                userToReturn.Record_Last_Updated_DateTime_UTC = (DateTime)dbRowDetailsForUserInitialization["Record_Last_Updated_DateTime_UTC"];
+                userToReturn.Record_Last_Updated_By_User_Id = Convert.ToInt32(dbRowDetailsForUserInitialization["Record_Last_Updated_By_User_Id"]);
+
+                userToReturn.Record_Last_Updated_By_User_Details = new Users();
+                userToReturn.Record_Last_Updated_By_User_Details.User_Id = userToReturn.Record_Created_By_User_Id;
+                if (dbRowDetailsForUserInitialization.Table.Columns.IndexOf("Last_Updated_By_First_Name") > -1)
+                {
+                    userToReturn.Record_Last_Updated_By_User_Details.First_Name = dbRowDetailsForUserInitialization["Last_Updated_By_First_Name"].ToString();
+                    userToReturn.Record_Last_Updated_By_User_Details.Last_Name = dbRowDetailsForUserInitialization["Last_Updated_By_Last_Name"].ToString();
+                }
+            }
 
             userToReturn.Is_Deleted = (bool)dbRowDetailsForUserInitialization["Is_Deleted"];
             if (userToReturn.Is_Deleted)
@@ -455,7 +554,8 @@ namespace TimeLineDashboard.DAL.Operations
             userToReturn.Middle_Name = dbRowDetailsForUserInitialization["Middle_Name"].ToString();
             userToReturn.Last_Name = dbRowDetailsForUserInitialization["Last_Name"].ToString();
             userToReturn.Email = dbRowDetailsForUserInitialization["Email"].ToString();
-            userToReturn.App_Permission_Type_Id = (byte)dbRowDetailsForUserInitialization["App_Permission_Type_Id"];
+            userToReturn.App_Permission_Type_Id = 
+                (App_Permission_Type.Permission_Type)Enum.Parse(typeof(App_Permission_Type.Permission_Type), dbRowDetailsForUserInitialization["App_Permission_Type_Id"].ToString());
 
             return userToReturn;
         }

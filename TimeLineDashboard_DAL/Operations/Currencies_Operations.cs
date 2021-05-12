@@ -92,5 +92,32 @@ namespace TimeLineDashboard.DAL.Operations
 
             return client_Type_To_Return;
         }
+
+        internal Currencies Get_By_Code(string p_Currency_Code)
+        {
+            Currencies currency_To_Return = null;
+
+            if (r_List_Currencies.Count == 0)
+            {
+                this.Get_Currecies();
+            }
+
+            string local_Currency_Code_For_Special_Cases = p_Currency_Code.ToLower();
+            if (local_Currency_Code_For_Special_Cases == "nis" )
+            {
+                local_Currency_Code_For_Special_Cases = "ils";
+            }
+
+            for (int i = 0; i < r_List_Currencies.Count; i++)
+            {
+                if (r_List_Currencies[i].Currency_Code.ToLower() == local_Currency_Code_For_Special_Cases)
+                {
+                    currency_To_Return = r_List_Currencies[i];
+                    break;
+                }
+            }
+
+            return currency_To_Return;
+        }
     }
 }

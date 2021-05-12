@@ -27,9 +27,36 @@ namespace WebformsPOCDemo
             Common_Tools.Initialize_DropDown_Currencies(this.dropdown_Currency);
 
             Common_Tools.Initialize_DropDown_Supplier_Types(this.dropdown_Supplier_Type);
+
+            // Get the default user information for auto complete help
+            var userDetails = Business_Logic_Layer_Facade.Instance.Users_Get_Details_By_User_Id
+                (
+                base.Authenticated_User_ID,
+                base.Authenticated_User_ID, 
+                base.Authenticated_Permission_Type);
+
+
+            this.dropdown_Country.SelectedValue = userDetails.Country_Id.ToString();
+            if (userDetails.Default_Currency_Id.HasValue)
+            {
+                this.dropdown_Currency.SelectedValue = userDetails.Default_Currency_Id.ToString();
+            }
+
+            if (userDetails.Country_Id > 0 )
+            {
+                this.Bind_Vat_By_Selected_Country();
+            }
+
+            // Set default suppier type as general to prevent validation errors. The only mandatory field at the starting page load should be the supplier name / company name.
+            this.dropdown_Supplier_Type.SelectedValue = "1";
         }
 
         protected void dropdown_Country_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Countries_Combo_Box_Changed();
+        }
+
+        private void Countries_Combo_Box_Changed()
         {
             this.Bind_States_ComboBox();
 
@@ -41,6 +68,19 @@ namespace WebformsPOCDemo
                 this.dropdown_Currency.SelectedValue = country_Details.Primary_Currency_Id.Value.ToString();
             }
 
+            this.Bind_Vat_By_Selected_Country();
+        }
+
+        private void Bind_Vat_By_Selected_Country()
+        {
+            this.textbox_Vat_Percentage.Text = "0";
+
+            short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
+            if (p_Country_Id > 0)
+            {
+                this.textbox_Vat_Percentage.Text = Business_Logic_Layer_Facade.Instance
+                    .Countries_Get_Latest_Vat_Value_By_Country_Id(p_Country_Id).ToString();
+            }
         }
 
         private void Bind_States_ComboBox()
@@ -133,6 +173,16 @@ namespace WebformsPOCDemo
                     p_Default_Currency = byte.Parse(this.dropdown_Currency.SelectedValue);
                 }
 
+                decimal? p_Default_Vat_Percentage = new decimal?();
+                if (!string.IsNullOrEmpty(this.textbox_Vat_Percentage.Text))
+                {
+                    decimal parsed_Vat_Percentage = 0;
+                    if (decimal.TryParse(this.textbox_Vat_Percentage.Text , out parsed_Vat_Percentage))
+                    {
+                        p_Default_Vat_Percentage = parsed_Vat_Percentage;
+                    }
+                }
+
                 string p_Telephone = this.textbox_Telephone.Text;
                 string p_Mobile_Phone = this.textbox_Mobile_Phone.Text;
 
@@ -183,7 +233,7 @@ namespace WebformsPOCDemo
                 {
                     new_Supplier_Details = Business_Logic_Layer_Facade.Instance.Suppliers_Insert_New_Supplier_Administrative_Registration_Process(
                         p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                        p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency, 
+                        p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency, p_Default_Vat_Percentage, 
                         p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
                         p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
                         p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -220,31 +270,6 @@ namespace WebformsPOCDemo
                     }
                 }
             }
-        }
-
-        protected void button_Fill_Up_Form_Dummy_Data_For_Test_Click(object sender, EventArgs e)
-        {
-            this.textbox_Company_Name.Text = "dummy company";
-            this.textbox_Website_URL.Text = "http://stupidcompanywithnossl.com/";
-            this.dropdown_Country.Text = "57";
-            this.textbox_City.Text = "Dummy City";
-            this.textbox_Address.Text = "dummy long address with elevetor number";
-            this.textbox_Zipcode.Text = "1234567";
-            this.dropdown_Currency.SelectedValue = "1";
-            this.textbox_Telephone.Text = "0123456789";
-            this.textbox_Mobile_Phone.Text = "9876543210";
-            this.textbox_Zipcode.Text = "Dummy Zipcode";
-            this.dropdown_Supplier_Type.SelectedValue = "1";
-            this.textbox_Supplier_Tax_Reference_Number.Text = "LFKJD2134142";
-            this.textbox_Main_Contact_FullName.Text = "Dummy Phone_Number2";
-            this.textbox_Main_Contact_Email_Address.Text = "dummyuser@stupid-company.com";
-            this.textbox_Main_Contact_Phone_Number.Text = "Dummy Phone_Number2";
-            this.textbox_Supplier_From_Date.Text = "01/01/2007";
-            this.textbox_Supplier_To_Date.Text = "01/01/2020";
-            this.textbox_First_Contract_Date.Text = "";
-            this.textbox_First_Contract_Signed_With_Contact_Full_Name.Text = "Dummy Person name";
-            this.textbox_First_Contract_Signed_In_Location_Description.Text = "Dummy long place description";
-            this.checkbox_Is_Active.Checked = true;
         }
     }
 }

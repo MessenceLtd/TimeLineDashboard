@@ -112,7 +112,12 @@ namespace WebformsPOCDemo
                     this.dropdown_Currency.SelectedValue = SupplierDetails.Default_Currency_Id.Value.ToString();
                     this.label_Currency.Text = Business_Logic_Layer_Facade.Instance.Currencies_Get_By_Id(SupplierDetails.Default_Currency_Id.Value).Formatted_Currency_Display_For_Selection;
                 }
-                
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox_Label_Text(
+                    SupplierDetails.Default_Vat_Percentage, 
+                    this.textbox_Default_Vat_Percentage, 
+                    this.label_Default_Vat_Percentage);
+
                 this.textbox_Telephone.Text = SupplierDetails.Telephone;
                 this.label_Telephone.Text = SupplierDetails.Telephone;
 
@@ -173,7 +178,34 @@ namespace WebformsPOCDemo
 
         protected void dropdown_Country_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.Countries_Combo_Box_Changed();
+        }
+
+        private void Countries_Combo_Box_Changed()
+        {
             this.Bind_States_ComboBox();
+
+            // check if the country has a default currency 
+            short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
+            var country_Details = Business_Logic_Layer_Facade.Instance.Countries_Get_By_Country_Id(p_Country_Id);
+            if (country_Details.Primary_Currency_Id.HasValue)
+            {
+                this.dropdown_Currency.SelectedValue = country_Details.Primary_Currency_Id.Value.ToString();
+            }
+
+            this.Bind_Vat_By_Selected_Country();
+        }
+
+        private void Bind_Vat_By_Selected_Country()
+        {
+            this.textbox_Default_Vat_Percentage.Text = "0";
+
+            short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
+            if (p_Country_Id > 0)
+            {
+                this.textbox_Default_Vat_Percentage.Text = Business_Logic_Layer_Facade.Instance
+                    .Countries_Get_Latest_Vat_Value_By_Country_Id(p_Country_Id).ToString();
+            }
         }
 
         private void Bind_States_ComboBox()
@@ -265,6 +297,16 @@ namespace WebformsPOCDemo
                     p_Default_Currency = byte.Parse(this.dropdown_Currency.SelectedValue);
                 }
 
+                decimal? p_Default_Vat_Percentage = new decimal?();
+                if (!string.IsNullOrEmpty(this.textbox_Default_Vat_Percentage.Text))
+                {
+                    decimal parsed_Vat_Percentage = 0;
+                    if (decimal.TryParse(this.textbox_Default_Vat_Percentage.Text, out parsed_Vat_Percentage))
+                    {
+                        p_Default_Vat_Percentage = parsed_Vat_Percentage;
+                    }
+                }
+
                 string p_Telephone = this.textbox_Telephone.Text;
                 string p_Mobile_Phone = this.textbox_Mobile_Phone.Text;
 
@@ -313,7 +355,7 @@ namespace WebformsPOCDemo
                 {
                     l_Supplier_Successfully_Updated = Business_Logic_Layer_Facade.Instance.Suppliers_Update_Supplier_Details(
                         p_Supplier_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                        p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency,
+                        p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency, p_Default_Vat_Percentage, 
                         p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
                         p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
                         p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,

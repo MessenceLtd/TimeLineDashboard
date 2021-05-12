@@ -168,6 +168,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.HyperLink hyperlink_Reports;
 
         /// <summary>
+        /// hyperlink_Change_Language control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyperlink_Change_Language;
+
+        /// <summary>
         /// linkbutton_LogOff control.
         /// </summary>
         /// <remarks>
@@ -175,5 +184,32 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkbutton_LogOff;
+
+        /// <summary>
+        /// button_Language_Swap_Event control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Language_Swap_Event;
+
+        /// <summary>
+        /// hidden_New_Language_To_Swap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_New_Language_To_Swap;
+
+        /// <summary>
+        /// hidden_Current_Language control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Current_Language;
     }
 }

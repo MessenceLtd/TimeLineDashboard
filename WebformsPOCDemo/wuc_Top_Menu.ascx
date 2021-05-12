@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wuc_Top_Menu.ascx.cs" Inherits="WebformsPOCDemo.wuc_Top_Menu" %>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <%--<a class="navbar-brand" href="#">Navbar</a>--%>
@@ -6,18 +7,18 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-2 mb-lg-0">
                 <asp:PlaceHolder ID="panel_HeaderLinks" runat="server">
 
                     <li class="nav-item">
-                        <asp:HyperLink runat="server" ID="hyperlink_MainPage" CssClass="nav-link" ClientIDMode="Static" NavigateUrl="default.aspx">Home</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_MainPage" CssClass="nav-link" ClientIDMode="Static" NavigateUrl="default.aspx" meta:resourcekey="hyperlink_MainPageResource1">Home</asp:HyperLink>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Users" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_users">Users</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Users" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_users" meta:resourcekey="hyperlink_UsersResource1">Users</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Users_Links">
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="list_users.aspx">Users list</a></li>
-                                <li><a class="dropdown-item" href="add_user.aspx">Add new user</a></li>
+                                <li><a class="dropdown-item" href="list_users.aspx"><%= Resources.SiteCommon.Users_List %></a></li>
+                                <li><a class="dropdown-item" href="add_user.aspx"><%= Resources.SiteCommon.Add_New_User %></a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -27,11 +28,11 @@
                     </li>
                     <li class="nav-item dropdown">
                         <asp:HyperLink runat="server" ID="hyperlink_Clients" CssClass="nav-link dropdown-toggle" 
-                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_clients">Clients</asp:HyperLink>
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_clients" meta:resourcekey="hyperlink_ClientsResource1">Clients</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Clients_Links">
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="list_clients.aspx">Clients list</a></li>
-                                <li><a class="dropdown-item" href="add_client.aspx">Add new client</a></li>
+                                <li><a class="dropdown-item" href="list_clients.aspx"><%= Resources.SiteCommon.Clients_List %></a></li>
+                                <li><a class="dropdown-item" href="add_client.aspx"><%= Resources.SiteCommon.Add_New_Client %></a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -41,11 +42,11 @@
                     </li>
                     <li class="nav-item dropdown">
                         <asp:HyperLink runat="server" ID="hyperlink_Suppliers" CssClass="nav-link dropdown-toggle" 
-                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_suppliers">Suppliers</asp:HyperLink>
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_suppliers" meta:resourcekey="hyperlink_SuppliersResource1">Suppliers</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Suppliers_Links">
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="list_suppliers.aspx">Suppliers list</a></li>
-                                <li><a class="dropdown-item" href="add_supplier.aspx">Add new supplier</a></li>
+                                <li><a class="dropdown-item" href="list_suppliers.aspx"><%= Resources.SiteCommon.Suppliers_List %></a></li>
+                                <li><a class="dropdown-item" href="add_supplier.aspx"><%= Resources.SiteCommon.Add_New_Supplier %></a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -55,11 +56,11 @@
                     </li>
                     <li class="nav-item dropdown">
                         <asp:HyperLink runat="server" ID="hyperlink_Expenses" CssClass="nav-link dropdown-toggle" 
-                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_expenses">Expenses</asp:HyperLink>
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_expenses" meta:resourcekey="hyperlink_ExpensesResource1">Expenses</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Expenses_Links">
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="list_expenses.aspx">Expenses list</a></li>
-                                <li><a class="dropdown-item" href="add_expense.aspx">Add new expense</a></li>
+                                <li><a class="dropdown-item" href="list_expenses.aspx"><%= Resources.SiteCommon.Expenses_List %></a></li>
+                                <li><a class="dropdown-item" href="add_expense.aspx"><%= Resources.SiteCommon.Add_New_Expense %></a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -68,11 +69,11 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Invoices" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_invoices">Invoices</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Invoices" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_invoices" meta:resourcekey="hyperlink_InvoicesResource1">Invoices</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Invoices_Links">
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="list_invoices.aspx">Invoices list</a></li>
-                                <li><a class="dropdown-item" href="add_invoice.aspx">Add new invoice</a></li>
+                                <li><a class="dropdown-item" href="list_invoices.aspx"><%= Resources.SiteCommon.Invoices_List %></a></li>
+                                <li><a class="dropdown-item" href="add_invoice.aspx"><%= Resources.SiteCommon.Add_New_Invoice %></a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -81,11 +82,11 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Documents" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_documents">Documents</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Documents" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_documents" meta:resourcekey="hyperlink_DocumentsResource1">Documents</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Documents_Links">
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="list_documents.aspx">Documents list</a></li>
-                                <li><a class="dropdown-item" href="add_document.aspx">Add new document</a></li>
+                                <li><a class="dropdown-item" href="list_documents.aspx"><%= Resources.SiteCommon.Documents_List %></a></li>
+                                <li><a class="dropdown-item" href="add_document.aspx"><%= Resources.SiteCommon.Add_New_Document %></a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -94,11 +95,11 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_BankAccounts" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_bankaccounts">Bank Accounts</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_BankAccounts" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_bankaccounts" meta:resourcekey="hyperlink_BankAccountsResource1">Bank Accounts</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_BankAccounts_Links">
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="list_bankaccounts.aspx">Bank Accounts list</a></li>
-                                <li><a class="dropdown-item" href="add_bankaccount.aspx">Add new bank account</a></li>
+                                <li><a class="dropdown-item" href="list_bankaccounts.aspx"><%= Resources.SiteCommon.Bank_Accounts_List %></a></li>
+                                <li><a class="dropdown-item" href="add_bankaccount.aspx"><%= Resources.SiteCommon.Add_New_Bank_Account %></a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -107,7 +108,7 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item">
-                        <asp:HyperLink runat="server" ID="hyperlink_Reports" CssClass="nav-link disabled" NavigateUrl="#">Reports</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Reports" CssClass="nav-link disabled" NavigateUrl="#" meta:resourcekey="hyperlink_ReportsResource1">Reports</asp:HyperLink>
                     </li>
                     <%--<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Dropdown</a>
@@ -127,99 +128,32 @@
                 </asp:PlaceHolder>
             </ul>
 
-            <div class="form-check form-switch">
-
-                <input class="form-check-input" type="checkbox" id="darkMode" onkeypress="return toggleDarkModeFromKeyBoard(event)">
-                <label class="form-check-label" for="darkMode">Dark Mode</label>
-            </div>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <asp:LinkButton runat="server" ID="linkbutton_LogOff" CssClass="nav-link" OnClick="linkbutton_LogOff_Click" CausesValidation="false" Text="Log Off" ClientIDMode="Static"></asp:LinkButton>
+            <ul class="navbar-nav Language_Wrapper">
+                <li class="nav-item dropdown">
+                    <asp:HyperLink runat="server" ID="hyperlink_Change_Language" CssClass="nav-link dropdown-toggle" 
+                        data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#ChangeLang"><%= Resources.SiteCommon.Language %></asp:HyperLink>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:Swap_Sys_Language('en')"><img src="/Images/Languages/en.svg" height="26" width="26" border="0" /> <%= Resources.SiteCommon.English %></a></li>
+                        <li><a class="dropdown-item" href="javascript:Swap_Sys_Language('he')"><img src="/Images/Languages/he.svg" height="26" width="26" border="0" /> <%= Resources.SiteCommon.Hebrew %></a></li>
+                    </ul>
                 </li>
             </ul>
 
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkMode" onkeypress="return toggleDarkModeFromKeyBoard(event)">
+                <label class="form-check-label" for="darkMode"><%= Resources.SiteCommon.Dark_Mode %></label>
+            </div>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <asp:LinkButton runat="server" ID="linkbutton_LogOff" CssClass="nav-link" OnClick="linkbutton_LogOff_Click" CausesValidation="False" Text="Log Off" ClientIDMode="Static" meta:resourcekey="linkbutton_LogOffResource1"></asp:LinkButton>
+                </li>
+            </ul>
         </div>
+    </div>
+    <div class="hidden">
+        <asp:button runat="server" ClientIDMode="Static" ID="button_Language_Swap_Event" Text="swap language" OnClick="button_Language_Swap_Event_Click" />
+        <asp:HiddenField runat="server" ClientIDMode="Static" ID="hidden_New_Language_To_Swap" />
+        <asp:HiddenField runat="server" ClientIDMode="Static" ID="hidden_Current_Language" />
     </div>
 </nav>
 
-<script type="text/javascript">
-    
-    var darkModeOn = false;
-
-    function createStorage(name, value) {
-        localStorage.setItem(name, value);
-    }
-
-    function readStorage(name) {
-        return localStorage.getItem(name);
-    }
-
-    function toggleDarkModeFromKeyBoard(e)
-    {
-        if (e.keyCode == 13) // return key
-        {
-            toggleDarkMode();
-        }
-
-        if (e.keyCode == 32) // space key
-        {
-            e.preventDefault();
-        }
-
-        return false;
-    }
-
-    function toggleDarkMode(e)
-    {
-        if (document.body.classList.contains("dark-mode")) {
-            document.body.classList.remove("dark-mode");
-            darkModeOn = false;
-            createStorage("my_preferredMode", "light-mode");
-            document.getElementById('darkMode').checked = false;
-        } else {
-            document.body.classList.add("dark-mode");
-            darkModeOn = true;
-            createStorage("my_preferredMode", "dark-mode");
-            document.getElementById('darkMode').checked = true;
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", function (event) {
-
-        document.getElementById("darkMode").addEventListener('change', toggleDarkMode);
-
-    });
-
-    
-
-    document.addEventListener("DOMContentLoaded", function () {
-        if (readStorage("my_preferredMode")) {
-            if (readStorage("my_preferredMode") == "dark-mode") {
-                darkModeOn = true;
-            } else {
-                darkModeOn = false;
-            }
-        } else {
-            if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                darkModeOn = true;
-            } else {
-                if (document.body.classList.contains("dark-mode")) {
-                    darkModeOn = true;
-                } else {
-                    darkModeOn = false;
-                }
-            }
-        }
-
-        if (darkModeOn) {
-            if (!document.body.classList.contains("dark-mode")) {
-                document.body.classList.add("dark-mode");
-            }
-            document.getElementById("darkMode").checked = true;
-        } else {
-            if (document.body.classList.contains("dark-mode")) {
-                document.body.classList.remove("dark-mode");
-            }
-        }
-    });
-</script>

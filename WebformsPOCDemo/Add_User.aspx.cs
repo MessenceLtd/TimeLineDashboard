@@ -25,6 +25,8 @@ namespace WebformsPOCDemo
             Common_Tools.Initialize_DropDown_App_Permission_Types(this.dropdown_App_Permission_Type);
 
             Common_Tools.Initialize_DropDown_Countries(dropdown_Country);
+
+            Common_Tools.Initialize_DropDown_Currencies(this.dropdown_Currency);
         }
 
         private void Bind_States_ComboBox()
@@ -117,6 +119,13 @@ namespace WebformsPOCDemo
                 string p_City = this.textbox_City.Text;
                 string p_Address = this.textbox_Address.Text;
                 string p_ZipCode = this.textbox_Zipcode.Text;
+
+                byte? p_Default_Currency_Id = new byte?();
+                if (!string.IsNullOrEmpty(this.dropdown_Currency.SelectedValue))
+                {
+                    p_Default_Currency_Id = byte.Parse(this.dropdown_Currency.SelectedValue);
+                }
+
                 string p_Mobile_Phone = this.textbox_Mobile_Phone.Text;
                 string p_Additional_Phone_Number = this.textbox_Mobile_Phone.Text;
 
@@ -148,6 +157,7 @@ namespace WebformsPOCDemo
                             p_City,
                             p_Address,
                             p_ZipCode,
+                            p_Default_Currency_Id,
                             p_Mobile_Phone,
                             p_Additional_Phone_Number,
                             p_BirthDate,

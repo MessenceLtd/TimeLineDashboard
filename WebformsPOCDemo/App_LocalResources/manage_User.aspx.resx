@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="button_CancelEdit_User_DetailsResource1.Text" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="button_CancelEdit_User_DetailsResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button_Edit_User_DetailsResource1.Text" xml:space="preserve">
+    <value>Edit Client</value>
+  </data>
+  <data name="button_Edit_User_DetailsResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button_Update_User_DetailsResource1.Text" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="button_Update_User_DetailsResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="checkbox_Is_ActiveResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="checkbox_Is_ActiveResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dropdown_App_Permission_TypeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dropdown_CountryResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dropdown_CurrencyResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dropdown_GenderResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dropdown_Registration_Time_HoursResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dropdown_Registration_Time_MinutesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dropdown_Registration_Time_SecondsResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dropdown_StateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Additional_Phone_NumberResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Additional_Phone_NumberResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_AddressResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_AddressResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_App_Permission_TypeResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_App_Permission_TypeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Azure_Container_RefResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Azure_Container_RefResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Birth_DateResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Birth_DateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_CityResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_CityResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_CountryResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_CountryResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_CurrencyResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_CurrencyResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_EmailResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_EmailResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_First_NameResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_First_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_GenderResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_GenderResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Heard_About_Application_FromResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Heard_About_Application_FromResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Is_ActiveResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Is_ActiveResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Last_NameResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Last_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Middle_NameResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Middle_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Mobile_PhoneResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Mobile_PhoneResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Our_Administrative_Side_NotesResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Our_Administrative_Side_NotesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Registration_DateTimeResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Registration_DateTimeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Registration_Time_HoursResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_Registration_Time_HoursResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_StateResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_StateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_UsernameResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_UsernameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_ZipcodeResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Edit_ZipcodeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Additional_Phone_NumberResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Additional_Phone_NumberResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_AddressResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_AddressResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_App_Permission_TypeResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_App_Permission_TypeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Azure_Container_RefResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Azure_Container_RefResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Birth_DateResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Birth_DateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_CityResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_CityResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_CountryResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_CountryResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_CurrencyResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_CurrencyResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_EmailResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_EmailResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_First_NameResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_First_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_GenderResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_GenderResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Heard_About_Application_FromResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Heard_About_Application_FromResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Is_ActiveResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Is_ActiveResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Last_NameResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Last_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Middle_NameResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Middle_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Mobile_PhoneResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Mobile_PhoneResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Our_Administrative_Side_NotesResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Our_Administrative_Side_NotesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Registration_DateTimeResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Registration_DateTimeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Registration_TimeResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_Registration_TimeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_StateResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_StateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_UsernameResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_UsernameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_ZipcodeResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_ReadOnly_ZipcodeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Record_Created_By_UserResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Record_Created_By_UserResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Record_Creation_DateTime_UTCResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Record_Creation_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Record_Last_Updated_By_UserResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Record_Last_Updated_By_UserResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTCResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Additional_Phone_NumberResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Additional_Phone_NumberResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_AddressResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_AddressResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_App_Permission_TypeResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_App_Permission_TypeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Azure_Container_RefResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Azure_Container_RefResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Birth_DateResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Birth_DateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_CityResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_CityResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_CountryResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_CountryResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_CurrencyResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_CurrencyResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_EmailResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_EmailResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_First_NameResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_First_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_GenderResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_GenderResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Heard_About_Application_FromResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Heard_About_Application_FromResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Is_ActiveResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Is_ActiveResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Last_NameResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Last_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Middle_NameResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Middle_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Mobile_PhoneResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Mobile_PhoneResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Our_Administrative_Side_NotesResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Our_Administrative_Side_NotesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Record_Created_By_UserResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Record_Created_By_UserResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Record_Creation_DateTime_UTCResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Record_Creation_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Record_Last_Updated_By_UserResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Record_Last_Updated_By_UserResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Record_Last_Updated_DateTime_UTCResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Record_Last_Updated_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Registration_DateTimeResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Registration_DateTimeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Registration_TimeResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_Registration_TimeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_StateResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_StateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_UsernameResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_UsernameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_ZipcodeResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label_ZipcodeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lbl_Insert_Process_Error_ResultResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lbl_Insert_Process_Error_ResultResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource1.Text" xml:space="preserve">
+    <value>-- Select --</value>
+  </data>
+  <data name="ListItemResource1.Value" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ListItemResource2.Text" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="ListItemResource2.Value" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListItemResource3.Text" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="ListItemResource3.Value" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ListItemResource4.Text" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="ListItemResource4.Value" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="p_App_Permission_Type_Visibility_WrapperResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="p_App_Permission_Type_Visibility_WrapperResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="p_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="p_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Demo Document Manager / Timeline dashboard chaos</value>
+  </data>
+  <data name="textbox_Additional_Phone_NumberResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Additional_Phone_NumberResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_AddressResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_AddressResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Azure_Container_RefResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Azure_Container_RefResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Birth_DateResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Birth_DateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_CityResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_CityResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_EmailResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_EmailResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_First_NameResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_First_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Heard_About_Application_FromResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Heard_About_Application_FromResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Last_NameResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Last_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Middle_NameResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Middle_NameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Mobile_PhoneResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Mobile_PhoneResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Our_Administrative_Side_NotesResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Our_Administrative_Side_NotesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Registration_DateTimeResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_Registration_DateTimeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_UsernameResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_UsernameResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_ZipcodeResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textbox_ZipcodeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Address_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please enter an address</value>
+  </data>
+  <data name="validator_Address_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Address_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_City_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please enter a city</value>
+  </data>
+  <data name="validator_City_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_City_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Country_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please select a country</value>
+  </data>
+  <data name="validator_Country_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Country_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Email_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please enter an email</value>
+  </data>
+  <data name="validator_Email_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Email_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_First_Name_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please enter a first name</value>
+  </data>
+  <data name="validator_First_Name_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_First_Name_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Gender_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please enter a gender</value>
+  </data>
+  <data name="validator_Gender_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Gender_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Last_Name_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please enter a last name</value>
+  </data>
+  <data name="validator_Last_Name_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Last_Name_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_State_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please select a state</value>
+  </data>
+  <data name="validator_State_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_State_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Username_RequiredResource1.ErrorMessage" xml:space="preserve">
+    <value>Please enter an username</value>
+  </data>
+  <data name="validator_Username_RequiredResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="validator_Username_RequiredResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+</root>

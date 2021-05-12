@@ -74,6 +74,15 @@
     <Content Include="Add_Invoice.aspx" />
     <Content Include="Add_Supplier.aspx" />
     <Content Include="Add_User.aspx" />
+    <Content Include="CSS\bootstrap\bootstrap-grid.css" />
+    <Content Include="CSS\bootstrap\bootstrap-grid.rtl.css" />
+    <Content Include="CSS\bootstrap\bootstrap-reboot.css" />
+    <Content Include="CSS\bootstrap\bootstrap-reboot.rtl.css" />
+    <Content Include="CSS\bootstrap\bootstrap-utilities.css" />
+    <Content Include="CSS\bootstrap\bootstrap-utilities.rtl.css" />
+    <Content Include="CSS\bootstrap\bootstrap.css" />
+    <Content Include="CSS\bootstrap\bootstrap.rtl.css" />
+    <Content Include="CSS\bootstrap\dark-mode.css" />
     <Content Include="CSS\images\ui-bg_glass_75_d0e5f5_1x400.png" />
     <Content Include="CSS\images\ui-bg_glass_85_dfeffc_1x400.png" />
     <Content Include="CSS\images\ui-bg_glass_95_fef1ec_1x400.png" />
@@ -88,15 +97,22 @@
     <Content Include="CSS\images\ui-icons_d8e7f3_256x240.png" />
     <Content Include="CSS\images\ui-icons_f9bd01_256x240.png" />
     <Content Include="CSS\jquery-ui.theme.css" />
+    <Content Include="CSS\Login.css" />
+    <Content Include="CSS\Main.rtl.css" />
     <Content Include="Images\addmore2.png" />
     <Content Include="Images\addmore.png" />
+    <Content Include="Images\calendar.gif" />
     <Content Include="Images\cancel.png" />
     <Content Include="Images\delete.png" />
+    <Content Include="Images\languages\en.svg" />
+    <Content Include="Images\languages\he.svg" />
+    <Content Include="Images\refresh.png" />
     <Content Include="Images\viewdetails2.png" />
     <Content Include="Images\save.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\viewdetails.png" />
     <Content Include="JS\Common.js" />
+    <Content Include="JS\darkmode.js" />
     <Content Include="list_BankAccounts.aspx" />
     <Content Include="CSS\jquery-ui.css" />
     <Content Include="CSS\Main.css" />
@@ -110,6 +126,7 @@
     <Content Include="list_Suppliers.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="manage_BankAccount.aspx" />
+    <Content Include="manage_BankAccountTransaction.aspx" />
     <Content Include="manage_BankAccountTransactions.aspx" />
     <Content Include="manage_Client.aspx" />
     <Content Include="manage_Document.aspx" />
@@ -119,12 +136,6 @@
     <Content Include="manage_User.aspx" />
     <Content Include="Reports.aspx" />
     <Content Include="list_Users.aspx" />
-    <Content Include="view_Client.aspx" />
-    <Content Include="view_Document.aspx" />
-    <Content Include="view_Expense.aspx" />
-    <Content Include="view_Invoice.aspx" />
-    <Content Include="view_Supplier.aspx" />
-    <Content Include="view_user.aspx" />
     <Content Include="Web.config" />
     <Content Include="list_Clients.aspx" />
     <Content Include="wuc_Breadcrumbs_Navigation.ascx" />
@@ -185,6 +196,16 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AppShared\Common.cs" />
+    <Compile Include="App_GlobalResources\SiteCommon.he.designer.cs">
+      <DependentUpon>SiteCommon.he.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\SiteCommon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiteCommon.resx</DependentUpon>
+    </Compile>
     <Compile Include="list_BankAccounts.aspx.cs">
       <DependentUpon>list_BankAccounts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,6 +261,13 @@
     </Compile>
     <Compile Include="manage_BankAccount.aspx.designer.cs">
       <DependentUpon>manage_BankAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_BankAccountTransaction.aspx.cs">
+      <DependentUpon>manage_BankAccountTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_BankAccountTransaction.aspx.designer.cs">
+      <DependentUpon>manage_BankAccountTransaction.aspx</DependentUpon>
     </Compile>
     <Compile Include="manage_BankAccountTransactions.aspx.cs">
       <DependentUpon>manage_BankAccountTransactions.aspx</DependentUpon>
@@ -319,48 +347,6 @@
     <Compile Include="list_Clients.aspx.designer.cs">
       <DependentUpon>list_Clients.aspx</DependentUpon>
     </Compile>
-    <Compile Include="view_Client.aspx.cs">
-      <DependentUpon>view_Client.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="view_Client.aspx.designer.cs">
-      <DependentUpon>view_Client.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="view_Document.aspx.cs">
-      <DependentUpon>view_Document.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="view_Document.aspx.designer.cs">
-      <DependentUpon>view_Document.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="view_Expense.aspx.cs">
-      <DependentUpon>view_Expense.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="view_Expense.aspx.designer.cs">
-      <DependentUpon>view_Expense.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="view_Invoice.aspx.cs">
-      <DependentUpon>view_Invoice.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="view_Invoice.aspx.designer.cs">
-      <DependentUpon>view_Invoice.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="view_Supplier.aspx.cs">
-      <DependentUpon>view_Supplier.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="view_Supplier.aspx.designer.cs">
-      <DependentUpon>view_Supplier.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="view_user.aspx.cs">
-      <DependentUpon>view_user.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="view_user.aspx.designer.cs">
-      <DependentUpon>view_user.aspx</DependentUpon>
-    </Compile>
     <Compile Include="wuc_Breadcrumbs_Navigation.ascx.cs">
       <DependentUpon>wuc_Breadcrumbs_Navigation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -406,6 +392,105 @@
       <Project>{79fb351a-9ff8-4c18-8d3a-dff3bdf4381d}</Project>
       <Name>TimeLineDashboard_Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add_BankAccount.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add_Client.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add_Document.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add_Expense.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add_Invoice.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add_Supplier.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add_User.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\list_Invoices.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\list_Expenses.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\list_Documents.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\list_Clients.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\list_BankAccounts.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Default.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\manage_Supplier.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\manage_Expense.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\manage_Document.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\manage_Client.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\manage_BankAccountTransactions.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\manage_BankAccountTransaction.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\manage_BankAccount.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Login.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\list_Users.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\list_Suppliers.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\manage_User.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Reports.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Site.Master.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\wuc_Breadcrumbs_Navigation.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\wuc_Footer.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\wuc_Top_Menu.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\SiteCommon.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SiteCommon.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\SiteCommon.he.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SiteCommon.he.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

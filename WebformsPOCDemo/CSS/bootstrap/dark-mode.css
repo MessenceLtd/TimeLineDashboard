@@ -626,10 +626,11 @@
 .dark-mode .navbar-light .navbar-brand,
 .dark-mode .navbar-dark .navbar-brand,
 .dark-mode .navbar .navbar-nav .nav-link.active {
-  /*color: #fefefe;*/
-  color: #ffffff;
-  font-weight:bold;
-
+    /*color: #fefefe;*/
+    color: #ffffff;
+    /*font-weight: bold;*/
+    text-shadow: 0px 0px 4px #fff;
+    font-weight: normal;
 }
 .dark-mode .navbar .navbar-nav .nav-link,
 .dark-mode .navbar-light .navbar-nav .nav-link,

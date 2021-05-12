@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI.WebControls;
 using TimeLineDashboard.BusinessLogicLayer;
@@ -25,6 +27,8 @@ namespace WebformsPOCDemo
                                                              "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35",
                                                              "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47",
                                                              "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"};
+
+        private static readonly string k_Language_Cookie_Name = "UserLang";
 
         internal static void Initialize_DropDown_Countries(DropDownList dropdown_Country)
         {
@@ -181,10 +185,26 @@ namespace WebformsPOCDemo
             { 
                 p_TextBox_Date.Text = dateTimeToSet.Value.ToString("dd/MM/yyyy");
                 p_Label_Date.Text = dateTimeToSet.Value.ToString("dd/MM/yyyy");
-                p_Hours_ComboBox.SelectedValue = dateTimeToSet.Value.Hour.ToString();
-                p_Minutes_ComboBox.SelectedValue = dateTimeToSet.Value.Minute.ToString();
-                p_Seconds_ComboBox.SelectedValue = dateTimeToSet.Value.Second.ToString();
+                p_Hours_ComboBox.SelectedValue = dateTimeToSet.Value.Hour.ToString("00");
+                p_Minutes_ComboBox.SelectedValue = dateTimeToSet.Value.Minute.ToString("00");
+                p_Seconds_ComboBox.SelectedValue = dateTimeToSet.Value.Second.ToString("00");
                 p_Label_Time.Text = dateTimeToSet.Value.ToString("HH:mm:ss");
+            }
+        }
+
+        internal static void Set_DateTime_To_ComboBoxes(
+            DateTime? dateTimeToSet,
+            TextBox p_TextBox_Date,
+            DropDownList p_Hours_ComboBox,
+            DropDownList p_Minutes_ComboBox,
+            DropDownList p_Seconds_ComboBox)
+        {
+            if (dateTimeToSet.HasValue)
+            {
+                p_TextBox_Date.Text = dateTimeToSet.Value.ToString("dd/MM/yyyy");
+                p_Hours_ComboBox.SelectedValue = dateTimeToSet.Value.Hour.ToString("00");
+                p_Minutes_ComboBox.SelectedValue = dateTimeToSet.Value.Minute.ToString("00");
+                p_Seconds_ComboBox.SelectedValue = dateTimeToSet.Value.Second.ToString("00");
             }
         }
 
@@ -243,16 +263,60 @@ namespace WebformsPOCDemo
             }
         }
 
+        internal static void Set_Number_Text_Value_To_TextBox(
+            decimal? numeric_Value,
+            TextBox p_TextBox_To_Set_Value)
+        {
+            if (numeric_Value.HasValue)
+            {
+                p_TextBox_To_Set_Value.Text = numeric_Value.Value.ToString("#,0.##");
+            }
+        }
+
         internal static void Set_Number_Text_Value_To_TextBox_Label_Text(
-            decimal numeric_Value,
+            decimal? numeric_Value,
             TextBox p_TextBox_To_Set_Value,
             Label p_Label_To_Set_Value
             )
         {
-            p_TextBox_To_Set_Value.Text = numeric_Value.ToString("#,0.##");
-            p_Label_To_Set_Value.Text = numeric_Value.ToString("#,0.##");
+            if (numeric_Value.HasValue)
+            { 
+                p_TextBox_To_Set_Value.Text = numeric_Value.Value.ToString("#,0.##");
+                p_Label_To_Set_Value.Text = numeric_Value.Value.ToString("#,0.##");
+            }
         }
 
-       
+        internal static void Set_Language_Cookie(string languageCode)
+        {
+            
+            if ( HttpContext.Current.Request.Cookies.Get(k_Language_Cookie_Name) != null )
+            {
+                HttpContext.Current.Response.Cookies.Get(k_Language_Cookie_Name).Value = languageCode;
+            }
+            else
+            {
+                HttpContext.Current.Response.Cookies.Add(new HttpCookie(k_Language_Cookie_Name, languageCode));
+            }
+        }
+
+        internal static void Change_Current_Thread_Culture_By_Language_Cookie()
+        {
+            if (HttpContext.Current.Request.Cookies.Get(k_Language_Cookie_Name) != null)
+            {
+                string user_Selected_Langauge = HttpContext.Current.Request.Cookies.Get(k_Language_Cookie_Name).Value;
+
+                switch(user_Selected_Langauge.ToLower())
+                {
+                    case "en":
+                        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+                        Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                        break;
+                    case "he":
+                        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("he-IL");
+                        Thread.CurrentThread.CurrentUICulture = new CultureInfo("he-IL");
+                        break;
+                }
+            }
+        }
     }
 }

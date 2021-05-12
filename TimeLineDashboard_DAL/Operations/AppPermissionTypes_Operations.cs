@@ -66,7 +66,7 @@ namespace TimeLineDashboard.DAL.Operations
 
             for (int i = 0; i < r_List_App_Permission_Types.Count; i++)
             {
-                if (r_List_App_Permission_Types[i].App_Permission_Type_Id == p_App_Permission_Type_Id)
+                if ((byte)r_List_App_Permission_Types[i].App_Permission_Type_Id == p_App_Permission_Type_Id)
                 {
                     app_Permission_Type_Details_To_Return = r_List_App_Permission_Types[i];
                     break;
@@ -101,7 +101,7 @@ namespace TimeLineDashboard.DAL.Operations
         {
             App_Permission_Type App_Permission_Type_To_Return = new App_Permission_Type();
 
-            App_Permission_Type_To_Return.App_Permission_Type_Id = (byte)dataRow["App_Permission_Type_Id"];
+            App_Permission_Type_To_Return.App_Permission_Type_Id = (App_Permission_Type.Permission_Type)Enum.Parse(typeof(App_Permission_Type.Permission_Type), dataRow["App_Permission_Type_Id"].ToString());
             App_Permission_Type_To_Return.App_Permission_Type_Name = dataRow["App_Permission_Type_Name"].ToString();
             App_Permission_Type_To_Return.App_Permission_Type_Code = dataRow["App_Permission_Type_Code"].ToString();
             App_Permission_Type_To_Return.App_Permission_Type_Description = dataRow["App_Permission_Type_Description"].ToString();

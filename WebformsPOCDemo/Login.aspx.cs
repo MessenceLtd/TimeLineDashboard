@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TimeLineDashboard.BusinessLogicLayer;
+using TimeLineDashboard.Shared.Models;
 using WebformsPOCDemo.AppShared;
 
 namespace WebformsPOCDemo
@@ -36,21 +37,17 @@ namespace WebformsPOCDemo
                    l_Entered_Password, user_DB_Details.Encrypted_Password ,user_DB_Details.Encryption_Random_Salt 
                     ))
                 {
-                    var permission_Type_Details = Business_Logic_Layer_Facade.Instance.App_Permission_Types_Get_By_Type_Id(user_DB_Details.App_Permission_Type_Id);
-                    if (permission_Type_Details!= null && permission_Type_Details.App_Permission_Type_Id>0)
-                    {
-                        string permission_Type_Code = permission_Type_Details.App_Permission_Type_Code;
-                        FormsAuthentication.SetAuthCookie(user_DB_Details.User_Id + ":" + permission_Type_Code, false);
-                        this.Response.Cookies.Set(new HttpCookie("Logged_In_User_Full_Name", user_DB_Details.FullName_With_Email));
+                    string permission_Type_Code = user_DB_Details.App_Permission_Type_Id.ToString();
+                    FormsAuthentication.SetAuthCookie(user_DB_Details.User_Id + ":" + permission_Type_Code, false);
+                    this.Response.Cookies.Set(new HttpCookie("Logged_In_User_Full_Name", user_DB_Details.FullName_With_Email));
 
-                        if ( string.IsNullOrEmpty( this.Request.QueryString["ReturnUrl"]))
-                        {
-                            this.Response.Redirect("default.aspx");
-                        }
-                        else
-                        {
-                            this.Response.Redirect(this.Request.QueryString["ReturnUrl"]);
-                        }
+                    if ( string.IsNullOrEmpty( this.Request.QueryString["ReturnUrl"]))
+                    {
+                        this.Response.Redirect("default.aspx");
+                    }
+                    else
+                    {
+                        this.Response.Redirect(this.Request.QueryString["ReturnUrl"]);
                     }
                 }
                 else
@@ -69,7 +66,7 @@ namespace WebformsPOCDemo
                     bool are_There_Any_Users_In_The_DB = Business_Logic_Layer_Facade.Instance.Users_Are_There_Any_Users_In_Database();
                     if (are_There_Any_Users_In_The_DB == false)
                     {
-                        FormsAuthentication.SetAuthCookie(k_Administrator_FirstUsage_Permission_Type_Name_Default_User_ID + ":" + k_Administrator_Permission_Type_Name, false);
+                        FormsAuthentication.SetAuthCookie(k_Administrator_FirstUsage_Permission_Type_Name_Default_User_ID + ":" + App_Permission_Type.Permission_Type.Application_Administrator.ToString(), false);
                         this.Response.Redirect("default.aspx");
                     }
                     else

@@ -42,6 +42,42 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_User_Selection_Required;
 
         /// <summary>
+        /// fileUpload_Expense_File control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUpload_Expense_File;
+
+        /// <summary>
+        /// hidden_Uploading_FileName_For_AutoComplete_Helper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Uploading_FileName_For_AutoComplete_Helper;
+
+        /// <summary>
+        /// button_Run_Auto_Complete_Based_On_Selected_FileName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Run_Auto_Complete_Based_On_Selected_FileName;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// textbox_Expense_Invoice_DateTime control.
         /// </summary>
         /// <remarks>
@@ -112,6 +148,24 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropdown_Supplier;
+
+        /// <summary>
+        /// link_Add_Suppliers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link_Add_Suppliers;
+
+        /// <summary>
+        /// button_Refresh_Suppliers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Refresh_Suppliers;
 
         /// <summary>
         /// validator_Supplier_Required control.
@@ -348,6 +402,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.DropDownList dropdown_Expense_Type;
 
         /// <summary>
+        /// validator_dropdown_Expense_Type_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_dropdown_Expense_Type_Required;
+
+        /// <summary>
         /// textbox_Invoice_Number control.
         /// </summary>
         /// <remarks>
@@ -510,15 +573,6 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.TextBox textbox_User_Comments;
 
         /// <summary>
-        /// textbox_Original_File_Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox_Original_File_Name;
-
-        /// <summary>
         /// checkbox_Is_Visible_To_Anonymous_Users control.
         /// </summary>
         /// <remarks>
@@ -571,15 +625,6 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button button_Create_Expense;
-
-        /// <summary>
-        /// button_Fill_Up_Form_Dummy_Data_For_Test control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Fill_Up_Form_Dummy_Data_For_Test;
 
         /// <summary>
         /// lbl_Insert_Process_Error_Result control.

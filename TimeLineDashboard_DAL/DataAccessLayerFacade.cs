@@ -67,6 +67,7 @@ namespace TimeLineDashboard.DAL
             string p_City,
             string p_Address,
             string p_ZipCode,
+            byte? p_Default_Currency_Id,
             string p_Mobile_Phone,
             string p_Additional_Phone_Number,
             DateTime p_BirthDate,
@@ -89,6 +90,7 @@ namespace TimeLineDashboard.DAL
                 p_City,
                 p_Address,
                 p_ZipCode,
+                p_Default_Currency_Id,
                 p_Mobile_Phone,
                 p_Additional_Phone_Number,
                 p_BirthDate,
@@ -123,6 +125,11 @@ namespace TimeLineDashboard.DAL
                 p_Filter_By_State,
                 p_Filter_By_City_Or_Address_Or_ZipCode,
                 p_Filter_By_CompanyName_Or_Person_Fullname);
+        }
+
+        public Users Users_Get_Details_By_User_Id(int p_User_Id, int p_Authenticated_User_Id)
+        {
+            return Users_Operations.Instance.Get_User_Details_By_User_Id(p_User_Id, p_Authenticated_User_Id);
         }
 
         public List<Clients> Clients_Get_All_By_User_Id(int p_User_Id_To_Return_Clients, int p_Authenticated_User_ID)
@@ -167,6 +174,11 @@ namespace TimeLineDashboard.DAL
             return Invoices_Operations.Instance.Get_Invoice_Details_By_Invoice_Id(invoice_Record_Id, user_Id_Invoice_Owner, user_Id_Invoice_Owner);
         }
 
+        public Currencies Currencies_Get_By_Code(string p_Currency_Code)
+        {
+            return Currencies_Operations.Instance.Get_By_Code(p_Currency_Code);
+        }
+
         public Currencies Currencies_Get_By_Id(byte p_Currency_Id)
         {
             return Currencies_Operations.Instance.Get_By_Id(p_Currency_Id);
@@ -204,7 +216,7 @@ namespace TimeLineDashboard.DAL
 
         public Suppliers Suppliers_Insert_New_Client_Administrative_Registration_Process(
             int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
-            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id,
+            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id, decimal? p_Default_Vat_Percentage,
             string p_Telephone, string p_Mobile_Phone, short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number,
             string p_Main_Contact_FullName, string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
@@ -213,7 +225,7 @@ namespace TimeLineDashboard.DAL
         {
             return Suppliers_Operations.Instance.Insert_New_Supplier_Administrative_Registration_Process(
                 p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id,
+                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id, p_Default_Vat_Percentage,
                 p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
                 p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
                 p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -293,6 +305,25 @@ namespace TimeLineDashboard.DAL
                 p_Filter_By_State,
                 p_Filter_By_City_Or_Address_Or_ZipCode,
                 p_Filter_By_CompanyName_Or_Person_Fullname);
+        }
+
+        public bool Users_Update_User_Details(
+            int p_User_Id, string p_Username, string p_First_Name, string p_Middle_Name,
+            string p_Last_Name, string p_Email, short p_Country_Id, short? p_State_Id,
+            string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id, string p_Mobile_Phone,
+            string p_Additional_Phone_Number, DateTime? p_Birth_Date, byte? p_Gender,
+            DateTime? p_Registration_Date, string p_Azure_Container_Ref,
+            string p_Heard_About_Application_From, string p_Our_Administrative_Side_Notes,
+            bool p_Is_Active, int p_Authenticated_User_ID)
+        {
+            return Users_Operations.Instance.Update_User_Details(
+                p_User_Id, p_Username, p_First_Name, p_Middle_Name,
+                p_Last_Name, p_Email, p_Country_Id, p_State_Id,
+                p_City, p_Address, p_ZipCode, p_Default_Currency_Id, p_Mobile_Phone,
+                p_Additional_Phone_Number, p_Birth_Date, p_Gender,
+                p_Registration_Date, p_Azure_Container_Ref,
+                p_Heard_About_Application_From, p_Our_Administrative_Side_Notes,
+                p_Is_Active, p_Authenticated_User_ID);
         }
 
         public List<SupplierType> SupplierTypes_Get_All()
@@ -386,7 +417,7 @@ namespace TimeLineDashboard.DAL
         public bool Suppliers_Update_Supplier_Details(
             int p_Supplier_Id, string p_Company_Name, string p_Website_URL,
             short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
-            byte? p_Default_Currency_Id, string p_Telephone, string p_Mobile_Phone,
+            byte? p_Default_Currency_Id, decimal? p_Default_Vat_Percentage, string p_Telephone, string p_Mobile_Phone,
             short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
@@ -395,7 +426,7 @@ namespace TimeLineDashboard.DAL
         {
             return Suppliers_Operations.Instance.Update_Supplier_Details(
                 p_Supplier_Id, p_Company_Name, p_Website_URL, p_Country_Id,
-                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id,
+                p_State_Id, p_City, p_Address, p_ZipCode, p_Default_Currency_Id, p_Default_Vat_Percentage,
                 p_Telephone, p_Mobile_Phone, p_Supplier_Type_Id,
                 p_Supplier_Tax_Reference_Number, p_Main_Contact_FullName,
                 p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -742,6 +773,40 @@ namespace TimeLineDashboard.DAL
                     p_Reference_Number,
                     p_Transaction_Bank_Description,
                     p_Transaction_Bank_Inner_Reference_Code,
+                    p_Is_Visible_To_Anonymous_Users,
+                    p_Is_Visible_To_Followers_Users,
+                    p_Updating_User_Id
+                );
+        }
+
+        public bool BankAccount_Transactions_Update_Transaction_Details(
+            int p_Bank_Account_Transaction_Id,
+            decimal p_Transaction_Account_Balance,
+            DateTime p_Transaction_Actual_DateTime,
+            decimal p_Positive_Amount_Entered,
+            decimal p_Negative_Amount_Paid,
+            DateTime? p_Transaction_Value_DateTime,
+            string p_Reference_Number,
+            string p_Transaction_Bank_Description,
+            string p_Transaction_Bank_Inner_Reference_Code,
+            string p_User_Description,
+            string p_User_Comments,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            int p_Updating_User_Id)
+        {
+            return BankAccount_Transactions.Instance.Update_Bank_Account_Transaction_Details(
+                    p_Bank_Account_Transaction_Id,
+                    p_Transaction_Account_Balance,
+                    p_Transaction_Actual_DateTime,
+                    p_Positive_Amount_Entered,
+                    p_Negative_Amount_Paid,
+                    p_Transaction_Value_DateTime,
+                    p_Reference_Number,
+                    p_Transaction_Bank_Description,
+                    p_Transaction_Bank_Inner_Reference_Code,
+                    p_User_Description,
+                    p_User_Comments,
                     p_Is_Visible_To_Anonymous_Users,
                     p_Is_Visible_To_Followers_Users,
                     p_Updating_User_Id

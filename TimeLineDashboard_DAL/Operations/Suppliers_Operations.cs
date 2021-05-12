@@ -111,7 +111,7 @@ namespace TimeLineDashboard.DAL.Operations
         internal Suppliers Insert_New_Supplier_Administrative_Registration_Process(
             int p_User_Id, string p_Company_Name, string p_Website_URL, 
             short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
-            byte? p_Default_Currency_Id, string p_Telephone, string p_Mobile_Phone,
+            byte? p_Default_Currency_Id, decimal? p_Default_Vat_Percentage , string p_Telephone, string p_Mobile_Phone,
             short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
@@ -129,6 +129,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spAddress = new SqlParameter("@Address", SqlDbType.NVarChar, 150);
             SqlParameter spZipCode = new SqlParameter("@ZipCode", SqlDbType.VarChar, 10);
             SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
+            SqlParameter spDefault_Vat_Percentage = new SqlParameter("@Default_Vat_Percentage", SqlDbType.Decimal);
             SqlParameter spTelephone = new SqlParameter("@Telephone", SqlDbType.VarChar, 40);
             SqlParameter spMobile_Phone = new SqlParameter("@Mobile_Phone", SqlDbType.VarChar, 40);
             SqlParameter spSupplier_Type_Id = new SqlParameter("@Supplier_Type_Id", SqlDbType.SmallInt);
@@ -163,6 +164,11 @@ namespace TimeLineDashboard.DAL.Operations
             else
                 spDefault_Currency_Id.Value = DBNull.Value;
 
+            if (p_Default_Vat_Percentage.HasValue)
+                spDefault_Vat_Percentage.Value = p_Default_Vat_Percentage.Value;
+            else
+                spDefault_Vat_Percentage.Value = DBNull.Value;
+
             spTelephone.Value = p_Telephone;
             spMobile_Phone.Value = p_Mobile_Phone;
             spSupplier_Type_Id.Value = p_Supplier_Type_Id;
@@ -195,7 +201,7 @@ namespace TimeLineDashboard.DAL.Operations
                 new List<SqlParameter>() {
                     spUser_Id , spCompany_Name, spWebsite_URL , 
                     spCountry_Id , spState_Id , spCity , spAddress , spZipCode ,
-                    spDefault_Currency_Id, spTelephone , spMobile_Phone , spSupplier_Type_Id , 
+                    spDefault_Currency_Id, spDefault_Vat_Percentage, spTelephone , spMobile_Phone , spSupplier_Type_Id , 
                     spSupplier_Tax_Reference_Number , spMain_Contact_FullName ,
                     spMain_Contact_Email_Address , spMain_Contact_Phone_Number ,
                     spSupplier_From_Date , spSupplier_To_Date , spFirst_Contract_Date ,
@@ -218,7 +224,7 @@ namespace TimeLineDashboard.DAL.Operations
         internal bool Update_Supplier_Details(
             int p_Supplier_Id, string p_Company_Name, string p_Website_URL,
             short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
-            byte? p_Default_Currency_Id, string p_Telephone, string p_Mobile_Phone,
+            byte? p_Default_Currency_Id,decimal? p_Default_Vat_Percentage, string p_Telephone, string p_Mobile_Phone,
             short p_Supplier_Type_Id, string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Supplier_From_Date, DateTime? p_Supplier_To_Date, DateTime? p_First_Contract_Date,
@@ -236,6 +242,7 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spAddress = new SqlParameter("@Address", SqlDbType.NVarChar, 150);
             SqlParameter spZipCode = new SqlParameter("@ZipCode", SqlDbType.VarChar, 10);
             SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
+            SqlParameter spDefault_Vat_Percentage = new SqlParameter("@Default_Vat_Percentage", SqlDbType.Decimal);
             SqlParameter spTelephone = new SqlParameter("@Telephone", SqlDbType.VarChar, 40);
             SqlParameter spMobile_Phone = new SqlParameter("@Mobile_Phone", SqlDbType.VarChar, 40);
             SqlParameter spSupplier_Type_Id = new SqlParameter("@Supplier_Type_Id", SqlDbType.SmallInt);
@@ -270,6 +277,11 @@ namespace TimeLineDashboard.DAL.Operations
             else
                 spDefault_Currency_Id.Value = DBNull.Value;
 
+            if (p_Default_Vat_Percentage.HasValue)
+                spDefault_Vat_Percentage.Value = p_Default_Vat_Percentage.Value;
+            else
+                spDefault_Vat_Percentage.Value = DBNull.Value;
+
             spTelephone.Value = p_Telephone;
             spMobile_Phone.Value = p_Mobile_Phone;
             spSupplier_Type_Id.Value = p_Supplier_Type_Id;
@@ -302,7 +314,7 @@ namespace TimeLineDashboard.DAL.Operations
                 new List<SqlParameter>() {
                     spSupplier_Id , spCompany_Name, spWebsite_URL ,
                     spCountry_Id , spState_Id , spCity , spAddress , spZipCode ,
-                    spDefault_Currency_Id, spTelephone , spMobile_Phone , spSupplier_Type_Id ,
+                    spDefault_Currency_Id, spDefault_Vat_Percentage, spTelephone , spMobile_Phone , spSupplier_Type_Id ,
                     spSupplier_Tax_Reference_Number , spMain_Contact_FullName ,
                     spMain_Contact_Email_Address , spMain_Contact_Phone_Number ,
                     spSupplier_From_Date , spSupplier_To_Date , spFirst_Contract_Date ,
@@ -375,6 +387,12 @@ namespace TimeLineDashboard.DAL.Operations
                 && dbRow["Default_Currency_Id"] != DBNull.Value)
             {
                 Supplier_To_Return.Default_Currency_Id = (byte)dbRow["Default_Currency_Id"];
+            }
+
+            if (dbRow.Table.Columns.IndexOf("Default_Vat_Percentage") > -1
+                && dbRow["Default_Vat_Percentage"] != DBNull.Value)
+            {
+                Supplier_To_Return.Default_Vat_Percentage = (decimal)dbRow["Default_Vat_Percentage"];
             }
 
             if (dbRow.Table.Columns.IndexOf("Telephone") > -1) 
@@ -478,6 +496,18 @@ namespace TimeLineDashboard.DAL.Operations
             Supplier_To_Return.Supplier_Id = Convert.ToInt32(dataRow["Supplier_Id"]);
             Supplier_To_Return.User_Id = Convert.ToInt32(dataRow["User_Id"]);
             Supplier_To_Return.Company_Name = dataRow["Company_Name"].ToString();
+
+            if (dataRow.Table.Columns.IndexOf("Default_Currency_Id") > -1
+                && dataRow["Default_Currency_Id"] != DBNull.Value)
+            {
+                Supplier_To_Return.Default_Currency_Id = (byte)dataRow["Default_Currency_Id"];
+            }
+
+            if (dataRow.Table.Columns.IndexOf("Default_Vat_Percentage") > -1
+                && dataRow["Default_Vat_Percentage"] != DBNull.Value)
+            {
+                Supplier_To_Return.Default_Vat_Percentage = (decimal)dataRow["Default_Vat_Percentage"];
+            }
 
             return Supplier_To_Return;
         }

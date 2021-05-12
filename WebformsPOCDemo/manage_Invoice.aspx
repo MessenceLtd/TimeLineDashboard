@@ -16,7 +16,7 @@
             <div class="Form_Label_Wrapper">
                 <label style="font-weight: bold" for="<%= textbox_Invoice_DateTime.ClientID %>">Invoice Date:</label></div>
             <asp:Panel runat="server" ID="formControl_Wrapper_Edit_Invoice_DateTime" Visible="true" CssClass="Form_Control">
-                <asp:TextBox runat="server" ID="textbox_Invoice_DateTime" ClientIDMode="Static" autocomplete="off" CssClass="form-control InitializeDatePicker" 
+                <asp:TextBox runat="server" ID="textbox_Invoice_DateTime" ClientIDMode="Static" autocomplete="nope" CssClass="form-control InitializeDatePicker" 
                     AutoPostBack="true" OnTextChanged="textbox_Invoice_DateTime_TextChanged"></asp:TextBox></asp:Panel>
             <asp:Panel ID="formControl_Wrapper_ReadOnly_Invoice_DateTime" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                 <asp:Label runat="server" ID="label_Invoice_DateTime"></asp:Label>
@@ -124,8 +124,8 @@
                 <div class="Form_Group">
                     <div class="Form_Label_Wrapper">
                         <label style="font-weight: bold" for="<%= textbox_Creation_DateTime.ClientID %>">Creation Date:</label></div>
-                    <asp:Panel runat="server" ID="formControl_Wrapper_Edit_Creation_DateTime" Visible="true" CssClass="Form_Control" autocomplete="off"><asp:TextBox 
-                        runat="server" ID="textbox_Creation_DateTime" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="Off"></asp:TextBox></asp:Panel>
+                    <asp:Panel runat="server" ID="formControl_Wrapper_Edit_Creation_DateTime" Visible="true" CssClass="Form_Control" autocomplete="nope"><asp:TextBox 
+                        runat="server" ID="textbox_Creation_DateTime" ClientIDMode="Static" CssClass="form-control InitializeDatePicker" autocomplete="nope"></asp:TextBox></asp:Panel>
                     <asp:Panel ID="formControl_Wrapper_ReadOnly_Creation_DateTime" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                         <asp:Label runat="server" ID="label_Creation_DateTime"></asp:Label>
                     </asp:Panel>

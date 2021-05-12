@@ -17,6 +17,7 @@ namespace TimeLineDashboard.Shared.Models
         public string Address { get; set; }
         public string ZipCode { get; set; }
         public byte? Default_Currency_Id { get; set; }
+        public decimal? Default_Vat_Percentage { get; set; }
         public string Telephone { get; set; }
         public string Mobile_Phone { get; set; }
         public short Supplier_Type_Id { get; set; }

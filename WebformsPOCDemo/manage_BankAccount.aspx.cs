@@ -19,6 +19,7 @@ namespace WebformsPOCDemo
                 this.Bind_Default_View();
             }
         }
+
         private void Bind_Default_View()
         {
             // ToDo -- Check permissions -- if the user is able to view the client / edit the client

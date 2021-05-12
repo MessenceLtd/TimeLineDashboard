@@ -205,6 +205,89 @@ namespace TimeLineDashboard.DAL.Operations
             return updated_Successfully;
         }
 
+        internal bool Update_Bank_Account_Transaction_Details(
+            int p_Bank_Account_Transaction_Id,
+            decimal p_Transaction_Account_Balance,
+            DateTime p_Transaction_Actual_DateTime,
+            decimal p_Positive_Amount_Entered,
+            decimal p_Negative_Amount_Paid,
+            DateTime? p_Transaction_Value_DateTime,
+            string p_Reference_Number,
+            string p_Transaction_Bank_Description,
+            string p_Transaction_Bank_Inner_Reference_Code,
+            string p_User_Description,
+            string p_User_Comments,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            int p_Updating_User_Id
+            )
+        {
+            bool updated_Successfully = false;
+
+            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.Int);
+            SqlParameter spTransaction_Account_Balance = new SqlParameter("@Transaction_Account_Balance", SqlDbType.Decimal);
+            SqlParameter spTransaction_Actual_DateTime = new SqlParameter("@Transaction_Actual_DateTime", SqlDbType.DateTime);
+            SqlParameter spPositive_Amount_Entered = new SqlParameter("@Positive_Amount_Entered", SqlDbType.Decimal);
+            SqlParameter spNegative_Amount_Paid = new SqlParameter("@Negative_Amount_Paid", SqlDbType.Decimal);
+            SqlParameter spTransaction_Value_DateTime = new SqlParameter("@Transaction_Value_DateTime", SqlDbType.DateTime);
+            SqlParameter spReference_Number = new SqlParameter("@Reference_Number", SqlDbType.NVarChar, 40);
+            SqlParameter spTransaction_Bank_Description = new SqlParameter("@Transaction_Bank_Description", SqlDbType.NVarChar, 40);
+            SqlParameter spTransaction_Bank_Inner_Reference_Code = new SqlParameter("@Transaction_Bank_Inner_Reference_Code", SqlDbType.NVarChar, 15);
+
+            SqlParameter spUser_Description = new SqlParameter("@User_Description", SqlDbType.NVarChar, 200);
+            SqlParameter spUser_Comments = new SqlParameter("@User_Comments", SqlDbType.NVarChar, 200);
+
+            SqlParameter spIs_Visible_To_Anonymous_Users = new SqlParameter("@Is_Visible_To_Anonymous_Users", SqlDbType.Bit);
+            SqlParameter spIs_Visible_To_Followers_Users = new SqlParameter("@Is_Visible_To_Followers_Users", SqlDbType.Bit);
+            SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
+
+            spBank_Account_Transaction_Id.Value = p_Bank_Account_Transaction_Id;
+            spTransaction_Account_Balance.Value = p_Transaction_Account_Balance;
+            spTransaction_Actual_DateTime.Value = p_Transaction_Actual_DateTime;
+            spPositive_Amount_Entered.Value = p_Positive_Amount_Entered;
+            spNegative_Amount_Paid.Value = p_Negative_Amount_Paid;
+            if (p_Transaction_Value_DateTime.HasValue)
+                spTransaction_Value_DateTime.Value = p_Transaction_Value_DateTime.Value;
+            else
+                spTransaction_Value_DateTime.Value = DBNull.Value;
+
+            spReference_Number.Value = p_Reference_Number;
+            spTransaction_Bank_Description.Value = p_Transaction_Bank_Description;
+            spTransaction_Bank_Inner_Reference_Code.Value = p_Transaction_Bank_Inner_Reference_Code;
+
+            spUser_Description.Value = p_User_Description;
+            spUser_Comments.Value = p_User_Comments;
+
+            spIs_Visible_To_Anonymous_Users.Value = p_Is_Visible_To_Anonymous_Users;
+            spIs_Visible_To_Followers_Users.Value = p_Is_Visible_To_Followers_Users;
+            spUpdating_User_Id.Value = p_Updating_User_Id;
+
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Update_Bank_Account_Transaction_Full_Details",
+                new List<SqlParameter>() {
+                    spBank_Account_Transaction_Id,
+                    spTransaction_Account_Balance,
+                    spTransaction_Actual_DateTime,
+                    spPositive_Amount_Entered,
+                    spNegative_Amount_Paid,
+                    spTransaction_Value_DateTime,
+                    spReference_Number,
+                    spTransaction_Bank_Description,
+                    spTransaction_Bank_Inner_Reference_Code,
+                    spUser_Description, 
+                    spUser_Comments,
+                    spIs_Visible_To_Anonymous_Users,
+                    spIs_Visible_To_Followers_Users,
+                    spUpdating_User_Id
+                });
+
+            if (affected_Rows > 0)
+            {
+                updated_Successfully = true;
+            }
+
+            return updated_Successfully;
+        }
+
         internal bool Delete_Bank_Account_Transaction(
             int p_Bank_Account_Id,
             int p_Bank_Account_Transaction_Id,
@@ -359,6 +442,16 @@ namespace TimeLineDashboard.DAL.Operations
             Bank_Account_Transaction_To_Return.Reference_Number = dbRow["Reference_Number"].ToString();
             Bank_Account_Transaction_To_Return.Transaction_Bank_Description = dbRow["Transaction_Bank_Description"].ToString();
             Bank_Account_Transaction_To_Return.Transaction_Bank_Inner_Reference_Code = dbRow["Transaction_Bank_Inner_Reference_Code"].ToString();
+
+            if (dbRow.Table.Columns.IndexOf("Transaction_User_Description") > -1)
+            {
+                Bank_Account_Transaction_To_Return.Transaction_User_Description = dbRow["Transaction_User_Description"].ToString();
+            }
+
+            if (dbRow.Table.Columns.IndexOf("Transaction_User_Comments") > -1)
+            {
+                Bank_Account_Transaction_To_Return.Transaction_User_Comments = dbRow["Transaction_User_Comments"].ToString();
+            }
 
             if (dbRow.Table.Columns.IndexOf("Record_Created_By_User_Id") > -1 )
             {

@@ -492,15 +492,6 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Button button_Create_Invoice;
 
         /// <summary>
-        /// button_Fill_Up_Form_Dummy_Data_For_Test control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Fill_Up_Form_Dummy_Data_For_Test;
-
-        /// <summary>
         /// lbl_Insert_Process_Error_Result control.
         /// </summary>
         /// <remarks>

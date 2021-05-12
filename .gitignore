@@ -91,6 +91,11 @@ TimeLineDashboard_Shared/bin
 TimeLineDashboard_Shared/obj
 
 
+Demo_Integrations_Tests/bin
+Demo_Integrations_Tests/obj
+Demo_Integrations_Tests/PrivateAppSettings.config
+Demo_Integrations_Tests/PrivateConnectionStrings.config
+
 
 
 

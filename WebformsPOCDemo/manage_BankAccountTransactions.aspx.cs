@@ -127,8 +127,9 @@ namespace WebformsPOCDemo
                     transactionToAdd.Transaction_Bank_Description = ((TextBox)this.repeater.Items[i].FindControl("txt_Description")).Text;
                     transactionToAdd.Transaction_Bank_Inner_Reference_Code = ((TextBox)this.repeater.Items[i].FindControl("txt_Bank_Ref")).Text;
 
-                    //transactionToAdd.Is_New_Record = bool.Parse(((HiddenField)this.repeater.Items[i].FindControl("hidden_IsNewRecord")).Value);
-                    //if (transactionToAdd.Bank_Account_Transaction_Id < 0)
+                    transactionToAdd.Is_Visible_To_Anonymous_Users = bool.Parse(((HiddenField)this.repeater.Items[i].FindControl("hidden_Is_Visible_To_Anonymous_Users")).Value);
+                    transactionToAdd.Is_Visible_To_Followers_Users = bool.Parse(((HiddenField)this.repeater.Items[i].FindControl("hidden_Is_Visible_To_Followers_Users")).Value);
+
                     if (bool.Parse(((HiddenField)this.repeater.Items[i].FindControl("hidden_IsNewRecord")).Value))
                     {
                         transactionToAdd.Is_New_Record = true;
