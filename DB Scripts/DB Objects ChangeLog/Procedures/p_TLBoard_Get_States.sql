@@ -5,7 +5,7 @@ GO
 
 CREATE Proc [dbo].[p_TLBoard_Get_States]
 As
----testststst
+
 Select		State_Id, State_Code , State_Name, Country_Id
 From		t_TLBoard_States
 Order By	Country_Id, State_Name
