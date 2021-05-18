@@ -99,13 +99,16 @@
     <Content Include="CSS\jquery-ui.theme.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\Main.rtl.css" />
+    <Content Include="Downloader.aspx" />
     <Content Include="Images\addmore2.png" />
     <Content Include="Images\addmore.png" />
     <Content Include="Images\calendar.gif" />
     <Content Include="Images\cancel.png" />
+    <Content Include="Images\download.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\languages\en.svg" />
     <Content Include="Images\languages\he.svg" />
+    <Content Include="Images\loading.png" />
     <Content Include="Images\refresh.png" />
     <Content Include="Images\viewdetails2.png" />
     <Content Include="Images\save.png" />
@@ -205,6 +208,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SiteCommon.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Downloader.aspx.cs">
+      <DependentUpon>Downloader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Downloader.aspx.designer.cs">
+      <DependentUpon>Downloader.aspx</DependentUpon>
     </Compile>
     <Compile Include="list_BankAccounts.aspx.cs">
       <DependentUpon>list_BankAccounts.aspx</DependentUpon>

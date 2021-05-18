@@ -99,7 +99,11 @@ namespace WebformsPOCDemo
             int Invoice_Record_Id = int.Parse(this.Request.QueryString["id"]);
             int user_Id_Invoice_Owner = base.Authenticated_User_ID;
 
-            Invoices InvoiceDetails = Business_Logic_Layer_Facade.Instance.Invoices_Get_By_Id(Invoice_Record_Id, user_Id_Invoice_Owner);
+            Invoices InvoiceDetails = Business_Logic_Layer_Facade.Instance.Invoices_Get_By_Id(
+                Invoice_Record_Id, 
+                user_Id_Invoice_Owner, 
+                base.Authenticated_User_ID,
+                base.Authenticated_Permission_Type );
 
             if (InvoiceDetails != null)
             {

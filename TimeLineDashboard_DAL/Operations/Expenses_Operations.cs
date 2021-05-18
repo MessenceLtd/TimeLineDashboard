@@ -503,7 +503,7 @@ namespace TimeLineDashboard.DAL.Operations
             spExpense_DateTime.Value = p_Expense_DateTime;
             spSearching_User_Id.Value = p_User_Id_LoggedIn_Creating_Expense;
 
-            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Expense_Latest_Expense_By_Supplier_Id_Expense_DateTime",
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Expense_Latest_Expense_By_Supplier_Id_And_Expense_DateTime",
                 new List<SqlParameter>() { spSupplier_Id, spExpense_DateTime, spSearching_User_Id });
 
             if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)

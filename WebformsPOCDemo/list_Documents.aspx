@@ -87,6 +87,9 @@
                             &nbsp;&nbsp;&nbsp;
                             <a href='<%# DataBinder.Eval(Container, "DataItem.General_Document_Id" , "manage_Document.aspx?id={0}&mode=view") %>'><img 
                                 src="/Images/viewdetails.png" width="32" height="32" alt="Edit" title="View more" /></a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href='<%# DataBinder.Eval(Container, "DataItem.General_Document_Id" , "downloader.aspx?id={0}&type=general_document") %>' target="_blank"><img 
+                                src="/Images/download.png" width="32" height="32" alt="Download" title="Download" /></a>
                         </ItemTemplate>
                         <HeaderStyle Width="100px" />
                         <ItemStyle HorizontalAlign="Center" />

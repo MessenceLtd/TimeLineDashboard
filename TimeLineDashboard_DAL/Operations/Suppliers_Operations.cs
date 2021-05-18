@@ -503,6 +503,41 @@ namespace TimeLineDashboard.DAL.Operations
                 Supplier_To_Return.Default_Currency_Id = (byte)dataRow["Default_Currency_Id"];
             }
 
+            if (dataRow.Table.Columns.IndexOf("Country_Id") > -1)
+            {
+                Supplier_To_Return.Country_Id = (short)dataRow["Country_Id"];
+            }
+
+            if (dataRow.Table.Columns.IndexOf("Country_Name") > -1)
+            {
+                Supplier_To_Return.Country_Name = dataRow["Country_Name"].ToString();
+            }
+
+            if (dataRow.Table.Columns.IndexOf("State_Id") > -1 &&
+                dataRow["State_Id"] != DBNull.Value)
+            {
+                Supplier_To_Return.State_Id = (short)dataRow["State_Id"];
+            }
+
+            if (dataRow.Table.Columns.IndexOf("City") > -1 &&
+                dataRow["City"] != DBNull.Value)
+            {
+                Supplier_To_Return.City = dataRow["City"].ToString();
+                
+            }
+
+            if (dataRow.Table.Columns.IndexOf("Address") > -1 &&
+                dataRow["Address"] != DBNull.Value)
+            {
+                Supplier_To_Return.Address = dataRow["Address"].ToString();
+            }
+
+            if (dataRow.Table.Columns.IndexOf("ZipCode") > -1 &&
+                dataRow["ZipCode"] != DBNull.Value)
+            {
+                Supplier_To_Return.ZipCode = dataRow["ZipCode"].ToString();
+            }
+
             if (dataRow.Table.Columns.IndexOf("Default_Vat_Percentage") > -1
                 && dataRow["Default_Vat_Percentage"] != DBNull.Value)
             {

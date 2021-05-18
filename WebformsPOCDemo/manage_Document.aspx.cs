@@ -99,7 +99,10 @@ namespace WebformsPOCDemo
             int user_Id_Document_Owner = base.Authenticated_User_ID;
 
             General_Documents documentDetails = Business_Logic_Layer_Facade.Instance.GeneralDocuments_Get_By_Id(
-                General_Document_Record_Id, user_Id_Document_Owner);
+                General_Document_Record_Id, 
+                user_Id_Document_Owner, 
+                base.Authenticated_User_ID, 
+                base.Authenticated_Permission_Type );
 
             if (documentDetails != null)
             {

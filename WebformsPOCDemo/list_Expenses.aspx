@@ -84,11 +84,14 @@
                         <ItemTemplate>
                             <a href='<%# DataBinder.Eval(Container, "DataItem.Expense_Record_Id" , "manage_Expense.aspx?id={0}&mode=edit") %>'><img 
                                 src="/Images/edit.png" width="32" height="32" alt="Edit" title="Edit" /></a>
-                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <a href='<%# DataBinder.Eval(Container, "DataItem.Expense_Record_Id" , "manage_Expense.aspx?id={0}&mode=view") %>'><img 
                                 src="/Images/viewdetails.png" width="32" height="32" alt="Edit" title="View more" /></a>
+                            &nbsp;&nbsp;
+                            <a href='<%# DataBinder.Eval(Container, "DataItem.Expense_Record_Id" , "downloader.aspx?id={0}&type=expense") %>' target="_blank"><img 
+                                src="/Images/download.png" width="32" height="32" alt="Download" title="Download" /></a>
                         </ItemTemplate>
-                        <HeaderStyle Width="100px" />
+                        <HeaderStyle Width="142px" />
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateColumn>
                 </Columns>

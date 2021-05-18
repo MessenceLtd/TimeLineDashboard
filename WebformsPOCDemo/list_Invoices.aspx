@@ -93,8 +93,11 @@
                             &nbsp;&nbsp;&nbsp;
                             <a href='<%# DataBinder.Eval(Container, "DataItem.Invoice_Record_Id" , "manage_Invoice.aspx?id={0}&mode=view") %>'><img 
                                 src="/Images/viewdetails.png" width="32" height="32" alt="Edit" title="View more" /></a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href='<%# DataBinder.Eval(Container, "DataItem.Invoice_Record_Id" , "downloader.aspx?id={0}&type=invoice") %>' target="_blank"><img 
+                                src="/Images/download.png" width="32" height="32" alt="Download" title="Download" /></a>
                         </ItemTemplate>
-                        <HeaderStyle Width="100px" />
+                        <HeaderStyle Width="130px" />
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateColumn>
                 </Columns>

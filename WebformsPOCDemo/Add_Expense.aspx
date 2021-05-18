@@ -113,8 +113,9 @@
                                 <label for=""><%= Resources.SiteCommon.Total_Amount %>:</label>
                             </div>
                             <div class="Form_Control">
-                                <asp:TextBox runat="server" ID="textbox_Total_Amount" ClientIDMode="Static"
-                                    CssClass="form-control" onchange="Update_Totals_Based_On_Total_Amount_Entry();" meta:resourcekey="textbox_Total_AmountResource1"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="textbox_Total_Amount" ClientIDMode="Static" 
+                                    OnTextChanged="Textbox_Total_Amount_TextChanged" AutoPostBack="true" AutoCompleteType="None"
+                                    CssClass="form-control" ></asp:TextBox>
                             </div>
                             <asp:RequiredFieldValidator runat="server" ID="validator_Total_Amount_Required" ErrorMessage="Please enter total amount" Display="Dynamic"
                                 ControlToValidate="textbox_Total_Amount" CssClass="text-danger" SetFocusOnError="True" meta:resourcekey="validator_Total_Amount_RequiredResource1"></asp:RequiredFieldValidator>
@@ -125,7 +126,7 @@
                                 <label for="<%= textbox_Vat_Percentage.ClientID %>"><%= Resources.SiteCommon.Vat_Percentage_Text %>:</label>
                             </div>
                             <div class="Form_Control">
-                                <asp:TextBox runat="server" ID="textbox_Vat_Percentage" ClientIDMode="Static" CssClass="form-control" meta:resourcekey="textbox_Vat_PercentageResource1"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="textbox_Vat_Percentage" ClientIDMode="Static" CssClass="form-control" OnTextChanged="Textbox_Vat_Percentage_TextChanged" AutoPostBack="true"></asp:TextBox>
                             </div>
                             <asp:RequiredFieldValidator runat="server" ID="validator_Vat_Percentage_Required" ErrorMessage="Please enter vat percentage" Display="Dynamic"
                                 ControlToValidate="textbox_Vat_Percentage" CssClass="text-danger" Enabled="False" meta:resourcekey="validator_Vat_Percentage_RequiredResource1"></asp:RequiredFieldValidator>
@@ -401,6 +402,8 @@
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="dropdown_Supplier" />
+                        <asp:AsyncPostBackTrigger ControlID="textbox_Total_Amount" />
+                        <asp:AsyncPostBackTrigger ControlID="textbox_Vat_Percentage" />
                     </Triggers>
                 </asp:UpdatePanel>
 

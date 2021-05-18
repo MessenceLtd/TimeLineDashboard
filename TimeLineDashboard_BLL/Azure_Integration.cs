@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -97,6 +98,65 @@ namespace TimeLineDashboard_BLL
             }
 
             return azure_Uploaded_File_Blob_Reference_To_Return;
+        }
+
+        internal bool Delete_File_From_Azure_Storage_Blob_Container(
+            string p_Azure_Block_Blob_Reference, 
+            string p_User_Azure_Container_Reference)
+        {
+            bool l_Deleted_Successfully = false;
+
+            try
+            {
+                string azure_Storage_Account_Connection_String = ConfigurationManager.AppSettings["Azure_Main_Storage_Connection_String"];
+
+                BlobServiceClient blobServiceClient = new BlobServiceClient(azure_Storage_Account_Connection_String);
+
+                BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(p_User_Azure_Container_Reference);
+
+                var blobClient = containerClient.GetBlobClient(p_Azure_Block_Blob_Reference);
+                blobClient.Delete();
+
+                l_Deleted_Successfully = true;
+            }
+            catch (Exception exc)
+            {
+                // ToDo -- Log exception / throw the error to the client
+                l_Deleted_Successfully = false;
+            }
+
+            return l_Deleted_Successfully;
+        }
+
+        internal byte[] Download_File_From_Azure_Storage_Blob_Container(
+            string p_Azure_Block_Blob_Reference,
+            string p_User_Azure_Container_Reference)
+        {
+            byte[] l_File_Content = new byte[0];
+
+            try
+            {
+                string azure_Storage_Account_Connection_String = ConfigurationManager.AppSettings["Azure_Main_Storage_Connection_String"];
+
+                BlobServiceClient blobServiceClient = new BlobServiceClient(azure_Storage_Account_Connection_String);
+
+                BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(p_User_Azure_Container_Reference);
+
+                var blobClient = containerClient.GetBlobClient(p_Azure_Block_Blob_Reference);
+                Stream responseStream = blobClient.OpenRead( new BlobOpenReadOptions(false) );
+
+                using (var memoryStream = new MemoryStream())
+                {
+                    responseStream.CopyTo(memoryStream);
+                    l_File_Content = memoryStream.ToArray();
+                }
+            }
+            catch (Exception exc)
+            {
+                // ToDo -- Log exception / throw the error to the client
+            }
+
+            return l_File_Content;
         }
     }
 }

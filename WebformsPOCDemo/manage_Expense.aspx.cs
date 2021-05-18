@@ -97,7 +97,11 @@ namespace WebformsPOCDemo
             int expense_Record_Id = int.Parse(this.Request.QueryString["id"]);
             int user_Id_Expense_Owner = base.Authenticated_User_ID;
 
-            Expenses expenseDetails = Business_Logic_Layer_Facade.Instance.Expenses_Get_By_Id(expense_Record_Id, user_Id_Expense_Owner);
+            Expenses expenseDetails = Business_Logic_Layer_Facade.Instance.Expenses_Get_By_Id(
+                expense_Record_Id, 
+                user_Id_Expense_Owner,
+                base.Authenticated_User_ID, 
+                base.Authenticated_Permission_Type );
 
             if (expenseDetails != null)
             {

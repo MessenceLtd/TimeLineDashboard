@@ -259,7 +259,7 @@ namespace WebformsPOCDemo
                 {
                     this.textbox_Vat_Percentage.Text = base_Expense_For_Auto_Complete.Vat_Percentage.ToString();
                     this.textbox_Invoice_Supplier_Address_Description.Text = base_Expense_For_Auto_Complete.Invoice_Supplier_Company_Details;
-                    this.textbox_Invoice_Supplier_Tax_Reference.Text = base_Expense_For_Auto_Complete.Invoice_Supplier_Company_Details;
+                    this.textbox_Invoice_Supplier_Company_Details.Text = base_Expense_For_Auto_Complete.Invoice_Supplier_Company_Details;
                     if(base_Expense_For_Auto_Complete.Invoice_Supplier_Country_Id.HasValue)
                     {
                         this.dropdown_Invoice_Supplier_Country.SelectedValue = base_Expense_For_Auto_Complete.Invoice_Supplier_Country_Id.Value.ToString();
@@ -415,6 +415,11 @@ namespace WebformsPOCDemo
         {
             if (!string.IsNullOrEmpty(this.hidden_Uploading_FileName_For_AutoComplete_Helper.Value))
             {
+                this.textbox_Total_Amount.Text = string.Empty;
+                this.textbox_Vat_Percentage.Text = string.Empty;
+                this.textbox_Total_Without_Vat.Text = string.Empty;
+                this.textbox_Total_Vat.Text = string.Empty;
+
                 if (!string.IsNullOrEmpty( this.dropdown_User_Selection.SelectedValue))
                 {
                     var auto_Complete_Values = Business_Logic_Layer_Facade.Instance
@@ -449,12 +454,22 @@ namespace WebformsPOCDemo
                     Common_Tools.Set_Number_Text_Value_To_TextBox(
                         auto_Complete_Values.Total_Without_Vat, this.textbox_Total_Without_Vat);
 
+                    
+
                     Common_Tools.Set_Number_Text_Value_To_TextBox(
                         auto_Complete_Values.Total_Vat, this.textbox_Total_Vat);
 
                     if (auto_Complete_Values.Currency_Id.HasValue)
                     {
                         this.dropdown_Currency.SelectedValue = auto_Complete_Values.Currency_Id.Value.ToString();
+                    }
+
+                    this.textbox_Invoice_Content_Long_Description.Text = auto_Complete_Values.Invoice_Content_Long_Description;
+
+                    // Set default expense type as general (unless it was already selected diffrently from previous steps )
+                    if (string.IsNullOrEmpty(this.dropdown_Expense_Type.SelectedValue))
+                    {
+                        this.dropdown_Expense_Type.SelectedValue = "1";
                     }
                 }
             }
@@ -463,6 +478,39 @@ namespace WebformsPOCDemo
         protected void button_Refresh_Suppliers_Click(object sender, EventArgs e)
         {
             this.Bind_DropDown_Supplier_After_User_Id_Selection();
+        }
+
+        protected void Textbox_Total_Amount_TextChanged(object sender, EventArgs e)
+        {
+            this.Refresh_Totals_Textboxes();
+        }
+
+        protected void Textbox_Vat_Percentage_TextChanged(object sender, EventArgs e)
+        {
+            this.Refresh_Totals_Textboxes();
+        }
+
+        private void Refresh_Totals_Textboxes()
+        {
+            decimal l_Vat_Percentage = 0;
+            decimal l_Total_Amount = 0;
+
+            this.textbox_Total_Without_Vat.Text = this.textbox_Total_Amount.Text;
+            this.textbox_Total_Vat.Text = "0";
+
+            if (decimal.TryParse(this.textbox_Vat_Percentage.Text, out l_Vat_Percentage) &&
+                decimal.TryParse(this.textbox_Total_Amount.Text, out l_Total_Amount) &&
+                l_Vat_Percentage > 0 && l_Total_Amount > 0)
+            {
+                decimal l_Total_Without_Vat = l_Total_Amount / ((l_Vat_Percentage + 100) / 100);
+                decimal l_Total_Vat = l_Total_Amount - l_Total_Without_Vat;
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        l_Total_Without_Vat, this.textbox_Total_Without_Vat);
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        l_Total_Vat, this.textbox_Total_Vat);
+            }
         }
     }
 }

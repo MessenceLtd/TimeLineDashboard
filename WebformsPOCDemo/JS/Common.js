@@ -14,6 +14,14 @@ $(function () {
 
     var prm = Sys.WebForms.PageRequestManager.getInstance();
 
+
+    prm.add_beginRequest(function () {
+
+        // ToDo: Check if the current page url should have loading icon 
+        $('body').addClass('Loading');
+
+    });
+
     prm.add_endRequest(function () {
 
         $(".InitializeDatePicker").datepicker(
@@ -26,9 +34,34 @@ $(function () {
                 regional: 'he'
             }); 
 
+        $('body').removeClass('Loading');
+
     });
 
+    preload_Images(
+        "/Images/Loading.png",
+    );
+
 });
+
+var images = [];
+function preload_Images()
+{
+    for (var i = 0; i < arguments.length; i++) {
+        images[i] = new Image();
+        images[i].src = Get_App_Base_Url() + arguments[i];
+    }
+}
+
+function Get_App_Base_Url() {
+    var current_Location = document.location.href;
+
+    if (current_Location.indexOf('/') > -1) {
+        current_Location = current_Location.substring(0, current_Location.lastIndexOf('/'));
+    }
+
+    return current_Location;
+}
 
 function Run_Auto_Complete_Helper_On_Uploaded_File_Name( input_Upload_File_Element ) {
 

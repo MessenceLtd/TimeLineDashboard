@@ -95,16 +95,14 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
 
         public Users Users_Get_Details_By_User_Id(
-            int p_User_Id, 
-            int p_Authenticated_User_Id, 
+            int p_User_Id,
+            int p_Authenticated_User_Id,
             App_Permission_Type p_Authenticated_User_Permission_Type)
         {
-            if (p_User_Id != p_Authenticated_User_Id  &&
-                p_Authenticated_User_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.Application_Administrator &&
-                p_Authenticated_User_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.DashboardTimeLine_Company_Employee ) 
-            {
-                throw new Exception("Permission Error! The authenticated user is not permitted to get the user details");
-            }
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id,
+                p_Authenticated_User_Id,
+                p_Authenticated_User_Permission_Type);
 
             return Data_Access_Layer_Facade.Instance.Users_Get_Details_By_User_Id(p_User_Id, p_Authenticated_User_Id);
         }
@@ -151,14 +149,32 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return new_Registered_User_To_Return;
         }
 
-        public General_Documents GeneralDocuments_Get_By_Id(int p_General_Document_Record_Id, int p_User_Id_Document_Owner)
+        public General_Documents GeneralDocuments_Get_By_Id(
+            int p_General_Document_Record_Id,
+            int p_User_Id_Document_Owner,
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
         {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Document_Owner,
+                p_Authenticated_User_Id,
+                p_Authenticated_User_Permission);
+
             return Data_Access_Layer_Facade.Instance.GeneralDocuments_Get_By_Id(p_General_Document_Record_Id, p_User_Id_Document_Owner);
         }
 
-        public Invoices Invoices_Get_By_Id(int invoice_Record_Id, int user_Id_Invoice_Owner)
+        public Invoices Invoices_Get_By_Id(
+            int p_Invoice_Record_Id,
+            int p_User_Id_Invoice_Owner,
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
         {
-            return Data_Access_Layer_Facade.Instance.Invoices_Get_By_Id(invoice_Record_Id, user_Id_Invoice_Owner);
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Invoice_Owner,
+                p_Authenticated_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.Invoices_Get_By_Id(p_Invoice_Record_Id, p_User_Id_Invoice_Owner);
         }
 
         public Currencies Currencies_Get_By_Id(byte p_Currency_Id)
@@ -270,19 +286,19 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public bool Users_Update_User_Details(
-            int p_User_Id, string p_Username, string p_First_Name, string p_Middle_Name, 
-            string p_Last_Name, string p_Email, short p_Country_Id, short? p_State_Id, 
-            string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id, string p_Mobile_Phone, 
-            string p_Additional_Phone_Number, DateTime? p_Birth_Date, byte? p_Gender, 
-            DateTime? p_Registration_Date, string p_Azure_Container_Ref, 
-            string p_Heard_About_Application_From, string p_Our_Administrative_Side_Notes, 
+            int p_User_Id, string p_Username, string p_First_Name, string p_Middle_Name,
+            string p_Last_Name, string p_Email, short p_Country_Id, short? p_State_Id,
+            string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency_Id, string p_Mobile_Phone,
+            string p_Additional_Phone_Number, DateTime? p_Birth_Date, byte? p_Gender,
+            DateTime? p_Registration_Date, string p_Azure_Container_Ref,
+            string p_Heard_About_Application_From, string p_Our_Administrative_Side_Notes,
             bool p_Is_Active, int p_Authenticated_User_ID, App_Permission_Type authenticated_Permission_Type)
         {
             bool updated_Successfully = false;
 
-            if (p_User_Id != p_Authenticated_User_ID && 
+            if (p_User_Id != p_Authenticated_User_ID &&
                 authenticated_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.DashboardTimeLine_Company_Employee &&
-                authenticated_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.Application_Administrator )
+                authenticated_Permission_Type.App_Permission_Type_Id != App_Permission_Type.Permission_Type.Application_Administrator)
             {
                 throw new Exception("Permission Error! The authenticated user is not permitted to get the user details");
             }
@@ -366,7 +382,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
         public Suppliers Suppliers_Insert_New_Supplier_Administrative_Registration_Process(
             int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
-            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency,decimal? p_Default_Vat_Percentage,
+            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, byte? p_Default_Currency, decimal? p_Default_Vat_Percentage,
             string p_Telephone, string p_Mobile_Phone, short p_Supplier_Type_Id,
             string p_Supplier_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
@@ -766,8 +782,8 @@ namespace TimeLineDashboard.BusinessLogicLayer
             string p_Original_File_Name, byte[] p_File_Content_To_Save_In_Azure,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
-            int p_Record_Created_By_User_Id, 
-            App_Permission_Type p_Creating_User_Permission, 
+            int p_Record_Created_By_User_Id,
+            App_Permission_Type p_Creating_User_Permission,
             bool p_Is_Active
             )
         {
@@ -779,15 +795,15 @@ namespace TimeLineDashboard.BusinessLogicLayer
             string p_Azure_Block_Blob_Reference = string.Empty;
             bool l_Process_Tried_To_Upload_File_And_Failed = false;
 
-            if (p_File_Content_To_Save_In_Azure!= null && p_File_Content_To_Save_In_Azure.Length>0)
+            if (p_File_Content_To_Save_In_Azure != null && p_File_Content_To_Save_In_Azure.Length > 0)
             {
                 string l_Azure_Block_Blob_Uploaded_Reference
                     = this.Upload_File_To_Azure(
-                        p_File_Content_To_Save_In_Azure, 
+                        p_File_Content_To_Save_In_Azure,
                         p_Original_File_Name,
                         p_User_Id,
-                        p_Record_Created_By_User_Id, 
-                        p_Creating_User_Permission );
+                        p_Record_Created_By_User_Id,
+                        p_Creating_User_Permission);
 
                 if (!string.IsNullOrEmpty(l_Azure_Block_Blob_Uploaded_Reference))
                 {
@@ -806,7 +822,9 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 throw new Exception("Failed to upload the file :( Please try again later or contact us!");
             }
 
-            new_Created_Expenses_To_Return =  Data_Access_Layer_Facade.Instance.Expenses_Insert_New_Expense(
+            try
+            {
+                new_Created_Expenses_To_Return = Data_Access_Layer_Facade.Instance.Expenses_Insert_New_Expense(
                 p_User_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
                 p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
                 p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName, p_Invoiced_Client_To_PhoneNumber, p_Invoiced_Client_To_Country_Id,
@@ -821,15 +839,52 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
                 p_Record_Created_By_User_Id, p_Is_Active
                 );
+            }
+            catch (Exception exc)
+            {
+                // Exception occured during database operation. 
+                // If the document was stored in azure it needs to be deleted to avoid unreferenced files
+                if (!l_Process_Tried_To_Upload_File_And_Failed &&
+                    !string.IsNullOrEmpty(p_Azure_Block_Blob_Reference))
+                {
+                    this.Delete_Azure_Uploaded_File(
+                        p_Azure_Block_Blob_Reference,
+                        p_User_Id,
+                        p_Record_Created_By_User_Id,
+                        p_Creating_User_Permission);
+                }
+            }
 
             return new_Created_Expenses_To_Return;
         }
 
-        public Expenses Expenses_Get_By_Id(int p_Expense_Record_Id, int p_User_Id_Expense_Owner)
+        private void Validate_Permissions_For_Authenticated_User_On_User(
+            int p_On_User_Id,
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission
+            )
         {
-            return Data_Access_Layer_Facade.Instance.Expenses_Get_By_Id(p_Expense_Record_Id, p_User_Id_Expense_Owner);
+            if (p_On_User_Id != p_Authenticated_User_Id &&
+                p_Authenticated_User_Permission.App_Permission_Type_Id != App_Permission_Type.Permission_Type.Application_Administrator &&
+                p_Authenticated_User_Permission.App_Permission_Type_Id != App_Permission_Type.Permission_Type.DashboardTimeLine_Company_Employee)
+            {
+                throw new Exception("Permission Error! The authenticated user is not permitted to get the user details");
+            }
         }
 
+        public Expenses Expenses_Get_By_Id(
+            int p_Expense_Record_Id,
+            int p_User_Id_Expense_Owner,
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Expense_Owner,
+                p_Authenticated_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.Expenses_Get_By_Id(p_Expense_Record_Id, p_User_Id_Expense_Owner);
+        }
 
         public Invoices Invoices_Insert_New_Invoice_Details(
             int p_User_Id, int p_Client_Id, DateTime? p_Invoice_DateTime,
@@ -1271,7 +1326,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
         internal List<Bank_Account_Transactions> BankAccounts_Transactions_Get_Transactions_By_Transactions_ArrayOfIds(
             int p_Bank_Account_Id,
-            int[] transactions_IDs_Array, 
+            int[] transactions_IDs_Array,
             int p_Searching_User_Id
             )
         {
@@ -1373,16 +1428,16 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
                 p_Is_Active, p_Creating_User_Id);
         }
-        
+
         public string Upload_File_To_Azure(
             byte[] p_File_Content,
             string p_File_Name,
             string p_Azure_Container_Name)
         {
-            string new_Blob_Reference = 
+            string new_Blob_Reference =
                 Azure_Integration.Instance.Upload_File_To_Azure_Storage_Blob_Container(
-                    p_File_Content, 
-                    p_File_Name, 
+                    p_File_Content,
+                    p_File_Name,
                     p_Azure_Container_Name);
 
             return new_Blob_Reference;
@@ -1391,7 +1446,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         public string Upload_File_To_Azure(
             byte[] p_File_Content,
             string p_File_Name,
-            int p_Upload_For_User_Id , 
+            int p_Upload_For_User_Id,
             int p_Authenticated_User_Id,
             App_Permission_Type p_Authenticated_User_Permission
             )
@@ -1410,10 +1465,33 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return l_Uploaded_Azure_Block_Blob_Reference;
         }
 
-        public Expense_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI 
+        public bool Delete_Azure_Uploaded_File(
+            string p_Azure_Block_Blob_Reference,
+            int p_Upload_For_User_Id,
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission
+            )
+        {
+            bool l_Deleted_Successfully = false;
+
+            var user_Details = this.Users_Get_Details_By_User_Id(p_Upload_For_User_Id, p_Authenticated_User_Id, p_Authenticated_User_Permission);
+
+            if (user_Details != null)
+            {
+                string l_User_Azure_Container_Reference = user_Details.Azure_Container_Ref;
+
+                l_Deleted_Successfully = Azure_Integration.Instance.Delete_File_From_Azure_Storage_Blob_Container(
+                    p_Azure_Block_Blob_Reference,
+                    l_User_Azure_Container_Reference);
+            }
+
+            return l_Deleted_Successfully;
+        }
+
+        public Expense_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI
             Expenses_Get_AutoComplete_Suggestion_Based_On_Uploaded_FileName(
-                string p_Uploaded_File_Name, 
-                int p_User_Id, 
+                string p_Uploaded_File_Name,
+                int p_User_Id,
                 int p_Authenticated_User_Id)
         {
             Expense_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI suggestions_To_Return
@@ -1451,12 +1529,12 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 string minutes_String_Extracted = "";
                 if (date_String_Extracted.Length > 12)
                 {
-                    if (date_String_Extracted.IndexOf(" ") > -1 )
-                    { 
-                        hours_String_Extracted = date_String_Extracted.Substring(date_String_Extracted.IndexOf(" ")+1, 2);
-                        minutes_String_Extracted = date_String_Extracted.Substring(date_String_Extracted.IndexOf(" ")+3, 2);
+                    if (date_String_Extracted.IndexOf(" ") > -1)
+                    {
+                        hours_String_Extracted = date_String_Extracted.Substring(date_String_Extracted.IndexOf(" ") + 1, 2);
+                        minutes_String_Extracted = date_String_Extracted.Substring(date_String_Extracted.IndexOf(" ") + 3, 2);
 
-                        date_String_Extracted = date_String_Extracted.Substring(0, date_String_Extracted.IndexOf(" ")+1).Trim();
+                        date_String_Extracted = date_String_Extracted.Substring(0, date_String_Extracted.IndexOf(" ") + 1).Trim();
                     }
                 }
 
@@ -1509,7 +1587,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
                     total_Value_Only_From_Extracted_Expression = total_Value_Only_From_Extracted_Expression.Trim();
 
                     decimal parsed_Extracted_Total_Value = decimal.Parse(total_Value_Only_From_Extracted_Expression);
-                    
+
                     Currencies parsed_Currency = null;
 
                     if (total_Value_With_Currency_Expression_Extracted.IndexOf(" ") > -1)
@@ -1536,12 +1614,12 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
                 try
                 {
-                    int starting_Index_Supplier_Details = p_Uploaded_File_Name.IndexOf('-', p_Uploaded_File_Name.IndexOf('-') + 1 ) + 1 ;
-                    int length_Supplier_Name_Details_For_Extraction = p_Uploaded_File_Name.IndexOf('-', starting_Index_Supplier_Details ) - starting_Index_Supplier_Details;
+                    int starting_Index_Supplier_Details = p_Uploaded_File_Name.IndexOf('-', p_Uploaded_File_Name.IndexOf('-') + 1) + 1;
+                    int length_Supplier_Name_Details_For_Extraction = p_Uploaded_File_Name.IndexOf('-', starting_Index_Supplier_Details) - starting_Index_Supplier_Details;
                     string supplier_Details_Extracted = p_Uploaded_File_Name.Substring(starting_Index_Supplier_Details, length_Supplier_Name_Details_For_Extraction);
-                    
+
                     supplier_Details_Extracted = supplier_Details_Extracted.Trim();
-                    
+
                     step_Description_For_Exception_Logging = "Extracting Supplier - by splitting white spaces vesus db suppliers list";
 
                     var supplier_Details_Entity = this.Try_To_Find_Supplier_Id_By_Supplier_Details_From_Filename(
@@ -1555,23 +1633,50 @@ namespace TimeLineDashboard.BusinessLogicLayer
                         suggestions_To_Return.Supplier_Id = supplier_Details_Entity.Supplier_Id;
 
                         // if the supplier has a default vat value then set it for suggestions and try to auto fill other total amount parts.
-                        if (supplier_Details_Entity.Default_Vat_Percentage.HasValue && 
-                            supplier_Details_Entity.Default_Vat_Percentage.Value > 0 && 
+                        if (supplier_Details_Entity.Default_Vat_Percentage.HasValue &&
+                            supplier_Details_Entity.Default_Vat_Percentage.Value > 0 &&
                             suggestions_To_Return.Total_Amount.HasValue &&
                             suggestions_To_Return.Total_Amount.Value > 0)
                         {
                             //suggestions_To_Return.Total_Vat  supplier_Details_Entity.Default_Vat_Percentage
                             suggestions_To_Return.Vat_Percentage = supplier_Details_Entity.Default_Vat_Percentage;
+                        }
+                        else
+                        {
+                            // The supplier might not have default vat value but this invoice might still be with vat value.. 
+                            // Take the latest vat value of the current country and use it as the default vat percentage for calculation
+                            decimal country_Vat_Value = this.Countries_Get_Latest_Vat_Value_By_Country_Id(supplier_Details_Entity.Country_Id);
+                            suggestions_To_Return.Vat_Percentage = country_Vat_Value;
+                        }
+
+                        if (suggestions_To_Return.Vat_Percentage.HasValue &&
+                            suggestions_To_Return.Vat_Percentage.Value > 0 &&
+                            suggestions_To_Return.Total_Amount.HasValue &&
+                            suggestions_To_Return.Total_Amount.Value > 0)
+                        {
                             suggestions_To_Return.Total_Without_Vat =
                                 suggestions_To_Return.Total_Amount / ((suggestions_To_Return.Vat_Percentage + 100) / 100);
                             suggestions_To_Return.Total_Vat = suggestions_To_Return.Total_Amount - suggestions_To_Return.Total_Without_Vat;
                         }
                     }
                 }
-                catch(Exception exc)
+                catch (Exception exc)
                 {
 
                 }
+            }
+
+            // Try to extract invoice description 
+            step_Description_For_Exception_Logging = "Extracting invoice content description - start";
+            try
+            {
+                string l_Invoice_Description = p_Uploaded_File_Name.Substring(p_Uploaded_File_Name.LastIndexOf("-") + 1, p_Uploaded_File_Name.LastIndexOf(".") - p_Uploaded_File_Name.LastIndexOf("-"));
+                l_Invoice_Description = l_Invoice_Description.Trim();
+                suggestions_To_Return.Invoice_Content_Long_Description = l_Invoice_Description;
+            }
+            catch (Exception exc)
+            {
+
             }
 
             return suggestions_To_Return;
@@ -1580,7 +1685,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         private Suppliers Try_To_Find_Supplier_Id_By_Supplier_Details_From_Filename(
             string p_Supplier_Details_Extracted,
             int p_User_Id,
-            int p_Authenticated_User_Id )
+            int p_Authenticated_User_Id)
         {
             Suppliers supplier_Details_To_Return = null;
             int? supplier_Id_To_Return = new int?();
@@ -1608,7 +1713,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
                             supplier_Coordinates_Strength[supplier_Id]++;
                         }
                         else
-                        { 
+                        {
                             supplier_Coordinates_Strength.Add(supplier_Id, 1);
                         }
                     }
@@ -1617,7 +1722,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
             // get the maximum strength that should match the supplier_id to return
             short max_Strength_Helper_To_Return = 0;
-            foreach ( var pair in supplier_Coordinates_Strength)
+            foreach (var pair in supplier_Coordinates_Strength)
             {
                 if (pair.Value > max_Strength_Helper_To_Return)
                 {
@@ -1630,7 +1735,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
             {
                 supplier_Details_To_Return = suppliers.SingleOrDefault(s => s.Supplier_Id == supplier_Id_To_Return.Value);
             }
-            
+
             return supplier_Details_To_Return;
         }
 
@@ -1647,5 +1752,103 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
             return latest_Vat_Of_Country_To_Return;
         }
-    } 
+
+        public Azure_File_Download_For_UI Download_File_From_Azure(
+            int p_File_Record_ID,
+            string p_File_Type,
+            int p_Download_For_User_Id,
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission
+            )
+        {
+            Azure_File_Download_For_UI azure_Download_Result = new Azure_File_Download_For_UI();
+
+            this.Validate_Permissions_For_Authenticated_User_On_User(
+                p_Download_For_User_Id,
+                p_Authenticated_User_Id,
+                p_Authenticated_User_Permission);
+
+            p_File_Type = p_File_Type.Trim().ToLower();
+
+            if (p_File_Record_ID > 0)
+            {
+                // Get azure container reference from the user details: 
+                Users user_Details = this.Users_Get_Details_By_User_Id(
+                    p_Download_For_User_Id,
+                    p_Authenticated_User_Id,
+                    p_Authenticated_User_Permission
+                    );
+
+                string l_Azure_Container_Reference = user_Details.Azure_Container_Ref;
+                string l_Original_File_Name = string.Empty;
+
+                if (l_Azure_Container_Reference.Length > 0)
+                {
+                    string l_Azure_Block_Blob_Reference = "";
+
+                    try
+                    {
+                        switch (p_File_Type)
+                        {
+                            case "expense":
+                                Expenses expense_Details = this.Expenses_Get_By_Id(
+                                    p_File_Record_ID,
+                                    p_Download_For_User_Id,
+                                    p_Authenticated_User_Id,
+                                    p_Authenticated_User_Permission);
+
+                                l_Azure_Block_Blob_Reference = expense_Details.Azure_Block_Blob_Reference;
+                                l_Original_File_Name = expense_Details.Original_File_Name;
+                                break;
+
+                            case "invoice":
+                                Invoices invoice_Details = this.Invoices_Get_By_Id(
+                                    p_File_Record_ID,
+                                    p_Download_For_User_Id,
+                                    p_Authenticated_User_Id,
+                                    p_Authenticated_User_Permission);
+
+                                l_Azure_Block_Blob_Reference = invoice_Details.Azure_Block_Blob_Reference;
+                                l_Original_File_Name = invoice_Details.Original_File_Name;
+                                break;
+
+                            case "general_document":
+                                General_Documents general_Document_Details = this.GeneralDocuments_Get_By_Id(
+                                    p_File_Record_ID,
+                                    p_Download_For_User_Id,
+                                    p_Authenticated_User_Id,
+                                    p_Authenticated_User_Permission);
+
+                                l_Azure_Block_Blob_Reference = general_Document_Details.Azure_Block_Blob_Reference;
+                                l_Original_File_Name = general_Document_Details.Original_File_Name;
+                                break;
+                        }
+
+                        if (!string.IsNullOrEmpty(l_Azure_Block_Blob_Reference) &&
+                            !string.IsNullOrEmpty(l_Original_File_Name))
+                        {
+                            byte[] l_Azure_File_Content =
+                                Azure_Integration.Instance.Download_File_From_Azure_Storage_Blob_Container(
+                                    l_Azure_Block_Blob_Reference,
+                                    l_Azure_Container_Reference);
+
+                            if (l_Azure_File_Content != null && l_Azure_File_Content.Length > 0)
+                            {
+                                azure_Download_Result.Downloaded_Successfully = true;
+                                azure_Download_Result.File_Original_Name = l_Original_File_Name;
+                                azure_Download_Result.File_Content_Buffer = l_Azure_File_Content;
+                            }
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        azure_Download_Result.Downloaded_Successfully = false;
+                        azure_Download_Result.Exception_Details = exc;
+                    }
+                }
+            }
+
+            return azure_Download_Result;
+        }
+    }
 }
