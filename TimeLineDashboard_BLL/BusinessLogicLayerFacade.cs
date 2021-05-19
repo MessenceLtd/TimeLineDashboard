@@ -706,10 +706,65 @@ namespace TimeLineDashboard.BusinessLogicLayer
             string p_Invoice_Supplier_ZipCode, string p_Invoice_Supplier_WebAddress,
             string p_Invoice_Supplier_Phone_Number, string p_Invoice_Supplier_Contact_FullName,
             string p_Invoice_Content_Long_Description, string p_User_Description, string p_User_Comments,
+            int p_User_Id_Expense_Owner, string p_Original_File_Name, byte[] p_File_Content_To_Save_In_Azure,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
-            int p_Updating_User_Id, bool p_Is_Active)
+            int p_Updating_User_Id, App_Permission_Type p_Authenticated_User_Permission_Type,  bool p_Is_Active)
         {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Expense_Owner,
+                p_Updating_User_Id,
+                p_Authenticated_User_Permission_Type );
+
+            bool l_File_Uploaded = false;
+            bool l_Error_Occured_During_Azure_Operations = false;
+            string l_New_Azure_Block_Blob_Reference = string.Empty;
+
+            if (!string.IsNullOrEmpty(p_Original_File_Name) && p_File_Content_To_Save_In_Azure.Length > 0)
+            {
+                // A new file has been uploaded for the expense. 
+                // the previous file needs to be deleted from azure and the new one should be uploaded and connected with the update process
+                Users user_Details = this.Users_Get_Details_By_User_Id(
+                    p_User_Id_Expense_Owner,
+                    p_Updating_User_Id,
+                    p_Authenticated_User_Permission_Type);
+
+                string l_Azure_Container_Reference = user_Details.Azure_Container_Ref;
+
+                Expenses expense_Details = this.Expenses_Get_By_Id(
+                    p_Expense_Record_Id,
+                    p_User_Id_Expense_Owner,
+                    p_Updating_User_Id,
+                    p_Authenticated_User_Permission_Type);
+
+                string l_Expense_Azure_Block_Blob_Reference = expense_Details.Azure_Block_Blob_Reference;
+                if (!string.IsNullOrEmpty(l_Expense_Azure_Block_Blob_Reference))
+                {
+                    // Try to first upload the new expense file, If successfull then try to delete as well. 
+                    l_New_Azure_Block_Blob_Reference =  Azure_Integration.Instance.Upload_File_To_Azure_Storage_Blob_Container(
+                        p_File_Content_To_Save_In_Azure,
+                        p_Original_File_Name,
+                        l_Azure_Container_Reference);
+
+                    if (!string.IsNullOrEmpty(l_New_Azure_Block_Blob_Reference))
+                    {
+                        l_File_Uploaded = true;
+
+                        bool l_Deleted_Successfully = Azure_Integration.Instance.Delete_File_From_Azure_Storage_Blob_Container(
+                        l_Expense_Azure_Block_Blob_Reference, l_Azure_Container_Reference);
+
+                        if (!l_Deleted_Successfully )
+                        {
+                            // ToDo -- Log exception that a file was uploaded but the previous file was not deleted.. 
+                        }
+                    }
+                }
+                else
+                {
+                    // There is no azure block blob reference for the current expense, so there is nothing to delete.
+                }
+            }
+
             return Data_Access_Layer_Facade.Instance.Expenses_Update_Expense_Details(
                 p_Expense_Record_Id, p_Supplier_Id, p_Expense_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
                 p_Total_Without_Vat, p_Total_Vat, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
@@ -721,10 +776,10 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Invoice_Supplier_ZipCode, p_Invoice_Supplier_WebAddress, p_Invoice_Supplier_Phone_Number,
                 p_Invoice_Supplier_Contact_FullName, p_Invoice_Content_Long_Description, p_User_Description,
                 p_User_Comments,
+                p_Original_File_Name, l_New_Azure_Block_Blob_Reference, l_File_Uploaded,
                 p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
-                p_Updating_User_Id, p_Is_Active
-                );
+                p_Updating_User_Id, p_Is_Active);
         }
 
         public bool Invoices_Update_Invoice_Details(

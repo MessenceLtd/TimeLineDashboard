@@ -42,31 +42,6 @@ namespace TimeLineDashboard_BLL
         /*************************************************************/
 
         public string Upload_File_To_Azure_Storage_Blob_Container(
-            byte[] p_File_Content, 
-            string p_File_Name,
-            int p_Upload_For_User_Id, 
-            int p_Authenticated_User_Id_Doing_Upload, 
-            App_Permission_Type p_Authenticated_User_Permission_Type )
-        {
-            // Get the user_Id's azure reference and try to upload the file to his container.
-            string azure_Block_Blob_Reference_To_Return_Following_Successfull_Upload = "";
-
-            Users user_Details_File_Sender =
-                Business_Logic_Layer_Facade.Instance
-                    .Users_Get_Details_By_User_Id(p_Upload_For_User_Id, p_Authenticated_User_Id_Doing_Upload, p_Authenticated_User_Permission_Type);
-
-            string azure_Container_Reference = user_Details_File_Sender.Azure_Container_Ref;
-
-            // For now simulate successfull upload
-            //azure_Block_Blob_Reference_To_Return_Following_Successfull_Upload =
-            //    this.Upload_File_To_Azure_Storage_Blob_Container(p_File_Content, p_File_Name, azure_Container_Reference);
-            azure_Block_Blob_Reference_To_Return_Following_Successfull_Upload 
-                = Path.GetFileNameWithoutExtension(p_File_Name) + "-" + Guid.NewGuid().ToString() + Path.GetExtension(p_File_Name);
-            
-            return azure_Block_Blob_Reference_To_Return_Following_Successfull_Upload;
-        }
-
-        public string Upload_File_To_Azure_Storage_Blob_Container(
             byte[] p_File_Content,
             string p_File_Name,
             string p_Azure_Container_Name)

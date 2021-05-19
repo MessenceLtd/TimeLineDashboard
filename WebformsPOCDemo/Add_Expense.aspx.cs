@@ -69,6 +69,20 @@ namespace WebformsPOCDemo
                 this.dropdown_Supplier.DataValueField = "Supplier_Id";
                 this.dropdown_Supplier.DataBind();
                 this.dropdown_Supplier.Items.Insert(0, new ListItem("-- Select -- ", ""));
+
+                // Set default country as the users current country 
+                var user_Details = Business_Logic_Layer_Facade.Instance.Users_Get_Details_By_User_Id(
+                    p_Selected_User_Id_To_Return_Suppliers,
+                    base.Authenticated_User_ID,
+                    base.Authenticated_Permission_Type
+                    );
+
+                if (user_Details.Country_Id > 0)
+                {
+                    this.dropdown_Invoiced_Client_To_Country.SelectedValue = user_Details.Country_Id.ToString();
+
+                    this.Bind_Invoiced_Client_States_ComboBox();
+                }
             }
         }
 
@@ -168,8 +182,6 @@ namespace WebformsPOCDemo
                     p_Original_File_Name = this.fileUpload_Expense_File.FileName;
                     p_File_Content_To_Save_In_Azure = this.fileUpload_Expense_File.FileBytes;
                 }
-
-                //string p_Azure_Block_Blob_Reference = "N/A";
 
                 bool p_Is_Visible_To_Anonymous_Users = this.checkbox_Is_Visible_To_Anonymous_Users.Checked; 
                 bool p_Is_Available_For_Download_For_Anonymous_Users = this.checkbox_Is_Available_For_Download_For_Anonymous_Users.Checked;

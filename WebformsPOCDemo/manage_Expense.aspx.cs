@@ -77,6 +77,8 @@ namespace WebformsPOCDemo
         {
             base.Change_View_Mode_FormControls_Wrappers(true);
 
+            this.p_Edit_Expense_File.Visible = false;
+
             this.button_Edit_Expense_Details.Visible = true;
             this.button_Update_Expense_Details.Visible = false;
             this.button_CancelEdit_Expense_Details.Visible = false;
@@ -85,6 +87,8 @@ namespace WebformsPOCDemo
         private void Bind_Edit_View()
         {
             base.Change_View_Mode_FormControls_Wrappers(false);
+
+            this.p_Edit_Expense_File.Visible = true;
 
             this.button_Edit_Expense_Details.Visible = false;
             this.button_Update_Expense_Details.Visible = true;
@@ -105,6 +109,31 @@ namespace WebformsPOCDemo
 
             if (expenseDetails != null)
             {
+                this.hidden_User_Id_Expense_Owner.Value = expenseDetails.User_Id.ToString();
+
+                if (string.IsNullOrEmpty(expenseDetails.Original_File_Name))
+                {
+                    this.panel_Image_Download_Expense.Visible = false;
+
+                    this.link_Download_Expense.Target = "";
+                    this.link_Download_Expense.NavigateUrl = "";
+                    this.link_Download_Expense.Enabled = false;
+                    this.link_Download_Expense.Text = "N/A";
+                }
+                else
+                {
+                    this.panel_Image_Download_Expense.Visible = true;
+
+                    this.link_Download_Expense.Target = "_blank";
+                    this.link_Download_Expense.NavigateUrl = "downloader.aspx?id=" + expenseDetails.Expense_Record_Id + "&type=expense";
+                    this.link_Download_Expense.Enabled = true;
+                    this.link_Download_Expense.Text = expenseDetails.Original_File_Name;
+                }
+
+                this.link_Download_Expense2.Target = this.link_Download_Expense.Target;
+                this.link_Download_Expense2.NavigateUrl = this.link_Download_Expense.NavigateUrl;
+                this.link_Download_Expense2.Enabled = this.link_Download_Expense.Enabled;
+
                 this.textbox_Expense_Invoice_DateTime.Text = expenseDetails.Expense_Invoice_DateTime.ToString("dd/MM/yyyy");
                 this.label_Expense_Invoice_DateTime.Text = expenseDetails.Expense_Invoice_DateTime.ToString("dd/MM/yyyy");
 
@@ -239,8 +268,6 @@ namespace WebformsPOCDemo
                 this.textbox_User_Comments.Text = expenseDetails.User_Comments;
                 this.label_User_Comments.Text = expenseDetails.User_Comments;
 
-                //textbox_Original_File_Name // TODO -- Show file management / update
-
                 this.checkbox_Is_Visible_To_Anonymous_Users.Checked = expenseDetails.Is_Visible_To_Anonymous_Users;
                 this.label_Is_Visible_To_Anonymous_Users.Text = expenseDetails.Is_Visible_To_Anonymous_Users ? "Yes" : "No";
 
@@ -324,7 +351,7 @@ namespace WebformsPOCDemo
                 string p_Invoice_Supplier_Tax_Reference = this.textbox_Invoice_Supplier_Tax_Reference.Text;
 
                 short? p_Invoice_Supplier_Country_Id = new short?();
-                if (!string.IsNullOrEmpty(this.dropdown_Invoiced_Client_To_Country.SelectedValue))
+                if (!string.IsNullOrEmpty(this.dropdown_Invoice_Supplier_Country.SelectedValue))
                 {
                     p_Invoice_Supplier_Country_Id = short.Parse(this.dropdown_Invoice_Supplier_Country.SelectedValue);
                 }
@@ -353,6 +380,15 @@ namespace WebformsPOCDemo
                 bool p_Is_Visible_To_Followers_Users = this.checkbox_Is_Visible_To_Followers_Users.Checked;
                 bool p_Is_Available_For_Download_For_Followers_Users = this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked;
 
+                int p_User_Id_Expense_Owner = int.Parse(this.hidden_User_Id_Expense_Owner.Value);
+                string p_Original_File_Name = "";
+                byte[] p_File_Content_To_Save_In_Azure = new byte[0];
+                if (this.fileUpload_Expense_File.HasFile)
+                {
+                    p_Original_File_Name = this.fileUpload_Expense_File.FileName;
+                    p_File_Content_To_Save_In_Azure = this.fileUpload_Expense_File.FileBytes;
+                }
+
                 try
                 {
                     l_Expense_Successfully_Updated = Business_Logic_Layer_Facade.Instance.Expenses_Update_Expense_Details(
@@ -365,9 +401,11 @@ namespace WebformsPOCDemo
                         p_Invoice_Supplier_State_Id, p_Invoice_Supplier_City, p_Invoice_Supplier_Address_Description,
                         p_Invoice_Supplier_ZipCode, p_Invoice_Supplier_WebAddress, p_Invoice_Supplier_Phone_Number,
                         p_Invoice_Supplier_Contact_FullName, p_Invoice_Content_Long_Description, p_User_Description,
-                        p_User_Comments, p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
+                        p_User_Comments,
+                        p_User_Id_Expense_Owner, p_Original_File_Name, p_File_Content_To_Save_In_Azure, 
+                        p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                         p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
-                        p_User_Id, p_Is_Active
+                        p_User_Id, base.Authenticated_Permission_Type, p_Is_Active
                         );
                 }
                 catch (Exception exc)
@@ -423,7 +461,8 @@ namespace WebformsPOCDemo
                 {
                     this.textbox_Vat_Percentage.Text = base_Expense_For_Auto_Complete.Vat_Percentage.ToString();
                     this.textbox_Invoice_Supplier_Address_Description.Text = base_Expense_For_Auto_Complete.Invoice_Supplier_Company_Details;
-                    this.textbox_Invoice_Supplier_Tax_Reference.Text = base_Expense_For_Auto_Complete.Invoice_Supplier_Company_Details;
+                    this.textbox_Invoice_Supplier_Company_Details.Text = base_Expense_For_Auto_Complete.Invoice_Supplier_Company_Details;
+
                     if (base_Expense_For_Auto_Complete.Invoice_Supplier_Country_Id.HasValue)
                     {
                         this.dropdown_Invoice_Supplier_Country.SelectedValue = base_Expense_For_Auto_Complete.Invoice_Supplier_Country_Id.Value.ToString();
@@ -585,5 +624,100 @@ namespace WebformsPOCDemo
             this.Bind_ReadOnly_View();
         }
 
+        protected void Button_Run_Auto_Complete_Based_On_Selected_FileName_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.hidden_Uploading_FileName_For_AutoComplete_Helper.Value))
+            {
+                this.textbox_Total_Amount.Text = string.Empty;
+                this.textbox_Vat_Percentage.Text = string.Empty;
+                this.textbox_Total_Without_Vat.Text = string.Empty;
+                this.textbox_Total_Vat.Text = string.Empty;
+
+                int l_User_Id_Expense_Owner = int.Parse(this.hidden_User_Id_Expense_Owner.Value);
+
+                var auto_Complete_Values = Business_Logic_Layer_Facade.Instance
+                    .Expenses_Get_AutoComplete_Suggestion_Based_On_Uploaded_FileName(
+                        this.hidden_Uploading_FileName_For_AutoComplete_Helper.Value,
+                        l_User_Id_Expense_Owner,
+                        this.Authenticated_User_ID
+                    );
+
+                if (auto_Complete_Values.Expense_Invoice_DateTime.HasValue)
+                {
+                    Common_Tools.Set_DateTime_To_ComboBoxes(
+                        auto_Complete_Values.Expense_Invoice_DateTime,
+                        this.textbox_Expense_Invoice_DateTime,
+                        this.dropdown_Invoice_Time_Hours,
+                        this.dropdown_Invoice_Time_Minutes,
+                        this.dropdown_Invoice_Time_Seconds);
+                }
+
+                if (auto_Complete_Values.Supplier_Id.HasValue)
+                {
+                    this.dropdown_Supplier.SelectedValue = auto_Complete_Values.Supplier_Id.Value.ToString();
+                    User_Supplier_Selected();
+                }
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                    auto_Complete_Values.Total_Amount, this.textbox_Total_Amount);
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                    auto_Complete_Values.Vat_Percentage, this.textbox_Vat_Percentage);
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                    auto_Complete_Values.Total_Without_Vat, this.textbox_Total_Without_Vat);
+
+
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                    auto_Complete_Values.Total_Vat, this.textbox_Total_Vat);
+
+                if (auto_Complete_Values.Currency_Id.HasValue)
+                {
+                    this.dropdown_Currency.SelectedValue = auto_Complete_Values.Currency_Id.Value.ToString();
+                }
+
+                this.textbox_Invoice_Content_Long_Description.Text = auto_Complete_Values.Invoice_Content_Long_Description;
+
+                // Set default expense type as general (unless it was already selected diffrently from previous steps )
+                if (string.IsNullOrEmpty(this.dropdown_Expense_Type.SelectedValue))
+                {
+                    this.dropdown_Expense_Type.SelectedValue = "1";
+                }
+            }
+        }
+
+        protected void Textbox_Total_Amount_TextChanged(object sender, EventArgs e)
+        {
+            this.Refresh_Totals_Textboxes();
+        }
+
+        protected void Textbox_Vat_Percentage_TextChanged(object sender, EventArgs e)
+        {
+            this.Refresh_Totals_Textboxes();
+        }
+
+        private void Refresh_Totals_Textboxes()
+        {
+            decimal l_Vat_Percentage = 0;
+            decimal l_Total_Amount = 0;
+
+            this.textbox_Total_Without_Vat.Text = this.textbox_Total_Amount.Text;
+            this.textbox_Total_Vat.Text = "0";
+
+            if (decimal.TryParse(this.textbox_Vat_Percentage.Text, out l_Vat_Percentage) &&
+                decimal.TryParse(this.textbox_Total_Amount.Text, out l_Total_Amount) &&
+                l_Vat_Percentage > 0 && l_Total_Amount > 0)
+            {
+                decimal l_Total_Without_Vat = l_Total_Amount / ((l_Vat_Percentage + 100) / 100);
+                decimal l_Total_Vat = l_Total_Amount - l_Total_Without_Vat;
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        l_Total_Without_Vat, this.textbox_Total_Without_Vat);
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        l_Total_Vat, this.textbox_Total_Vat);
+            }
+        }
     }
 }

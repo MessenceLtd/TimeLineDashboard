@@ -65,7 +65,7 @@
 
             <hr />
 
-            <asp:DataGrid runat="server" ID="dataGrid_Invoices_List" AutoGenerateColumns="False" CssClass="CustomTable" Visible="False" meta:resourcekey="dataGrid_Invoices_ListResource1">
+            <asp:DataGrid runat="server" ID="dataGrid_Invoices_List" AutoGenerateColumns="False" CssClass="CustomTable ListTable" Visible="False" meta:resourcekey="dataGrid_Invoices_ListResource1">
                 <Columns>
                     <asp:HyperLinkColumn DataTextField="Invoice_Record_Id" HeaderText="ID" DataNavigateUrlField="Invoice_Record_Id" DataNavigateUrlFormatString="manage_Invoice.aspx?id={0}" meta:resourcekey="HyperLinkColumnResource1">
                     </asp:HyperLinkColumn>
@@ -90,14 +90,12 @@
                         <ItemTemplate>
                             <a href='<%# DataBinder.Eval(Container, "DataItem.Invoice_Record_Id" , "manage_Invoice.aspx?id={0}&mode=edit") %>'><img 
                                 src="/Images/edit.png" width="32" height="32" alt="Edit" title="Edit" /></a>
-                            &nbsp;&nbsp;&nbsp;
                             <a href='<%# DataBinder.Eval(Container, "DataItem.Invoice_Record_Id" , "manage_Invoice.aspx?id={0}&mode=view") %>'><img 
                                 src="/Images/viewdetails.png" width="32" height="32" alt="Edit" title="View more" /></a>
-                            &nbsp;&nbsp;&nbsp;
-                            <a href='<%# DataBinder.Eval(Container, "DataItem.Invoice_Record_Id" , "downloader.aspx?id={0}&type=invoice") %>' target="_blank"><img 
+                            <a  runat="server" Visible='<%# Eval("Azure_Block_Blob_Reference") != null && !String.IsNullOrEmpty(Eval("Azure_Block_Blob_Reference").ToString()) %>' 
+                                href='<%# DataBinder.Eval(Container, "DataItem.Invoice_Record_Id" , "downloader.aspx?id={0}&type=invoice") %>' target="_blank"><img 
                                 src="/Images/download.png" width="32" height="32" alt="Download" title="Download" /></a>
                         </ItemTemplate>
-                        <HeaderStyle Width="130px" />
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateColumn>
                 </Columns>
@@ -113,10 +111,8 @@
 
         </ContentTemplate>
         <Triggers>
-            <asp:PostBackTrigger ControlID="button_Search_Invoices" />
+            <asp:AsyncPostBackTrigger ControlID="button_Search_Invoices" />
         </Triggers>
-
     </asp:UpdatePanel>
-
 
 </asp:Content>

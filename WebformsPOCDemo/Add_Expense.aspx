@@ -154,7 +154,7 @@
                                 ControlToValidate="textbox_Total_Vat" CssClass="text-danger" meta:resourcekey="validator_Total_Vat_RequiredResource1"></asp:RequiredFieldValidator>
                         </div>
 
-                        <div class="Form_Group">
+                        <div class="Form_Group hidden">
                             <div class="Form_Label_Wrapper">
                                 <label for=""><%= Resources.SiteCommon.Invoiced_On_Location %>:</label>
                             </div>

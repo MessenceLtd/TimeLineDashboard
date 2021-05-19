@@ -311,6 +311,7 @@ namespace TimeLineDashboard.DAL.Operations
             string p_Invoice_Supplier_ZipCode, string p_Invoice_Supplier_WebAddress,
             string p_Invoice_Supplier_Phone_Number, string p_Invoice_Supplier_Contact_FullName,
             string p_Invoice_Content_Long_Description, string p_User_Description, string p_User_Comments,
+            string p_Original_File_Name, string p_Expense_Azure_Block_Blob_Reference, bool p_File_Uploaded,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
             int p_Updating_User_Id , bool p_Is_Active )
@@ -357,6 +358,10 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spInvoice_Content_Long_Description = new SqlParameter("@Invoice_Content_Long_Description", SqlDbType.NVarChar, 2000);
             SqlParameter spUser_Description = new SqlParameter("@User_Description", SqlDbType.NVarChar, 1000);
             SqlParameter spUser_Comments = new SqlParameter("@User_Comments", SqlDbType.NVarChar, 1000);
+
+            SqlParameter spOriginal_File_Name = new SqlParameter("@Original_File_Name", SqlDbType.NVarChar, 255);
+            SqlParameter spAzure_Block_Blob_Reference = new SqlParameter("@Azure_Block_Blob_Reference", SqlDbType.NVarChar, 256);
+            SqlParameter spFile_Uploaded = new SqlParameter("@File_Uploaded", SqlDbType.Bit);
 
             SqlParameter spIs_Visible_To_Anonymous_Users = new SqlParameter("@Is_Visible_To_Anonymous_Users", SqlDbType.Bit);
             SqlParameter spIs_Available_For_Download_For_Anonymous_Users = new SqlParameter("@Is_Available_For_Download_For_Anonymous_Users", SqlDbType.Bit);
@@ -427,6 +432,19 @@ namespace TimeLineDashboard.DAL.Operations
             spUser_Description.Value = p_User_Description;
             spUser_Comments.Value = p_User_Comments;
 
+            if (p_File_Uploaded)
+            {
+                spOriginal_File_Name.Value = p_Original_File_Name;
+                spAzure_Block_Blob_Reference.Value = p_Expense_Azure_Block_Blob_Reference;
+                spFile_Uploaded.Value = p_File_Uploaded;
+            }
+            else
+            {
+                spOriginal_File_Name.Value = DBNull.Value;
+                spAzure_Block_Blob_Reference.Value = DBNull.Value;
+                spFile_Uploaded.Value = DBNull.Value;
+            }
+
             spIs_Visible_To_Anonymous_Users.Value = p_Is_Visible_To_Anonymous_Users;
             spIs_Available_For_Download_For_Anonymous_Users.Value = p_Is_Available_For_Download_For_Anonymous_Users;
             spIs_Visible_To_Followers_Users.Value = p_Is_Visible_To_Followers_Users;
@@ -472,6 +490,9 @@ namespace TimeLineDashboard.DAL.Operations
                     spInvoice_Content_Long_Description, 
                     spUser_Description, 
                     spUser_Comments,
+                    spOriginal_File_Name,
+                    spAzure_Block_Blob_Reference,
+                    spFile_Uploaded,
                     spIs_Visible_To_Anonymous_Users, 
                     spIs_Available_For_Download_For_Anonymous_Users,
                     spIs_Visible_To_Followers_Users, 

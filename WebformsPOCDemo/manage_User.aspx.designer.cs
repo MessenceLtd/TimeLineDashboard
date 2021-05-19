@@ -798,6 +798,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Label label_Registration_Time;
 
         /// <summary>
+        /// panel_Azure_Container_Ref control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_Azure_Container_Ref;
+
+        /// <summary>
         /// formControl_Wrapper_Edit_Azure_Container_Ref control.
         /// </summary>
         /// <remarks>

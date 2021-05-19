@@ -448,6 +448,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Created By.
+        /// </summary>
+        internal static string Created_By {
+            get {
+                return ResourceManager.GetString("Created_By", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created On.
+        /// </summary>
+        internal static string Created_On {
+            get {
+                return ResourceManager.GetString("Created_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creation Date.
         /// </summary>
         internal static string Creation_Date {
@@ -957,6 +975,24 @@ namespace Resources {
         internal static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Modified By.
+        /// </summary>
+        internal static string Last_Modified_By {
+            get {
+                return ResourceManager.GetString("Last_Modified_By", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Modified Date.
+        /// </summary>
+        internal static string Last_Modified_Date {
+            get {
+                return ResourceManager.GetString("Last_Modified_Date", resourceCulture);
             }
         }
         

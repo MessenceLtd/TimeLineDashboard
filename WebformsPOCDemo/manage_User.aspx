@@ -203,13 +203,13 @@
             </asp:Panel>
         </div>
 
-        <div class="Form_Group">
+        <asp:Panel CssClass="Form_Group" runat="server" ID="panel_Azure_Container_Ref" Visible="false">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Azure_Container_Ref.ClientID %>">Azure Container:</label></div>
             <asp:Panel ID="formControl_Wrapper_Edit_Azure_Container_Ref" runat="server" CssClass="Form_Control" meta:resourcekey="formControl_Wrapper_Edit_Azure_Container_RefResource1"><asp:TextBox runat="server" 
-                ID="textbox_Azure_Container_Ref" ClientIDMode="Static" CssClass="form-control" meta:resourcekey="textbox_Azure_Container_RefResource1"></asp:TextBox></asp:Panel>
+                ID="textbox_Azure_Container_Ref" ClientIDMode="Static" CssClass="form-control" ReadOnly="true" Enabled="false" meta:resourcekey="textbox_Azure_Container_RefResource1"></asp:TextBox></asp:Panel>
             <asp:Panel ID="formControl_Wrapper_ReadOnly_Azure_Container_Ref" runat="server" Visible="False" CssClass="Form_Control Read_Only_Panel" meta:resourcekey="formControl_Wrapper_ReadOnly_Azure_Container_RefResource1"><asp:Label 
                 runat="server" ID="label_Azure_Container_Ref" meta:resourcekey="label_Azure_Container_RefResource1"></asp:Label></asp:Panel>
-        </div>
+        </asp:Panel>
 
         <div class="Form_Group">
             <div class="Form_Label_Wrapper"><label for="<%= textbox_Heard_About_Application_From.ClientID %>">Heard Us From:</label></div>
@@ -266,9 +266,6 @@
             <asp:Panel ID="formControl_Wrapper_Record_Last_Updated_DateTime_UTC" runat="server" CssClass="Form_Control Read_Only_Panel" meta:resourcekey="formControl_Wrapper_Record_Last_Updated_DateTime_UTCResource1"><asp:Label 
                 runat="server" ID="label_Record_Last_Updated_DateTime_UTC" meta:resourcekey="label_Record_Last_Updated_DateTime_UTCResource1"></asp:Label></asp:Panel>
         </div>
-
-        
-
 
         <hr />
         <div>

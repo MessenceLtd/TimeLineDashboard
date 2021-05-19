@@ -246,6 +246,12 @@
   <data name="Country" xml:space="preserve">
     <value>Country</value>
   </data>
+  <data name="Created_By" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="Created_On" xml:space="preserve">
+    <value>Created On</value>
+  </data>
   <data name="Creation_Date" xml:space="preserve">
     <value>Creation Date</value>
   </data>
@@ -416,6 +422,12 @@
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="Last_Modified_By" xml:space="preserve">
+    <value>Last Modified By</value>
+  </data>
+  <data name="Last_Modified_Date" xml:space="preserve">
+    <value>Last Modified Date</value>
   </data>
   <data name="Last_Name" xml:space="preserve">
     <value>Last Name</value>

@@ -357,7 +357,8 @@ body.Loading > div.Loading-Animation
     background-color: rgba(192,192,192, 0.2);
 }
 
-body.Loading > div.Loading-Animation > .Loading-Image {
+body.Loading > div.Loading-Animation > .Loading-Image 
+{
     display: block;
     position: absolute;
     width: 256px;
@@ -368,7 +369,6 @@ body.Loading > div.Loading-Animation > .Loading-Image {
     bottom: 0;
     opacity: 1;
     margin: auto;
-
     animation: spin 3s linear infinite;
 }
 
@@ -382,4 +382,13 @@ body.Loading > div.Loading-Animation > .Loading-Image {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.CustomTable.ListTable > tbody > tr:first-child td:last-child 
+{
+    width: 142px;
+}
+
+.CustomTable.ListTable > tbody > tr:not(tr:first-child) > td:last-child a {
+    margin: 2px;
 }

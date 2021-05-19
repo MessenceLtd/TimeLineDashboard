@@ -64,7 +64,7 @@
 
             <hr />
 
-            <asp:DataGrid runat="server" ID="dataGrid_Documents_List" AutoGenerateColumns="False" CssClass="CustomTable" Visible="False" meta:resourcekey="dataGrid_Documents_ListResource1">
+            <asp:DataGrid runat="server" ID="dataGrid_Documents_List" AutoGenerateColumns="False" CssClass="CustomTable ListTable" Visible="False" meta:resourcekey="dataGrid_Documents_ListResource1">
                 <Columns>
                     <asp:HyperLinkColumn DataTextField="General_Document_Id" HeaderText="ID" 
                         DataNavigateUrlField="General_Document_Id" DataNavigateUrlFormatString="manage_Document.aspx?id={0}" meta:resourcekey="HyperLinkColumnResource1">
@@ -84,14 +84,12 @@
                         <ItemTemplate>
                             <a href='<%# DataBinder.Eval(Container, "DataItem.General_Document_Id" , "manage_Document.aspx?id={0}&mode=edit") %>'><img 
                                 src="/Images/edit.png" width="32" height="32" alt="Edit" title="Edit" /></a>
-                            &nbsp;&nbsp;&nbsp;
                             <a href='<%# DataBinder.Eval(Container, "DataItem.General_Document_Id" , "manage_Document.aspx?id={0}&mode=view") %>'><img 
                                 src="/Images/viewdetails.png" width="32" height="32" alt="Edit" title="View more" /></a>
-                            &nbsp;&nbsp;&nbsp;
-                            <a href='<%# DataBinder.Eval(Container, "DataItem.General_Document_Id" , "downloader.aspx?id={0}&type=general_document") %>' target="_blank"><img 
+                            <a runat="server" Visible='<%# Eval("Azure_Block_Blob_Reference") != null && !String.IsNullOrEmpty(Eval("Azure_Block_Blob_Reference").ToString()) %>' 
+                                href='<%# DataBinder.Eval(Container, "DataItem.General_Document_Id" , "downloader.aspx?id={0}&type=general_document") %>' target="_blank"><img 
                                 src="/Images/download.png" width="32" height="32" alt="Download" title="Download" /></a>
                         </ItemTemplate>
-                        <HeaderStyle Width="100px" />
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateColumn>
                 </Columns>
@@ -107,7 +105,7 @@
 
         </ContentTemplate>
         <Triggers>
-            <asp:PostBackTrigger ControlID="button_Search_Documents" />
+            <asp:AsyncPostBackTrigger ControlID="button_Search_Documents" />
         </Triggers>
 
     </asp:UpdatePanel>

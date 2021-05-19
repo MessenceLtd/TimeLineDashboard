@@ -626,6 +626,7 @@ namespace TimeLineDashboard.DAL
             string p_Invoice_Supplier_ZipCode, string p_Invoice_Supplier_WebAddress,
             string p_Invoice_Supplier_Phone_Number, string p_Invoice_Supplier_Contact_FullName,
             string p_Invoice_Content_Long_Description, string p_User_Description, string p_User_Comments,
+            string p_Original_File_Name, string p_Expense_Azure_Block_Blob_Reference, bool p_File_Uploaded,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
             int p_Updating_User_Id, bool p_Is_Active)
@@ -641,6 +642,7 @@ namespace TimeLineDashboard.DAL
                 p_Invoice_Supplier_ZipCode, p_Invoice_Supplier_WebAddress, p_Invoice_Supplier_Phone_Number,
                 p_Invoice_Supplier_Contact_FullName, p_Invoice_Content_Long_Description, p_User_Description,
                 p_User_Comments,
+                p_Original_File_Name, p_Expense_Azure_Block_Blob_Reference, p_File_Uploaded,
                 p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
                 p_Updating_User_Id, p_Is_Active

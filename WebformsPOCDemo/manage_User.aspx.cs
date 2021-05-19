@@ -36,6 +36,11 @@ namespace WebformsPOCDemo
             // ToDo -- Check permissions -- if the user is able to view the client / edit the client
             this.Validate_Permissions();
 
+            if (base.Authenticated_Permission_Type.App_Permission_Type_Id == App_Permission_Type.Permission_Type.Application_Administrator)
+            {
+                this.panel_Azure_Container_Ref.Visible = true;
+            }
+
             this.Set_Page_FormControls_Values();
 
             if (!string.IsNullOrEmpty(Request.QueryString["mode"]))
