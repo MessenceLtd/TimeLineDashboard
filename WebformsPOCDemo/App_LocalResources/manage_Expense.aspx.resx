@@ -117,1129 +117,1129 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_CancelEdit_Expense_DetailsResource1.Text" xml:space="preserve">
+  <data name="button_CancelEdit_Expense_Details.Text" xml:space="preserve">
     <value>Cancel Editing</value>
   </data>
-  <data name="button_CancelEdit_Expense_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="button_CancelEdit_Expense_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Edit_Expense_DetailsResource1.Text" xml:space="preserve">
+  <data name="button_Edit_Expense_Details.Text" xml:space="preserve">
     <value>Edit Expense</value>
   </data>
-  <data name="button_Edit_Expense_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="button_Edit_Expense_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Update_Expense_DetailsResource1.Text" xml:space="preserve">
+  <data name="button_Update_Expense_Details.Text" xml:space="preserve">
     <value>Save Changes</value>
   </data>
-  <data name="button_Update_Expense_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="button_Update_Expense_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_ActiveResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Active.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_CurrencyResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Currency.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Expense_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Expense_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Invoice_Supplier_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Invoice_Supplier_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Invoice_Supplier_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Invoice_Supplier_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Invoice_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Invoice_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Invoice_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Invoice_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Invoice_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Invoice_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Invoiced_Client_To_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Invoiced_Client_To_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Invoiced_Client_To_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Invoiced_Client_To_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_SupplierResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Supplier.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_CurrencyResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Currency.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_CurrencyResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Currency.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Expense_Invoice_DateTimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Expense_Invoice_DateTime.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Expense_Invoice_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Expense_Invoice_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Expense_Invoice_Time_HoursResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Expense_Invoice_Time_Hours.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Expense_Invoice_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Expense_Invoice_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Expense_TypeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Expense_Type.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Expense_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Expense_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Content_Long_DescriptionResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Content_Long_Description.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Content_Long_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Content_Long_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_NumberResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Number.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Reference_NumberResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Reference_Number.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Reference_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Reference_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Address_DescriptionResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Address_Description.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Address_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Address_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Company_DetailsResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Company_Details.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Company_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Company_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Contact_FullNameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Contact_FullName.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Contact_FullNameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Contact_FullName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Phone_NumberResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Phone_Number.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Phone_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Phone_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Tax_ReferenceResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Tax_Reference.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Tax_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_Tax_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_WebAddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_WebAddress.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_WebAddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_WebAddress.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_ZipCodeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_ZipCode.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoice_Supplier_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoice_Supplier_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_CompanyNameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_CompanyName.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_CompanyNameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_CompanyName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_EmailAddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_EmailAddress.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_EmailAddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_EmailAddress.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_PersonNameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_PersonName.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_PersonNameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_PersonName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_PhoneNumberResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_PhoneNumber.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_PhoneNumberResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_PhoneNumber.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Tax_ReferenceResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Tax_Reference.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Tax_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Tax_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_ZipResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Zip.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_ZipResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_Client_To_Zip.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_On_User_Location_IdResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_On_User_Location_Id.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Invoiced_On_User_Location_IdResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Invoiced_On_User_Location_Id.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_ActiveResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Active.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Anonymous_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Anonymous_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Followers_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Followers_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Visible_To_Anonymous_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Visible_To_Anonymous_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Visible_To_Followers_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Visible_To_Followers_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Original_File_NameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Original_File_Name.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_SupplierResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Supplier.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_SupplierResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Supplier.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Total_AmountResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Total_Amount.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Total_AmountResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Total_Amount.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Total_VatResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Total_Vat.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Total_VatResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Total_Vat.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Total_Without_VatResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Total_Without_Vat.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Total_Without_VatResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Total_Without_Vat.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_User_CommentsResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_User_Comments.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_User_DescriptionResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_User_Description.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_User_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_User_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Vat_PercentageResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Vat_Percentage.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Vat_PercentageResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Vat_Percentage.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_CurrencyResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Currency.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_CurrencyResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Currency.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Expense_Invoice_DateTimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Expense_Invoice_DateTime.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Expense_Invoice_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Expense_Invoice_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Expense_Invoice_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Expense_Invoice_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Expense_Invoice_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Expense_Invoice_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Expense_TypeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Expense_Type.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Expense_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Expense_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Content_Long_DescriptionResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Content_Long_Description.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Content_Long_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Content_Long_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_NumberResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Number.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Reference_NumberResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Reference_Number.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Reference_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Reference_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Address_DescriptionResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Address_Description.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Address_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Address_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Company_DetailsResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Company_Details.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Company_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Company_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Contact_FullNameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Contact_FullName.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Contact_FullNameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Contact_FullName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Phone_NumberResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Phone_Number.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Phone_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Phone_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Tax_ReferenceResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Tax_Reference.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Tax_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_Tax_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_WebAddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_WebAddress.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_WebAddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_WebAddress.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_ZipCodeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_ZipCode.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoice_Supplier_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_CompanyNameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_CompanyName.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_CompanyNameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_CompanyName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_EmailAddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_EmailAddress.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_EmailAddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_EmailAddress.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_PersonNameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_PersonName.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_PersonNameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_PersonName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_PhoneNumberResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_PhoneNumber.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_PhoneNumberResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_PhoneNumber.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Tax_ReferenceResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Tax_Reference.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Tax_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Tax_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_ZipResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Zip.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_ZipResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Zip.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_On_User_Location_IdResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_On_User_Location_Id.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Invoiced_On_User_Location_IdResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Invoiced_On_User_Location_Id.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_ActiveResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Active.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Anonymous_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Anonymous_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Followers_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Followers_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Anonymous_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Anonymous_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Followers_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Followers_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Original_File_NameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Original_File_Name.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_SupplierResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Supplier.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_SupplierResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Supplier.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Total_AmountResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Total_Amount.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Total_AmountResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Total_Amount.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Total_VatResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Total_Vat.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Total_VatResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Total_Vat.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Total_Without_VatResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Total_Without_Vat.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Total_Without_VatResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Total_Without_Vat.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_User_CommentsResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_User_Comments.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_User_DescriptionResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_User_Description.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_User_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_User_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Vat_PercentageResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Vat_Percentage.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Vat_PercentageResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Vat_Percentage.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Created_By_UserResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Created_By_User.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Created_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Created_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Creation_DateTime_UTCResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Creation_DateTime_UTC.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Creation_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Creation_DateTime_UTC.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Last_Updated_By_UserResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Last_Updated_By_User.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Last_Updated_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Last_Updated_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTCResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTC.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTC.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_CurrencyResource1.Text" xml:space="preserve">
+  <data name="label_Currency.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_CurrencyResource1.ToolTip" xml:space="preserve">
+  <data name="label_Currency.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Expense_Invoice_DateTimeResource1.Text" xml:space="preserve">
+  <data name="label_Expense_Invoice_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Expense_Invoice_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Expense_Invoice_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Expense_Invoice_TimeResource1.Text" xml:space="preserve">
+  <data name="label_Expense_Invoice_Time.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Expense_Invoice_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Expense_Invoice_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Expense_TypeResource1.Text" xml:space="preserve">
+  <data name="label_Expense_Type.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Expense_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Expense_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Content_Long_DescriptionResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Content_Long_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Content_Long_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Content_Long_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_NumberResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Number.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Reference_NumberResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Reference_Number.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Reference_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Reference_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Address_DescriptionResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Address_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Address_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Address_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_CityResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_CityResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Company_DetailsResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Company_Details.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Company_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Company_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Contact_FullNameResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Contact_FullName.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Contact_FullNameResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Contact_FullName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_CountryResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Country.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Phone_NumberResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Phone_Number.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Phone_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Phone_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_StateResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_State.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_StateResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Tax_ReferenceResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Tax_Reference.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_Tax_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_Tax_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_WebAddressResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_WebAddress.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_WebAddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_WebAddress.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="label_Invoice_Supplier_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoice_Supplier_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoice_Supplier_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_AddressResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_CityResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_CityResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_CompanyNameResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_CompanyName.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_CompanyNameResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_CompanyName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_CountryResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_Country.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_EmailAddressResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_EmailAddress.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_EmailAddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_EmailAddress.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_PersonNameResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_PersonName.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_PersonNameResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_PersonName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_PhoneNumberResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_PhoneNumber.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_PhoneNumberResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_PhoneNumber.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_StateResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_State.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_StateResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_Tax_ReferenceResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_Tax_Reference.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_Tax_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_Tax_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_ZipResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_Zip.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_Client_To_ZipResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_Client_To_Zip.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_On_User_Location_IdResource1.Text" xml:space="preserve">
+  <data name="label_Invoiced_On_User_Location_Id.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Invoiced_On_User_Location_IdResource1.ToolTip" xml:space="preserve">
+  <data name="label_Invoiced_On_User_Location_Id.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_ActiveResource1.Text" xml:space="preserve">
+  <data name="label_Is_Active.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Available_For_Download_For_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="label_Is_Available_For_Download_For_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Available_For_Download_For_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="label_Is_Available_For_Download_For_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Visible_To_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="label_Is_Visible_To_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Visible_To_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="label_Is_Visible_To_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Original_File_NameResource1.Text" xml:space="preserve">
+  <data name="label_Original_File_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="label_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Created_By_UserResource1.Text" xml:space="preserve">
+  <data name="label_Record_Created_By_User.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Created_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="label_Record_Created_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Creation_DateTime_UTCResource1.Text" xml:space="preserve">
+  <data name="label_Record_Creation_DateTime_UTC.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Creation_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+  <data name="label_Record_Creation_DateTime_UTC.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Last_Updated_By_UserResource1.Text" xml:space="preserve">
+  <data name="label_Record_Last_Updated_By_User.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Last_Updated_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="label_Record_Last_Updated_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Last_Updated_DateTime_UTCResource1.Text" xml:space="preserve">
+  <data name="label_Record_Last_Updated_DateTime_UTC.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Last_Updated_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+  <data name="label_Record_Last_Updated_DateTime_UTC.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_SupplierResource1.Text" xml:space="preserve">
+  <data name="label_Supplier.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_SupplierResource1.ToolTip" xml:space="preserve">
+  <data name="label_Supplier.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Total_AmountResource1.Text" xml:space="preserve">
+  <data name="label_Total_Amount.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Total_AmountResource1.ToolTip" xml:space="preserve">
+  <data name="label_Total_Amount.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Total_VatResource1.Text" xml:space="preserve">
+  <data name="label_Total_Vat.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Total_VatResource1.ToolTip" xml:space="preserve">
+  <data name="label_Total_Vat.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Total_Without_VatResource1.Text" xml:space="preserve">
+  <data name="label_Total_Without_Vat.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Total_Without_VatResource1.ToolTip" xml:space="preserve">
+  <data name="label_Total_Without_Vat.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_User_CommentsResource1.Text" xml:space="preserve">
+  <data name="label_User_Comments.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="label_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_User_DescriptionResource1.Text" xml:space="preserve">
+  <data name="label_User_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_User_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="label_User_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Vat_PercentageResource1.Text" xml:space="preserve">
+  <data name="label_Vat_Percentage.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Vat_PercentageResource1.ToolTip" xml:space="preserve">
+  <data name="label_Vat_Percentage.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="lbl_Insert_Process_Error_ResultResource1.Text" xml:space="preserve">
+  <data name="lbl_Insert_Process_Error_Result.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="lbl_Insert_Process_Error_ResultResource1.ToolTip" xml:space="preserve">
+  <data name="lbl_Insert_Process_Error_Result.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Invoice_Supplier_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+  <data name="p_Invoice_Supplier_State_Wrapper_Panel.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Invoice_Supplier_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+  <data name="p_Invoice_Supplier_State_Wrapper_Panel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Invoiced_Client_To_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+  <data name="p_Invoiced_Client_To_State_Wrapper_Panel.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Invoiced_Client_To_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+  <data name="p_Invoiced_Client_To_State_Wrapper_Panel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
+  <data name="Page.Title" xml:space="preserve">
     <value>Demo Document Manager / Timeline dashboard chaos</value>
   </data>
-  <data name="textbox_Expense_Invoice_DateTimeResource1.Text" xml:space="preserve">
+  <data name="textbox_Expense_Invoice_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Expense_Invoice_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Expense_Invoice_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Content_Long_DescriptionResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Content_Long_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Content_Long_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Content_Long_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_NumberResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Number.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Reference_NumberResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Reference_Number.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Reference_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Reference_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Address_DescriptionResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Address_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Address_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Address_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_CityResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_CityResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Company_DetailsResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Company_Details.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Company_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Company_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Contact_FullNameResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Contact_FullName.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Contact_FullNameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Contact_FullName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Phone_NumberResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Phone_Number.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Phone_NumberResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Phone_Number.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Tax_ReferenceResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Tax_Reference.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_Tax_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_Tax_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_WebAddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_WebAddress.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_WebAddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_WebAddress.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoice_Supplier_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoice_Supplier_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_CityResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_CityResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_CompanyNameResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_CompanyName.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_CompanyNameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_CompanyName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_EmailAddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_EmailAddress.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_EmailAddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_EmailAddress.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_PersonNameResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_PersonName.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_PersonNameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_PersonName.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_PhoneNumberResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_PhoneNumber.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_PhoneNumberResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_PhoneNumber.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_Tax_ReferenceResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_Tax_Reference.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_Tax_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_Tax_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_ZipResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_Zip.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_Client_To_ZipResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_Client_To_Zip.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_On_User_Location_IdResource1.Text" xml:space="preserve">
+  <data name="textbox_Invoiced_On_User_Location_Id.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Invoiced_On_User_Location_IdResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Invoiced_On_User_Location_Id.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Original_File_NameResource1.Text" xml:space="preserve">
+  <data name="textbox_Original_File_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Total_AmountResource1.Text" xml:space="preserve">
+  <data name="textbox_Total_Amount.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Total_AmountResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Total_Amount.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Total_VatResource1.Text" xml:space="preserve">
+  <data name="textbox_Total_Vat.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Total_VatResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Total_Vat.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Total_Without_VatResource1.Text" xml:space="preserve">
+  <data name="textbox_Total_Without_Vat.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Total_Without_VatResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Total_Without_Vat.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_User_CommentsResource1.Text" xml:space="preserve">
+  <data name="textbox_User_Comments.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_User_DescriptionResource1.Text" xml:space="preserve">
+  <data name="textbox_User_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_User_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_User_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Vat_PercentageResource1.Text" xml:space="preserve">
+  <data name="textbox_Vat_Percentage.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Vat_PercentageResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Vat_Percentage.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Currency_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Currency_Required.ErrorMessage" xml:space="preserve">
     <value>Please select a currency</value>
   </data>
-  <data name="validator_Currency_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Currency_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Currency_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Currency_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_dropdown_Invoice_Supplier_Country_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_dropdown_Invoice_Supplier_Country_Required.ErrorMessage" xml:space="preserve">
     <value>Please select a country</value>
   </data>
-  <data name="validator_dropdown_Invoice_Supplier_Country_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_dropdown_Invoice_Supplier_Country_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_dropdown_Invoice_Supplier_Country_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_dropdown_Invoice_Supplier_Country_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Expense_Invoice_DateTime_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Expense_Invoice_DateTime_Required.ErrorMessage" xml:space="preserve">
     <value>Please enter an expense date</value>
   </data>
-  <data name="validator_Expense_Invoice_DateTime_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Expense_Invoice_DateTime_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Expense_Invoice_DateTime_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Expense_Invoice_DateTime_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Supplier_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Supplier_Required.ErrorMessage" xml:space="preserve">
     <value>Please select a supplier</value>
   </data>
-  <data name="validator_Supplier_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Supplier_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Supplier_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Supplier_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Total_Amount_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Total_Amount_Required.ErrorMessage" xml:space="preserve">
     <value>Please enter total amount</value>
   </data>
-  <data name="validator_Total_Amount_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Total_Amount_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Total_Amount_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Total_Amount_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Total_Vat_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Total_Vat_Required.ErrorMessage" xml:space="preserve">
     <value>Please enter total vat amount</value>
   </data>
-  <data name="validator_Total_Vat_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Total_Vat_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Total_Vat_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Total_Vat_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Total_Without_Vat_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Total_Without_Vat_Required.ErrorMessage" xml:space="preserve">
     <value>Please enter total amount without vat</value>
   </data>
-  <data name="validator_Total_Without_Vat_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Total_Without_Vat_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Total_Without_Vat_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Total_Without_Vat_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Vat_Percentage_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Vat_Percentage_Required.ErrorMessage" xml:space="preserve">
     <value>Please enter vat percentage</value>
   </data>
-  <data name="validator_Vat_Percentage_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Vat_Percentage_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Vat_Percentage_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Vat_Percentage_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

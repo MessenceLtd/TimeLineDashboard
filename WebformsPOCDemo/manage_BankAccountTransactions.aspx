@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="manage_BankAccountTransactions.aspx.cs" Inherits="WebformsPOCDemo.manage_BankAccountTransactions" culture="auto" meta:resourcekey="PageResource1" uiculture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="manage_BankAccountTransactions.aspx.cs" Inherits="WebformsPOCDemo.manage_BankAccountTransactions" culture="auto" meta:resourcekey="Page" uiculture="auto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -181,17 +181,17 @@
 
     <hr />
         <asp:Button runat="server" ID="button_Add_New_Bank_Account_Transactions2" ClientIDMode="Static"
-            Text="Add New Record" CssClass="btn btn-primary" OnClick="button_Add_New_Bank_Account_Transactions_Click" meta:resourcekey="button_Add_New_Bank_Account_Transactions2Resource1" /> 
+            Text="Add New Record" CssClass="btn btn-primary" OnClick="button_Add_New_Bank_Account_Transactions_Click" meta:resourcekey="button_Add_New_Bank_Account_Transactions2" /> 
         &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button runat="server" ID="button_Save_Bank_Account_Transactions2" 
-            Text="Save Changes" OnClick="button_Save_Bank_Account_Transactions_Click" CssClass="btn btn-success" meta:resourcekey="button_Save_Bank_Account_Transactions2Resource1" /> 
+            Text="Save Changes" OnClick="button_Save_Bank_Account_Transactions_Click" CssClass="btn btn-success" meta:resourcekey="button_Save_Bank_Account_Transactions2" /> 
         &nbsp;&nbsp;&nbsp;&nbsp;
         
     <asp:UpdatePanel runat="server" ID="up_Transactions" UpdateMode="Conditional">
         <ContentTemplate>
 
             <asp:Panel runat="server" ID="panel_Expired_Session_Warning" ClientIDMode="Static" CssClass="alert alert-warning hidden" 
-                style="margin-top:12px;" meta:resourcekey="panel_Expired_Session_WarningResource1">
+                style="margin-top:12px;" meta:resourcekey="panel_Expired_Session_Warning">
                   <strong>Warning!</strong> Server session expired. Please save changes or refresh the page.
             </asp:Panel>
             <hr />
@@ -200,52 +200,52 @@
                 <asp:Repeater runat="server" ID="repeater" OnItemDataBound="Repeater_ItemDataBound">
                     <HeaderTemplate>
                         <div class="tr">
-                            <div class="th">Balance</div>
-                            <div class="th">Transaction Date</div>
-                            <div class="th">Income Value</div>
-                            <div class="th">Obligo Value</div>
-                            <div class="th">Value Date</div>
-                            <div class="th">Reference</div>
-                            <div class="th">Description</div>
-                            <div class="th">Ref</div>
-                            <div class="th">Operations</div>
+                            <div class="th"><%# Resources.SiteCommon.Balance %></div>
+                            <div class="th"><%# Resources.SiteCommon.Transaction_Date %></div>
+                            <div class="th"><%# Resources.SiteCommon.Income_Value %></div>
+                            <div class="th"><%# Resources.SiteCommon.Obligo_Value %></div>
+                            <div class="th"><%# Resources.SiteCommon.Value_Date %></div>
+                            <div class="th"><%# Resources.SiteCommon.Reference %></div>
+                            <div class="th"><%# Resources.SiteCommon.Description %></div>
+                            <div class="th"><%# Resources.SiteCommon.Ref %></div>
+                            <div class="th"><%# Resources.SiteCommon.Operations %></div>
                         </div>
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div id='<%# Eval("Bank_Account_Transaction_Id", "Transaction_Record_Row_{0}") %>' class="hidden">
                         </div>
-                        <asp:Panel runat="server" ID="panel_Bank_Account_Transaction_Id" CssClass="tr" meta:resourcekey="panel_Bank_Account_Transaction_IdResource1">
+                        <asp:Panel runat="server" ID="panel_Bank_Account_Transaction_Id" CssClass="tr" meta:resourcekey="panel_Bank_Account_Transaction_Id">
                             <div class="td">
-                                <asp:TextBox runat="server" ID="txt_Balance" CssClass="form-control Balance" autocomplete="nope" placeHolder="Balance" Text='<%# Bind("Transaction_Account_Balance", "{0:#,#.##}") %>' meta:resourcekey="txt_BalanceResource1"></asp:TextBox>
-                                <asp:Label runat="server" ID="label_Balance" CssClass="Balance" Text='<%# Bind("Transaction_Account_Balance", "{0:#,#.##}") %>' meta:resourcekey="label_BalanceResource1"></asp:Label>
+                                <asp:TextBox runat="server" ID="txt_Balance" CssClass="form-control Balance" autocomplete="nope" placeHolder="Balance" Text='<%# Bind("Transaction_Account_Balance", "{0:#,#.##}") %>' meta:resourcekey="txt_Balance"></asp:TextBox>
+                                <asp:Label runat="server" ID="label_Balance" CssClass="Balance" Text='<%# Bind("Transaction_Account_Balance", "{0:#,#.##}") %>' meta:resourcekey="label_Balance"></asp:Label>
                             </div>
                             <div class="td">
-                                <asp:TextBox runat="server" ID="txt_Actual_DateTime" CssClass="form-control InitializeDatePicker Transaction_Date" autocomplete="nope" placeHolder="Transaction Date" Text='<%# Bind("Transaction_Actual_DateTime", "{0:dd/MM/yyyy}" ) %>' meta:resourcekey="txt_Actual_DateTimeResource1"></asp:TextBox>
-                                <asp:Label runat="server" ID="label_Transaction_Date" CssClass="Transaction_Date" Text='<%# Bind("Transaction_Actual_DateTime", "{0:dd/MM/yyyy}" ) %>' meta:resourcekey="label_Transaction_DateResource1"></asp:Label>
+                                <asp:TextBox runat="server" ID="txt_Actual_DateTime" CssClass="form-control InitializeDatePicker Transaction_Date" autocomplete="nope" placeHolder="Transaction Date" Text='<%# Bind("Transaction_Actual_DateTime", "{0:dd/MM/yyyy}" ) %>' meta:resourcekey="txt_Actual_DateTime"></asp:TextBox>
+                                <asp:Label runat="server" ID="label_Transaction_Date" CssClass="Transaction_Date" Text='<%# Bind("Transaction_Actual_DateTime", "{0:dd/MM/yyyy}" ) %>' meta:resourcekey="label_Transaction_Date"></asp:Label>
                             </div>
                             <div class="td">
-                                <asp:TextBox runat="server" ID="txt_Income_Value" CssClass="form-control Income_Value" placeHolder="Income_Value" autocomplete="nope" Text='<%# Bind("Positive_Amount_Entered", "{0:#,#.##}" ) %>' meta:resourcekey="txt_Income_ValueResource1"></asp:TextBox>
-                                <asp:Label runat="server" ID="label_Income_Value" CssClass="Income_Value" Text='<%# Bind("Positive_Amount_Entered", "{0:#,#.##}") %>' meta:resourcekey="label_Income_ValueResource1"></asp:Label>
+                                <asp:TextBox runat="server" ID="txt_Income_Value" CssClass="form-control Income_Value" placeHolder="Income_Value" autocomplete="nope" Text='<%# Bind("Positive_Amount_Entered", "{0:#,#.##}" ) %>' meta:resourcekey="txt_Income_Value"></asp:TextBox>
+                                <asp:Label runat="server" ID="label_Income_Value" CssClass="Income_Value" Text='<%# Bind("Positive_Amount_Entered", "{0:#,#.##}") %>' meta:resourcekey="label_Income_Value"></asp:Label>
                             </div>
                             <div class="td">
-                                <asp:TextBox runat="server" ID="txt_Obligo_Value" CssClass="form-control Obligo_Value" placeHolder="Obligo_Value" autocomplete="nope" Text='<%# Bind("Negative_Amount_Paid", "{0:#,#.##}" ) %>' meta:resourcekey="txt_Obligo_ValueResource1"></asp:TextBox>
-                                <asp:Label runat="server" ID="label_Obligo_Value" CssClass="Obligo_Value" Text='<%# Bind("Negative_Amount_Paid", "{0:#,#.##}") %>' meta:resourcekey="label_Obligo_ValueResource1"></asp:Label>
+                                <asp:TextBox runat="server" ID="txt_Obligo_Value" CssClass="form-control Obligo_Value" placeHolder="Obligo_Value" autocomplete="nope" Text='<%# Bind("Negative_Amount_Paid", "{0:#,#.##}" ) %>' meta:resourcekey="txt_Obligo_Value"></asp:TextBox>
+                                <asp:Label runat="server" ID="label_Obligo_Value" CssClass="Obligo_Value" Text='<%# Bind("Negative_Amount_Paid", "{0:#,#.##}") %>' meta:resourcekey="label_Obligo_Value"></asp:Label>
                             </div>
                             <div class="td">
-                                <asp:TextBox runat="server" ID="txt_Value_Date" CssClass="form-control InitializeDatePicker Value_Date" placeHolder="Value_Date" autocomplete="nope" Text='<%# Bind("Transaction_Value_DateTime", "{0:dd/MM/yyyy}" ) %>' meta:resourcekey="txt_Value_DateResource1"></asp:TextBox>
-                                <asp:Label runat="server" ID="label_Value_Date" CssClass="Value_Date" Text='<%# Bind("Transaction_Value_DateTime", "{0:dd/MM/yyyy}" ) %>' meta:resourcekey="label_Value_DateResource1"></asp:Label>
+                                <asp:TextBox runat="server" ID="txt_Value_Date" CssClass="form-control InitializeDatePicker Value_Date" placeHolder="Value_Date" autocomplete="nope" Text='<%# Bind("Transaction_Value_DateTime", "{0:dd/MM/yyyy}" ) %>' meta:resourcekey="txt_Value_Date"></asp:TextBox>
+                                <asp:Label runat="server" ID="label_Value_Date" CssClass="Value_Date" Text='<%# Bind("Transaction_Value_DateTime", "{0:dd/MM/yyyy}" ) %>' meta:resourcekey="label_Value_Date"></asp:Label>
                             </div>
                             <div class="td">
-                                <asp:TextBox runat="server" ID="txt_Reference" CssClass="form-control Reference" placeHolder="Reference" autocomplete="nope" Text='<%# Bind( "Reference_Number" ) %>' meta:resourcekey="txt_ReferenceResource1"></asp:TextBox>
-                                <asp:Label runat="server" ID="label_Reference" CssClass="Reference" Text='<%# Bind("Reference_Number") %>' meta:resourcekey="label_ReferenceResource1"></asp:Label>
+                                <asp:TextBox runat="server" ID="txt_Reference" CssClass="form-control Reference" placeHolder="Reference" autocomplete="nope" Text='<%# Bind( "Reference_Number" ) %>' meta:resourcekey="txt_Reference"></asp:TextBox>
+                                <asp:Label runat="server" ID="label_Reference" CssClass="Reference" Text='<%# Bind("Reference_Number") %>' meta:resourcekey="label_Reference"></asp:Label>
                             </div>
                             <div class="td">
-                                <asp:TextBox runat="server" ID="txt_Description" CssClass="form-control Description" placeHolder="Description" autocomplete="nope" Text='<%# Bind( "Transaction_Bank_Description" ) %>' meta:resourcekey="txt_DescriptionResource1"></asp:TextBox>
-                                <asp:Label runat="server" ID="label_Description" CssClass="Description" Text='<%# Bind("Transaction_Bank_Description") %>' meta:resourcekey="label_DescriptionResource1"></asp:Label>
+                                <asp:TextBox runat="server" ID="txt_Description" CssClass="form-control Description" placeHolder="Description" autocomplete="nope" Text='<%# Bind( "Transaction_Bank_Description" ) %>' meta:resourcekey="txt_Description"></asp:TextBox>
+                                <asp:Label runat="server" ID="label_Description" CssClass="Description" Text='<%# Bind("Transaction_Bank_Description") %>' meta:resourcekey="label_Description"></asp:Label>
                             </div>
                             <div class="td">
-                                <asp:TextBox runat="server" ID="txt_Bank_Ref" CssClass="form-control Bank_Ref" placeHolder="Bank_Ref" autocomplete="nope" Text='<%# Bind( "Transaction_Bank_Inner_Reference_Code" ) %>' meta:resourcekey="txt_Bank_RefResource1"></asp:TextBox>
-                                <asp:Label runat="server" ID="label_Bank_Ref" CssClass="Bank_Ref" Text='<%# Bind("Transaction_Bank_Inner_Reference_Code") %>' meta:resourcekey="label_Bank_RefResource1"></asp:Label>
+                                <asp:TextBox runat="server" ID="txt_Bank_Ref" CssClass="form-control Bank_Ref" placeHolder="Bank_Ref" autocomplete="nope" Text='<%# Bind( "Transaction_Bank_Inner_Reference_Code" ) %>' meta:resourcekey="txt_Bank_Ref"></asp:TextBox>
+                                <asp:Label runat="server" ID="label_Bank_Ref" CssClass="Bank_Ref" Text='<%# Bind("Transaction_Bank_Inner_Reference_Code") %>' meta:resourcekey="label_Bank_Ref"></asp:Label>
                             </div>
                             <div class="td" style="text-align:center">
                                 <asp:HiddenField runat="server" ID="hidden_Transaction_Record_ID" Value='<%# Bind( "Bank_Account_Transaction_Id" ) %>' />
@@ -294,7 +294,7 @@
 
                 </asp:PlaceHolder>
                 <li runat="server" id="pagination_li_Next" class="page-item">
-                    <a class="page-link" href="#">Next</a>
+                    <a class="page-link">Next</a>
                 </li>
             </ul>
         </nav>
@@ -306,14 +306,14 @@
         <asp:HiddenField runat="server" ID="hidden_New_Bank_Account_Transaction_After_Transaction_ID" ClientIDMode="Static" />
         
         <asp:Button runat="server" ID="button_Add_New_Transaction_After_Transaction_Id" ClientIDMode="Static" 
-            Text="Add new after transaction" style="display:none" OnClick="button_Add_New_Transaction_After_Transaction_Id_Click" meta:resourcekey="button_Add_New_Transaction_After_Transaction_IdResource1" />
+            Text="Add new after transaction" style="display:none" OnClick="button_Add_New_Transaction_After_Transaction_Id_Click" meta:resourcekey="button_Add_New_Transaction_After_Transaction_Id" />
 
         <asp:Button runat="server" ID="button_Add_New_Bank_Account_Transactions" ClientIDMode="Static"
-            Text="Add New Record" CssClass="btn btn-primary" OnClick="button_Add_New_Bank_Account_Transactions_Click" meta:resourcekey="button_Add_New_Bank_Account_TransactionsResource1" /> 
+            Text="Add New Record" CssClass="btn btn-primary" OnClick="button_Add_New_Bank_Account_Transactions_Click" meta:resourcekey="button_Add_New_Bank_Account_Transactions" /> 
         
         &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button runat="server" ID="button_Save_Bank_Account_Transactions" 
-            Text="Save Changes" OnClick="button_Save_Bank_Account_Transactions_Click" CssClass="btn btn-success" meta:resourcekey="button_Save_Bank_Account_TransactionsResource1" /> 
+            Text="Save Changes" OnClick="button_Save_Bank_Account_Transactions_Click" CssClass="btn btn-success" meta:resourcekey="button_Save_Bank_Account_Transactions" /> 
         
     </div>
 

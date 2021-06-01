@@ -117,307 +117,307 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_Create_DocumentResource1.Text" xml:space="preserve">
+  <data name="button_Create_Document.Text" xml:space="preserve">
     <value>Create Document</value>
   </data>
-  <data name="button_Create_DocumentResource1.ToolTip" xml:space="preserve">
+  <data name="button_Create_Document.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Fill_Up_Form_Dummy_Data_For_TestResource1.Text" xml:space="preserve">
+  <data name="button_Fill_Up_Form_Dummy_Data_For_Test.Text" xml:space="preserve">
     <value>Dummy Expense Fillup</value>
   </data>
-  <data name="button_Fill_Up_Form_Dummy_Data_For_TestResource1.ToolTip" xml:space="preserve">
+  <data name="button_Fill_Up_Form_Dummy_Data_For_Test.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_ActiveResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Active.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Document_Creation_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Document_Creation_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Document_Creation_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Document_Creation_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Document_Creation_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Document_Creation_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_General_Document_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_General_Document_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Document_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Document_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Document_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Document_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Document_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Document_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_In_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_In_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_In_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_In_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_To_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_To_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_To_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_To_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_User_SelectionResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_User_Selection.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="lbl_Insert_Process_Error_ResultResource1.Text" xml:space="preserve">
+  <data name="lbl_Insert_Process_Error_Result.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="lbl_Insert_Process_Error_ResultResource1.ToolTip" xml:space="preserve">
+  <data name="lbl_Insert_Process_Error_Result.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Recieved_In_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+  <data name="p_Recieved_In_State_Wrapper_Panel.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Recieved_In_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+  <data name="p_Recieved_In_State_Wrapper_Panel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Sent_By_Entity_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+  <data name="p_Sent_By_Entity_State_Wrapper_Panel.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Sent_By_Entity_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+  <data name="p_Sent_By_Entity_State_Wrapper_Panel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Sent_To_Entity_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+  <data name="p_Sent_To_Entity_State_Wrapper_Panel.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Sent_To_Entity_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+  <data name="p_Sent_To_Entity_State_Wrapper_Panel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
+  <data name="Page.Title" xml:space="preserve">
     <value>Demo Document Manager / Timeline dashboard chaos</value>
   </data>
-  <data name="panel_General_Document_Type_SelectionResource1.GroupingText" xml:space="preserve">
+  <data name="panel_General_Document_Type_Selection.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_General_Document_Type_SelectionResource1.ToolTip" xml:space="preserve">
+  <data name="panel_General_Document_Type_Selection.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_User_SelectionResource1.GroupingText" xml:space="preserve">
+  <data name="panel_User_Selection.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_User_SelectionResource1.ToolTip" xml:space="preserve">
+  <data name="panel_User_Selection.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_DescriptionResource1.Text" xml:space="preserve">
+  <data name="textbox_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Document_Creation_DateResource1.Text" xml:space="preserve">
+  <data name="textbox_Document_Creation_Date.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Document_Creation_DateResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Document_Creation_Date.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Original_File_NameResource1.Text" xml:space="preserve">
+  <data name="textbox_Original_File_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_DateTimeResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_Document_DateTimeResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_Document_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_Document_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_Document_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_In_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_In_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_CityResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_In_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_CityResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_In_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_In_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_In_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_In_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_In_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_CityResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_DateTimeResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_NameResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_CityResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_NameResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_TitleResource1.Text" xml:space="preserve">
+  <data name="textbox_Title.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_TitleResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Title.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_User_CommentsResource1.Text" xml:space="preserve">
+  <data name="textbox_User_Comments.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Document_Creation_Date_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Document_Creation_Date_Required.ErrorMessage" xml:space="preserve">
     <value>Please enter a document date</value>
   </data>
-  <data name="validator_Document_Creation_Date_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Document_Creation_Date_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Document_Creation_Date_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Document_Creation_Date_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Document_Type_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Document_Type_Required.ErrorMessage" xml:space="preserve">
     <value>Please select a document type</value>
   </data>
-  <data name="validator_Document_Type_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Document_Type_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Document_Type_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Document_Type_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_User_Selection_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_User_Selection_Required.ErrorMessage" xml:space="preserve">
     <value>Please select an user</value>
   </data>
-  <data name="validator_User_Selection_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_User_Selection_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_User_Selection_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_User_Selection_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

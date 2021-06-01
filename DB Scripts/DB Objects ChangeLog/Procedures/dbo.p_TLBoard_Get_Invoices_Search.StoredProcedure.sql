@@ -3,6 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 CREATE Proc [p_TLBoard_Get_Invoices_Search]
 @User_Id Int,
 @Filter_By_Type SmallInt,
@@ -15,6 +16,8 @@ As
 Select	Invoice_Record_Id , Invoice.[User_Id], 
 		Invoice_DateTime, 
 		Invoice.Client_Id,
+        Invoice.Original_File_Name,
+        Invoice.Azure_Block_Blob_Reference,
 		Invoice_Number, Invoice_Reference_Number,
 		Invoice.Invoiced_Client_To_CompanyName , 
 		Invoice.Invoiced_Client_To_Tax_Reference , 
@@ -46,6 +49,5 @@ Where	Invoice.[User_Id] = @User_Id And ( Invoice.Is_Deleted Is Null Or Invoice.I
 			Or Company_Name Like '%' + @Filter_By_CompanyName_Or_Person_Fullname + '%' 
 			Or Website_URL Like '%' + @Filter_By_CompanyName_Or_Person_Fullname + '%'
 			Or Main_Contact_FullName Like '%' + @Filter_By_CompanyName_Or_Person_Fullname + '%' ) 
-
 
 GO

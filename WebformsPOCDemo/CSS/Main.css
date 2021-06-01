@@ -285,6 +285,7 @@
 }
 
 .Responsive-Table > div.tr > div.td > input,
+.Responsive-Table > div.tr > div.td > select,
 .Responsive-Table > div.tr .Button_SaveEdit,
 .Responsive-Table > div.tr .Button_CancelEdit {
     display: none;
@@ -296,6 +297,7 @@
 }
 
 .Responsive-Table > div.tr.Editing > div.td > input,
+.Responsive-Table > div.tr.Editing > div.td > select,
 .Responsive-Table > div.tr.Editing .Button_SaveEdit,
 .Responsive-Table > div.tr.Editing .Button_CancelEdit {
     display: inline-block;
@@ -330,6 +332,8 @@
 
 nav.navbar .form-check-label {
     color: rgba(255, 255, 255, 1);
+    position:relative;
+    top:1px;
 }
 
 nav.navbar label 
@@ -391,4 +395,8 @@ body.Loading > div.Loading-Animation > .Loading-Image
 
 .CustomTable.ListTable > tbody > tr:not(tr:first-child) > td:last-child a {
     margin: 2px;
+}
+
+.Form_Control.Read_Only_Panel.download-link-with-image {
+    padding-top: 0px;
 }

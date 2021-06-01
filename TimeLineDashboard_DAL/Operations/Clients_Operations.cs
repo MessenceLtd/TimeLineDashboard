@@ -110,8 +110,9 @@ namespace TimeLineDashboard.DAL.Operations
         }
 
         internal Clients Insert_New_Client_Administrative_Registration_Process(
-            int p_User_Id, string p_Company_Name, string p_Website_URL, byte? p_Default_Currency_Id, short p_Country_Id,
+            int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
             short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
+            byte? p_Default_Currency_Id, decimal? p_Default_Vat_Percentage,
             string p_Telephone, string p_Mobile_Phone,
             short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
@@ -124,12 +125,13 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int);
             SqlParameter spCompany_Name = new SqlParameter("@Company_Name", SqlDbType.NVarChar , 150);
             SqlParameter spWebsite_URL = new SqlParameter("@Website_URL", SqlDbType.NVarChar, 150);
-            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
             SqlParameter spCountry_Id = new SqlParameter("@Country_Id", SqlDbType.SmallInt );
             SqlParameter spState_Id = new SqlParameter("@State_Id", SqlDbType.SmallInt);
             SqlParameter spCity = new SqlParameter("@City", SqlDbType.NVarChar, 100);
             SqlParameter spAddress = new SqlParameter("@Address", SqlDbType.NVarChar, 150);
             SqlParameter spZipCode = new SqlParameter("@ZipCode", SqlDbType.VarChar, 10);
+            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
+            SqlParameter spDefault_Vat_Percentage = new SqlParameter("@Default_Vat_Percentage", SqlDbType.Decimal);
             SqlParameter spTelephone = new SqlParameter("@Telephone", SqlDbType.VarChar, 40);
             SqlParameter spMobile_Phone = new SqlParameter("@Mobile_Phone", SqlDbType.VarChar, 40);
             SqlParameter spClient_Type_Id = new SqlParameter("@Client_Type_Id", SqlDbType.SmallInt);
@@ -149,21 +151,25 @@ namespace TimeLineDashboard.DAL.Operations
             spCompany_Name.Value = p_Company_Name;
             spWebsite_URL.Value = p_Website_URL;
 
+            spCountry_Id.Value = p_Country_Id;
+            if (p_State_Id.HasValue)
+                spState_Id.Value = p_State_Id;
+            else
+                spState_Id.Value = DBNull.Value;
+            spCity.Value = p_City;
+            spAddress.Value = p_Address;
+            spZipCode.Value = p_ZipCode;
+
             if (p_Default_Currency_Id.HasValue)
                 spDefault_Currency_Id.Value = p_Default_Currency_Id.Value;
             else
                 spDefault_Currency_Id.Value = DBNull.Value;
 
-            spCountry_Id.Value = p_Country_Id;
-            
-            if (p_State_Id.HasValue)
-                spState_Id.Value = p_State_Id;
+            if (p_Default_Vat_Percentage.HasValue)
+                spDefault_Vat_Percentage.Value = p_Default_Vat_Percentage.Value;
             else
-                spState_Id.Value = DBNull.Value;
+                spDefault_Vat_Percentage.Value = DBNull.Value;
 
-            spCity.Value = p_City;
-            spAddress.Value = p_Address;
-            spZipCode.Value = p_ZipCode;
             spTelephone.Value = p_Telephone;
             spMobile_Phone.Value = p_Mobile_Phone;
             spClient_Type_Id.Value = p_Client_Type_Id;
@@ -194,8 +200,9 @@ namespace TimeLineDashboard.DAL.Operations
 
             object new_Client_Id = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult("p_TLBoard_Insert_Client_Details",
                 new List<SqlParameter>() {
-                    spUser_Id , spCompany_Name, spWebsite_URL, spDefault_Currency_Id, spCountry_Id , 
-                    spState_Id , spCity , spAddress , spZipCode , 
+                    spUser_Id , spCompany_Name, spWebsite_URL, spCountry_Id , 
+                    spState_Id , spCity , spAddress , spZipCode ,
+                    spDefault_Currency_Id, spDefault_Vat_Percentage, 
                     spTelephone , spMobile_Phone , spClient_Type_Id , 
                     spClient_Tax_Reference_Number , spMain_Contact_FullName ,
                     spMain_Contact_Email_Address , spMain_Contact_Phone_Number ,
@@ -217,8 +224,9 @@ namespace TimeLineDashboard.DAL.Operations
         }
 
         internal bool Update_Client_Details(
-            int p_Client_Id, string p_Company_Name, string p_Website_URL, byte? p_Default_Currency_Id, short p_Country_Id,
-            short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
+            int p_Client_Id, string p_Company_Name, string p_Website_URL, 
+            short p_Country_Id, short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
+            byte? p_Default_Currency_Id, decimal? p_Default_Vat_Percentage,
             string p_Telephone, string p_Mobile_Phone,
             short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
@@ -231,12 +239,13 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spClient_Id = new SqlParameter("@Client_Id", SqlDbType.Int);
             SqlParameter spCompany_Name = new SqlParameter("@Company_Name", SqlDbType.NVarChar, 150);
             SqlParameter spWebsite_URL = new SqlParameter("@Website_URL", SqlDbType.NVarChar, 150);
-            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
             SqlParameter spCountry_Id = new SqlParameter("@Country_Id", SqlDbType.SmallInt);
             SqlParameter spState_Id = new SqlParameter("@State_Id", SqlDbType.SmallInt);
             SqlParameter spCity = new SqlParameter("@City", SqlDbType.NVarChar, 100);
             SqlParameter spAddress = new SqlParameter("@Address", SqlDbType.NVarChar, 150);
             SqlParameter spZipCode = new SqlParameter("@ZipCode", SqlDbType.VarChar, 10);
+            SqlParameter spDefault_Currency_Id = new SqlParameter("@Default_Currency_Id", SqlDbType.TinyInt);
+            SqlParameter spDefault_Vat_Percentage = new SqlParameter("@Default_Vat_Percentage", SqlDbType.Decimal);
             SqlParameter spTelephone = new SqlParameter("@Telephone", SqlDbType.VarChar, 40);
             SqlParameter spMobile_Phone = new SqlParameter("@Mobile_Phone", SqlDbType.VarChar, 40);
             SqlParameter spClient_Type_Id = new SqlParameter("@Client_Type_Id", SqlDbType.SmallInt);
@@ -256,11 +265,6 @@ namespace TimeLineDashboard.DAL.Operations
             spCompany_Name.Value = p_Company_Name;
             spWebsite_URL.Value = p_Website_URL;
 
-            if (p_Default_Currency_Id.HasValue)
-                spDefault_Currency_Id.Value = p_Default_Currency_Id.Value;
-            else
-                spDefault_Currency_Id.Value = DBNull.Value;
-
             spCountry_Id.Value = p_Country_Id;
 
             if (p_State_Id.HasValue)
@@ -271,6 +275,17 @@ namespace TimeLineDashboard.DAL.Operations
             spCity.Value = p_City;
             spAddress.Value = p_Address;
             spZipCode.Value = p_ZipCode;
+
+            if (p_Default_Currency_Id.HasValue)
+                spDefault_Currency_Id.Value = p_Default_Currency_Id.Value;
+            else
+                spDefault_Currency_Id.Value = DBNull.Value;
+
+            if (p_Default_Vat_Percentage.HasValue)
+                spDefault_Vat_Percentage.Value = p_Default_Vat_Percentage.Value;
+            else
+                spDefault_Vat_Percentage.Value = DBNull.Value;
+
             spTelephone.Value = p_Telephone;
             spMobile_Phone.Value = p_Mobile_Phone;
             spClient_Type_Id.Value = p_Client_Type_Id;
@@ -301,8 +316,9 @@ namespace TimeLineDashboard.DAL.Operations
 
             int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Update_Client_Details",
                 new List<SqlParameter>() {
-                    spClient_Id , spCompany_Name, spWebsite_URL, spDefault_Currency_Id, spCountry_Id ,
+                    spClient_Id , spCompany_Name, spWebsite_URL, spCountry_Id ,
                     spState_Id , spCity , spAddress , spZipCode ,
+                    spDefault_Currency_Id, spDefault_Vat_Percentage, 
                     spTelephone , spMobile_Phone , spClient_Type_Id ,
                     spClient_Tax_Reference_Number , spMain_Contact_FullName ,
                     spMain_Contact_Email_Address , spMain_Contact_Phone_Number ,
@@ -354,12 +370,6 @@ namespace TimeLineDashboard.DAL.Operations
             client_To_Return.Company_Name = dbRow["Company_Name"].ToString();
             client_To_Return.Website_URL = dbRow["Website_URL"].ToString();
 
-            if (dbRow.Table.Columns.IndexOf("Default_Currency_Id") > -1
-                && dbRow["Default_Currency_Id"] != DBNull.Value)
-            {
-                client_To_Return.Default_Currency_Id = (byte)dbRow["Default_Currency_Id"];
-            }
-
             client_To_Return.Country_Id = (short)dbRow["Country_Id"];
             if (dbRow["State_Id"] != DBNull.Value)
             {
@@ -376,6 +386,18 @@ namespace TimeLineDashboard.DAL.Operations
             {
                 client_To_Return.Address = dbRow["Address"].ToString();
                 client_To_Return.ZipCode = dbRow["ZipCode"].ToString();
+            }
+
+            if (dbRow.Table.Columns.IndexOf("Default_Currency_Id") > -1
+                && dbRow["Default_Currency_Id"] != DBNull.Value)
+            {
+                client_To_Return.Default_Currency_Id = (byte)dbRow["Default_Currency_Id"];
+            }
+
+            if (dbRow.Table.Columns.IndexOf("Default_Vat_Percentage") > -1
+                && dbRow["Default_Vat_Percentage"] != DBNull.Value)
+            {
+                client_To_Return.Default_Vat_Percentage = (decimal)dbRow["Default_Vat_Percentage"];
             }
 
             if (dbRow.Table.Columns.IndexOf("Telephone") > -1) 

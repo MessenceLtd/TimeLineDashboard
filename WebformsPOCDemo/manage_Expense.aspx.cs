@@ -687,12 +687,12 @@ namespace WebformsPOCDemo
             }
         }
 
-        protected void Textbox_Total_Amount_TextChanged(object sender, EventArgs e)
+        protected void textbox_Total_Amount_TextChanged(object sender, EventArgs e)
         {
             this.Refresh_Totals_Textboxes();
         }
 
-        protected void Textbox_Vat_Percentage_TextChanged(object sender, EventArgs e)
+        protected void textbox_Vat_Percentage_TextChanged(object sender, EventArgs e)
         {
             this.Refresh_Totals_Textboxes();
         }

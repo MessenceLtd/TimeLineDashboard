@@ -216,12 +216,12 @@ namespace WebformsPOCDemo.AppShared
                 if (Current_Page_Number == 1)
                 {
                     ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).Attributes["class"] = "page-item disabled";
-                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).InnerHtml = "<span class=\"page-link\">Previous</span>";
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).InnerHtml = "<span class=\"page-link\">" + Resources.SiteCommon.Previous + "</span>";
                 }
                 else
                 {
                     ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).Attributes["class"] = "page-item";
-                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).InnerHtml = "<a class=\"page-link\" href=\""+ requestedPage + "?id=" + id + "&page=" + (Current_Page_Number - 1) + "\">Previous</a>";
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Previous")).InnerHtml = "<a class=\"page-link\" href=\""+ requestedPage + "?id=" + id + "&page=" + (Current_Page_Number - 1) + "\">" + Resources.SiteCommon.Previous + "</a>";
                 }
 
                 Control ph_Pagination_Links = ph_Pagination.FindControl("ph_Pagination_Links");
@@ -248,18 +248,38 @@ namespace WebformsPOCDemo.AppShared
                 if (Current_Page_Number == Total_Pages)
                 {
                     ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).Attributes["class"] = "page-item disabled";
-                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).InnerHtml = "<span class=\"page-link\">Next</span>";
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).InnerHtml = "<span class=\"page-link\">" + Resources.SiteCommon.Next + "</span>";
                 }
                 else
                 {
                     ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).Attributes["class"] = "page-item";
-                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).InnerHtml = "<a class=\"page-link\" href=\"" + requestedPage + "?id=" + id + "&page=" + (Current_Page_Number + 1) + "\">Next</a>";
+                    ((HtmlGenericControl)ph_Pagination.FindControl("pagination_li_Next")).InnerHtml = "<a class=\"page-link\" href=\"" + requestedPage + "?id=" + id + "&page=" + (Current_Page_Number + 1) + "\">" + Resources.SiteCommon.Next + "</a>";
                 }
             }
             else
             {
                 ph_Pagination.Visible = false;
             }
+        }
+
+        protected bool Is_Create_New_Record_Request()
+        {
+            bool is_Create_Mode = false;
+
+            if (this.Request.QueryString.Keys.Count > 0 )
+            {
+                for (int i=0; i< this.Request.QueryString.Count; i++ )
+                {
+                    if (!string.IsNullOrEmpty(this.Request.QueryString[i]) &&
+                        this.Request.QueryString[i].ToLower() == "new")
+                    {
+                        is_Create_Mode = true;
+                        break;
+                    }
+                }
+            }
+
+            return is_Create_Mode;
         }
     }
 }

@@ -11,10 +11,10 @@
                 <asp:PlaceHolder ID="panel_HeaderLinks" runat="server">
 
                     <li class="nav-item">
-                        <asp:HyperLink runat="server" ID="hyperlink_MainPage" CssClass="nav-link" ClientIDMode="Static" NavigateUrl="default.aspx" meta:resourcekey="hyperlink_MainPageResource1">Home</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_MainPage" CssClass="nav-link" ClientIDMode="Static" NavigateUrl="default.aspx" meta:resourcekey="hyperlink_MainPage">Home</asp:HyperLink>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Users" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_users" meta:resourcekey="hyperlink_UsersResource1">Users</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Users" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_users" meta:resourcekey="hyperlink_Users">Users</asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Users_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_users.aspx"><%= Resources.SiteCommon.Users_List %></a></li>
@@ -28,7 +28,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <asp:HyperLink runat="server" ID="hyperlink_Clients" CssClass="nav-link dropdown-toggle" 
-                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_clients" meta:resourcekey="hyperlink_ClientsResource1">Clients</asp:HyperLink>
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_clients"><%= Resources.SiteCommon.Clients %></asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Clients_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_clients.aspx"><%= Resources.SiteCommon.Clients_List %></a></li>
@@ -42,7 +42,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <asp:HyperLink runat="server" ID="hyperlink_Suppliers" CssClass="nav-link dropdown-toggle" 
-                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_suppliers" meta:resourcekey="hyperlink_SuppliersResource1">Suppliers</asp:HyperLink>
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_suppliers"><%= Resources.SiteCommon.Suppliers %></asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Suppliers_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_suppliers.aspx"><%= Resources.SiteCommon.Suppliers_List %></a></li>
@@ -56,7 +56,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <asp:HyperLink runat="server" ID="hyperlink_Expenses" CssClass="nav-link dropdown-toggle" 
-                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_expenses" meta:resourcekey="hyperlink_ExpensesResource1">Expenses</asp:HyperLink>
+                            data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_expenses"><%= Resources.SiteCommon.Expenses %></asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Expenses_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_expenses.aspx"><%= Resources.SiteCommon.Expenses_List %></a></li>
@@ -69,7 +69,8 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Invoices" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_invoices" meta:resourcekey="hyperlink_InvoicesResource1">Invoices</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Invoices" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" 
+                            ClientIDMode="Static" NavigateUrl="#list_invoices"><%= Resources.SiteCommon.Invoices %></asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Invoices_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_invoices.aspx"><%= Resources.SiteCommon.Invoices_List %></a></li>
@@ -77,12 +78,16 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="add_invoice.aspx?type=1"><%= Resources.SiteCommon.Add_New_Tax_Invoice %></a></li>
+                                <li><a class="dropdown-item" href="add_invoice.aspx?type=3"><%= Resources.SiteCommon.Add_New_Receipt_Tax_Invoice %></a></li>
+                                <li><a class="dropdown-item" href="add_invoice.aspx?type=5"><%= Resources.SiteCommon.Add_New_Receipt %></a></li>
+                                <li><a class="dropdown-item" href="add_invoice.aspx?type=6"><%= Resources.SiteCommon.Add_New_Credit_Invoice %></a></li>
                             </ul>
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Documents" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_documents" meta:resourcekey="hyperlink_DocumentsResource1">Documents</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Documents" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" 
+                            ClientIDMode="Static" NavigateUrl="#list_documents"><%= Resources.SiteCommon.Documents %></asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Documents_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_documents.aspx"><%= Resources.SiteCommon.Documents_List %></a></li>
@@ -95,7 +100,8 @@
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_BankAccounts" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_bankaccounts" meta:resourcekey="hyperlink_BankAccountsResource1">Bank Accounts</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_BankAccounts" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" 
+                            ClientIDMode="Static" NavigateUrl="#list_bankaccounts"><%= Resources.SiteCommon.Bank_Accounts %></asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_BankAccounts_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_bankaccounts.aspx"><%= Resources.SiteCommon.Bank_Accounts_List %></a></li>
@@ -103,12 +109,16 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="list_CreditCardsStatements.aspx"><%= Resources.SiteCommon.Credit_Cards_Statements_List %></a></li>
+                                <li><a class="dropdown-item" href="manage_CreditCardStatement.aspx?new"><%= Resources.SiteCommon.Add_New_Credit_Card_Statement %></a></li>
+                                <li><a class="dropdown-item" href="list_CreditCards.aspx"><%= Resources.SiteCommon.Credit_Cards_List %></a></li>
+                                <li><a class="dropdown-item" href="manage_CreditCard.aspx?new"><%= Resources.SiteCommon.Add_New_Credit_Card %></a></li>
                             </ul>
                         </asp:PlaceHolder>
                     </li>
                     <li class="nav-item">
-                        <asp:HyperLink runat="server" ID="hyperlink_Reports" CssClass="nav-link disabled" NavigateUrl="#" meta:resourcekey="hyperlink_ReportsResource1">Reports</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Reports" CssClass="nav-link disabled" 
+                            NavigateUrl="#"><%= Resources.SiteCommon.Reports %></asp:HyperLink>
                     </li>
                     <%--<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Dropdown</a>
@@ -145,13 +155,14 @@
             </div>
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <asp:LinkButton runat="server" ID="linkbutton_LogOff" CssClass="nav-link" OnClick="linkbutton_LogOff_Click" CausesValidation="False" Text="Log Off" ClientIDMode="Static" meta:resourcekey="linkbutton_LogOffResource1"></asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="linkbutton_LogOff" CssClass="nav-link" OnClick="linkbutton_LogOff_Click" 
+                        CausesValidation="false" ClientIDMode="Static" Text="<%$ Resources:SiteCommon, Log_Off %>"></asp:LinkButton>
                 </li>
             </ul>
         </div>
     </div>
     <div class="hidden">
-        <asp:button runat="server" ClientIDMode="Static" ID="button_Language_Swap_Event" Text="swap language" OnClick="button_Language_Swap_Event_Click" />
+        <asp:button runat="server" ClientIDMode="Static" ID="button_Language_Swap_Event" Text="__swap__language" CausesValidation="false" OnClick="button_Language_Swap_Event_Click" />
         <asp:HiddenField runat="server" ClientIDMode="Static" ID="hidden_New_Language_To_Swap" />
         <asp:HiddenField runat="server" ClientIDMode="Static" ID="hidden_Current_Language" />
     </div>

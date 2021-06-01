@@ -117,31 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_LoginResource1.Text" xml:space="preserve">
+  <data name="button_Login.Text" xml:space="preserve">
     <value>Login</value>
   </data>
-  <data name="button_LoginResource1.ToolTip" xml:space="preserve">
+  <data name="button_Login.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_RememberMeResource1.Text" xml:space="preserve">
+  <data name="checkbox_RememberMe.Text" xml:space="preserve">
     <value>Remember Me!</value>
   </data>
-  <data name="checkbox_RememberMeResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_RememberMe.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
+  <data name="Page.Title" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_PasswordResource1.Text" xml:space="preserve">
+  <data name="textbox_Password.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_PasswordResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Password.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_UserNameResource1.Text" xml:space="preserve">
+  <data name="textbox_UserName.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_UserNameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_UserName.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

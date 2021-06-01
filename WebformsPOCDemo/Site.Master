@@ -72,7 +72,7 @@
 
     <script src="/JS/darkmode.js" type="text/javascript"></script>
 
-    <div class="Loading-Animation"><img class="Loading-Image" src="/Images/Loading.png" alt="Loading" title="Loading" /></div>
+    <div class="Loading-Animation"><img class="Loading-Image" src="/Images/Loading.png" alt="<%= Resources.SiteCommon.Loading %>" title="<%= Resources.SiteCommon.Loading %>" /></div>
 
 </body>
 </html>

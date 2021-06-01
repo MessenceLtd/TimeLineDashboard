@@ -117,1045 +117,1045 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_CancelEdit_Document_DetailsResource1.Text" xml:space="preserve">
+  <data name="button_CancelEdit_Document_Details.Text" xml:space="preserve">
     <value>Cancel Editing</value>
   </data>
-  <data name="button_CancelEdit_Document_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="button_CancelEdit_Document_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Edit_Document_DetailsResource1.Text" xml:space="preserve">
+  <data name="button_Edit_Document_Details.Text" xml:space="preserve">
     <value>Edit Document</value>
   </data>
-  <data name="button_Edit_Document_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="button_Edit_Document_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Update_Document_DetailsResource1.Text" xml:space="preserve">
+  <data name="button_Update_Document_Details.Text" xml:space="preserve">
     <value>Save Changes</value>
   </data>
-  <data name="button_Update_Document_DetailsResource1.ToolTip" xml:space="preserve">
+  <data name="button_Update_Document_Details.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_ActiveResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Active.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="checkbox_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="checkbox_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Document_Creation_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Document_Creation_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Document_Creation_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Document_Creation_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Document_Creation_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Document_Creation_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_General_Document_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_General_Document_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Document_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Document_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Document_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Document_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Document_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Document_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_In_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_In_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_In_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_In_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Recieved_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Recieved_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_Time_HoursResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_Time_Hours.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_Time_MinutesResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_Time_Minutes.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_By_Entity_Time_SecondsResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_By_Entity_Time_Seconds.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_To_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_To_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_Sent_To_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Sent_To_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_DescriptionResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Description.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Document_Creation_DateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Document_Creation_Date.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Document_Creation_DateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Document_Creation_Date.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Document_Creation_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Document_Creation_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Document_Creation_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Document_Creation_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_General_Document_TypeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_General_Document_Type.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_General_Document_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_General_Document_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_ActiveResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Active.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Anonymous_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Anonymous_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Followers_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Followers_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Visible_To_Anonymous_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Visible_To_Anonymous_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Visible_To_Followers_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Visible_To_Followers_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Original_File_NameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Original_File_Name.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_By_UserResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_By_User.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_DateTimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_DateTime.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_Document_DateTimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_Document_DateTime.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_Document_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_Document_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_Document_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_Document_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_Document_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_Document_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_Email_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_Email_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_ZipCodeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_ZipCode.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_In_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_In_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Recieved_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Recieved_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_DateTimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_DateTime.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Email_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Email_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_NameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Name.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_ZipCodeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_ZipCode.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_By_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_By_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Email_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Email_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_NameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Name.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_ZipCodeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_ZipCode.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_Sent_To_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Sent_To_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_TitleResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Title.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_TitleResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_Title.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_User_CommentsResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_User_Comments.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Edit_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Edit_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_DescriptionResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Description.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Document_Creation_DateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Document_Creation_Date.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Document_Creation_DateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Document_Creation_Date.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Document_Creation_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Document_Creation_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Document_Creation_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Document_Creation_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_General_Document_TypeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_General_Document_Type.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_General_Document_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_General_Document_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_ActiveResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Active.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Anonymous_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Anonymous_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Followers_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Followers_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Anonymous_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Anonymous_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Followers_UsersResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Followers_Users.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Original_File_NameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Original_File_Name.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_By_UserResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_By_User.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_DateTimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_DateTime.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_Document_DateTimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_Document_DateTime.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_Document_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_Document_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_Document_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_Document_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_Document_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_Document_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_Email_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_Email_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_ZipCodeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_ZipCode.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_In_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_In_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Recieved_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Recieved_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_DateTimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_DateTime.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Email_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Email_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_NameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Name.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_TimeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Time.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_ZipCodeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_ZipCode.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_By_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_CityResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_City.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_CountryResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Country.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Email_AddressResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Email_Address.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_NameResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Name.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_StateResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_State.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_ZipCodeResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_ZipCode.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Sent_To_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_TitleResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Title.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_TitleResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_Title.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_User_CommentsResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_User_Comments.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_ReadOnly_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_ReadOnly_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Created_By_UserResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Created_By_User.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Created_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Created_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Creation_DateTime_UTCResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Creation_DateTime_UTC.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Creation_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Creation_DateTime_UTC.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Last_Updated_By_UserResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Last_Updated_By_User.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Last_Updated_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Last_Updated_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTCResource1.GroupingText" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTC.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+  <data name="formControl_Wrapper_Record_Last_Updated_DateTime_UTC.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_DescriptionResource1.Text" xml:space="preserve">
+  <data name="label_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="label_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Document_Creation_DateResource1.Text" xml:space="preserve">
+  <data name="label_Document_Creation_Date.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Document_Creation_DateResource1.ToolTip" xml:space="preserve">
+  <data name="label_Document_Creation_Date.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Document_Creation_TimeResource1.Text" xml:space="preserve">
+  <data name="label_Document_Creation_Time.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Document_Creation_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Document_Creation_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_General_Document_TypeResource1.Text" xml:space="preserve">
+  <data name="label_General_Document_Type.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_General_Document_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="label_General_Document_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_ActiveResource1.Text" xml:space="preserve">
+  <data name="label_Is_Active.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_ActiveResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Active.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Available_For_Download_For_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="label_Is_Available_For_Download_For_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Available_For_Download_For_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Available_For_Download_For_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Available_For_Download_For_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="label_Is_Available_For_Download_For_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Available_For_Download_For_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Available_For_Download_For_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Visible_To_Anonymous_UsersResource1.Text" xml:space="preserve">
+  <data name="label_Is_Visible_To_Anonymous_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Visible_To_Anonymous_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Visible_To_Anonymous_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Visible_To_Followers_UsersResource1.Text" xml:space="preserve">
+  <data name="label_Is_Visible_To_Followers_Users.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Is_Visible_To_Followers_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="label_Is_Visible_To_Followers_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Original_File_NameResource1.Text" xml:space="preserve">
+  <data name="label_Original_File_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="label_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_By_UserResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_By_User.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_DateTimeResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_Document_DateTimeResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_Document_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_Document_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_Document_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_Document_TimeResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_Document_Time.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_Document_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_Document_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_AddressResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_In_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_In_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_CityResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_In_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_CityResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_In_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_CountryResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_In_Country.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_In_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_In_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_In_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_StateResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_In_State.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_StateResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_In_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_In_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_In_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_In_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_TimeResource1.Text" xml:space="preserve">
+  <data name="label_Recieved_Time.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Recieved_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Recieved_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Created_By_UserResource1.Text" xml:space="preserve">
+  <data name="label_Record_Created_By_User.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Created_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="label_Record_Created_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Creation_DateTime_UTCResource1.Text" xml:space="preserve">
+  <data name="label_Record_Creation_DateTime_UTC.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Creation_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+  <data name="label_Record_Creation_DateTime_UTC.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Last_Updated_By_UserResource1.Text" xml:space="preserve">
+  <data name="label_Record_Last_Updated_By_User.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Last_Updated_By_UserResource1.ToolTip" xml:space="preserve">
+  <data name="label_Record_Last_Updated_By_User.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Last_Updated_DateTime_UTCResource1.Text" xml:space="preserve">
+  <data name="label_Record_Last_Updated_DateTime_UTC.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Record_Last_Updated_DateTime_UTCResource1.ToolTip" xml:space="preserve">
+  <data name="label_Record_Last_Updated_DateTime_UTC.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_AddressResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_CityResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_CountryResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Country.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_DateTimeResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_NameResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_StateResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_State.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_TimeResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Time.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_TimeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_Time.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="label_Sent_By_Entity_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_By_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_By_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_AddressResource1.Text" xml:space="preserve">
+  <data name="label_Sent_To_Entity_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_To_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_CityResource1.Text" xml:space="preserve">
+  <data name="label_Sent_To_Entity_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_To_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_CountryResource1.Text" xml:space="preserve">
+  <data name="label_Sent_To_Entity_Country.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_To_Entity_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="label_Sent_To_Entity_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_To_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_NameResource1.Text" xml:space="preserve">
+  <data name="label_Sent_To_Entity_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_To_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_StateResource1.Text" xml:space="preserve">
+  <data name="label_Sent_To_Entity_State.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_StateResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_To_Entity_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="label_Sent_To_Entity_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Sent_To_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="label_Sent_To_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_TitleResource1.Text" xml:space="preserve">
+  <data name="label_Title.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_TitleResource1.ToolTip" xml:space="preserve">
+  <data name="label_Title.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_User_CommentsResource1.Text" xml:space="preserve">
+  <data name="label_User_Comments.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="label_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="label_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="lbl_Insert_Process_Error_ResultResource1.Text" xml:space="preserve">
+  <data name="lbl_Insert_Process_Error_Result.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="lbl_Insert_Process_Error_ResultResource1.ToolTip" xml:space="preserve">
+  <data name="lbl_Insert_Process_Error_Result.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Recieved_In_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+  <data name="p_Recieved_In_State_Wrapper_Panel.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Recieved_In_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+  <data name="p_Recieved_In_State_Wrapper_Panel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Sent_By_Entity_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+  <data name="p_Sent_By_Entity_State_Wrapper_Panel.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Sent_By_Entity_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+  <data name="p_Sent_By_Entity_State_Wrapper_Panel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Sent_To_Entity_State_Wrapper_PanelResource1.GroupingText" xml:space="preserve">
+  <data name="p_Sent_To_Entity_State_Wrapper_Panel.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="p_Sent_To_Entity_State_Wrapper_PanelResource1.ToolTip" xml:space="preserve">
+  <data name="p_Sent_To_Entity_State_Wrapper_Panel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
+  <data name="Page.Title" xml:space="preserve">
     <value>Demo Document Manager / Timeline dashboard chaos</value>
   </data>
-  <data name="panel_General_Document_Type_SelectionResource1.GroupingText" xml:space="preserve">
+  <data name="panel_General_Document_Type_Selection.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_General_Document_Type_SelectionResource1.ToolTip" xml:space="preserve">
+  <data name="panel_General_Document_Type_Selection.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_DescriptionResource1.Text" xml:space="preserve">
+  <data name="textbox_Description.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Document_Creation_DateResource1.Text" xml:space="preserve">
+  <data name="textbox_Document_Creation_Date.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Document_Creation_DateResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Document_Creation_Date.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Original_File_NameResource1.Text" xml:space="preserve">
+  <data name="textbox_Original_File_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Original_File_NameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Original_File_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_DateTimeResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_Document_DateTimeResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_Document_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_Document_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_Document_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_In_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_In_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_CityResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_In_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_CityResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_In_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_In_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_In_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="textbox_Recieved_In_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Recieved_In_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Recieved_In_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_CityResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_DateTimeResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_DateTime.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_NameResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_By_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_By_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_CityResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_City.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_CityResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_City.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_Email_AddressResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Email_Address.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_Email_AddressResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Email_Address.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_NameResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Name.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_NameResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_Name.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_ZipCodeResource1.Text" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_ZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Sent_To_Entity_ZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Sent_To_Entity_ZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_TitleResource1.Text" xml:space="preserve">
+  <data name="textbox_Title.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_TitleResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Title.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_User_CommentsResource1.Text" xml:space="preserve">
+  <data name="textbox_User_Comments.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_User_CommentsResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_User_Comments.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Document_Creation_Date_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Document_Creation_Date_Required.ErrorMessage" xml:space="preserve">
     <value>Please enter a document date</value>
   </data>
-  <data name="validator_Document_Creation_Date_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Document_Creation_Date_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Document_Creation_Date_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Document_Creation_Date_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Document_Type_RequiredResource1.ErrorMessage" xml:space="preserve">
+  <data name="validator_Document_Type_Required.ErrorMessage" xml:space="preserve">
     <value>Please select a document type</value>
   </data>
-  <data name="validator_Document_Type_RequiredResource1.Text" xml:space="preserve">
+  <data name="validator_Document_Type_Required.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="validator_Document_Type_RequiredResource1.ToolTip" xml:space="preserve">
+  <data name="validator_Document_Type_Required.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

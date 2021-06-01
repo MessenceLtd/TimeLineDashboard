@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebformsPOCDemo.Login" Culture="auto" meta:resourcekey="PageResource1" UICulture="auto" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebformsPOCDemo.Login" Culture="auto" meta:resourcekey="Page" UICulture="auto" %>
 
 <!DOCTYPE html>
 
@@ -50,7 +50,7 @@
                 <asp:CheckBox runat="server" ID="checkbox_RememberMe" style="display:none" />
             </div>
 
-            <asp:Button runat="server" ID="button_Login" CssClass="w-50 btn btn-lg btn-primary" OnClick="button_Login_Click" Text="Login" meta:resourcekey="button_LoginResource1" />
+            <asp:Button runat="server" ID="button_Login" CssClass="w-50 btn btn-lg btn-primary" OnClick="button_Login_Click" Text="Login" meta:resourcekey="button_Login" />
         </form>
     </main>
 </body>

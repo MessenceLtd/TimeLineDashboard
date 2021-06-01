@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="list_Invoices.aspx.cs" Inherits="WebformsPOCDemo.list_Invoices" culture="auto" meta:resourcekey="PageResource1" uiculture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="list_Invoices.aspx.cs" Inherits="WebformsPOCDemo.list_Invoices" culture="auto" meta:resourcekey="Page" uiculture="auto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links" meta:resourcekey="panel_HeaderLinksResource1">       
-        <asp:HyperLink runat="server" Text="Add New Invoice" NavigateUrl="Add_Invoice.aspx" meta:resourcekey="HyperLinkResource1"></asp:HyperLink>
+    <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links" meta:resourcekey="panel_HeaderLinks">       
+        <asp:HyperLink runat="server" Text="Add New Invoice" NavigateUrl="Add_Invoice.aspx" meta:resourcekey="HyperLink"></asp:HyperLink>
     </asp:Panel>
 
     Invoices list will go here with all the details and stuff
@@ -18,34 +18,34 @@
             <div class="col-md">
                 <div class="form-floating">
                     <asp:DropDownList runat="server" ID="dropdown_Type" ClientIDMode="Static" aria-label="Select expense type" 
-                        CssClass="form-select" meta:resourcekey="dropdown_TypeResource1"></asp:DropDownList>
-                    <label for=""><asp:Literal runat="server" ID="label_Filter_By_Type" meta:resourcekey="label_Filter_By_TypeResource1" Text="Filter by Type"></asp:Literal></label>
+                        CssClass="form-select" meta:resourcekey="dropdown_Type"></asp:DropDownList>
+                    <label for=""><asp:Literal runat="server" ID="label_Filter_By_Type" meta:resourcekey="label_Filter_By_Type" Text="Filter by Type"></asp:Literal></label>
                 </div>
             </div>
 
             <div class="col-md">
                 <div class="form-floating">
                     <asp:DropDownList runat="server" ID="dropdown_Country" ClientIDMode="Static" aria-label="Select country" 
-                        CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="dropdown_Country_SelectedIndexChanged" meta:resourcekey="dropdown_CountryResource1"></asp:DropDownList>
-                    <label for=""><asp:Literal runat="server" ID="label_Filter_By_Country" meta:resourcekey="label_Filter_By_CountryResource1" Text="Filter by Country"></asp:Literal></label>
+                        CssClass="form-select" AutoPostBack="True" OnSelectedIndexChanged="dropdown_Country_SelectedIndexChanged" meta:resourcekey="dropdown_Country"></asp:DropDownList>
+                    <label for=""><asp:Literal runat="server" ID="label_Filter_By_Country" meta:resourcekey="label_Filter_By_Country" Text="Filter by Country"></asp:Literal></label>
                 </div>
             </div>
 
-            <asp:Panel runat="server" id="panel_States" CssClass="col-md" Visible="False" meta:resourcekey="panel_StatesResource1">
+            <asp:Panel runat="server" id="panel_States" CssClass="col-md" Visible="False" meta:resourcekey="panel_States">
                 <div class="form-floating">
-                    <asp:DropDownList runat="server" ID="dropdown_State" ClientIDMode="Static" aria-label="Select state" CssClass="form-select" meta:resourcekey="dropdown_StateResource1"></asp:DropDownList>
-                    <label for="<%= dropdown_State.ClientID %>"><asp:Literal runat="server" ID="label_Filter_By_State" meta:resourcekey="label_Filter_By_StateResource1" Text="Filter by Type"></asp:Literal></label>
+                    <asp:DropDownList runat="server" ID="dropdown_State" ClientIDMode="Static" aria-label="Select state" CssClass="form-select" meta:resourcekey="dropdown_State"></asp:DropDownList>
+                    <label for="<%= dropdown_State.ClientID %>"><asp:Literal runat="server" ID="label_Filter_By_State" meta:resourcekey="label_Filter_By_State" Text="Filter by Type"></asp:Literal></label>
                 </div>
             </asp:Panel>
 
             <div class="form-floating">
                 <asp:TextBox runat="server" ID="text_Filter_By_CityAddressZipCode" CssClass="form-control"
-                    autocomplete="nope" placeholder="Filter by City / Address / Zipcode" meta:resourcekey="text_Filter_By_CityAddressZipCodeResource1"></asp:TextBox>
+                    autocomplete="nope" placeholder="Filter by City / Address / Zipcode" meta:resourcekey="text_Filter_By_CityAddressZipCode"></asp:TextBox>
                 <label for="floatingInput">Filter by City / Address / Zipcode</label>
             </div>
             <div class="form-floating">
                 <asp:TextBox runat="server" ID="text_Filter_By_CompanyNamePeopleName" CssClass="form-control" 
-                    autocomplete="nope" placeholder="Filter by Company name / People name" meta:resourcekey="text_Filter_By_CompanyNamePeopleNameResource1"></asp:TextBox>
+                    autocomplete="nope" placeholder="Filter by Company name / People name" meta:resourcekey="text_Filter_By_CompanyNamePeopleName"></asp:TextBox>
                 <label for="floatingPassword">Filter by Company name / People name</label>
             </div>
 
@@ -57,7 +57,7 @@
 
     <br />
 
-    <asp:Button runat="server" ID="button_Search_Invoices" OnClick="button_Search_Invoices_Click" Text="Search" CssClass="btn btn-primary" meta:resourcekey="button_Search_InvoicesResource1" />
+    <asp:Button runat="server" ID="button_Search_Invoices" OnClick="button_Search_Invoices_Click" Text="Search" CssClass="btn btn-primary" meta:resourcekey="button_Search_Invoices" />
 
     <asp:UpdatePanel runat="server" ID="updatePanel_Search_Result">
 
@@ -65,9 +65,9 @@
 
             <hr />
 
-            <asp:DataGrid runat="server" ID="dataGrid_Invoices_List" AutoGenerateColumns="False" CssClass="CustomTable ListTable" Visible="False" meta:resourcekey="dataGrid_Invoices_ListResource1">
+            <asp:DataGrid runat="server" ID="dataGrid_Invoices_List" AutoGenerateColumns="False" CssClass="CustomTable ListTable" Visible="False" meta:resourcekey="dataGrid_Invoices_List">
                 <Columns>
-                    <asp:HyperLinkColumn DataTextField="Invoice_Record_Id" HeaderText="ID" DataNavigateUrlField="Invoice_Record_Id" DataNavigateUrlFormatString="manage_Invoice.aspx?id={0}" meta:resourcekey="HyperLinkColumnResource1">
+                    <asp:HyperLinkColumn DataTextField="Invoice_Record_Id" HeaderText="ID" DataNavigateUrlField="Invoice_Record_Id" DataNavigateUrlFormatString="manage_Invoice.aspx?id={0}" meta:resourcekey="HyperLinkColumn">
                     </asp:HyperLinkColumn>
                     <asp:HyperLinkColumn DataTextField="Invoiced_Client_To_CompanyName" HeaderText="Company Name" DataNavigateUrlField="Invoice_Record_Id" 
                         DataNavigateUrlFormatString="manage_Invoice.aspx?id={0}" meta:resourcekey="HyperLinkColumnResource2"></asp:HyperLinkColumn>
@@ -101,11 +101,11 @@
                 </Columns>
             </asp:DataGrid>
 
-            <asp:Panel runat="server" ID="panel_Please_Search" class="alert alert-primary" meta:resourcekey="panel_Please_SearchResource1">
+            <asp:Panel runat="server" ID="panel_Please_Search" class="alert alert-primary" meta:resourcekey="panel_Please_Search">
                 <label>Please use the search criteria to search for Invoices.</label>
             </asp:Panel>
 
-            <asp:Panel runat="server" ID="panel_No_Results_Message" Visible="False" class="alert alert-warning" meta:resourcekey="panel_No_Results_MessageResource1">
+            <asp:Panel runat="server" ID="panel_No_Results_Message" Visible="False" class="alert alert-warning" meta:resourcekey="panel_No_Results_Message">
                 No results were found!
             </asp:Panel>
 

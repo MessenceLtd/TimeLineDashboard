@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="panel_BreadCrumbsResource1.GroupingText" xml:space="preserve">
+  <data name="panel_BreadCrumbs.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_BreadCrumbsResource1.ToolTip" xml:space="preserve">
+  <data name="panel_BreadCrumbs.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

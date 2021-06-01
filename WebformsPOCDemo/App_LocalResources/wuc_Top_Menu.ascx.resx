@@ -117,64 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="hyperlink_BankAccountsResource1.Text" xml:space="preserve">
+  <data name="hyperlink_BankAccounts.Text" xml:space="preserve">
     <value>Bank Accounts</value>
   </data>
-  <data name="hyperlink_BankAccountsResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_BankAccounts.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="hyperlink_ClientsResource1.Text" xml:space="preserve">
+  <data name="hyperlink_Clients.Text" xml:space="preserve">
     <value>Clients</value>
   </data>
-  <data name="hyperlink_ClientsResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_Clients.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="hyperlink_DocumentsResource1.Text" xml:space="preserve">
+  <data name="hyperlink_Documents.Text" xml:space="preserve">
     <value>Documents</value>
   </data>
-  <data name="hyperlink_DocumentsResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_Documents.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="hyperlink_ExpensesResource1.Text" xml:space="preserve">
+  <data name="hyperlink_Expenses.Text" xml:space="preserve">
     <value>Expenses</value>
   </data>
-  <data name="hyperlink_ExpensesResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_Expenses.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="hyperlink_InvoicesResource1.Text" xml:space="preserve">
+  <data name="hyperlink_Invoices.Text" xml:space="preserve">
     <value>Invoices</value>
   </data>
-  <data name="hyperlink_InvoicesResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_Invoices.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="hyperlink_MainPageResource1.Text" xml:space="preserve">
+  <data name="hyperlink_MainPage.Text" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="hyperlink_MainPageResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_MainPage.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="hyperlink_ReportsResource1.Text" xml:space="preserve">
+  <data name="hyperlink_Reports.Text" xml:space="preserve">
     <value>Reports</value>
   </data>
-  <data name="hyperlink_ReportsResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_Reports.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="hyperlink_SuppliersResource1.Text" xml:space="preserve">
+  <data name="hyperlink_Suppliers.Text" xml:space="preserve">
     <value>Suppliers</value>
   </data>
-  <data name="hyperlink_SuppliersResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_Suppliers.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="hyperlink_UsersResource1.Text" xml:space="preserve">
+  <data name="hyperlink_Users.Text" xml:space="preserve">
     <value>Users</value>
   </data>
-  <data name="hyperlink_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="hyperlink_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="linkbutton_LogOffResource1.Text" xml:space="preserve">
+  <data name="linkbutton_LogOff.Text" xml:space="preserve">
     <value>Log Off</value>
   </data>
-  <data name="linkbutton_LogOffResource1.ToolTip" xml:space="preserve">
+  <data name="linkbutton_LogOff.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

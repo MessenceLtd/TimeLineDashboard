@@ -60,15 +60,6 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.RegularExpressionValidator validator_Website_URL_Regex;
 
         /// <summary>
-        /// dropdown_Currency control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdown_Currency;
-
-        /// <summary>
         /// dropdown_Country control.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,33 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Zipcode_Required;
+
+        /// <summary>
+        /// updatePanel_Default_Currency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanel_Default_Currency;
+
+        /// <summary>
+        /// dropdown_Currency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Currency;
+
+        /// <summary>
+        /// textbox_Vat_Percentage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Vat_Percentage;
 
         /// <summary>
         /// textbox_Telephone control.
@@ -355,15 +373,6 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button button_Create_Client;
-
-        /// <summary>
-        /// button_Fill_Up_Form_Dummy_Data_For_Test control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Fill_Up_Form_Dummy_Data_For_Test;
 
         /// <summary>
         /// lbl_Insert_Process_Error_Result control.

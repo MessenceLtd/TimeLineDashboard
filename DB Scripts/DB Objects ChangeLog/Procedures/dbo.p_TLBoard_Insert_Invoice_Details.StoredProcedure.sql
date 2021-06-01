@@ -3,6 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 CREATE Proc [p_TLBoard_Insert_Invoice_Details]
 @User_Id int, @Client_Id int, 
 @Invoice_DateTime datetime, @Currency_Id tinyint,
@@ -20,10 +21,8 @@ CREATE Proc [p_TLBoard_Insert_Invoice_Details]
 @User_Comments nvarchar(1000), @Original_File_Name nvarchar(255),
 @Azure_Block_Blob_Reference nvarchar(255), @Is_Visible_To_Anonymous_Users bit,
 @Is_Available_For_Download_For_Anonymous_Users bit, @Is_Visible_To_Followers_Users bit,
-@Is_Available_For_Download_For_Followers_Users bit, @Record_Created_By_User_Id int,
-@Record_Creation_DateTime_UTC datetime, @Record_Last_Updated_By_User_Id int,
-@Record_Last_Updated_DateTime_UTC datetime,
-@Is_Active bit
+@Is_Available_For_Download_For_Followers_Users bit, 
+@Record_Created_By_User_Id int, @Is_Active bit
 As
 
 INSERT INTO [dbo].[t_TLBoard_Invoices] (
@@ -62,9 +61,11 @@ INSERT INTO [dbo].[t_TLBoard_Invoices] (
 				@User_Comments, @Original_File_Name,
 				@Azure_Block_Blob_Reference, @Is_Visible_To_Anonymous_Users,
 				@Is_Available_For_Download_For_Anonymous_Users, @Is_Visible_To_Followers_Users,
-				@Is_Available_For_Download_For_Followers_Users, @Record_Created_By_User_Id,
-				@Record_Creation_DateTime_UTC, @Record_Last_Updated_By_User_Id,
-				@Record_Last_Updated_DateTime_UTC , @Is_Active )
+				@Is_Available_For_Download_For_Followers_Users, 
+                @Record_Created_By_User_Id,
+				GETUTCDATE(), 
+                @Record_Created_By_User_Id,
+				GETUTCDATE() , @Is_Active )
 
 Select @@IDENTITY;
 

@@ -117,61 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_Search_UsersResource1.Text" xml:space="preserve">
+  <data name="button_Search_Users.Text" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="button_Search_UsersResource1.ToolTip" xml:space="preserve">
+  <data name="button_Search_Users.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dataGrid_Users_ListResource1.Caption" xml:space="preserve">
+  <data name="dataGrid_Users_List.Caption" xml:space="preserve">
     <value />
   </data>
-  <data name="dataGrid_Users_ListResource1.PagerStyle.NextPageText" xml:space="preserve">
+  <data name="dataGrid_Users_List.PagerStyle.NextPageText" xml:space="preserve">
     <value>&amp;gt;</value>
   </data>
-  <data name="dataGrid_Users_ListResource1.PagerStyle.PrevPageText" xml:space="preserve">
+  <data name="dataGrid_Users_List.PagerStyle.PrevPageText" xml:space="preserve">
     <value>&amp;lt;</value>
   </data>
-  <data name="dataGrid_Users_ListResource1.ToolTip" xml:space="preserve">
+  <data name="dataGrid_Users_List.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="HyperLinkColumnResource1.Text" xml:space="preserve">
+  <data name="HyperLinkColumn.Text" xml:space="preserve">
     <value />
   </data>
   <data name="HyperLinkColumnResource2.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="HyperLinkResource1.Text" xml:space="preserve">
+  <data name="HyperLink.Text" xml:space="preserve">
     <value>Add New User</value>
   </data>
-  <data name="HyperLinkResource1.ToolTip" xml:space="preserve">
+  <data name="HyperLink.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
+  <data name="Page.Title" xml:space="preserve">
     <value>Demo Document Manager / Timeline dashboard chaos</value>
   </data>
-  <data name="panel_HeaderLinksResource1.GroupingText" xml:space="preserve">
+  <data name="panel_HeaderLinks.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_HeaderLinksResource1.ToolTip" xml:space="preserve">
+  <data name="panel_HeaderLinks.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_No_Results_MessageResource1.GroupingText" xml:space="preserve">
+  <data name="panel_No_Results_Message.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_No_Results_MessageResource1.ToolTip" xml:space="preserve">
+  <data name="panel_No_Results_Message.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_Please_SearchResource1.GroupingText" xml:space="preserve">
+  <data name="panel_Please_Search.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_Please_SearchResource1.ToolTip" xml:space="preserve">
+  <data name="panel_Please_Search.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Search_CriteriaResource1.Text" xml:space="preserve">
+  <data name="textbox_Search_Criteria.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="textbox_Search_CriteriaResource1.ToolTip" xml:space="preserve">
+  <data name="textbox_Search_Criteria.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

@@ -6,6 +6,7 @@ using System.Threading;
 using System.Web;
 using System.Web.UI.WebControls;
 using TimeLineDashboard.BusinessLogicLayer;
+using WebformsPOCDemo.AppShared;
 
 namespace WebformsPOCDemo
 {
@@ -136,6 +137,40 @@ namespace WebformsPOCDemo
             dropdown_App_Permission_Type.DataValueField = "App_Permission_Type_Id";
             dropdown_App_Permission_Type.DataBind();
             dropdown_App_Permission_Type.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
+        }
+
+        internal static void Initialize_DropDown_Bank_Accounts(
+            BasePage p_Requested_Page,
+            DropDownList dropDown_Bank_Accounts)
+        {
+            var bank_Accounts = Business_Logic_Layer_Facade.Instance.BankAccounts_Get_Search(
+                    p_Requested_Page.Authenticated_User_ID);
+
+            dropDown_Bank_Accounts.DataSource = bank_Accounts;
+            dropDown_Bank_Accounts.DataTextField = "Bank_Name";
+            dropDown_Bank_Accounts.DataValueField = "Bank_Account_Id";
+            dropDown_Bank_Accounts.DataBind();
+            dropDown_Bank_Accounts.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
+
+            if (bank_Accounts.Count > 0  && bank_Accounts.Count < 2)
+            {
+                dropDown_Bank_Accounts.SelectedValue = bank_Accounts[0].Bank_Account_Id.ToString();
+            }
+        }
+
+        internal static void Initialize_DropDown_Credit_Cards(
+            BasePage p_Requested_Page,
+            DropDownList dropDown_Credit_Cards)
+        {
+            dropDown_Credit_Cards.DataSource = Business_Logic_Layer_Facade.Instance.CreditCards_Get_Credit_Cards(
+                p_Requested_Page.Authenticated_User_ID,
+                p_Requested_Page.Authenticated_User_ID,
+                p_Requested_Page.Authenticated_Permission_Type );
+
+            dropDown_Credit_Cards.DataTextField = "Card_Name";
+            dropDown_Credit_Cards.DataValueField = "Credit_Card_Id";
+            dropDown_Credit_Cards.DataBind();
+            dropDown_Credit_Cards.Items.Insert(0, new ListItem("-- Select Type -- ", ""));
         }
 
         internal static DateTime? Get_DateTime_From_ComboBoxes(

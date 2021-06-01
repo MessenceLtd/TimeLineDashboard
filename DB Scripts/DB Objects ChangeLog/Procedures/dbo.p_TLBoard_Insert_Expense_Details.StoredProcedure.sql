@@ -3,7 +3,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-
 CREATE Proc [p_TLBoard_Insert_Expense_Details]
 @User_Id int, @Supplier_Id Int, @Expense_Invoice_DateTime DateTime,
 @Currency_Id TinyInt, @Total_Amount Decimal(18,3), @Vat_Percentage Decimal(6,2),
@@ -71,6 +70,8 @@ INSERT INTO [dbo].[t_TLBoard_Expenses]
 			   ,[Is_Visible_To_Followers_Users]
 			   ,[Is_Available_For_Download_For_Followers_Users]
 			   ,[Record_Created_By_User_Id]
+               ,[Record_Creation_DateTime_UTC]
+               ,[Record_Last_Updated_By_User_Id]
                ,[Record_Last_Updated_DateTime_UTC]
 			   ,[Is_Active]
 			   )
@@ -100,6 +101,8 @@ INSERT INTO [dbo].[t_TLBoard_Expenses]
 				@Is_Available_For_Download_For_Anonymous_Users, @Is_Visible_To_Followers_Users,
 				@Is_Available_For_Download_For_Followers_Users, 
 				@Record_Created_By_User_Id, 
+                GETUTCDATE(),
+                @Record_Created_By_User_Id, 
                 GETUTCDATE(),
                 @Is_Active )
 

@@ -129,10 +129,7 @@ namespace TimeLineDashboard.DAL.Operations
             string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
-            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC, 
-            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
-            bool p_Is_Active 
-            )
+            int p_Record_Created_By_User_Id, bool p_Is_Active )
         {
             Invoices new_Registered_Invoice_To_Return = null;
 
@@ -175,9 +172,6 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spIs_Available_For_Download_For_Followers_Users = new SqlParameter("@Is_Available_For_Download_For_Followers_Users", SqlDbType.Bit);
 
             SqlParameter spRecord_Created_By_User_Id = new SqlParameter("@Record_Created_By_User_Id", SqlDbType.Int);
-            SqlParameter spRecord_Creation_DateTime_UTC = new SqlParameter("@Record_Creation_DateTime_UTC", SqlDbType.DateTime);
-            SqlParameter spRecord_Last_Updated_By_User_Id = new SqlParameter("@Record_Last_Updated_By_User_Id", SqlDbType.Int);
-            SqlParameter spRecord_Last_Updated_DateTime_UTC = new SqlParameter("@Record_Last_Updated_DateTime_UTC", SqlDbType.DateTime);
             
             SqlParameter spIs_Active = new SqlParameter("@Is_Active", SqlDbType.Bit);
 
@@ -239,9 +233,6 @@ namespace TimeLineDashboard.DAL.Operations
             spIs_Available_For_Download_For_Followers_Users.Value = p_Is_Available_For_Download_For_Followers_Users;
 
             spRecord_Created_By_User_Id.Value = p_Record_Created_By_User_Id;
-            spRecord_Creation_DateTime_UTC.Value = p_Record_Creation_DateTime_UTC;
-            spRecord_Last_Updated_By_User_Id.Value = p_Record_Last_Updated_By_User_Id;
-            spRecord_Last_Updated_DateTime_UTC.Value = p_Record_Last_Updated_DateTime_UTC;
             spIs_Active.Value = p_Is_Active;
 
             object new_Invoice_Id = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult("p_TLBoard_Insert_Invoice_Details",
@@ -259,9 +250,7 @@ namespace TimeLineDashboard.DAL.Operations
                     spOriginal_File_Name, spAzure_Block_Blob_Reference,
                     spIs_Visible_To_Anonymous_Users, spIs_Available_For_Download_For_Anonymous_Users,
                     spIs_Visible_To_Followers_Users, spIs_Available_For_Download_For_Followers_Users,
-                    spRecord_Created_By_User_Id, spRecord_Creation_DateTime_UTC, 
-                    spRecord_Last_Updated_By_User_Id, spRecord_Last_Updated_DateTime_UTC,
-                    spIs_Active
+                    spRecord_Created_By_User_Id, spIs_Active
                 });
 
             if (new_Invoice_Id != null)
@@ -491,6 +480,30 @@ namespace TimeLineDashboard.DAL.Operations
             return Invoices_To_Return;
         }
 
+        internal int? Get_Next_Invoice_Number_Based_On_Invoice_Type(int p_User_ID, byte p_Invoice_Type_Id)
+        {
+            int? next_Invoice_Number_To_Return = new int?();
+
+            SqlParameter spUser_Id = new SqlParameter("@User_Id", SqlDbType.Int);
+            SqlParameter spInvoice_Type_Id = new SqlParameter("@Invoice_Type_Id", SqlDbType.TinyInt);
+
+            spUser_Id.Value = p_User_ID;
+            spInvoice_Type_Id.Value = p_Invoice_Type_Id;
+
+            object next_Invoice_Number_Based_On_Invoice_Type = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult(
+                "p_TLBoard_Get_Invoice_Next_Invoice_Number_Based_On_Invoice_Type",
+                new List<SqlParameter>() { spUser_Id, spInvoice_Type_Id });
+
+            if (next_Invoice_Number_Based_On_Invoice_Type != null &&
+                next_Invoice_Number_Based_On_Invoice_Type != DBNull.Value &&
+                Convert.ToInt32(next_Invoice_Number_Based_On_Invoice_Type) > 0 )
+            {
+                next_Invoice_Number_To_Return = Convert.ToInt32(next_Invoice_Number_Based_On_Invoice_Type);
+            }
+
+            return next_Invoice_Number_To_Return;
+        }
+
         private Invoices Create_Invoice_Details_From_Data_Row(DataRow dbRow)
         {
             Invoices Invoice_To_Return = new Invoices();
@@ -612,6 +625,5 @@ namespace TimeLineDashboard.DAL.Operations
 
             return Invoice_To_Return;
         }
-
     }
 }

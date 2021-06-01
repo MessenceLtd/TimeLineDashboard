@@ -117,97 +117,97 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_Add_New_Bank_Account_Transactions2Resource1.Text" xml:space="preserve">
+  <data name="button_Add_New_Bank_Account_Transactions2.Text" xml:space="preserve">
     <value>Add New Record</value>
   </data>
-  <data name="button_Add_New_Bank_Account_Transactions2Resource1.ToolTip" xml:space="preserve">
+  <data name="button_Add_New_Bank_Account_Transactions2.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Add_New_Bank_Account_TransactionsResource1.Text" xml:space="preserve">
+  <data name="button_Add_New_Bank_Account_Transactions.Text" xml:space="preserve">
     <value>Add New Record</value>
   </data>
-  <data name="button_Add_New_Bank_Account_TransactionsResource1.ToolTip" xml:space="preserve">
+  <data name="button_Add_New_Bank_Account_Transactions.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Add_New_Transaction_After_Transaction_IdResource1.Text" xml:space="preserve">
+  <data name="button_Add_New_Transaction_After_Transaction_Id.Text" xml:space="preserve">
     <value>Add new after transaction</value>
   </data>
-  <data name="button_Add_New_Transaction_After_Transaction_IdResource1.ToolTip" xml:space="preserve">
+  <data name="button_Add_New_Transaction_After_Transaction_Id.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Save_Bank_Account_Transactions2Resource1.Text" xml:space="preserve">
+  <data name="button_Save_Bank_Account_Transactions2.Text" xml:space="preserve">
     <value>Save Changes</value>
   </data>
-  <data name="button_Save_Bank_Account_Transactions2Resource1.ToolTip" xml:space="preserve">
+  <data name="button_Save_Bank_Account_Transactions2.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button_Save_Bank_Account_TransactionsResource1.Text" xml:space="preserve">
+  <data name="button_Save_Bank_Account_Transactions.Text" xml:space="preserve">
     <value>Save Changes</value>
   </data>
-  <data name="button_Save_Bank_Account_TransactionsResource1.ToolTip" xml:space="preserve">
+  <data name="button_Save_Bank_Account_Transactions.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_BalanceResource1.ToolTip" xml:space="preserve">
+  <data name="label_Balance.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Bank_RefResource1.ToolTip" xml:space="preserve">
+  <data name="label_Bank_Ref.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="label_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Income_ValueResource1.ToolTip" xml:space="preserve">
+  <data name="label_Income_Value.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Obligo_ValueResource1.ToolTip" xml:space="preserve">
+  <data name="label_Obligo_Value.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="label_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Transaction_DateResource1.ToolTip" xml:space="preserve">
+  <data name="label_Transaction_Date.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Value_DateResource1.ToolTip" xml:space="preserve">
+  <data name="label_Value_Date.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
+  <data name="Page.Title" xml:space="preserve">
     <value>Demo Document Manager / Timeline dashboard chaos</value>
   </data>
-  <data name="panel_Bank_Account_Transaction_IdResource1.GroupingText" xml:space="preserve">
+  <data name="panel_Bank_Account_Transaction_Id.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_Bank_Account_Transaction_IdResource1.ToolTip" xml:space="preserve">
+  <data name="panel_Bank_Account_Transaction_Id.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_Expired_Session_WarningResource1.GroupingText" xml:space="preserve">
+  <data name="panel_Expired_Session_Warning.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_Expired_Session_WarningResource1.ToolTip" xml:space="preserve">
+  <data name="panel_Expired_Session_Warning.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txt_Actual_DateTimeResource1.ToolTip" xml:space="preserve">
+  <data name="txt_Actual_DateTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txt_BalanceResource1.ToolTip" xml:space="preserve">
+  <data name="txt_Balance.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txt_Bank_RefResource1.ToolTip" xml:space="preserve">
+  <data name="txt_Bank_Ref.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txt_DescriptionResource1.ToolTip" xml:space="preserve">
+  <data name="txt_Description.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txt_Income_ValueResource1.ToolTip" xml:space="preserve">
+  <data name="txt_Income_Value.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txt_Obligo_ValueResource1.ToolTip" xml:space="preserve">
+  <data name="txt_Obligo_Value.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txt_ReferenceResource1.ToolTip" xml:space="preserve">
+  <data name="txt_Reference.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txt_Value_DateResource1.ToolTip" xml:space="preserve">
+  <data name="txt_Value_Date.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

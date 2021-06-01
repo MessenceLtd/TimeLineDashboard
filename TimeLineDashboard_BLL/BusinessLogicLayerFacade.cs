@@ -93,7 +93,6 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.Users_Get_Administration_List(p_User_Id_Authorized_Employee_Searching_Users);
         }
 
-
         public Users Users_Get_Details_By_User_Id(
             int p_User_Id,
             int p_Authenticated_User_Id,
@@ -261,8 +260,10 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public bool Clients_Update_Client_Details(
-            int p_Client_Id, string p_Company_Name, string p_Website_URL, byte? p_Default_Currency, short p_Country_Id,
-            short? p_State_Id, string p_City, string p_Address, string p_ZipCode, string p_Telephone, string p_Mobile_Phone,
+            int p_Client_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
+            short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
+            byte? p_Default_Currency , decimal? p_Default_Vat_Percentage, 
+            string p_Telephone, string p_Mobile_Phone,
             short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
             DateTime? p_Client_From_Date, DateTime? p_Client_To_Date, DateTime? p_First_Contract_Date,
@@ -272,8 +273,9 @@ namespace TimeLineDashboard.BusinessLogicLayer
             bool updated_Successfully = false;
 
             updated_Successfully = Data_Access_Layer_Facade.Instance.Clients_Update_Client_Details(
-                p_Client_Id, p_Company_Name, p_Website_URL, p_Default_Currency, p_Country_Id,
+                p_Client_Id, p_Company_Name, p_Website_URL, p_Country_Id,
                 p_State_Id, p_City, p_Address, p_ZipCode,
+                p_Default_Currency , p_Default_Vat_Percentage, 
                 p_Telephone, p_Mobile_Phone, p_Client_Type_Id,
                 p_Client_Tax_Reference_Number, p_Main_Contact_FullName,
                 p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -350,8 +352,9 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public Clients Clients_Insert_New_Client_Administrative_Registration_Process(
-            int p_User_Id, string p_Company_Name, string p_Website_URL, byte? p_Default_Currency, short p_Country_Id,
+            int p_User_Id, string p_Company_Name, string p_Website_URL, short p_Country_Id,
             short? p_State_Id, string p_City, string p_Address, string p_ZipCode,
+            byte? p_Default_Currency, decimal? p_Default_Vat_Percentage, 
             string p_Telephone, string p_Mobile_Phone,
             short p_Client_Type_Id, string p_Client_Tax_Reference_Number, string p_Main_Contact_FullName,
             string p_Main_Contact_Email_Address, string p_Main_Contact_Phone_Number,
@@ -360,8 +363,9 @@ namespace TimeLineDashboard.BusinessLogicLayer
             bool p_Is_Active, int p_Logged_In_Administrative_User_Id)
         {
             return Data_Access_Layer_Facade.Instance.Clients_Insert_New_Client_Administrative_Registration_Process(
-                p_User_Id, p_Company_Name, p_Website_URL, p_Default_Currency, p_Country_Id,
+                p_User_Id, p_Company_Name, p_Website_URL, p_Country_Id,
                 p_State_Id, p_City, p_Address, p_ZipCode,
+                p_Default_Currency, p_Default_Vat_Percentage, 
                 p_Telephone, p_Mobile_Phone, p_Client_Type_Id,
                 p_Client_Tax_Reference_Number, p_Main_Contact_FullName,
                 p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,
@@ -378,6 +382,16 @@ namespace TimeLineDashboard.BusinessLogicLayer
         public List<InvoiceType> InvoiceTypes_Get_All()
         {
             return Data_Access_Layer_Facade.Instance.InvoiceTypes_Get_All();
+        }
+
+        public InvoiceType InvoiceTypes_Get_By_Id(byte p_Invoice_Type_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.InvoiceTypes_Get_By_Id(p_Invoice_Type_Id);
+        }
+
+        public InvoiceType InvoiceTypes_Get_By_Id(InvoiceType.Codes p_Invoice_Type_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.InvoiceTypes_Get_By_Id((byte)p_Invoice_Type_Id);
         }
 
         public Suppliers Suppliers_Insert_New_Supplier_Administrative_Registration_Process(
@@ -953,15 +967,52 @@ namespace TimeLineDashboard.BusinessLogicLayer
             string p_Invoiced_Client_To_Address, string p_Invoiced_Client_To_Zip, string p_Invoiced_Client_To_EmailAddress,
             byte p_Invoice_Type_Id, string p_Invoice_Number, string p_Invoice_Reference_Number,
             string p_Invoice_Content_Long_Description, string p_User_Description,
-            string p_User_Comments, string p_Original_File_Name, string p_Azure_Block_Blob_Reference,
+            string p_User_Comments, 
+            string p_Original_File_Name, byte[] p_File_Content_To_Save_In_Azure,
             bool p_Is_Visible_To_Anonymous_Users, bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users, bool p_Is_Available_For_Download_For_Followers_Users,
-            int p_Record_Created_By_User_Id, DateTime p_Record_Creation_DateTime_UTC,
-            int p_Record_Last_Updated_By_User_Id, DateTime p_Record_Last_Updated_DateTime_UTC,
+            int p_Record_Created_By_User_Id, App_Permission_Type p_Creating_User_Permission,
             bool p_Is_Active
             )
         {
-            return Data_Access_Layer_Facade.Instance.Invoices_Insert_New_Invoice_Details(
+            Invoices new_Created_Invoice_To_Return = null;
+
+            this.Validate_Operation_For_Authenticated_User(p_User_Id, p_Record_Created_By_User_Id, p_Creating_User_Permission);
+
+            // Try to save in azure and if successfull, get the Azure_Block_Blob_Reference 
+            string p_Azure_Block_Blob_Reference = string.Empty;
+            bool l_Process_Tried_To_Upload_File_And_Failed = false;
+
+            if (p_File_Content_To_Save_In_Azure != null && p_File_Content_To_Save_In_Azure.Length > 0)
+            {
+                string l_Azure_Block_Blob_Uploaded_Reference
+                    = this.Upload_File_To_Azure(
+                        p_File_Content_To_Save_In_Azure,
+                        p_Original_File_Name,
+                        p_User_Id,
+                        p_Record_Created_By_User_Id,
+                        p_Creating_User_Permission);
+
+                if (!string.IsNullOrEmpty(l_Azure_Block_Blob_Uploaded_Reference))
+                {
+                    // File uploaded to azure successfully
+                    p_Azure_Block_Blob_Reference = l_Azure_Block_Blob_Uploaded_Reference;
+                }
+                else
+                {
+                    // Azure upload process has failed. The user should get an alert and insert process should be stopped.
+                    l_Process_Tried_To_Upload_File_And_Failed = true;
+                }
+            }
+
+            if (l_Process_Tried_To_Upload_File_And_Failed)
+            {
+                throw new Exception("Failed to upload the file :( Please try again later or contact us!");
+            }
+
+            try
+            {
+                new_Created_Invoice_To_Return = Data_Access_Layer_Facade.Instance.Invoices_Insert_New_Invoice_Details(
                 p_User_Id, p_Client_Id, p_Invoice_DateTime, p_Currency_Id, p_Total_Amount, p_Vat_Percentage,
                 p_Total_Without_Vat, p_Total_Vat, p_Creation_DateTime, p_Invoiced_Client_On_User_Location_Id, p_Invoiced_Client_To_CompanyName,
                 p_Invoiced_Client_To_Tax_Reference, p_Invoiced_Client_To_PersonName,
@@ -972,10 +1023,16 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_User_Comments, p_Original_File_Name, p_Azure_Block_Blob_Reference,
                 p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                 p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
-                p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
-                p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
+                p_Record_Created_By_User_Id, 
                 p_Is_Active
                 );
+            }
+            catch(Exception exc)
+            {
+
+            }
+
+            return new_Created_Invoice_To_Return;
         }
 
         public Expenses Expenses_Get_Expense_Latest_Entry_Based_On_Supplier_Id_Selection(int p_Supplier_Id, int p_User_Id_LoggedIn_Creating_Expense)
@@ -1737,6 +1794,251 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return suggestions_To_Return;
         }
 
+        public Invoice_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI
+            Invoices_Get_AutoComplete_Suggestion_Based_On_Uploaded_FileName(
+                string p_Uploaded_File_Name,
+                int p_User_Id,
+                int p_Authenticated_User_Id)
+        {
+            Invoice_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI suggestions_To_Return
+                = new Invoice_Auto_Complete_Suggestion_Based_On_Uploaded_File_Name_As_Response_For_UI();
+
+            // The following formats are supported:
+            /*
+                21.07.2011 - Inv 153 - Total 13509 nis - TopUp Ltd - 108 dev hours on june 2011 + 2k nis eldan car credit offsets.pdf
+                12.03.2012 - Tax Invoice 10040 - Total 47625 nis (12500 USD, NO VAT) - SellMyCastle.com.au - Final closing payment.pdf
+            */
+
+            // Algorithm description:
+            /*
+                1) Try to extract date from the first part
+                2) If date extraction passed -- try to extract total value
+                3) If total value extracted try to extract Client reference (Search for a Client based on the first words until 1 Client is found)
+                4) If there is more content after the found Client - use it as decription response
+                    If a Client was not found, use the description - if there is any.
+                
+                For the vat value / total amounts -- If a date and a Client was extracted, Use the Client's country/state vat value. 
+                If no Client was found, Use the default vat value/totals from the user's country 
+                If a currency code was found in step 2 of the total amount extraction -- use this currency. 
+                If a currency was not detected, Use the default currency of the user
+             */
+
+            string step_Description_For_Exception_Logging = "Start";
+            try
+            {
+                // 1) Try to extract date from the first part
+                step_Description_For_Exception_Logging = "Date extraction";
+                string date_String_Extracted =
+                    p_Uploaded_File_Name.Substring(0, p_Uploaded_File_Name.IndexOf("-"));
+
+                // Check if the date_String contains hours/minutes
+                string hours_String_Extracted = "";
+                string minutes_String_Extracted = "";
+                if (date_String_Extracted.Length > 12)
+                {
+                    if (date_String_Extracted.IndexOf(" ") > -1)
+                    {
+                        hours_String_Extracted = date_String_Extracted.Substring(date_String_Extracted.IndexOf(" ") + 1, 2);
+                        minutes_String_Extracted = date_String_Extracted.Substring(date_String_Extracted.IndexOf(" ") + 3, 2);
+
+                        date_String_Extracted = date_String_Extracted.Substring(0, date_String_Extracted.IndexOf(" ") + 1).Trim();
+                    }
+                }
+
+                if (string.IsNullOrEmpty(hours_String_Extracted) || string.IsNullOrEmpty(minutes_String_Extracted))
+                {
+                    hours_String_Extracted = "0";
+                    minutes_String_Extracted = "0";
+                }
+
+                step_Description_For_Exception_Logging = "Date extraction - Parsing date as dd.MM.yyyy";
+                date_String_Extracted = date_String_Extracted.Trim();
+
+                DateTime parsedDate = DateTime.ParseExact(date_String_Extracted, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None);
+
+                parsedDate = parsedDate.AddHours(double.Parse(hours_String_Extracted));
+                parsedDate = parsedDate.AddMinutes(double.Parse(minutes_String_Extracted));
+
+                suggestions_To_Return.Invoice_DateTime = parsedDate;
+            }
+            catch (Exception exc)
+            {
+
+            }
+
+            // 2) If date extraction passed -- try to extract invoice type and invoice reference number
+            if (suggestions_To_Return.Invoice_DateTime.HasValue)
+            {
+                step_Description_For_Exception_Logging = "Extracting Invoice type + reference number";
+
+                try
+                {
+
+                    int l_Invoice_Type_With_Reference_Expression_From_Index = p_Uploaded_File_Name.IndexOf("- ") + 2;
+                    int l_Invoice_Type_With_Reference_Expression_To_Index = p_Uploaded_File_Name.IndexOf(" -", l_Invoice_Type_With_Reference_Expression_From_Index);
+
+                    string l_Temp_Invoice_Type_With_Reference =
+                        p_Uploaded_File_Name.Substring(
+                            l_Invoice_Type_With_Reference_Expression_From_Index,
+                            l_Invoice_Type_With_Reference_Expression_To_Index - l_Invoice_Type_With_Reference_Expression_From_Index);
+
+                    l_Temp_Invoice_Type_With_Reference = l_Temp_Invoice_Type_With_Reference.Trim().ToLower();
+
+                    byte? l_Invoice_Type = new byte?();
+
+                    var invoice_Type = this.InvoiceTypes_Get_By_Name(l_Temp_Invoice_Type_With_Reference);
+
+                    if (invoice_Type != null)
+                    {
+                        l_Invoice_Type = (byte)invoice_Type.Invoice_Type_Id;
+                    }
+
+                    if (l_Invoice_Type.HasValue)
+                    {
+                        suggestions_To_Return.Invoice_Type = l_Invoice_Type;
+
+                        if (l_Temp_Invoice_Type_With_Reference.IndexOf(" ") > -1 )
+                        {
+                            string invoice_Reference_Number = 
+                                l_Temp_Invoice_Type_With_Reference.Substring(l_Temp_Invoice_Type_With_Reference.LastIndexOf(" "));
+
+                            invoice_Reference_Number = invoice_Reference_Number.Trim();
+
+                            suggestions_To_Return.Invoice_Reference = invoice_Reference_Number;
+                        }
+                    }
+                }
+                catch (Exception exc )
+                {
+
+                }
+            }
+
+            // 3) If date extraction passed -- try to extract total value
+            if (suggestions_To_Return.Invoice_DateTime.HasValue)
+            {
+                try
+                {
+                    step_Description_For_Exception_Logging = "Extracting Total Value + currency";
+
+                    int l_Total_Value_Expression_From_Index = p_Uploaded_File_Name.IndexOf("- ", p_Uploaded_File_Name.IndexOf("- ") + 2) +2;
+                    int l_Total_Value_Expression_To_Index = p_Uploaded_File_Name.IndexOf(" -", l_Total_Value_Expression_From_Index);
+
+                    string total_Value_With_Currency_Expression_Extracted
+                        = p_Uploaded_File_Name.Substring(l_Total_Value_Expression_From_Index, l_Total_Value_Expression_To_Index - l_Total_Value_Expression_From_Index);
+
+                    total_Value_With_Currency_Expression_Extracted = total_Value_With_Currency_Expression_Extracted.ToLower();
+                    if (total_Value_With_Currency_Expression_Extracted.IndexOf("total ") > -1)
+                    {
+                        total_Value_With_Currency_Expression_Extracted = total_Value_With_Currency_Expression_Extracted.Replace("total ", "");
+                    }
+
+                    if (total_Value_With_Currency_Expression_Extracted.IndexOf(" ") > -1)
+                    {
+                        total_Value_With_Currency_Expression_Extracted = total_Value_With_Currency_Expression_Extracted.TrimStart().TrimEnd();
+                    }
+
+                    step_Description_For_Exception_Logging = "Extracting Total Value + currency - part 2 parsing";
+                    string total_Value_Only_From_Extracted_Expression = total_Value_With_Currency_Expression_Extracted.Split(' ')[0];
+
+                    total_Value_Only_From_Extracted_Expression = total_Value_Only_From_Extracted_Expression.Trim();
+
+                    decimal parsed_Extracted_Total_Value = decimal.Parse(total_Value_Only_From_Extracted_Expression);
+
+                    Currencies parsed_Currency = null;
+
+                    if (total_Value_With_Currency_Expression_Extracted.IndexOf(" ") > -1)
+                    {
+                        string currency_Code_From_Extracted_Expression = total_Value_With_Currency_Expression_Extracted.Split(' ')[1];
+                        currency_Code_From_Extracted_Expression = currency_Code_From_Extracted_Expression.Trim();
+
+                        parsed_Currency = this.Currencies_Get_By_Code(currency_Code_From_Extracted_Expression);
+                    }
+
+                    suggestions_To_Return.Total_Amount = parsed_Extracted_Total_Value;
+
+                    if (parsed_Currency != null)
+                    {
+                        suggestions_To_Return.Currency_Id = parsed_Currency.Currency_Id;
+                    }
+                }
+                catch (Exception exc)
+                {
+
+                }
+
+                step_Description_For_Exception_Logging = "Extracting Client - start";
+
+                try
+                {
+                    int starting_Index_Client_Details = p_Uploaded_File_Name.IndexOf('-', p_Uploaded_File_Name.IndexOf('-', p_Uploaded_File_Name.IndexOf('-') + 1) + 1) + 1;
+                    int length_Client_Name_Details_For_Extraction = p_Uploaded_File_Name.IndexOf('-', starting_Index_Client_Details) - starting_Index_Client_Details;
+                    string client_Details_Extracted = p_Uploaded_File_Name.Substring(starting_Index_Client_Details, length_Client_Name_Details_For_Extraction);
+
+                    client_Details_Extracted = client_Details_Extracted.Trim();
+
+                    step_Description_For_Exception_Logging = "Extracting Client - by splitting white spaces vesus db Clients list";
+
+                    var client_Details_Entity = this.Try_To_Find_Client_Id_By_Client_Details_From_Filename(
+                        client_Details_Extracted,
+                        p_User_Id,
+                        p_Authenticated_User_Id
+                        );
+
+                    if (client_Details_Entity != null)
+                    {
+                        suggestions_To_Return.Client_Id = client_Details_Entity.Client_Id;
+
+                        // if the Client has a default vat value then set it for suggestions and try to auto fill other total amount parts.
+                        if (client_Details_Entity.Default_Vat_Percentage.HasValue &&
+                            client_Details_Entity.Default_Vat_Percentage.Value > 0 &&
+                            suggestions_To_Return.Total_Amount.HasValue &&
+                            suggestions_To_Return.Total_Amount.Value > 0)
+                        {
+                            //suggestions_To_Return.Total_Vat  Client_Details_Entity.Default_Vat_Percentage
+                            suggestions_To_Return.Vat_Percentage = client_Details_Entity.Default_Vat_Percentage;
+                        }
+                        else
+                        {
+                            // The Client might not have default vat value but this invoice might still be with vat value.. 
+                            // Take the latest vat value of the current country and use it as the default vat percentage for calculation
+                            decimal country_Vat_Value = this.Countries_Get_Latest_Vat_Value_By_Country_Id(client_Details_Entity.Country_Id);
+                            suggestions_To_Return.Vat_Percentage = country_Vat_Value;
+                        }
+
+                        if (suggestions_To_Return.Vat_Percentage.HasValue &&
+                            suggestions_To_Return.Vat_Percentage.Value > 0 &&
+                            suggestions_To_Return.Total_Amount.HasValue &&
+                            suggestions_To_Return.Total_Amount.Value > 0)
+                        {
+                            suggestions_To_Return.Total_Without_Vat =
+                                suggestions_To_Return.Total_Amount / ((suggestions_To_Return.Vat_Percentage + 100) / 100);
+                            suggestions_To_Return.Total_Vat = suggestions_To_Return.Total_Amount - suggestions_To_Return.Total_Without_Vat;
+                        }
+                    }
+                }
+                catch (Exception exc)
+                {
+
+                }
+            }
+
+            // Try to extract invoice description 
+            step_Description_For_Exception_Logging = "Extracting invoice content description - start";
+            try
+            {
+                string l_Invoice_Description = p_Uploaded_File_Name.Substring(p_Uploaded_File_Name.LastIndexOf("-") + 1, p_Uploaded_File_Name.LastIndexOf(".") - p_Uploaded_File_Name.LastIndexOf("-"));
+                l_Invoice_Description = l_Invoice_Description.Trim();
+                suggestions_To_Return.Invoice_Content_Long_Description = l_Invoice_Description;
+            }
+            catch (Exception exc)
+            {
+
+            }
+
+            return suggestions_To_Return;
+        }
+
         private Suppliers Try_To_Find_Supplier_Id_By_Supplier_Details_From_Filename(
             string p_Supplier_Details_Extracted,
             int p_User_Id,
@@ -1792,6 +2094,63 @@ namespace TimeLineDashboard.BusinessLogicLayer
             }
 
             return supplier_Details_To_Return;
+        }
+
+        private Clients Try_To_Find_Client_Id_By_Client_Details_From_Filename(
+            string p_Client_Details_Extracted,
+            int p_User_Id,
+            int p_Authenticated_User_Id)
+        {
+            Clients client_Details_To_Return = null;
+            int? client_Id_To_Return = new int?();
+
+            var clients = this.Clients_Get_All_By_User_Id(p_User_Id, p_Authenticated_User_Id);
+            for (int s = 0; s < clients.Count; s++)
+            {
+                clients[s].Company_Name = clients[s].Company_Name.ToLower();
+            }
+
+            // Split the supplier details extracted by white spaces and try to search the array of the suppliers for the first supplier that matches the details.
+            string[] client_Details_Parts = p_Client_Details_Extracted.ToLower().Split(' ');
+
+            Dictionary<int, short> supplier_Coordinates_Strength = new Dictionary<int, short>();
+
+            for (int p = 0; p < client_Details_Parts.Length; p++)
+            {
+                for (int s = 0; s < clients.Count; s++)
+                {
+                    if (clients[s].Company_Name.IndexOf(client_Details_Parts[p], StringComparison.InvariantCultureIgnoreCase) > -1)
+                    {
+                        int client_Id = clients[s].Client_Id;
+                        if (supplier_Coordinates_Strength.Keys.Any(x => x == client_Id))
+                        {
+                            supplier_Coordinates_Strength[client_Id]++;
+                        }
+                        else
+                        {
+                            supplier_Coordinates_Strength.Add(client_Id, 1);
+                        }
+                    }
+                }
+            }
+
+            // get the maximum strength that should match the supplier_id to return
+            short max_Strength_Helper_To_Return = 0;
+            foreach (var pair in supplier_Coordinates_Strength)
+            {
+                if (pair.Value > max_Strength_Helper_To_Return)
+                {
+                    client_Id_To_Return = pair.Key;
+                    max_Strength_Helper_To_Return = pair.Value;
+                }
+            }
+
+            if (client_Id_To_Return.HasValue)
+            {
+                client_Details_To_Return = clients.SingleOrDefault(s => s.Client_Id == client_Id_To_Return.Value);
+            }
+
+            return client_Details_To_Return;
         }
 
         public decimal Countries_Get_Latest_Vat_Value_By_Country_Id(short p_Country_Id)
@@ -1877,6 +2236,17 @@ namespace TimeLineDashboard.BusinessLogicLayer
                                 l_Azure_Block_Blob_Reference = general_Document_Details.Azure_Block_Blob_Reference;
                                 l_Original_File_Name = general_Document_Details.Original_File_Name;
                                 break;
+
+                            case "ccstatement":
+                                Credit_Cards_Statement ccStatement_Details = this.CreditCardStatements_Get_Credit_Card_Statement_Details_By_Credit_Card_Statement_Id(
+                                    p_File_Record_ID,
+                                    p_Download_For_User_Id,
+                                    p_Authenticated_User_Id,
+                                    p_Authenticated_User_Permission);
+
+                                l_Azure_Block_Blob_Reference = ccStatement_Details.Azure_Block_Blob_Reference;
+                                l_Original_File_Name = ccStatement_Details.Original_File_Name;
+                                break;
                         }
 
                         if (!string.IsNullOrEmpty(l_Azure_Block_Blob_Reference) &&
@@ -1904,6 +2274,525 @@ namespace TimeLineDashboard.BusinessLogicLayer
             }
 
             return azure_Download_Result;
+        }
+
+        public InvoiceType InvoiceTypes_Get_By_Name(string p_Invoice_Type_Name)
+        {
+            InvoiceType invoice_Type_To_Return = null;
+
+            if (p_Invoice_Type_Name.StartsWith("inv "))
+            {
+                // 3 Receipt Tax Invoice
+                invoice_Type_To_Return = this.InvoiceTypes_Get_By_Id(InvoiceType.Codes.Receipt_Tax_Invoice);
+            }
+            else if (p_Invoice_Type_Name.StartsWith("tax invoice "))
+            {
+                // 1 Tax Invoice
+                invoice_Type_To_Return = this.InvoiceTypes_Get_By_Id(InvoiceType.Codes.Tax_Invoice);
+            }
+            else if (p_Invoice_Type_Name.StartsWith("receipt "))
+            {
+                // 5 Receipt 
+                invoice_Type_To_Return = this.InvoiceTypes_Get_By_Id(InvoiceType.Codes.Receipt);
+            }
+            else if (p_Invoice_Type_Name.StartsWith("credit invoice "))
+            {
+                // 6 Credit Invoice
+                invoice_Type_To_Return = this.InvoiceTypes_Get_By_Id(InvoiceType.Codes.Credit_Invoice);
+            }
+
+            return invoice_Type_To_Return;
+        }
+
+        public int? Invoices_Get_Next_Invoice_Number_Based_On_Invoice_Type(
+            int p_User_ID,
+            byte p_Invoice_Type,
+            int p_Authenticated_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission )
+        {
+            int? next_Invoice_Number_To_Return = new int?();
+
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID, p_Authenticated_User_Id, p_Authenticated_User_Permission);
+
+            next_Invoice_Number_To_Return
+                = Data_Access_Layer_Facade.Instance.Invoices_Get_Next_Invoice_Number_Based_On_Invoice_Type(
+                    p_User_ID, p_Invoice_Type);
+
+            return next_Invoice_Number_To_Return;
+        }
+
+        public List<Credit_Cards> CreditCards_Get_Credit_Cards_By_Bank_Account_Id(
+            int p_User_ID,
+            int p_Bank_Account_Id,
+            int p_Searching_Authenticated_User_Id,
+            App_Permission_Type p_Searching_Authenticated_User_Permission)
+        {
+            List<Credit_Cards> credit_Cards_To_Return = null;
+
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID,
+                p_Searching_Authenticated_User_Id,
+                p_Searching_Authenticated_User_Permission);
+
+            credit_Cards_To_Return = Data_Access_Layer_Facade.Instance.CreditCards_Get_Search(
+                    p_User_ID, p_Bank_Account_Id);
+
+            return credit_Cards_To_Return;
+        }
+
+        public Credit_Cards CreditCards_Get_Credit_Card_Details(
+            int p_Credit_Card_Id,
+            int p_User_Id_Owner,
+            int p_Searching_Authenticated_User_Id,
+            App_Permission_Type p_Searching_Authenticated_User_Permission)
+        {
+            Credit_Cards credit_Card_Details_To_Return = null;
+
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Owner,
+                p_Searching_Authenticated_User_Id,
+                p_Searching_Authenticated_User_Permission);
+
+            credit_Card_Details_To_Return = Data_Access_Layer_Facade.Instance.CreditCards_Get_Credit_Card_Details_By_Credit_Card_Id(
+                    p_Credit_Card_Id, p_User_Id_Owner, p_Searching_Authenticated_User_Id);
+
+            return credit_Card_Details_To_Return;
+        }
+
+        public Credit_Cards CreditCards_Add_New_Credit_Card(
+            int p_User_ID,
+            int p_Bank_Account_Id,
+            string p_Card_Name,
+            string p_Four_Ending_Digits,
+            DateTime? p_Expiration_Date,
+            bool p_Is_Active,
+            int p_Creating_Authenticated_User_Id,
+            App_Permission_Type p_Creating_Authenticated_User_Permission)
+        {
+            Credit_Cards new_Credit_Card_To_Return = null;
+
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID,
+                p_Creating_Authenticated_User_Id,
+                p_Creating_Authenticated_User_Permission);
+
+            new_Credit_Card_To_Return = Data_Access_Layer_Facade.Instance.CreditCards_Insert_New_Credit_Card_Details(
+                    p_User_ID, 
+                    p_Bank_Account_Id,
+                    p_Card_Name,
+                    p_Four_Ending_Digits,
+                    p_Expiration_Date,
+                    p_Is_Active,
+                    p_Creating_Authenticated_User_Id);
+
+            return new_Credit_Card_To_Return;
+        }
+
+        public List<Credit_Cards> CreditCards_Get_Credit_Cards(
+            int p_User_ID,
+            int p_Searching_Authenticated_User_Id,
+            App_Permission_Type p_Searching_Authenticated_User_Permission)
+        {
+            List<Credit_Cards> credit_Cards_To_Return = null;
+
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID,
+                p_Searching_Authenticated_User_Id,
+                p_Searching_Authenticated_User_Permission);
+
+            credit_Cards_To_Return = Data_Access_Layer_Facade.Instance.CreditCards_Get_All_By_User_Id(
+                p_User_ID, p_Searching_Authenticated_User_Id);
+
+            return credit_Cards_To_Return;
+        }
+
+        public bool CreditCards_Update_Credit_Card_Details(
+            int p_Credit_Card_Id,
+            int p_Bank_Account_Id,
+            string p_Card_Name,
+            string p_Four_Ending_Digits,
+            DateTime? p_Expiration_Date,
+            bool p_Is_Active,
+            int p_Updating_Authenticated_User_Id,
+            App_Permission_Type p_Updating_Authenticated_User_Permission)
+        {
+            bool l_Updated_Successfully = false;
+
+            l_Updated_Successfully = Data_Access_Layer_Facade.Instance.CreditCards_Update_Credit_Card_Details(
+                p_Credit_Card_Id,
+                p_Bank_Account_Id,
+                p_Card_Name,
+                p_Four_Ending_Digits,
+                p_Expiration_Date,
+                p_Is_Active,
+                p_Updating_Authenticated_User_Id);
+
+            return l_Updated_Successfully;
+        }
+
+        public List<Credit_Cards_Statement> CreditCardStatements_Get_Search(
+            int p_User_ID_Bank_Owner,
+            int? p_Bank_Account_Id,
+            int p_User_ID_Searching,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_User_ID_Searching,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatements_Get_Search(
+                p_User_ID_Bank_Owner,
+                p_Bank_Account_Id,
+                p_User_ID_Searching);
+        }
+
+        public Credit_Cards_Statement CreditCardStatements_Get_Credit_Card_Statement_Details_By_Credit_Card_Statement_Id(
+            int p_Credit_Card_Statement_Id,
+            int p_User_ID_Bank_Owner,
+            int p_User_ID_Searching,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_User_ID_Searching,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatements_Get_Credit_Card_Statement_Details_By_Credit_Card_Statement_Id(
+                p_Credit_Card_Statement_Id,
+                p_User_ID_Bank_Owner,
+                p_User_ID_Searching);
+        }
+
+        public Credit_Cards_Statement CreditCardStatements_Insert_New_Credit_Card_Statement_Details(
+            int p_User_Id_Owner,
+            int p_Bank_Account_Id,
+            int p_Credit_Card_Id,
+            DateTime? p_Statement_Date,
+            decimal p_Total_Amount,
+            byte p_Currency_Id,
+            string p_Original_File_Name,
+            byte[] p_File_Content_To_Save_In_Azure,
+            long? p_Bank_Account_Transaction_Id_Connection,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
+            List<Credit_Card_Transactions_To_DB_Sync_From_UI> p_Statement_Transactions,
+            int p_Creating_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            Credit_Cards_Statement statement_To_Return = null;
+
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Owner,
+                p_Creating_User_Id,
+                p_Authenticated_User_Permission);
+
+            // Try to save in azure and if successfull, get the Azure_Block_Blob_Reference 
+            string p_Azure_Block_Blob_Reference = string.Empty;
+            bool l_Process_Tried_To_Upload_File_And_Failed = false;
+
+            if (p_File_Content_To_Save_In_Azure != null && p_File_Content_To_Save_In_Azure.Length > 0)
+            {
+                string l_Azure_Block_Blob_Uploaded_Reference
+                    = this.Upload_File_To_Azure(
+                        p_File_Content_To_Save_In_Azure,
+                        p_Original_File_Name,
+                        p_User_Id_Owner,
+                        p_Creating_User_Id,
+                        p_Authenticated_User_Permission);
+
+                if (!string.IsNullOrEmpty(l_Azure_Block_Blob_Uploaded_Reference))
+                {
+                    // File uploaded to azure successfully
+                    p_Azure_Block_Blob_Reference = l_Azure_Block_Blob_Uploaded_Reference;
+                }
+                else
+                {
+                    // Azure upload process has failed. The user should get an alert and insert process should be stopped.
+                    l_Process_Tried_To_Upload_File_And_Failed = true;
+                }
+            }
+
+            if (l_Process_Tried_To_Upload_File_And_Failed)
+            {
+                throw new Exception("Failed to upload the file :( Please try again later or contact us!");
+            }
+
+            statement_To_Return = Data_Access_Layer_Facade.Instance.CreditCardStatements_Insert_New_Credit_Card_Statement_Details(
+                p_User_Id_Owner,
+                p_Bank_Account_Id,
+                p_Credit_Card_Id,
+                p_Statement_Date,
+                p_Total_Amount,
+                p_Currency_Id,
+                p_Original_File_Name,
+                p_Azure_Block_Blob_Reference,
+                p_Bank_Account_Transaction_Id_Connection,
+                p_Is_Visible_To_Anonymous_Users,
+                p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users,
+                p_Is_Available_For_Download_For_Followers_Users,
+                p_Creating_User_Id);
+
+            if (statement_To_Return != null && statement_To_Return.Credit_Card_Statement_Id > 0)
+            {
+                // Create the statement transactions for the new created transaction
+                if (p_Statement_Transactions.Count > 0)
+                {
+                    for (int i = 0; i < p_Statement_Transactions.Count; i++)
+                    {
+                        if (!p_Statement_Transactions[i].Is_Deleted)
+                        {
+                            int new_Statement_Transaction_Id = this.CreditCardStatementTransactions_Insert_New_Credit_Card_Statement_Transaction_Details(
+                                p_User_Id_Owner,
+                                statement_To_Return.Credit_Card_Statement_Id,
+                                p_Statement_Transactions[i].Transaction_Date,
+                                p_Statement_Transactions[i].Business_Name,
+                                p_Statement_Transactions[i].Transaction_Amount,
+                                p_Statement_Transactions[i].Transaction_Amount_Currency_Id,
+                                p_Statement_Transactions[i].Transaction_Actual_Payment_Amount,
+                                p_Statement_Transactions[i].Description,
+                                p_Statement_Transactions[i].Has_Been_Actually_Charged_In_Statement,
+                                p_Statement_Transactions[i].Total_Charged_In_Statement,
+                                string.Empty,
+                                string.Empty,
+                                true,
+                                p_Creating_User_Id,
+                                p_Authenticated_User_Permission);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // ToDo: The statement didnt got created in the DB, If azure file was uploaded it should be deleted here
+            }
+
+            return statement_To_Return;
+        }
+
+        public bool CreditCardStatements_Update_Credit_Card_Statement_Details(
+            int p_User_Id_Owner,
+            int p_Credit_Card_Statement_Id,
+            int p_Credit_Card_Id,
+            DateTime p_Statement_Date,
+            decimal p_Total_Amount,
+            byte p_Currency_Id,
+            string p_Original_File_Name,
+            string p_Azure_Block_Blob_Reference,
+            bool p_File_Uploaded,
+            long? p_Bank_Account_Transaction_Id_Connection,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Updating_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Owner,
+                p_Updating_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatements_Update_Credit_Card_Statement_Details(
+                p_Credit_Card_Statement_Id,
+                p_Credit_Card_Id,
+                p_Statement_Date,
+                p_Total_Amount,
+                p_Currency_Id,
+                p_Original_File_Name,
+                p_Azure_Block_Blob_Reference,
+                p_File_Uploaded,
+                p_Bank_Account_Transaction_Id_Connection,
+                p_Is_Visible_To_Anonymous_Users,
+                p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users,
+                p_Is_Available_For_Download_For_Followers_Users,
+                p_Updating_User_Id);
+        }
+
+        public List<Credit_Cards_Statement> CreditCardStatements_Get_All_By_User_Id(
+            int p_User_Id_To_Return_Credit_Cards_Statement,
+            int p_Authenticated_User_ID,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_To_Return_Credit_Cards_Statement,
+                p_Authenticated_User_ID,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatements_Get_All_By_User_Id(
+                p_User_Id_To_Return_Credit_Cards_Statement,
+                p_Authenticated_User_ID);
+        }
+
+        private List<Credit_Cards_Statement_Transaction> CreditCardStatementTransactions_Get_Credit_Card_Statement_Transactions_List(
+            int p_Bank_Account_Credit_Card_Statement_Id,
+            int p_User_ID_Bank_Owner,
+            int p_User_ID_Searching,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_User_ID_Searching,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatementTransactions_Get_Credit_Card_Statement_Transactions_List(
+                p_Bank_Account_Credit_Card_Statement_Id,
+                p_User_ID_Bank_Owner,
+                p_User_ID_Searching);
+        }
+
+        public Credit_Card_Transactions_Response_For_UI CreditCardStatementTransactions_Get_Credit_Cards_Transactions_For_UI(
+            int p_Bank_Account_Credit_Card_Statement_Id,
+            int p_User_ID_Bank_Owner,
+            int p_User_ID_Searching,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            Credit_Card_Transactions_Response_For_UI response_To_Return = new Credit_Card_Transactions_Response_For_UI();
+
+            response_To_Return.Credit_Card_Transactions_To_DB_Sync_From_Or_To_UI = new List<Credit_Card_Transactions_To_DB_Sync_From_UI>();
+
+            var statement_Transactions = this.CreditCardStatementTransactions_Get_Credit_Card_Statement_Transactions_List(
+                p_Bank_Account_Credit_Card_Statement_Id,
+                p_User_ID_Bank_Owner,
+                p_User_ID_Searching,
+                p_Authenticated_User_Permission);
+
+            for (int i = 0; i < statement_Transactions.Count; i++)
+            {
+                Credit_Card_Transactions_To_DB_Sync_From_UI transaction_To_Add = new Credit_Card_Transactions_To_DB_Sync_From_UI();
+
+                transaction_To_Add.Credit_Card_Statement_Transaction_Id = statement_Transactions[i].Credit_Card_Statement_Transaction_Id;
+                transaction_To_Add.Transaction_Date = statement_Transactions[i].Transaction_Date;
+                transaction_To_Add.Business_Name = statement_Transactions[i].Business_Name;
+                transaction_To_Add.Transaction_Amount = statement_Transactions[i].Transaction_Amount;
+                transaction_To_Add.Transaction_Amount_Currency_Id = statement_Transactions[i].Transaction_Amount_Currency_Id;
+                if (transaction_To_Add.Transaction_Amount_Currency_Id.HasValue)
+                { 
+                    transaction_To_Add.Transaction_Amount_Currency_Name = this.Currencies_Get_By_Id(transaction_To_Add.Transaction_Amount_Currency_Id.Value).Currency_Name;
+                }
+                
+                transaction_To_Add.Transaction_Actual_Payment_Amount = statement_Transactions[i].Transaction_Actual_Payment_Amount;
+                transaction_To_Add.Description = statement_Transactions[i].Description;
+                transaction_To_Add.Has_Been_Actually_Charged_In_Statement = statement_Transactions[i].Has_Been_Actually_Charged_In_Statement;
+                transaction_To_Add.Total_Charged_In_Statement = statement_Transactions[i].Total_Charged_In_Statement;
+
+                response_To_Return.Credit_Card_Transactions_To_DB_Sync_From_Or_To_UI.Add(transaction_To_Add);
+            }
+
+            return response_To_Return;
+        }
+
+        public int CreditCardStatementTransactions_Insert_New_Credit_Card_Statement_Transaction_Details(
+            int p_User_ID_Bank_Owner,
+            int p_Bank_Account_Credit_Card_Statement_Id,
+            DateTime? p_Transaction_Date,
+            string p_Business_Name,
+            decimal? p_Transaction_Amount,
+            byte? p_Transaction_Amount_Currency_Id,
+            decimal? p_Transaction_Actual_Payment_Amount,
+            string p_Description,
+            bool p_Has_Been_Actually_Charged_In_Statement,
+            decimal? p_Total_Charged_In_Statement,
+            string p_User_Description,
+            string p_User_Comments,
+            bool p_Is_Visible,
+            int p_Creating_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_Creating_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatementTransactions_Insert_New_Credit_Card_Statement_Transaction_Details(
+                p_Bank_Account_Credit_Card_Statement_Id,
+                p_Transaction_Date,
+                p_Business_Name,
+                p_Transaction_Amount,
+                p_Transaction_Amount_Currency_Id,
+                p_Transaction_Actual_Payment_Amount,
+                p_Description,
+                p_Has_Been_Actually_Charged_In_Statement,
+                p_Total_Charged_In_Statement,
+                p_User_Description,
+                p_User_Comments,
+                p_Is_Visible,
+                p_Creating_User_Id);
+        }
+
+        public bool CreditCardStatementTransactions_Update_Credit_Card_Statement_Transaction(
+            int p_User_ID_Bank_Owner,
+            int p_Credit_Card_Statement_Transaction_Id,
+            DateTime? p_Transaction_Date,
+            string p_Business_Name,
+            decimal? p_Transaction_Amount,
+            byte? p_Transaction_Amount_Currency_Id,
+            decimal? p_Transaction_Actual_Payment_Amount,
+            string p_Description,
+            bool p_Has_Been_Actually_Charged_In_Statement,
+            decimal? p_Total_Charged_In_Statement,
+            string p_User_Description,
+            string p_User_Comments,
+            bool p_Is_Visible,
+            int p_Updating_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_Updating_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatementTransactions_Update_Credit_Card_Statement_Transaction(
+                p_Credit_Card_Statement_Transaction_Id,
+                p_Transaction_Date,
+                p_Business_Name,
+                p_Transaction_Amount,
+                p_Transaction_Amount_Currency_Id,
+                p_Transaction_Actual_Payment_Amount,
+                p_Description,
+                p_Has_Been_Actually_Charged_In_Statement,
+                p_Total_Charged_In_Statement,
+                p_User_Description,
+                p_User_Comments,
+                p_Is_Visible,
+                p_Updating_User_Id);
+        }
+
+        public bool CreditCardStatementTransactions_Delete_Credit_Card_Statement_Transaction(
+            int p_User_ID_Bank_Owner,
+            long p_Credit_Card_Statement_Transaction_Id,
+            int p_Deleting_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_Deleting_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatementTransactions_Delete_Credit_Card_Statement_Transaction(
+                p_Credit_Card_Statement_Transaction_Id,
+                p_Deleting_User_Id);
+        }
+
+        public bool CreditCardStatementTransactions_Delete_Credit_Card_Statement_All_Transactions_By_Statement_Id(
+            int p_User_ID_Bank_Owner,
+            int p_Bank_Account_Credit_Card_Statement_Id,
+            int p_Deleting_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_Deleting_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatementTransactions_Delete_Credit_Card_Statement_All_Transactions_By_Statement_Id(
+                p_Bank_Account_Credit_Card_Statement_Id,
+                p_Deleting_User_Id);
         }
     }
 }

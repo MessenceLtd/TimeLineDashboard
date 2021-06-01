@@ -120,6 +120,8 @@
     <Content Include="CSS\jquery-ui.css" />
     <Content Include="CSS\Main.css" />
     <Content Include="Default.aspx" />
+    <Content Include="list_CreditCards.aspx" />
+    <Content Include="list_CreditCardsStatements.aspx" />
     <Content Include="list_Documents.aspx" />
     <Content Include="list_Expenses.aspx" />
     <Content Include="list_Invoices.aspx" />
@@ -132,6 +134,8 @@
     <Content Include="manage_BankAccountTransaction.aspx" />
     <Content Include="manage_BankAccountTransactions.aspx" />
     <Content Include="manage_Client.aspx" />
+    <Content Include="manage_CreditCard.aspx" />
+    <Content Include="manage_CreditCardStatement.aspx" />
     <Content Include="manage_Document.aspx" />
     <Content Include="manage_Expense.aspx" />
     <Content Include="manage_Invoice.aspx" />
@@ -230,6 +234,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="list_CreditCards.aspx.cs">
+      <DependentUpon>list_CreditCards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_CreditCards.aspx.designer.cs">
+      <DependentUpon>list_CreditCards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="list_CreditCardsStatements.aspx.cs">
+      <DependentUpon>list_CreditCardsStatements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_CreditCardsStatements.aspx.designer.cs">
+      <DependentUpon>list_CreditCardsStatements.aspx</DependentUpon>
+    </Compile>
     <Compile Include="list_Documents.aspx.cs">
       <DependentUpon>list_Documents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,6 +310,20 @@
     </Compile>
     <Compile Include="manage_Client.aspx.designer.cs">
       <DependentUpon>manage_Client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_CreditCard.aspx.cs">
+      <DependentUpon>manage_CreditCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_CreditCard.aspx.designer.cs">
+      <DependentUpon>manage_CreditCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_CreditCardStatement.aspx.cs">
+      <DependentUpon>manage_CreditCardStatement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_CreditCardStatement.aspx.designer.cs">
+      <DependentUpon>manage_CreditCardStatement.aspx</DependentUpon>
     </Compile>
     <Compile Include="manage_Document.aspx.cs">
       <DependentUpon>manage_Document.aspx</DependentUpon>
@@ -413,7 +445,9 @@
     <Content Include="App_LocalResources\Add_Document.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Add_Expense.aspx.resx" />
+    <Content Include="App_LocalResources\Add_Expense.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\Add_Invoice.aspx.resx" />
@@ -501,6 +535,9 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>SiteCommon.he.designer.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\list_CreditCards.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

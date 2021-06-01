@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="list_Users.aspx.cs" Inherits="WebformsPOCDemo.Users" culture="auto" meta:resourcekey="PageResource1" uiculture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="list_Users.aspx.cs" Inherits="WebformsPOCDemo.Users" culture="auto" meta:resourcekey="Page" uiculture="auto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links" meta:resourcekey="panel_HeaderLinksResource1">       
-        <asp:HyperLink runat="server" Text="Add New User" NavigateUrl="Add_User.aspx" meta:resourcekey="HyperLinkResource1"></asp:HyperLink>
+    <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links" meta:resourcekey="panel_HeaderLinks">       
+        <asp:HyperLink runat="server" Text="Add New User" NavigateUrl="Add_User.aspx" meta:resourcekey="HyperLink"></asp:HyperLink>
     </asp:Panel>
 
 
@@ -13,18 +13,18 @@
     <hr />
     <br /><br />
     <label for="<%=textbox_Search_Criteria.ClientID %>">Enter Search Criteria:</label> 
-    <asp:TextBox runat="server" ID="textbox_Search_Criteria" ClientIDMode="Static" Width="200px" meta:resourcekey="textbox_Search_CriteriaResource1"></asp:TextBox>
+    <asp:TextBox runat="server" ID="textbox_Search_Criteria" ClientIDMode="Static" Width="200px" meta:resourcekey="textbox_Search_Criteria"></asp:TextBox>
     &nbsp;&nbsp;
-    <asp:Button runat="server" ID="button_Search_Users" OnClick="button_Search_Users_Click" Text="Search" CssClass="btn btn-primary" meta:resourcekey="button_Search_UsersResource1" />
+    <asp:Button runat="server" ID="button_Search_Users" OnClick="button_Search_Users_Click" Text="Search" CssClass="btn btn-primary" meta:resourcekey="button_Search_Users" />
 
     <asp:UpdatePanel runat="server" ID="updatePanel_Search_Result">
 
         <ContentTemplate>
 
-            <asp:DataGrid runat="server" ID="dataGrid_Users_List" AutoGenerateColumns="False" CssClass="CustomTable" Visible="False" meta:resourcekey="dataGrid_Users_ListResource1">
+            <asp:DataGrid runat="server" ID="dataGrid_Users_List" AutoGenerateColumns="False" CssClass="CustomTable" Visible="False" meta:resourcekey="dataGrid_Users_List">
                 <Columns>
                     <asp:BoundColumn DataField="User_Id" HeaderText="ID" Visible="False"></asp:BoundColumn>
-                    <asp:HyperLinkColumn DataTextField="FullName" HeaderText="Full name" DataNavigateUrlField="User_Id" DataNavigateUrlFormatString="manage_User.aspx?id={0}" meta:resourcekey="HyperLinkColumnResource1"></asp:HyperLinkColumn>
+                    <asp:HyperLinkColumn DataTextField="FullName" HeaderText="Full name" DataNavigateUrlField="User_Id" DataNavigateUrlFormatString="manage_User.aspx?id={0}" meta:resourcekey="HyperLinkColumn"></asp:HyperLinkColumn>
                     <asp:HyperLinkColumn DataTextField="Email" HeaderText="Email" DataNavigateUrlField="User_Id" DataNavigateUrlFormatString="manage_User.aspx?id={0}" meta:resourcekey="HyperLinkColumnResource2"></asp:HyperLinkColumn>
                     <asp:BoundColumn DataField="Username" HeaderText="Username"></asp:BoundColumn>
                     <asp:BoundColumn DataField="Country_English_Name" HeaderText="Country"></asp:BoundColumn>
@@ -46,11 +46,11 @@
             </asp:DataGrid>
 
             <hr />
-            <asp:Panel runat="server" ID="panel_Please_Search" class="alert alert-primary" meta:resourcekey="panel_Please_SearchResource1">
+            <asp:Panel runat="server" ID="panel_Please_Search" class="alert alert-primary" meta:resourcekey="panel_Please_Search">
                 <label for="<%=textbox_Search_Criteria.ClientID %>">Please use the search criteria to search for users.</label>
             </asp:Panel>
 
-            <asp:Panel runat="server" ID="panel_No_Results_Message" Visible="False" class="alert alert-warning" meta:resourcekey="panel_No_Results_MessageResource1">
+            <asp:Panel runat="server" ID="panel_No_Results_Message" Visible="False" class="alert alert-warning" meta:resourcekey="panel_No_Results_Message">
                 No results were found!
             </asp:Panel>
 

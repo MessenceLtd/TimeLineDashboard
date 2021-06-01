@@ -242,7 +242,6 @@ namespace WebformsPOCDemo
                         this.lbl_Insert_Process_Error_Result.Text += " (" + exception_During_Process_Extra_Data + ")";
                     }
                 }
-
             }
         }
 
@@ -466,8 +465,6 @@ namespace WebformsPOCDemo
                     Common_Tools.Set_Number_Text_Value_To_TextBox(
                         auto_Complete_Values.Total_Without_Vat, this.textbox_Total_Without_Vat);
 
-                    
-
                     Common_Tools.Set_Number_Text_Value_To_TextBox(
                         auto_Complete_Values.Total_Vat, this.textbox_Total_Vat);
 
@@ -492,12 +489,12 @@ namespace WebformsPOCDemo
             this.Bind_DropDown_Supplier_After_User_Id_Selection();
         }
 
-        protected void Textbox_Total_Amount_TextChanged(object sender, EventArgs e)
+        protected void textbox_Total_Amount_TextChanged(object sender, EventArgs e)
         {
             this.Refresh_Totals_Textboxes();
         }
 
-        protected void Textbox_Vat_Percentage_TextChanged(object sender, EventArgs e)
+        protected void textbox_Vat_Percentage_TextChanged(object sender, EventArgs e)
         {
             this.Refresh_Totals_Textboxes();
         }

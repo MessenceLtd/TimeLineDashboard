@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-Create Proc [p_TLBoard_Update_Expense_Details]
+CREATE Proc [p_TLBoard_Update_Expense_Details]
 @Expense_Record_Id int,										
 @Supplier_Id Int, 
 @Expense_Invoice_DateTime DateTime,
@@ -39,6 +39,9 @@ Create Proc [p_TLBoard_Update_Expense_Details]
 @Invoice_Content_Long_Description NVarChar(2000),
 @User_Description NVarChar(1000), 
 @User_Comments NVarChar(1000), 
+@Original_File_Name NVarChar(256),
+@Azure_Block_Blob_Reference NVarChar(256),
+@File_Uploaded Bit,
 @Is_Visible_To_Anonymous_Users bit,
 @Is_Available_For_Download_For_Anonymous_Users bit, 
 @Is_Visible_To_Followers_Users bit,
@@ -91,5 +94,14 @@ Set
 	Record_Last_Updated_DateTime_UTC = GETUTCDATE(),
 	Is_Active = @Is_Active
 Where Expense_Record_Id = @Expense_Record_Id And [User_Id] = @Updating_User_Id And Is_Deleted = 0
+
+If (@File_Uploaded Is Not Null And @File_Uploaded = 1)
+Begin
+    
+    Update	[dbo].[t_TLBoard_Expenses] 
+    Set     Original_File_Name = @Original_File_Name , Azure_Block_Blob_Reference = @Azure_Block_Blob_Reference
+    Where   Expense_Record_Id = @Expense_Record_Id And [User_Id] = @Updating_User_Id And Is_Deleted = 0
+
+End
 
 GO

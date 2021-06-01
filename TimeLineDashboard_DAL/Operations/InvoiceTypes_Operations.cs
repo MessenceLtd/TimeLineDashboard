@@ -36,25 +36,43 @@ namespace TimeLineDashboard.DAL.Operations
         {
             if (r_List_Invoice_Types == null || r_List_Invoice_Types.Count <= 0)
             {
-                var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Invoice_Types");
-
-                if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
-                {
-                    lock (r_List_Invoice_Types)
-                    {
-                        r_List_Invoice_Types.Clear();
-
-                        for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
-                        {
-                            r_List_Invoice_Types.Add(Create_Invoice_Type_Details_From_Data_Row(dataSet.Tables[0].Rows[i]));
-                        }
-                    }
-                }
+                this.Populate_Invoice_Types();
             }
 
             return r_List_Invoice_Types;
         }
 
+        private void Populate_Invoice_Types()
+        {
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Invoice_Types");
+
+            if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+            {
+                lock (r_List_Invoice_Types)
+                {
+                    r_List_Invoice_Types.Clear();
+
+                    for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                    {
+                        r_List_Invoice_Types.Add(Create_Invoice_Type_Details_From_Data_Row(dataSet.Tables[0].Rows[i]));
+                    }
+                }
+            }
+        }
+
+        internal InvoiceType Get_By_Id(byte p_Invoice_Type_Id)
+        {
+            InvoiceType invoice_Type_To_Return = null;
+
+            if (r_List_Invoice_Types == null || r_List_Invoice_Types.Count <= 0)
+            {
+                this.Populate_Invoice_Types();
+            }
+
+            invoice_Type_To_Return = r_List_Invoice_Types.SingleOrDefault(invType => invType.Invoice_Type_Id == p_Invoice_Type_Id);
+
+            return invoice_Type_To_Return;
+        }
 
         private InvoiceType Create_Invoice_Type_Details_From_Data_Row(DataRow dataRow)
         {

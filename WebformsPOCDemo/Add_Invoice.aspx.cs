@@ -29,6 +29,13 @@ namespace WebformsPOCDemo
             this.dropdown_User_Selection.DataBind();
             this.dropdown_User_Selection.Items.Insert(0, new ListItem("-- Select -- ", ""));
 
+            if (base.User_Is_Administrator)
+            {
+                // If the user is administrator -- auto set the current user id
+                this.dropdown_User_Selection.SelectedValue = base.Authenticated_User_ID.ToString();
+                this.Bind_DropDown_Client_After_User_Id_Selection();
+            }
+
             Common_Tools.Initialize_DropDown_Countries(this.dropdown_Invoiced_Client_To_Country);
 
             // bind currencies 
@@ -45,15 +52,71 @@ namespace WebformsPOCDemo
 
             // bind expense types
             Common_Tools.Initialize_DropDown_Invoice_Types(this.dropdown_Invoice_Type);
+
+            if (!string.IsNullOrEmpty(this.Request.QueryString["type"]))
+            {
+                // An invoice type has been requested. The user probably wants to add the invoice type and have helping auto values filled on the form
+                byte l_Invoice_Type_Id = 0;
+                byte.TryParse(this.Request.QueryString["type"] , out l_Invoice_Type_Id);
+
+                if (l_Invoice_Type_Id > 0 )
+                {
+                    DateTime now = DateTime.Now;
+
+                    Common_Tools.Set_DateTime_To_ComboBoxes(
+                        now,
+                        this.textbox_Invoice_DateTime,
+                        this.dropdown_Invoice_Time_Hours,
+                        this.dropdown_Invoice_Time_Minutes,
+                        this.dropdown_Invoice_Time_Seconds);
+
+                    Common_Tools.Set_DateTime_To_ComboBoxes(
+                        now,
+                        this.textbox_Creation_DateTime,
+                        this.dropdown_Invoice_Creation_Time_Hours,
+                        this.dropdown_Invoice_Creation_Time_Minutes,
+                        this.dropdown_Invoice_Creation_Time_Seconds);
+
+                    this.dropdown_Invoice_Type.SelectedValue = l_Invoice_Type_Id.ToString();
+
+                    this.Get_Next_Invoice_Number_If_Type_Selected();
+                }
+            }
+        }
+
+        protected void dropdown_Invoice_Type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Get_Next_Invoice_Number_If_Type_Selected();
+        }
+
+        private void Get_Next_Invoice_Number_If_Type_Selected()
+        {
+            if (!string.IsNullOrEmpty(this.dropdown_User_Selection.SelectedValue) &&
+                !string.IsNullOrEmpty( this.dropdown_Invoice_Type.SelectedValue) &&
+                string.IsNullOrEmpty(this.textbox_Invoice_Number.Text))
+            {
+                var next_Invoice_Number_Based_On_Type
+                    = Business_Logic_Layer_Facade.Instance.Invoices_Get_Next_Invoice_Number_Based_On_Invoice_Type(
+                        int.Parse(this.dropdown_User_Selection.SelectedValue),
+                        byte.Parse(this.dropdown_Invoice_Type.SelectedValue),
+                        base.Authenticated_User_ID, 
+                        base.Authenticated_Permission_Type );
+
+                if (next_Invoice_Number_Based_On_Type.HasValue)
+                {
+                    this.textbox_Invoice_Number.Text = next_Invoice_Number_Based_On_Type.Value.ToString();
+                    this.textbox_Invoice_Reference_Number.Text = next_Invoice_Number_Based_On_Type.Value.ToString();
+                }
+            }
         }
 
         protected void dropdown_User_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Bind availble suppliers to pick based on current selected user
-            this.Bind_DropDown_Supplier_After_User_Id_Selection();
+            this.Bind_DropDown_Client_After_User_Id_Selection();
         }
 
-        private void Bind_DropDown_Supplier_After_User_Id_Selection()
+        private void Bind_DropDown_Client_After_User_Id_Selection()
         {
             if (!string.IsNullOrEmpty(this.dropdown_User_Selection.SelectedValue))
             {
@@ -71,10 +134,10 @@ namespace WebformsPOCDemo
         protected void dropdown_Client_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Bind default values the page based on recent supplier invoices for the user and supplier country for vat value
-            User_Supplier_Selected();
+            User_Client_Selected();
         }
 
-        private void User_Supplier_Selected()
+        private void User_Client_Selected()
         {
             this.Try_To_Auto_Fill_Invoice();
         }
@@ -141,8 +204,13 @@ namespace WebformsPOCDemo
                 string p_User_Description = this.textbox_User_Description.Text;
                 string p_User_Comments = this.textbox_User_Description.Text;
 
-                string p_Original_File_Name = this.textbox_Original_File_Name.Text;
-                string p_Azure_Block_Blob_Reference = "N/A";
+                string p_Original_File_Name = "";
+                byte[] p_File_Content_To_Save_In_Azure = new byte[0];
+                if (this.fileUpload_Invoice_File.HasFile)
+                {
+                    p_Original_File_Name = this.fileUpload_Invoice_File.FileName;
+                    p_File_Content_To_Save_In_Azure = this.fileUpload_Invoice_File.FileBytes;
+                }
 
                 bool p_Is_Visible_To_Anonymous_Users = this.checkbox_Is_Visible_To_Anonymous_Users.Checked;
                 bool p_Is_Available_For_Download_For_Anonymous_Users = this.checkbox_Is_Available_For_Download_For_Anonymous_Users.Checked;
@@ -150,9 +218,6 @@ namespace WebformsPOCDemo
                 bool p_Is_Available_For_Download_For_Followers_Users = this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked;
 
                 int p_Record_Created_By_User_Id = base.Authenticated_User_ID; 
-                DateTime p_Record_Creation_DateTime_UTC = DateTime.UtcNow;
-                int p_Record_Last_Updated_By_User_Id = base.Authenticated_User_ID;
-                DateTime p_Record_Last_Updated_DateTime_UTC = DateTime.UtcNow;
                 bool p_Is_Active = this.checkbox_Is_Active.Checked;
 
                 TimeLineDashboard.Shared.Models.Invoices new_Invoice_Details = null;
@@ -169,12 +234,11 @@ namespace WebformsPOCDemo
                         p_Invoiced_Client_To_EmailAddress, p_Invoice_Type_Id, 
                         p_Invoice_Number, p_Invoice_Reference_Number,
                         p_Invoice_Content_Long_Description, p_User_Description,
-                        p_User_Comments, p_Original_File_Name, p_Azure_Block_Blob_Reference,
+                        p_User_Comments, 
+                        p_Original_File_Name, p_File_Content_To_Save_In_Azure,
                         p_Is_Visible_To_Anonymous_Users, p_Is_Available_For_Download_For_Anonymous_Users,
                         p_Is_Visible_To_Followers_Users, p_Is_Available_For_Download_For_Followers_Users,
-                        p_Record_Created_By_User_Id, p_Record_Creation_DateTime_UTC,
-                        p_Record_Last_Updated_By_User_Id, p_Record_Last_Updated_DateTime_UTC,
-                        p_Is_Active
+                        p_Record_Created_By_User_Id,base.Authenticated_Permission_Type, p_Is_Active
                         );
 
                     l_New_Invoice_Id = new_Invoice_Details.Invoice_Record_Id;
@@ -322,6 +386,119 @@ namespace WebformsPOCDemo
         protected void dropdown_Invoiced_Client_To_Country_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Bind_Invoiced_Client_States_ComboBox();
-        }       
+        }
+
+        protected void Button_Run_Auto_Complete_Based_On_Selected_FileName_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.hidden_Uploading_FileName_For_AutoComplete_Helper.Value))
+            {
+                this.textbox_Total_Amount.Text = string.Empty;
+                this.textbox_Vat_Percentage.Text = string.Empty;
+                this.textbox_Total_Without_Vat.Text = string.Empty;
+                this.textbox_Total_Vat.Text = string.Empty;
+
+                if (!string.IsNullOrEmpty(this.dropdown_User_Selection.SelectedValue))
+                {
+                    var auto_Complete_Values = Business_Logic_Layer_Facade.Instance
+                        .Invoices_Get_AutoComplete_Suggestion_Based_On_Uploaded_FileName(
+                            this.hidden_Uploading_FileName_For_AutoComplete_Helper.Value,
+                            int.Parse(this.dropdown_User_Selection.SelectedValue),
+                            this.Authenticated_User_ID
+                        );
+
+                    if (auto_Complete_Values.Invoice_DateTime.HasValue)
+                    {
+                        Common_Tools.Set_DateTime_To_ComboBoxes(
+                            auto_Complete_Values.Invoice_DateTime,
+                            this.textbox_Invoice_DateTime,
+                            this.dropdown_Invoice_Time_Hours,
+                            this.dropdown_Invoice_Time_Minutes,
+                            this.dropdown_Invoice_Time_Seconds);
+
+                        Common_Tools.Set_DateTime_To_ComboBoxes(
+                            auto_Complete_Values.Invoice_DateTime,
+                            this.textbox_Creation_DateTime,
+                            this.dropdown_Invoice_Creation_Time_Hours,
+                            this.dropdown_Invoice_Creation_Time_Minutes,
+                            this.dropdown_Invoice_Creation_Time_Seconds);
+                    }
+
+                    if (auto_Complete_Values.Client_Id.HasValue)
+                    {
+                        this.dropdown_Client.SelectedValue = auto_Complete_Values.Client_Id.Value.ToString();
+                        User_Client_Selected();
+                    }
+
+                    Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        auto_Complete_Values.Total_Amount, this.textbox_Total_Amount);
+
+                    Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        auto_Complete_Values.Vat_Percentage, this.textbox_Vat_Percentage);
+
+                    Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        auto_Complete_Values.Total_Without_Vat, this.textbox_Total_Without_Vat);
+
+                    Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        auto_Complete_Values.Total_Vat, this.textbox_Total_Vat);
+
+                    if (auto_Complete_Values.Currency_Id.HasValue)
+                    {
+                        this.dropdown_Currency.SelectedValue = auto_Complete_Values.Currency_Id.Value.ToString();
+                    }
+
+                    if (auto_Complete_Values.Invoice_Type.HasValue)
+                    {
+                        this.dropdown_Invoice_Type.SelectedValue = auto_Complete_Values.Invoice_Type.Value.ToString();
+                    }
+
+                    if (!string.IsNullOrEmpty(auto_Complete_Values.Invoice_Reference))
+                    {
+                        this.textbox_Invoice_Number.Text = auto_Complete_Values.Invoice_Reference;
+                        this.textbox_Invoice_Reference_Number.Text = auto_Complete_Values.Invoice_Reference;
+                    }
+
+                    this.textbox_Invoice_Content_Long_Description.Text = auto_Complete_Values.Invoice_Content_Long_Description;
+
+                    // Set default Invoice type as general (unless it was already selected diffrently from previous steps )
+                    if (string.IsNullOrEmpty(this.dropdown_Invoice_Type.SelectedValue))
+                    {
+                        this.dropdown_Invoice_Type.SelectedValue = "1";
+                    }
+                }
+            }
+        }
+
+        protected void textbox_Total_Amount_TextChanged(object sender, EventArgs e)
+        {
+            this.Refresh_Totals_Textboxes();
+        }
+
+        protected void textbox_Vat_Percentage_TextChanged(object sender, EventArgs e)
+        {
+            this.Refresh_Totals_Textboxes();
+        }
+
+        private void Refresh_Totals_Textboxes()
+        {
+            decimal l_Vat_Percentage = 0;
+            decimal l_Total_Amount = 0;
+
+            this.textbox_Total_Without_Vat.Text = this.textbox_Total_Amount.Text;
+            this.textbox_Total_Vat.Text = "0";
+
+            if (decimal.TryParse(this.textbox_Vat_Percentage.Text, out l_Vat_Percentage) &&
+                decimal.TryParse(this.textbox_Total_Amount.Text, out l_Total_Amount) &&
+                l_Vat_Percentage > 0 && l_Total_Amount > 0)
+            {
+                decimal l_Total_Without_Vat = l_Total_Amount / ((l_Vat_Percentage + 100) / 100);
+                decimal l_Total_Vat = l_Total_Amount - l_Total_Without_Vat;
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        l_Total_Without_Vat, this.textbox_Total_Without_Vat);
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox(
+                        l_Total_Vat, this.textbox_Total_Vat);
+            }
+        }
     }
 }

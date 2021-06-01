@@ -42,6 +42,42 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_User_Selection_Required;
 
         /// <summary>
+        /// fileUpload_Invoice_File control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUpload_Invoice_File;
+
+        /// <summary>
+        /// hidden_Uploading_FileName_For_AutoComplete_Helper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Uploading_FileName_For_AutoComplete_Helper;
+
+        /// <summary>
+        /// button_Run_Auto_Complete_Based_On_Selected_FileName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Run_Auto_Complete_Based_On_Selected_FileName;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// textbox_Invoice_DateTime control.
         /// </summary>
         /// <remarks>
@@ -130,6 +166,33 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel up_AddExpense_AutoComplete;
+
+        /// <summary>
+        /// dropdown_Invoice_Type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_Invoice_Type;
+
+        /// <summary>
+        /// textbox_Invoice_Number control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Invoice_Number;
+
+        /// <summary>
+        /// textbox_Invoice_Reference_Number control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Invoice_Reference_Number;
 
         /// <summary>
         /// dropdown_Currency control.
@@ -373,33 +436,6 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textbox_Invoiced_Client_To_EmailAddress;
-
-        /// <summary>
-        /// dropdown_Invoice_Type control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdown_Invoice_Type;
-
-        /// <summary>
-        /// textbox_Invoice_Number control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox_Invoice_Number;
-
-        /// <summary>
-        /// textbox_Invoice_Reference_Number control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox_Invoice_Reference_Number;
 
         /// <summary>
         /// textbox_Invoice_Content_Long_Description control.

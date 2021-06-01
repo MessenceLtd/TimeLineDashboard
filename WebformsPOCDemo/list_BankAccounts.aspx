@@ -1,26 +1,26 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="list_BankAccounts.aspx.cs" Inherits="WebformsPOCDemo.list_BankAccounts" culture="auto" meta:resourcekey="PageResource1" uiculture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="list_BankAccounts.aspx.cs" Inherits="WebformsPOCDemo.list_BankAccounts" culture="auto" meta:resourcekey="Page" uiculture="auto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links" meta:resourcekey="panel_HeaderLinksResource1">
-        <asp:HyperLink runat="server" Text="Add New Bank Account" NavigateUrl="Add_BankAccount.aspx" meta:resourcekey="HyperLinkResource1"></asp:HyperLink>
+    <asp:Panel ID="panel_HeaderLinks" runat="server" CssClass="header-links" meta:resourcekey="panel_HeaderLinks">
+        <asp:HyperLink runat="server" Text="Add New Bank Account" NavigateUrl="Add_BankAccount.aspx"></asp:HyperLink>
     </asp:Panel>
 
     <hr />
     <br />
 
-    <asp:Button runat="server" ID="button_Search_Bank_Accounts" OnClick="button_Search_Bank_Accounts_Click" Text="Refresh" CssClass="btn btn-primary" meta:resourcekey="button_Search_Bank_AccountsResource1" />
+    <asp:Button runat="server" ID="button_Search_Bank_Accounts" OnClick="button_Search_Bank_Accounts_Click" Text="Refresh" CssClass="btn btn-primary" meta:resourcekey="button_Search_Bank_Accounts" />
 
     <asp:UpdatePanel runat="server" ID="updatePanel_Search_Result">
 
         <ContentTemplate>
             <hr />
-            <asp:DataGrid runat="server" ID="dataGrid_BankAccounts_List" AutoGenerateColumns="False" CssClass="CustomTable" Visible="False" meta:resourcekey="dataGrid_BankAccounts_ListResource1">
+            <asp:DataGrid runat="server" ID="dataGrid_BankAccounts_List" AutoGenerateColumns="False" CssClass="CustomTable" Visible="False" meta:resourcekey="dataGrid_BankAccounts_List">
                 <Columns>
                     <asp:HyperLinkColumn DataTextField="Bank_Account_Id" HeaderText="ID"
-                        DataNavigateUrlField="Bank_Account_Id" DataNavigateUrlFormatString="manage_BankAccount.aspx?id={0}" Visible="False" meta:resourcekey="HyperLinkColumnResource1"></asp:HyperLinkColumn>
+                        DataNavigateUrlField="Bank_Account_Id" DataNavigateUrlFormatString="manage_BankAccount.aspx?id={0}" Visible="False" meta:resourcekey="HyperLinkColumn"></asp:HyperLinkColumn>
                     <asp:HyperLinkColumn DataTextField="Account_Name" HeaderText="Account Name" DataNavigateUrlField="Bank_Account_Id"
                         DataNavigateUrlFormatString="manage_BankAccount.aspx?id={0}" meta:resourcekey="HyperLinkColumnResource2"></asp:HyperLinkColumn>
 
@@ -58,7 +58,7 @@
                 </Columns>
             </asp:DataGrid>
 
-            <asp:Panel runat="server" ID="panel_No_Results_Message" Visible="False" class="alert alert-warning" meta:resourcekey="panel_No_Results_MessageResource1">
+            <asp:Panel runat="server" ID="panel_No_Results_Message" Visible="False" class="alert alert-warning" meta:resourcekey="panel_No_Results_Message">
                 There are no bank accounts! :(
             </asp:Panel>
 
@@ -69,7 +69,7 @@
 
     </asp:UpdatePanel>
     <hr />
-    <asp:Button runat="server" ID="button_Add_New_Bank_Account" OnClick="button_Add_New_Bank_Account_Click" Text="Add More" CssClass="btn btn-primary" meta:resourcekey="button_Add_New_Bank_AccountResource1" />
+    <asp:Button runat="server" ID="button_Add_New_Bank_Account" OnClick="button_Add_New_Bank_Account_Click" Text="Add More" CssClass="btn btn-primary" meta:resourcekey="button_Add_New_Bank_Account" />
 
 
 </asp:Content>

@@ -3,11 +3,13 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 CREATE Proc [p_TLBoard_Insert_Client_Details]
 @User_Id int, @Company_Name nvarchar(150),
-@Website_URL nvarchar(150), @Default_Currency_Id TinyInt, @Country_Id smallint,
+@Website_URL nvarchar(150), @Country_Id smallint,
 @State_Id smallint, @City nvarchar(100),
 @Address nvarchar(150), @ZipCode varchar(10),
+@Default_Currency_Id TinyInt, @Default_Vat_Percentage Decimal(6,2),
 @Telephone varchar(40), @Mobile_Phone varchar(40),
 @Client_Type_Id smallint, @Client_Tax_Reference_Number NVarChar(50),  
 @Main_Contact_FullName nvarchar(100), @Main_Contact_Email_Address nvarchar(100), 
@@ -19,9 +21,11 @@ CREATE Proc [p_TLBoard_Insert_Client_Details]
 As
 
 INSERT INTO [dbo].[t_TLBoard_Clients]
-           ([User_Id] , [Company_Name] , [Website_URL], [Default_Currency_Id] , [Country_Id] , 
-			[State_Id] , [City] , [Address] , [ZipCode] , [Telephone] ,
-			[Mobile_Phone] , [Client_Type_Id], [Client_Tax_Reference_Number] , 
+           ([User_Id] , [Company_Name] , [Website_URL], [Country_Id] , 
+			[State_Id] , [City] , [Address] , [ZipCode] , 
+            [Default_Currency_Id] , [Default_Vat_Percentage], 
+            [Telephone] ,[Mobile_Phone] , 
+            [Client_Type_Id], [Client_Tax_Reference_Number] , 
 			[Main_Contact_FullName] , [Main_Contact_Email_Address] , [Main_Contact_Phone_Number],
 			[Client_From_Date], [Client_To_Date], [First_Contract_Date],
 			[First_Contract_Signed_With_Contact_Full_Name],  
@@ -31,9 +35,10 @@ INSERT INTO [dbo].[t_TLBoard_Clients]
 			)
      VALUES	(
 			@User_Id, @Company_Name, 
-			@Website_URL, @Default_Currency_Id, @Country_Id , 
-			@State_Id, @City , @Address, 
-			@ZipCode, @Telephone, @Mobile_Phone, 
+			@Website_URL, @Country_Id , 
+			@State_Id, @City , @Address, @ZipCode, 
+            @Default_Currency_Id , @Default_Vat_Percentage, 
+            @Telephone, @Mobile_Phone, 
 			@Client_Type_Id, @Client_Tax_Reference_Number,
 			@Main_Contact_FullName, @Main_Contact_Email_Address, 
 			@Main_Contact_Phone_Number,

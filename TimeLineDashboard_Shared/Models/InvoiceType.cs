@@ -8,6 +8,14 @@ namespace TimeLineDashboard.Shared.Models
 {
     public class InvoiceType
     {
+        public enum Codes
+        {
+            Tax_Invoice             = 1     ,
+            Receipt_Tax_Invoice     = 3     ,
+            Receipt                 = 5     ,
+            Credit_Invoice          = 6
+        }
+
         public short Invoice_Type_Id { get; set; }
 
         public string Invoice_Type_Name { get; set; }

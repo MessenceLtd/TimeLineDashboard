@@ -117,91 +117,91 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button_Search_ClientsResource1.Text" xml:space="preserve">
+  <data name="button_Search_Clients.Text" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="button_Search_ClientsResource1.ToolTip" xml:space="preserve">
+  <data name="button_Search_Clients.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dataGrid_Clients_ListResource1.Caption" xml:space="preserve">
+  <data name="dataGrid_Clients_List.Caption" xml:space="preserve">
     <value />
   </data>
-  <data name="dataGrid_Clients_ListResource1.PagerStyle.NextPageText" xml:space="preserve">
+  <data name="dataGrid_Clients_List.PagerStyle.NextPageText" xml:space="preserve">
     <value>&amp;gt;</value>
   </data>
-  <data name="dataGrid_Clients_ListResource1.PagerStyle.PrevPageText" xml:space="preserve">
+  <data name="dataGrid_Clients_List.PagerStyle.PrevPageText" xml:space="preserve">
     <value>&amp;lt;</value>
   </data>
-  <data name="dataGrid_Clients_ListResource1.ToolTip" xml:space="preserve">
+  <data name="dataGrid_Clients_List.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_CountryResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Country.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_StateResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_State.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="dropdown_TypeResource1.ToolTip" xml:space="preserve">
+  <data name="dropdown_Type.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="HyperLinkColumnResource1.Text" xml:space="preserve">
+  <data name="HyperLinkColumn.Text" xml:space="preserve">
     <value />
   </data>
   <data name="HyperLinkColumnResource2.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="HyperLinkResource1.Text" xml:space="preserve">
+  <data name="HyperLink.Text" xml:space="preserve">
     <value>Add New Client</value>
   </data>
-  <data name="HyperLinkResource1.ToolTip" xml:space="preserve">
+  <data name="HyperLink.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label_Filter_By_CountryResource1.Text" xml:space="preserve">
+  <data name="label_Filter_By_Country.Text" xml:space="preserve">
     <value>Filter by Country</value>
   </data>
-  <data name="label_Filter_By_StateResource1.Text" xml:space="preserve">
+  <data name="label_Filter_By_State.Text" xml:space="preserve">
     <value>Filter by Type</value>
   </data>
-  <data name="label_Filter_By_TypeResource1.Text" xml:space="preserve">
+  <data name="label_Filter_By_Type.Text" xml:space="preserve">
     <value>Filter by Type</value>
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
+  <data name="Page.Title" xml:space="preserve">
     <value>Demo Document Manager / Timeline dashboard chaos</value>
   </data>
-  <data name="panel_HeaderLinksResource1.GroupingText" xml:space="preserve">
+  <data name="panel_HeaderLinks.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_HeaderLinksResource1.ToolTip" xml:space="preserve">
+  <data name="panel_HeaderLinks.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_No_Results_MessageResource1.GroupingText" xml:space="preserve">
+  <data name="panel_No_Results_Message.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_No_Results_MessageResource1.ToolTip" xml:space="preserve">
+  <data name="panel_No_Results_Message.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_Please_SearchResource1.GroupingText" xml:space="preserve">
+  <data name="panel_Please_Search.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_Please_SearchResource1.ToolTip" xml:space="preserve">
+  <data name="panel_Please_Search.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_StatesResource1.GroupingText" xml:space="preserve">
+  <data name="panel_States.GroupingText" xml:space="preserve">
     <value />
   </data>
-  <data name="panel_StatesResource1.ToolTip" xml:space="preserve">
+  <data name="panel_States.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="text_Filter_By_CityAddressZipCodeResource1.Text" xml:space="preserve">
+  <data name="text_Filter_By_CityAddressZipCode.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="text_Filter_By_CityAddressZipCodeResource1.ToolTip" xml:space="preserve">
+  <data name="text_Filter_By_CityAddressZipCode.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="text_Filter_By_CompanyNamePeopleNameResource1.Text" xml:space="preserve">
+  <data name="text_Filter_By_CompanyNamePeopleName.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="text_Filter_By_CompanyNamePeopleNameResource1.ToolTip" xml:space="preserve">
+  <data name="text_Filter_By_CompanyNamePeopleName.ToolTip" xml:space="preserve">
     <value />
   </data>
 </root>

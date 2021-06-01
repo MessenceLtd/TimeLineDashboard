@@ -3,6 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 CREATE Proc [p_TLBoard_Get_Expenses_Search]
 @User_Id Int,
 @Filter_By_Type SmallInt,
@@ -15,6 +16,8 @@ As
 Select	Expense_Record_Id , expense.[User_Id], 
 		Expense_Invoice_DateTime, 
 		expense.Supplier_Id,
+        expense.Original_File_Name,
+        expense.Azure_Block_Blob_Reference,
 		Invoice_Number, Invoice_Reference_Number,
 		expense.Invoice_Supplier_Company_Details , 
 		expense.Invoice_Supplier_Tax_Reference , 
@@ -46,6 +49,5 @@ Where	expense.[User_Id] = @User_Id And ( expense.Is_Deleted Is Null Or expense.I
 			Or Company_Name Like '%' + @Filter_By_CompanyName_Or_Person_Fullname + '%' 
 			Or Website_URL Like '%' + @Filter_By_CompanyName_Or_Person_Fullname + '%'
 			Or Main_Contact_FullName Like '%' + @Filter_By_CompanyName_Or_Person_Fullname + '%' ) 
-
 
 GO

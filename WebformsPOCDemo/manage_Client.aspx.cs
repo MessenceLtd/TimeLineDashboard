@@ -24,6 +24,8 @@ namespace WebformsPOCDemo
         {
             Common_Tools.Initialize_DropDown_Countries(this.dropdown_Country);
 
+            Common_Tools.Initialize_DropDown_Currencies(this.dropdown_Currency);
+
             Common_Tools.Initialize_DropDown_Client_Types(this.dropdown_Client_Type);
 
             // ToDo -- Check permissions -- if the user is able to view the client / edit the client
@@ -92,6 +94,11 @@ namespace WebformsPOCDemo
                     clientDetails.Default_Currency_Id.ToString(),
                     this.dropdown_Currency,
                     this.label_Currency);
+
+                Common_Tools.Set_Number_Text_Value_To_TextBox_Label_Text(
+                    clientDetails.Default_Vat_Percentage,
+                    this.textbox_Default_Vat_Percentage,
+                    this.label_Default_Vat_Percentage);
 
                 this.dropdown_Country.SelectedValue = clientDetails.Country_Id.ToString();
                 this.label_Country.Text = Business_Logic_Layer_Facade.Instance.Countries_Get_By_Country_Id(clientDetails.Country_Id).Country_English_Name;
@@ -172,7 +179,34 @@ namespace WebformsPOCDemo
 
         protected void dropdown_Country_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.Countries_Combo_Box_Changed();
+        }
+
+        private void Countries_Combo_Box_Changed()
+        {
             this.Bind_States_ComboBox();
+
+            // check if the country has a default currency 
+            short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
+            var country_Details = Business_Logic_Layer_Facade.Instance.Countries_Get_By_Country_Id(p_Country_Id);
+            if (country_Details.Primary_Currency_Id.HasValue)
+            {
+                this.dropdown_Currency.SelectedValue = country_Details.Primary_Currency_Id.Value.ToString();
+            }
+
+            this.Bind_Vat_By_Selected_Country();
+        }
+
+        private void Bind_Vat_By_Selected_Country()
+        {
+            this.textbox_Default_Vat_Percentage.Text = "0";
+
+            short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
+            if (p_Country_Id > 0)
+            {
+                this.textbox_Default_Vat_Percentage.Text = Business_Logic_Layer_Facade.Instance
+                    .Countries_Get_Latest_Vat_Value_By_Country_Id(p_Country_Id).ToString();
+            }
         }
 
         private void Bind_States_ComboBox()
@@ -248,12 +282,6 @@ namespace WebformsPOCDemo
                 string p_Company_Name = this.textbox_Company_Name.Text;
                 string p_Website_URL = this.textbox_Website_URL.Text;
 
-                byte? p_Default_Currency = new byte?();
-                if (!string.IsNullOrEmpty(this.dropdown_Currency.SelectedValue))
-                {
-                    p_Default_Currency = byte.Parse(this.dropdown_Currency.SelectedValue);
-                }
-
                 short p_Country_Id = short.Parse(this.dropdown_Country.SelectedValue);
                 short? p_State_Id = new short?();
                 if (this.dropdown_State.Items.Count > 0)
@@ -264,6 +292,23 @@ namespace WebformsPOCDemo
                 string p_City = this.textbox_City.Text;
                 string p_Address = this.textbox_Address.Text;
                 string p_ZipCode = this.textbox_Zipcode.Text;
+
+                byte? p_Default_Currency = new byte?();
+                if (!string.IsNullOrEmpty(this.dropdown_Currency.SelectedValue))
+                {
+                    p_Default_Currency = byte.Parse(this.dropdown_Currency.SelectedValue);
+                }
+
+                decimal? p_Default_Vat_Percentage = new decimal?();
+                if (!string.IsNullOrEmpty(this.textbox_Default_Vat_Percentage.Text))
+                {
+                    decimal parsed_Vat_Percentage = 0;
+                    if (decimal.TryParse(this.textbox_Default_Vat_Percentage.Text, out parsed_Vat_Percentage))
+                    {
+                        p_Default_Vat_Percentage = parsed_Vat_Percentage;
+                    }
+                }
+
                 string p_Telephone = this.textbox_Telephone.Text;
                 string p_Mobile_Phone = this.textbox_Mobile_Phone.Text;
 
@@ -311,8 +356,9 @@ namespace WebformsPOCDemo
                 try
                 {
                     l_Client_Successfully_Updated = Business_Logic_Layer_Facade.Instance.Clients_Update_Client_Details(
-                        p_Client_Id, p_Company_Name, p_Website_URL, p_Default_Currency, p_Country_Id,
+                        p_Client_Id, p_Company_Name, p_Website_URL, p_Country_Id,
                         p_State_Id, p_City, p_Address, p_ZipCode,
+                        p_Default_Currency, p_Default_Vat_Percentage, 
                         p_Telephone, p_Mobile_Phone, p_Client_Type_Id,
                         p_Client_Tax_Reference_Number, p_Main_Contact_FullName,
                         p_Main_Contact_Email_Address, p_Main_Contact_Phone_Number,

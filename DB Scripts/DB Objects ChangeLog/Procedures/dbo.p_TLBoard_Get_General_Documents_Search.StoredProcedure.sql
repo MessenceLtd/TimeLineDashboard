@@ -3,6 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 CREATE Proc [p_TLBoard_Get_General_Documents_Search]
 @User_Id Int,
 @Filter_By_Type SmallInt,
@@ -15,6 +16,8 @@ As
 Select	document.General_Document_Id , 
 		document.[User_Id], 
 		document.Title, document.[Description] , 
+        document.Original_File_Name,
+        document.Azure_Block_Blob_Reference,
 		document.General_Document_Type ,
 		document.Document_Creation_DateTime, 
 		document.Sent_By_Entity_Name , 
