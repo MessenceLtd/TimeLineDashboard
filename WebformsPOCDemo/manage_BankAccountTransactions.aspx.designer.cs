@@ -15,24 +15,6 @@ namespace WebformsPOCDemo
     {
 
         /// <summary>
-        /// button_Add_New_Bank_Account_Transactions2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Add_New_Bank_Account_Transactions2;
-
-        /// <summary>
-        /// button_Save_Bank_Account_Transactions2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Save_Bank_Account_Transactions2;
-
-        /// <summary>
         /// up_Transactions control.
         /// </summary>
         /// <remarks>
@@ -42,15 +24,6 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.UpdatePanel up_Transactions;
 
         /// <summary>
-        /// panel_Expired_Session_Warning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel_Expired_Session_Warning;
-
-        /// <summary>
         /// repeater control.
         /// </summary>
         /// <remarks>
@@ -58,24 +31,6 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater repeater;
-
-        /// <summary>
-        /// hidden_Pending_Changes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hidden_Pending_Changes;
-
-        /// <summary>
-        /// hidden_Prevent_Adding_New_Rows_Session_Expired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hidden_Prevent_Adding_New_Rows_Session_Expired;
 
         /// <summary>
         /// ph_Pagination control.
@@ -114,39 +69,129 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination_li_Next;
 
         /// <summary>
-        /// hidden_New_Bank_Account_Transaction_After_Transaction_ID control.
+        /// hidden_Delete_Transaction_Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hidden_New_Bank_Account_Transaction_After_Transaction_ID;
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Delete_Transaction_Id;
 
         /// <summary>
-        /// button_Add_New_Transaction_After_Transaction_Id control.
+        /// button_Delete_Bank_Account_Transaction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Add_New_Transaction_After_Transaction_Id;
+        protected global::System.Web.UI.WebControls.Button button_Delete_Bank_Account_Transaction;
 
         /// <summary>
-        /// button_Add_New_Bank_Account_Transactions control.
+        /// hidden_Save_Transaction_Info_Transaction_Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Add_New_Bank_Account_Transactions;
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Save_Transaction_Info_Transaction_Id;
 
         /// <summary>
-        /// button_Save_Bank_Account_Transactions control.
+        /// hidden_Save_Transaction_Info_After_Transaction_Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_Save_Bank_Account_Transactions;
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Save_Transaction_Info_After_Transaction_Id;
+
+        /// <summary>
+        /// textbox_Edit_Transaction_Account_Balance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Edit_Transaction_Account_Balance;
+
+        /// <summary>
+        /// textbox_Edit_Transaction_Actual_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Edit_Transaction_Actual_DateTime;
+
+        /// <summary>
+        /// validator_Transaction_Actual_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Transaction_Actual_DateTime;
+
+        /// <summary>
+        /// textbox_Edit_Positive_Amount_Entered control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Edit_Positive_Amount_Entered;
+
+        /// <summary>
+        /// textbox_Edit_Negative_Amount_Paid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Edit_Negative_Amount_Paid;
+
+        /// <summary>
+        /// textbox_Edit_Transaction_Value_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Edit_Transaction_Value_DateTime;
+
+        /// <summary>
+        /// textbox_Edit_Reference_Number control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Edit_Reference_Number;
+
+        /// <summary>
+        /// textbox_Transaction_Bank_Description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Transaction_Bank_Description;
+
+        /// <summary>
+        /// textbox_Transaction_Bank_Inner_Reference_Code control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textbox_Transaction_Bank_Inner_Reference_Code;
+
+        /// <summary>
+        /// button_Popup_Save_Transaction_Details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Popup_Save_Transaction_Details;
     }
 }

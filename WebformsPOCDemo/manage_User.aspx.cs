@@ -180,7 +180,7 @@ namespace WebformsPOCDemo
                 this.label_Our_Administrative_Side_Notes.Text = userDetails.Our_Administrative_Side_Notes;
 
                 this.checkbox_Is_Active.Checked = userDetails.Is_Active;
-                this.label_Is_Active.Text = userDetails.Is_Active ? "Yes" : "No";
+                this.label_Is_Active.Text = base.Get_Yes_Or_No_Text_Value(userDetails.Is_Active);
 
                 this.label_Record_Created_By_User.Text = userDetails.Record_Created_By_User_Details.FullName_With_Email;
                 this.label_Record_Creation_DateTime_UTC.Text = userDetails.Record_Creation_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");

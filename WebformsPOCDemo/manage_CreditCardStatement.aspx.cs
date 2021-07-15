@@ -22,6 +22,11 @@ namespace WebformsPOCDemo
             {
                 this.Bind_Default_View();
             }
+
+            if (this.ViewState["Is_Create_Or_Edit_View"] != null)
+            {
+                l_Is_Create_Or_Edit_View = (bool)this.ViewState["Is_Create_Or_Edit_View"];
+            }
         }
 
         private void Bind_Default_View()
@@ -184,23 +189,148 @@ namespace WebformsPOCDemo
             this.link_Download_CCStatement2.Enabled = this.link_Download_CCStatement.Enabled;
             this.link_Download_CCStatement2.Visible = l_Download_CCStatement_Visible;
 
-            //if (this.link_Download_CCStatement.Visible)
             if (l_Download_CCStatement_Visible)
             {
                 this.panel_Image_Download_CCStatement.CssClass += " download-link-with-image";
             }
 
             this.checkbox_Is_Visible_To_Anonymous_Users.Checked = ccStatement_Details.Is_Visible_To_Anonymous_Users;
-            this.label_Is_Visible_To_Anonymous_Users.Text = ccStatement_Details.Is_Visible_To_Anonymous_Users ? "Yes" : "No";
+            this.label_Is_Visible_To_Anonymous_Users.Text 
+                = base.Get_Yes_Or_No_Text_Value(ccStatement_Details.Is_Visible_To_Anonymous_Users);
 
             this.checkbox_Is_Available_For_Download_For_Anonymous_Users.Checked = ccStatement_Details.Is_Available_For_Download_For_Anonymous_Users;
-            this.label_Is_Available_For_Download_For_Anonymous_Users.Text = ccStatement_Details.Is_Available_For_Download_For_Anonymous_Users ? "Yes" : "No";
+            this.label_Is_Available_For_Download_For_Anonymous_Users.Text 
+                = base.Get_Yes_Or_No_Text_Value(ccStatement_Details.Is_Available_For_Download_For_Anonymous_Users);
 
             this.checkbox_Is_Visible_To_Followers_Users.Checked = ccStatement_Details.Is_Visible_To_Followers_Users;
-            this.label_Is_Visible_To_Followers_Users.Text = ccStatement_Details.Is_Visible_To_Followers_Users ? "Yes" : "No";
+            this.label_Is_Visible_To_Followers_Users.Text 
+                = base.Get_Yes_Or_No_Text_Value(ccStatement_Details.Is_Visible_To_Followers_Users);
 
             this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked = ccStatement_Details.Is_Available_For_Download_For_Followers_Users;
-            this.label_Is_Available_For_Download_For_Followers_Users.Text = ccStatement_Details.Is_Available_For_Download_For_Followers_Users ? "Yes" : "No";
+            this.label_Is_Available_For_Download_For_Followers_Users.Text 
+                = base.Get_Yes_Or_No_Text_Value(ccStatement_Details.Is_Available_For_Download_For_Followers_Users);
+
+            this.label_Record_Created_By_User.Text = ccStatement_Details.Record_Created_By_User_Details.FullName_With_Email;
+            this.label_Record_Creation_DateTime_UTC.Text = ccStatement_Details.Record_Creation_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");
+            this.label_Record_Last_Updated_By_User.Text = ccStatement_Details.Record_Last_Updated_By_User_Details.FullName_With_Email.ToString();
+            this.label_Record_Last_Updated_DateTime_UTC.Text = ccStatement_Details.Record_Last_Updated_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");
+
+            this.Bind_Connected_BankAccountTransactionInfo(ccStatement_Details);
+        }
+
+        private void Bind_Connected_BankAccountTransactionInfo(Credit_Cards_Statement p_Statement_Details)
+        {
+            if (p_Statement_Details.Bank_Account_Transaction_Id_Connection > 0)
+            {
+                // There is a bank account transaction for the current credit card statement info. 
+
+                Bank_Account_Transactions transactionDetails = Business_Logic_Layer_Facade
+                    .Instance.BankAccount_Transactions_Get_Transaction_Details_By_Transaction_Id(
+                        p_Statement_Details.Bank_Account_Transaction_Id_Connection, 
+                        base.Authenticated_User_ID,
+                        base.Authenticated_User_ID);
+
+                if (transactionDetails != null)
+                {
+                    this.panel_BankAccountTransaction_Unconnected.Visible = false;
+                    this.panel_BankAccountTransaction_Info.Visible = true;
+
+                    this.hidden_Bank_Account_Transaction_Id.Value = transactionDetails.Bank_Account_Transaction_Id.ToString();
+
+                    this.link_BankAccountTransaction_ViewMore.NavigateUrl = "manage_BankAccountTransaction.aspx?id=" + transactionDetails.Bank_Account_Transaction_Id;
+                    this.link_BankAccountTransaction_EditDetails.NavigateUrl = "manage_BankAccountTransaction.aspx?id=" + transactionDetails.Bank_Account_Transaction_Id + "&mode=edit";
+
+                    Common_Tools.Set_Number_Text_Value_To_Label(
+                        transactionDetails.Transaction_Account_Balance,
+                        this.label_BankAccountTransaction_Transaction_Account_Balance);
+
+                    Common_Tools.Set_DateTime_To_Label(
+                        transactionDetails.Transaction_Actual_DateTime,
+                        this.label_BankAccountTransaction_Transaction_Actual_DateTime);
+
+                    Common_Tools.Set_Number_Text_Value_To_Label(
+                        transactionDetails.Positive_Amount_Entered,
+                        this.label_BankAccountTransaction_Positive_Amount_Entered);
+
+                    Common_Tools.Set_Number_Text_Value_To_Label(
+                        transactionDetails.Negative_Amount_Paid,
+                        this.label_BankAccountTransaction_Negative_Amount_Paid);
+
+                    Common_Tools.Set_DateTime_To_Label(
+                        transactionDetails.Transaction_Value_DateTime,
+                        this.label_BankAccountTransaction_Transaction_Value_DateTime);
+
+                    this.label_BankAccountTransaction_Reference_Number.Text = transactionDetails.Reference_Number;
+                    this.label_BankAccountTransaction_Transaction_Bank_Description.Text = transactionDetails.Transaction_Bank_Description;
+                    this.label_BankAccountTransaction_Transaction_Bank_Inner_Reference_Code.Text = transactionDetails.Transaction_Bank_Inner_Reference_Code;
+                    this.label_BankAccountTransaction_Transaction_User_Description.Text = transactionDetails.Transaction_User_Description;
+                    this.label_BankAccountTransaction_Transaction_User_Comments.Text = transactionDetails.Transaction_User_Comments;
+
+                    this.label_BankAccountTransaction_Is_Visible_To_Anonymous_Users.Text = base.Get_Yes_Or_No_Text_Value(transactionDetails.Is_Visible_To_Anonymous_Users);
+                    this.label_BankAccountTransaction_Is_Visible_To_Followers_Users.Text = base.Get_Yes_Or_No_Text_Value(transactionDetails.Is_Visible_To_Followers_Users);
+
+                    this.label_BankAccountTransaction_Record_Created_By_User.Text = transactionDetails.Record_Created_By_User_Details.FullName_With_Email;
+                    this.label_BankAccountTransaction_Record_Creation_DateTime_UTC.Text = transactionDetails.Record_Creation_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");
+                    this.label_BankAccountTransaction_Record_Last_Updated_By_User.Text = transactionDetails.Record_Last_Updated_By_User_Details.FullName_With_Email.ToString();
+                    this.label_BankAccountTransaction_Record_Last_Updated_DateTime_UTC.Text = transactionDetails.Record_Last_Updated_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");
+                }
+                else
+                {
+                    this.Bind_BankAccountTransaction_Disconnected();
+                }
+            }
+            else
+            {
+                this.Bind_BankAccountTransaction_Disconnected();
+            }
+        }
+
+        private void Bind_BankAccountTransaction_Disconnected()
+        {
+            this.panel_BankAccountTransaction_Unconnected.Visible = true;
+            this.panel_BankAccountTransaction_Info.Visible = false;
+
+            this.Bind_BankAccountTransactions_Connections_Suggession();
+        }
+
+        private void Bind_BankAccountTransactions_Connections_Suggession()
+        {
+            int l_Credit_Card_Statement_Id = int.Parse(this.Request.QueryString["id"]);
+
+            var l_Bank_Account_Transactions_List = Business_Logic_Layer_Facade.Instance
+                    .BankAccount_Transactions_Get_By_Date_Unconnected_Transactions_To_Credit_Card_Statements(
+                        l_Credit_Card_Statement_Id,
+                        base.Authenticated_User_ID);
+
+            if (l_Bank_Account_Transactions_List != null && l_Bank_Account_Transactions_List.Count > 0)
+            {
+                this.dropdown_BankAccountTransaction.ClearSelection();
+                this.dropdown_BankAccountTransaction.Items.Clear();
+
+                for (int i = 0; i < l_Bank_Account_Transactions_List.Count; i++)
+                {
+                    string l_Text = string.Empty;
+
+                    if (l_Bank_Account_Transactions_List[i].Negative_Amount_Paid > 0)
+                    {
+                        l_Text += "-" +
+                            Common_Tools.Get_Number_Formatted(l_Bank_Account_Transactions_List[i].Negative_Amount_Paid);
+                    }
+                    else if (l_Bank_Account_Transactions_List[i].Positive_Amount_Entered > 0)
+                    {
+                        l_Text += "+" +
+                            Common_Tools.Get_Number_Formatted(l_Bank_Account_Transactions_List[i].Positive_Amount_Entered);
+                    }
+
+                    l_Text += " , " + l_Bank_Account_Transactions_List[i].Transaction_Actual_DateTime.ToString("yyyy-MMM-dd")
+                        + " | " + l_Bank_Account_Transactions_List[i].Transaction_Bank_Description;
+                    
+                    this.dropdown_BankAccountTransaction.Items.Add(
+                        new ListItem(l_Text, l_Bank_Account_Transactions_List[i].Bank_Account_Transaction_Id.ToString()));
+                }
+
+                this.dropdown_BankAccountTransaction.DataBind();
+            }
         }
 
         private void Credit_Card_Transactions_Results()
@@ -241,7 +371,10 @@ namespace WebformsPOCDemo
 
         private void Bind_Create_View()
         {
+            this.panel_Tabs.Visible = false;
+
             this.l_Is_Create_Or_Edit_View = true;
+            this.ViewState["Is_Create_Or_Edit_View"] = true;
 
             base.Change_View_Mode_FormControls_Wrappers(false);
 
@@ -253,14 +386,26 @@ namespace WebformsPOCDemo
             this.button_Edit_CreditCardStatement_Details.Visible = false;
             this.button_Create_CreditCardStatement_Details.Visible = true;
 
+            this.button_CancelEdit_CreditCardStatement_Details_Top.Visible = false;
+            this.button_Update_CreditCardStatement_Details_Top.Visible = false;
+            this.button_Edit_CreditCardStatement_Details_Top.Visible = false;
+            //this.button_Create_CreditCardStatement_Details.Visible = true;
+
             this.panel_Last_Updates_Info.Visible = false;
 
             this.panel_Add_New_CCStatement_Transaction_In_The_Begining.Visible = true;
             this.panel_Add_New_CCStatement_Transaction_In_The_End.Visible = true;
+
+            this.panel_Top_Buttons.Visible = false;
         }
 
         private void Bind_ReadOnly_View()
         {
+            this.panel_Tabs.Visible = true;
+
+            this.l_Is_Create_Or_Edit_View = false;
+            this.ViewState["Is_Create_Or_Edit_View"] = false;
+
             base.Change_View_Mode_FormControls_Wrappers(true);
 
             this.p_Edit_Statement_File_Download.Visible = true;
@@ -271,13 +416,22 @@ namespace WebformsPOCDemo
             this.button_CancelEdit_CreditCardStatement_Details.Visible = false;
             this.button_Create_CreditCardStatement_Details.Visible = false;
 
+            this.button_Edit_CreditCardStatement_Details_Top.Visible = true;
+            this.button_Update_CreditCardStatement_Details_Top.Visible = false;
+            this.button_CancelEdit_CreditCardStatement_Details_Top.Visible = false;
+
+            this.panel_Last_Updates_Info.Visible = true;
+
             this.panel_Add_New_CCStatement_Transaction_In_The_Begining.Visible = false;
             this.panel_Add_New_CCStatement_Transaction_In_The_End.Visible = false;
         }
 
         private void Bind_Edit_View()
         {
+            this.panel_Tabs.Visible = true;
+
             this.l_Is_Create_Or_Edit_View = true;
+            this.ViewState["Is_Create_Or_Edit_View"] = true;
 
             this.p_Edit_Statement_File_Download.Visible = true;
             this.p_Edit_Statement_File.Visible = true;
@@ -288,6 +442,12 @@ namespace WebformsPOCDemo
             this.button_Update_CreditCardStatement_Details.Visible = true;
             this.button_CancelEdit_CreditCardStatement_Details.Visible = true;
             this.button_Create_CreditCardStatement_Details.Visible = false;
+
+            this.button_Edit_CreditCardStatement_Details_Top.Visible = false;
+            this.button_Update_CreditCardStatement_Details_Top.Visible = true;
+            this.button_CancelEdit_CreditCardStatement_Details_Top.Visible = true;
+
+            this.panel_Last_Updates_Info.Visible = true;
 
             this.panel_Add_New_CCStatement_Transaction_In_The_Begining.Visible = true;
             this.panel_Add_New_CCStatement_Transaction_In_The_End.Visible = true;
@@ -516,6 +676,16 @@ namespace WebformsPOCDemo
 
         }
 
+        protected void button_Edit_Credit_Card_Statement_Details_Click(object sender, EventArgs e)
+        {
+            this.Bind_Edit_View();
+        }
+
+        protected void button_CancelEdit_Credit_Card_Statement_Details_Click(object sender, EventArgs e)
+        {
+            this.Bind_ReadOnly_View();
+        }
+
         protected void button_Update_Credit_Card_Statement_Details_Click(object sender, EventArgs e)
         {
             // Save all the statement information to the database 
@@ -523,7 +693,112 @@ namespace WebformsPOCDemo
 
             var credit_Card_Transactions = ((Credit_Card_Transactions_Response_For_UI)this.ViewState["Credit_Card_Transactions_Response"]);
 
-            string break_point = "sdfs";
+            if (this.Page.IsValid)
+            {
+                bool l_CCStatement_Successfully_Updated = false;
+
+                string exception_During_Process = "";
+                string exception_During_Process_Extra_Data = "";
+
+                int p_User_Id_Owner = base.Authenticated_User_ID;
+                int p_Credit_Card_Statement_Id = int.Parse(this.Request.QueryString["id"]);
+
+                int p_Bank_Account_Id = int.Parse(this.dropdown_BankAccounts.SelectedValue);
+                int p_Credit_Card_Id = int.Parse(this.dropdown_CreditCard.SelectedValue);
+
+                DateTime? p_Statement_Date = new DateTime?();
+                if (!string.IsNullOrEmpty(this.textbox_CCStatement_DateTime.Text))
+                {
+                    bool parsed_Successfully = false;
+                    DateTime date_Parsed = new DateTime();
+                    try
+                    {
+
+                        parsed_Successfully = DateTime.TryParseExact(
+                            this.textbox_CCStatement_DateTime.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out date_Parsed);
+                    }
+                    catch
+                    {
+                        parsed_Successfully = false;
+                    }
+
+                    if (parsed_Successfully)
+                    {
+                        p_Statement_Date = date_Parsed;
+                    }
+                }
+
+                byte p_Currency_Id = byte.Parse(this.dropdown_Currency.SelectedValue);
+                decimal p_Total_Amount = decimal.Parse(this.textbox_Total_Amount.Text);
+
+                string p_Original_File_Name = "";
+                byte[] p_File_Content_To_Save_In_Azure = new byte[0];
+                if (this.fileUpload_CCStatement_File.HasFile)
+                {
+                    p_Original_File_Name = this.fileUpload_CCStatement_File.FileName;
+                    p_File_Content_To_Save_In_Azure = this.fileUpload_CCStatement_File.FileBytes;
+                }
+
+                long? p_Bank_Account_Transaction_Id_Connection = new long?();
+
+                bool p_Is_Visible_To_Anonymous_Users = this.checkbox_Is_Visible_To_Anonymous_Users.Checked;
+                bool p_Is_Available_For_Download_For_Anonymous_Users = this.checkbox_Is_Available_For_Download_For_Anonymous_Users.Checked;
+                bool p_Is_Visible_To_Followers_Users = this.checkbox_Is_Visible_To_Followers_Users.Checked;
+                bool p_Is_Available_For_Download_For_Followers_Users = this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked;
+
+                List<Credit_Card_Transactions_To_DB_Sync_From_UI> statement_Transactions = credit_Card_Transactions.Credit_Card_Transactions_To_DB_Sync_From_Or_To_UI;
+
+                int p_Creating_User_Id = base.Authenticated_User_ID;
+                var p_Creating_User_Permission = base.Authenticated_Permission_Type;
+
+                try
+                {
+                    l_CCStatement_Successfully_Updated = Business_Logic_Layer_Facade.Instance.CreditCardStatements_Update_Credit_Card_Statement_Details(
+                        p_User_Id_Owner,
+                        p_Credit_Card_Statement_Id,
+                        p_Credit_Card_Id,
+                        p_Statement_Date,
+                        p_Total_Amount,
+                        p_Currency_Id,
+                        p_Original_File_Name,
+                        p_File_Content_To_Save_In_Azure,
+                        p_Bank_Account_Transaction_Id_Connection,
+                        p_Is_Visible_To_Anonymous_Users,
+                        p_Is_Available_For_Download_For_Anonymous_Users,
+                        p_Is_Visible_To_Followers_Users,
+                        p_Is_Available_For_Download_For_Followers_Users,
+                        statement_Transactions,
+                        p_Creating_User_Id,
+                        p_Creating_User_Permission
+                        );
+                }
+                catch (Exception exc)
+                {
+                    l_CCStatement_Successfully_Updated = false;
+
+                    exception_During_Process = exc.Message;
+                    if (exc.InnerException != null)
+                    {
+                        exception_During_Process_Extra_Data = exc.InnerException.Message;
+                    }
+                }
+
+                if (l_CCStatement_Successfully_Updated)
+                {
+                    // The user details was successfully created.. 
+                    // Show success message and redirect the user to view page or back to users page (depends on where the user came from)
+                    this.Response.Redirect("manage_creditcardstatement.aspx?id=" + p_Credit_Card_Statement_Id);
+                }
+                else
+                {
+                    // show error message to the user for the failed process
+                    this.lbl_Insert_Process_Error_Result.Text = exception_During_Process;
+                    if (!string.IsNullOrEmpty(exception_During_Process_Extra_Data))
+                    {
+                        this.lbl_Insert_Process_Error_Result.Text += " (" + exception_During_Process_Extra_Data + ")";
+                    }
+                }
+            }
         }
 
         protected void button_Create_Credit_Card_Statement_Details_Click(object sender, EventArgs e)
@@ -630,7 +905,7 @@ namespace WebformsPOCDemo
                 {
                     // The user details was successfully created.. 
                     // Show success message and redirect the user to view page or back to users page (depends on where the user came from)
-                    Response.Redirect("manage_creditcardstatement.aspx?id=" + l_New_CCStatement_Id);
+                    this.Response.Redirect("manage_creditcardstatement.aspx?id=" + l_New_CCStatement_Id);
                 }
                 else
                 {
@@ -641,6 +916,56 @@ namespace WebformsPOCDemo
                         this.lbl_Insert_Process_Error_Result.Text += " (" + exception_During_Process_Extra_Data + ")";
                     }
                 }
+            }
+        }
+
+        protected void button_Save_BankAccountTransaction_Connection_Click(object sender, EventArgs e)
+        {
+            long l_Bank_Account_Transction_Id = long.Parse(this.dropdown_BankAccountTransaction.SelectedValue);
+            int l_Credit_Card_Statement_Id = int.Parse(this.Request.QueryString["id"]);
+
+            bool l_Updated_Successfully = Business_Logic_Layer_Facade.Instance
+                .BankAccount_Transactions_Update_Connect_With_Statement(
+                    l_Bank_Account_Transction_Id, l_Credit_Card_Statement_Id, base.Authenticated_User_ID);
+
+            if (l_Updated_Successfully)
+            {
+                var ccStatement_Details = Business_Logic_Layer_Facade.Instance
+                    .CreditCardStatements_Get_Credit_Card_Statement_Details_By_Credit_Card_Statement_Id(
+                        l_Credit_Card_Statement_Id,
+                        base.Authenticated_User_ID,
+                        base.Authenticated_User_ID,
+                        base.Authenticated_Permission_Type);
+
+                this.label_Record_Last_Updated_By_User.Text = ccStatement_Details.Record_Last_Updated_By_User_Details.FullName_With_Email.ToString();
+                this.label_Record_Last_Updated_DateTime_UTC.Text = ccStatement_Details.Record_Last_Updated_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");
+
+                this.Bind_Connected_BankAccountTransactionInfo(ccStatement_Details);
+            }
+        }
+
+        protected void button_Delete_BankAccountTransaction_Connection_Click(object sender, EventArgs e)
+        {
+            long l_Bank_Account_Transction_Id = long.Parse(this.hidden_Bank_Account_Transaction_Id.Value);
+            int l_Credit_Card_Statement_Id = int.Parse(this.Request.QueryString["id"]);
+
+            bool l_Updated_Successfully = Business_Logic_Layer_Facade.Instance
+                .BankAccount_Transactions_Update_Disconnect_Statement(
+                    l_Bank_Account_Transction_Id, l_Credit_Card_Statement_Id, base.Authenticated_User_ID);
+
+            if (l_Updated_Successfully)
+            {
+                var ccStatement_Details = Business_Logic_Layer_Facade.Instance
+                    .CreditCardStatements_Get_Credit_Card_Statement_Details_By_Credit_Card_Statement_Id(
+                        l_Credit_Card_Statement_Id,
+                        base.Authenticated_User_ID,
+                        base.Authenticated_User_ID,
+                        base.Authenticated_Permission_Type);
+
+                this.label_Record_Last_Updated_By_User.Text = ccStatement_Details.Record_Last_Updated_By_User_Details.FullName_With_Email.ToString();
+                this.label_Record_Last_Updated_DateTime_UTC.Text = ccStatement_Details.Record_Last_Updated_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");
+
+                this.Bind_Connected_BankAccountTransactionInfo(ccStatement_Details);
             }
         }
     }

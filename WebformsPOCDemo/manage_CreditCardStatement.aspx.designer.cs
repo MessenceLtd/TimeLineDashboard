@@ -15,6 +15,51 @@ namespace WebformsPOCDemo
     {
 
         /// <summary>
+        /// panel_Tabs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_Tabs;
+
+        /// <summary>
+        /// tab_Button_General_Info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink tab_Button_General_Info;
+
+        /// <summary>
+        /// liTab_CreditCardStatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liTab_CreditCardStatement;
+
+        /// <summary>
+        /// tab_Button_Transaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink tab_Button_Transaction;
+
+        /// <summary>
+        /// General_Info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel General_Info;
+
+        /// <summary>
         /// formControl_Wrapper_Edit_BankAccount control.
         /// </summary>
         /// <remarks>
@@ -51,13 +96,13 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Label label_BankAccount;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// validator_Select_Bank_Account control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Select_Bank_Account;
 
         /// <summary>
         /// formControl_Wrapper_Edit_Credit_Card control.
@@ -96,13 +141,13 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Label label_CreditCard;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// validator_Select_Credit_Card control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validator_Select_Credit_Card;
 
         /// <summary>
         /// formControl_Wrapper_Edit_CCStatement_DateTime control.
@@ -519,6 +564,42 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Label label_Record_Last_Updated_DateTime_UTC;
 
         /// <summary>
+        /// panel_Top_Buttons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_Top_Buttons;
+
+        /// <summary>
+        /// button_Edit_CreditCardStatement_Details_Top control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Edit_CreditCardStatement_Details_Top;
+
+        /// <summary>
+        /// button_Update_CreditCardStatement_Details_Top control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Update_CreditCardStatement_Details_Top;
+
+        /// <summary>
+        /// button_CancelEdit_CreditCardStatement_Details_Top control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_CancelEdit_CreditCardStatement_Details_Top;
+
+        /// <summary>
         /// up_Credit_Card_Transactions1 control.
         /// </summary>
         /// <remarks>
@@ -652,5 +733,239 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Insert_Process_Error_Result;
+
+        /// <summary>
+        /// Transaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Transaction;
+
+        /// <summary>
+        /// up_BankAccountTransaction_Details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_BankAccountTransaction_Details;
+
+        /// <summary>
+        /// panel_BankAccountTransaction_Unconnected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_BankAccountTransaction_Unconnected;
+
+        /// <summary>
+        /// dropdown_BankAccountTransaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_BankAccountTransaction;
+
+        /// <summary>
+        /// button_Save_BankAccountTransaction_Connection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Save_BankAccountTransaction_Connection;
+
+        /// <summary>
+        /// panel_BankAccountTransaction_Info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_BankAccountTransaction_Info;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Transaction_Account_Balance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Transaction_Account_Balance;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Transaction_Actual_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Transaction_Actual_DateTime;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Positive_Amount_Entered control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Positive_Amount_Entered;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Negative_Amount_Paid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Negative_Amount_Paid;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Transaction_Value_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Transaction_Value_DateTime;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Reference_Number control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Reference_Number;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Transaction_Bank_Description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Transaction_Bank_Description;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Transaction_Bank_Inner_Reference_Code control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Transaction_Bank_Inner_Reference_Code;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Transaction_User_Description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Transaction_User_Description;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Transaction_User_Comments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Transaction_User_Comments;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Is_Visible_To_Anonymous_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Is_Visible_To_Anonymous_Users;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Is_Visible_To_Followers_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Is_Visible_To_Followers_Users;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Record_Created_By_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Record_Created_By_User;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Record_Creation_DateTime_UTC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Record_Creation_DateTime_UTC;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Record_Last_Updated_By_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Record_Last_Updated_By_User;
+
+        /// <summary>
+        /// label_BankAccountTransaction_Record_Last_Updated_DateTime_UTC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccountTransaction_Record_Last_Updated_DateTime_UTC;
+
+        /// <summary>
+        /// hidden_Bank_Account_Transaction_Id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Bank_Account_Transaction_Id;
+
+        /// <summary>
+        /// link_BankAccountTransaction_ViewMore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link_BankAccountTransaction_ViewMore;
+
+        /// <summary>
+        /// link_BankAccountTransaction_EditDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link_BankAccountTransaction_EditDetails;
+
+        /// <summary>
+        /// button_Delete_BankAccountTransaction_Connection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Delete_BankAccountTransaction_Connection;
     }
 }

@@ -22,3 +22,22 @@ body,html, form
     margin-right:6px;
     margin-left:4px;
 }
+
+
+.Form_Group {
+    display: table-row;
+    vertical-align: middle;
+}
+
+.Form_Group .Form_Label_Wrapper {
+    display: table-cell;
+    float: right;
+    max-width: 200px;
+    vertical-align: middle;
+    margin-left:10px;
+}
+
+.Form_Group .Form_Control {
+    display: table-cell;
+    vertical-align: middle;
+}

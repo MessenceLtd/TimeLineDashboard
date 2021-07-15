@@ -281,5 +281,23 @@ namespace WebformsPOCDemo.AppShared
 
             return is_Create_Mode;
         }
+
+        protected string Get_Global_Resource_Key_Value(string p_File, string p_Key)
+        {
+            object key_To_Return = GetGlobalResourceObject(p_File, p_Key);
+
+            return key_To_Return == null ? string.Empty : key_To_Return.ToString();
+        }
+
+        protected string Get_Yes_Or_No_Text_Value(bool p_Value)
+        {
+            object key_To_Return = null; 
+            if (p_Value)
+                key_To_Return = GetGlobalResourceObject("SiteCommon", "Yes");
+            else
+                key_To_Return = GetGlobalResourceObject("SiteCommon", "No");
+
+            return key_To_Return == null ? string.Empty : key_To_Return.ToString();
+        }
     }
 }

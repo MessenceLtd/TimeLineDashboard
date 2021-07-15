@@ -47,12 +47,45 @@ namespace TimeLineDashboard.DAL.Operations
 
             spUser_ID_Searching.Value = p_User_ID_Searching;
 
-            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Credit_Card_Statements_List", 
-                new List<SqlParameter>() {
-                    spUser_Id_Bank_Owner    ,
-                    spBank_Account_Id       ,
-                    spUser_ID_Searching
-                });
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Get_Credit_Card_Statements_List", 
+                    new List<SqlParameter>() {
+                        spUser_Id_Bank_Owner    ,
+                        spBank_Account_Id       ,
+                        spUser_ID_Searching
+                    });
+
+            if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+            {
+                Credit_Cards_Statement_To_Return = new List<Credit_Cards_Statement>(dataSet.Tables[0].Rows.Count);
+
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    Credit_Cards_Statement_To_Return.Add(Create_Credit_Card_Statement_Details_From_Data_Row(dataSet.Tables[0].Rows[i]));
+                }
+            }
+
+            return Credit_Cards_Statement_To_Return;
+        }
+
+        internal List<Credit_Cards_Statement> Get_By_Date_Unconnected_Statements(
+            long p_Bank_Account_Transaction_Id,
+            int p_Searching_User_ID)
+        {
+            List<Credit_Cards_Statement> Credit_Cards_Statement_To_Return = new List<Credit_Cards_Statement>();
+
+            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.BigInt);
+            SqlParameter spSearching_User_ID = new SqlParameter("@Searching_User_ID", SqlDbType.Int);
+
+            spBank_Account_Transaction_Id.Value = p_Bank_Account_Transaction_Id;
+            spSearching_User_ID.Value = p_Searching_User_ID;
+
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Get_Credit_Card_Statements_Unconnected_Statements_By_BankAccountTransactionId",
+                    new List<SqlParameter>() {
+                        spBank_Account_Transaction_Id,
+                        spSearching_User_ID
+                    });
 
             if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
             {
@@ -82,11 +115,12 @@ namespace TimeLineDashboard.DAL.Operations
             spUser_ID_Bank_Owner.Value = p_User_ID_Bank_Owner;
             spUser_ID_Searching.Value = p_User_ID_Searching;
 
-            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Credit_Card_Statement_Details",
-                new List<SqlParameter>() {
-                    spCredit_Card_Statement_Id,
-                    spUser_ID_Bank_Owner ,
-                    spUser_ID_Searching });
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Get_Credit_Card_Statement_Details",
+                    new List<SqlParameter>() {
+                        spCredit_Card_Statement_Id,
+                        spUser_ID_Bank_Owner ,
+                        spUser_ID_Searching });
 
             if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
             {
@@ -189,8 +223,8 @@ namespace TimeLineDashboard.DAL.Operations
         internal bool Update_Credit_Card_Statement_Details(
             int p_Credit_Card_Statement_Id,
             int p_Credit_Card_Id,
-            DateTime p_Statement_Date,
-            decimal p_Total_Amount,
+            DateTime? p_Statement_Date,
+            decimal? p_Total_Amount,
             byte p_Currency_Id,
             string p_Original_File_Name,
             string p_Azure_Block_Blob_Reference,
@@ -221,8 +255,17 @@ namespace TimeLineDashboard.DAL.Operations
 
             spCredit_Card_Statement_Id.Value = p_Credit_Card_Statement_Id;
             spCredit_Card_Id.Value = p_Credit_Card_Id;
-            spStatement_Date.Value = p_Statement_Date;
-            spTotal_Amount.Value = p_Total_Amount;
+            
+            if (p_Statement_Date.HasValue)
+                spStatement_Date.Value = p_Statement_Date;
+            else
+                spStatement_Date.Value = DBNull.Value;
+
+            if (p_Total_Amount.HasValue)
+                spTotal_Amount.Value = p_Total_Amount;
+            else
+                spTotal_Amount.Value = DBNull.Value;
+
             spCurrency_Id.Value = p_Currency_Id;
 
             spOriginal_File_Name.Value = p_Original_File_Name;
@@ -292,10 +335,19 @@ namespace TimeLineDashboard.DAL.Operations
             }
 
             Credit_Card_Statement_To_Return.Credit_Card_Id = Convert.ToInt32(dbRow["Credit_Card_Id"]);
+            if (dbRow.Table.Columns.IndexOf("Credit_Card_Name") > -1 &&
+                dbRow["Statement_Date"] != DBNull.Value)
+            {
+                Credit_Card_Statement_To_Return.Card_Name = dbRow["Credit_Card_Name"].ToString();
+            }
 
             Credit_Card_Statement_To_Return.Statement_Date = Convert.ToDateTime(dbRow["Statement_Date"]);
             Credit_Card_Statement_To_Return.Total_Amount = Convert.ToDecimal(dbRow["Total_Amount"]);
             Credit_Card_Statement_To_Return.Currency_Id = Convert.ToByte(dbRow["Currency_Id"]);
+            if (dbRow.Table.Columns.IndexOf("Currency_Symbol") > -1 && dbRow["Currency_Symbol"] != DBNull.Value)
+            { 
+                Credit_Card_Statement_To_Return.Currency_Symbol = dbRow["Currency_Symbol"].ToString();
+            }
 
             Credit_Card_Statement_To_Return.Original_File_Name = dbRow["Original_File_Name"].ToString();
             Credit_Card_Statement_To_Return.Azure_Block_Blob_Reference = dbRow["Azure_Block_Blob_Reference"].ToString();
@@ -335,6 +387,11 @@ namespace TimeLineDashboard.DAL.Operations
             Credit_Card_Statement_To_Return.Is_Available_For_Download_For_Followers_Users = (bool)dbRow["Is_Available_For_Download_For_Followers_Users"];
 
             Credit_Card_Statement_To_Return.Is_Deleted = (bool)dbRow["Is_Deleted"];
+
+            if (dbRow.Table.Columns.IndexOf("Total_Purchases") > -1 && dbRow["Total_Purchases"] != DBNull.Value)
+            {
+                Credit_Card_Statement_To_Return.Total_Purchases = Convert.ToInt32(dbRow["Total_Purchases"]);
+            }
 
             return Credit_Card_Statement_To_Return;
         }

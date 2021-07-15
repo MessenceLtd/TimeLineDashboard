@@ -21,6 +21,7 @@ namespace TimeLineDashboard.Shared.Models
         public bool Is_Visible_To_Anonymous_Users { get; set; }
         public bool Is_Visible_To_Followers_Users { get; set; }
         public bool Is_Credit_Card_Statement_Transaction { get; set; }
+        public int Credit_Card_Statement_Id { get; set; }
         public int Record_Created_By_User_Id { get; set; }
         public Users Record_Created_By_User_Details { get; set; }
         public DateTime Record_Creation_DateTime_UTC { get; set; }

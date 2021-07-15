@@ -20,7 +20,10 @@ namespace TimeLineDashboard.Shared.Models
         public string User_Description { get; set; }
         public string User_Comments { get; set; }
         public short? Transaction_Sort_Order_View { get; set; }
-        public bool Is_Visible { get; set; }
+        public bool Is_Visible_To_Anonymous_Users { get; set; }
+        public bool Is_Available_For_Download_For_Anonymous_Users { get; set; }
+        public bool Is_Visible_To_Followers_Users { get; set; }
+        public bool Is_Available_For_Download_For_Followers_Users { get; set; }
         public int Record_Created_By_User_Id { get; set; }
         public Users Record_Created_By_User_Details { get; set; }
         public DateTime Record_Creation_DateTime_UTC { get; set; }

@@ -135,14 +135,53 @@
   <data name="Account_Number" xml:space="preserve">
     <value>Account Number</value>
   </data>
+  <data name="Actual_Payment_Amount" xml:space="preserve">
+    <value>Actual Payment Amount</value>
+  </data>
   <data name="Additional_Phone_Number" xml:space="preserve">
     <value>Additional Phone Number</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Address</value>
   </data>
+  <data name="Add_Bank_Account_SubTitle" xml:space="preserve">
+    <value>Keep track, audit and add more details to bank account transactions.</value>
+  </data>
+  <data name="Add_Bank_Account_Title" xml:space="preserve">
+    <value>Add Bank Account</value>
+  </data>
+  <data name="Add_Client_SubTitle" xml:space="preserve">
+    <value>Keep track on all your client and contacts.</value>
+  </data>
+  <data name="Add_Client_Title" xml:space="preserve">
+    <value>Add Client</value>
+  </data>
+  <data name="Add_Document_SubTitle" xml:space="preserve">
+    <value>The advanced way to keep track on all your documentation.</value>
+  </data>
+  <data name="Add_Document_Title" xml:space="preserve">
+    <value>Add Document</value>
+  </data>
+  <data name="Add_Expense_SubTitle" xml:space="preserve">
+    <value>The advanced way to keep track on all your expenses.</value>
+  </data>
+  <data name="Add_Expense_Title" xml:space="preserve">
+    <value>Add Expense</value>
+  </data>
+  <data name="Add_Invoice_SubTitle" xml:space="preserve">
+    <value>The advanced way to keep track on all your invoices.</value>
+  </data>
+  <data name="Add_Invoice_Title" xml:space="preserve">
+    <value>Add Invoice</value>
+  </data>
+  <data name="Add_More" xml:space="preserve">
+    <value>Add More</value>
+  </data>
   <data name="Add_New_Bank_Account" xml:space="preserve">
     <value>Add new bank account</value>
+  </data>
+  <data name="Add_New_Bank_Account_Transaction_Record" xml:space="preserve">
+    <value>Add New Record</value>
   </data>
   <data name="Add_New_Client" xml:space="preserve">
     <value>Add New Client</value>
@@ -171,6 +210,9 @@
   <data name="Add_New_Receipt_Tax_Invoice" xml:space="preserve">
     <value>Add New Receipt Tax Invoice</value>
   </data>
+  <data name="Add_New_Record" xml:space="preserve">
+    <value>Add New Record</value>
+  </data>
   <data name="Add_New_Supplier" xml:space="preserve">
     <value>Add new supplier</value>
   </data>
@@ -180,8 +222,20 @@
   <data name="Add_New_User" xml:space="preserve">
     <value>Add New User</value>
   </data>
+  <data name="Add_Record" xml:space="preserve">
+    <value>Add Record</value>
+  </data>
+  <data name="Add_Supplier_SubTitle" xml:space="preserve">
+    <value>Keep track on all your suppliers and contacts.</value>
+  </data>
+  <data name="Add_Supplier_Title" xml:space="preserve">
+    <value>Add Supplier</value>
+  </data>
   <data name="Adminstration_Notes" xml:space="preserve">
     <value>Adminstration Notes</value>
+  </data>
+  <data name="Application_Title" xml:space="preserve">
+    <value>Documents Manager &amp; Timeline Dashboards</value>
   </data>
   <data name="App_Permission_Type" xml:space="preserve">
     <value>App Permission Type</value>
@@ -192,6 +246,15 @@
   <data name="Balance" xml:space="preserve">
     <value>Balance</value>
   </data>
+  <data name="BankAccount_Transaction_Document_Connection_Type_1" xml:space="preserve">
+    <value>Expense</value>
+  </data>
+  <data name="BankAccount_Transaction_Document_Connection_Type_2" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="BankAccount_Transaction_Document_Connection_Type_3" xml:space="preserve">
+    <value>Document</value>
+  </data>
   <data name="Bank_Account" xml:space="preserve">
     <value>Bank Account</value>
   </data>
@@ -200,6 +263,99 @@
   </data>
   <data name="Bank_Accounts_List" xml:space="preserve">
     <value>Bank Accounts list</value>
+  </data>
+  <data name="Bank_Account_Transactions_Create_Bank_Account_Transaction" xml:space="preserve">
+    <value>Create Bank Account Transaction</value>
+  </data>
+  <data name="Bank_Account_Transactions_Edit_Bank_Account_Transaction" xml:space="preserve">
+    <value>Edit Bank Account Transaction </value>
+  </data>
+  <data name="Bank_Account_Transaction_Amount_Entered" xml:space="preserve">
+    <value>Amount Entered:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Amount_Paid" xml:space="preserve">
+    <value>Negative Amount Paid:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Bank_Description" xml:space="preserve">
+    <value>Bank Description:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Bank_Inner_Reference" xml:space="preserve">
+    <value>Bank Inner Reference:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Bank_Account_Transaction_Confirm_Delete" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Bank_Account_Transaction_Connected_Documents" xml:space="preserve">
+    <value>Connected Documents:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Connect_Suggested_Document" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Bank_Account_Transaction_Connect_With_A_Credit_Card_Statement" xml:space="preserve">
+    <value>Connect with a credit card statement:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Credit_Card_Statement_Tab" xml:space="preserve">
+    <value>CREDIT CARD STATEMENT</value>
+  </data>
+  <data name="Bank_Account_Transaction_Documents_No_Results_Were_Found" xml:space="preserve">
+    <value>No results were found!</value>
+  </data>
+  <data name="Bank_Account_Transaction_Documents_Tab" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="Bank_Account_Transaction_Documents_Use_Search_Criteria" xml:space="preserve">
+    <value>Use the above search criteria to search for documents.</value>
+  </data>
+  <data name="Bank_Account_Transaction_Each_Transaction_In_Credit_Card_Statement_Has_Own_Documents" xml:space="preserve">
+    <value>Each transaction in the credit card statement has it's own documents connection.</value>
+  </data>
+  <data name="Bank_Account_Transaction_Edit" xml:space="preserve">
+    <value>Edit Details</value>
+  </data>
+  <data name="Bank_Account_Transaction_Edit_Document_Connection_Settings" xml:space="preserve">
+    <value>Edit Document Connection Settings</value>
+  </data>
+  <data name="Bank_Account_Transaction_General_Info_Tab" xml:space="preserve">
+    <value>General Info</value>
+  </data>
+  <data name="Bank_Account_Transaction_It_Is_Not_Possible_To_Both_Connect_Statement_And_Documents" xml:space="preserve">
+    <value>It is not possible to both connect to a credit card statement and have connected documents.</value>
+  </data>
+  <data name="Bank_Account_Transaction_My_Comments" xml:space="preserve">
+    <value>My Comments:</value>
+  </data>
+  <data name="Bank_Account_Transaction_My_Description" xml:space="preserve">
+    <value>My Description:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Not_Connected_To_Credit_Card_Statement" xml:space="preserve">
+    <value>This bank transaction is not connected to a credit card statement.</value>
+  </data>
+  <data name="Bank_Account_Transaction_Reference_Number" xml:space="preserve">
+    <value>Reference Number:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Save_Changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Bank_Account_Transaction_Save_Document_Connection_Details" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Bank_Account_Transaction_Search_For_Documents_To_Connect" xml:space="preserve">
+    <value>Search for documents to connect.</value>
+  </data>
+  <data name="Bank_Account_Transaction_Suggested_Documents_Title_Message" xml:space="preserve">
+    <value>Suggested documents list:</value>
+  </data>
+  <data name="Bank_Account_Transaction_There_Are_No_Connected_Documents" xml:space="preserve">
+    <value>There are no connected documents.</value>
+  </data>
+  <data name="Bank_Account_Transaction_There_Are_No_Suggested_Documents" xml:space="preserve">
+    <value>There are no suggested documents</value>
+  </data>
+  <data name="Bank_Account_Transaction_Value_DateTime" xml:space="preserve">
+    <value>Effective Date:</value>
   </data>
   <data name="Bank_Name" xml:space="preserve">
     <value>Bank Name</value>
@@ -249,6 +405,12 @@
   <data name="Business_Phone" xml:space="preserve">
     <value>Business Phone</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Cancel_Edit" xml:space="preserve">
+    <value>Cancel edit</value>
+  </data>
   <data name="Can_Followers_Download_File" xml:space="preserve">
     <value>Can Followers Download File</value>
   </data>
@@ -273,6 +435,18 @@
   <data name="Clients List" xml:space="preserve">
     <value>Clients_List</value>
   </data>
+  <data name="Clients_Filter_By_Type" xml:space="preserve">
+    <value>Filter by Type</value>
+  </data>
+  <data name="Clients_No_Results_Were_Found" xml:space="preserve">
+    <value>No results were found!</value>
+  </data>
+  <data name="Clients_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>Please use the search criteria to search for clients.</value>
+  </data>
+  <data name="Clients_Select_Client_Type" xml:space="preserve">
+    <value>Select client type</value>
+  </data>
   <data name="Client_From_Date" xml:space="preserve">
     <value>Client From Date</value>
   </data>
@@ -282,17 +456,26 @@
   <data name="Client_Type" xml:space="preserve">
     <value>Client Type</value>
   </data>
+  <data name="Close_Window" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Comments</value>
   </data>
   <data name="Company_Name" xml:space="preserve">
     <value>Company Name</value>
   </data>
+  <data name="Connect_Credit_Card_Statement" xml:space="preserve">
+    <value>Connect Statement</value>
+  </data>
   <data name="Contact_Email_Address" xml:space="preserve">
     <value>Contact Email Address</value>
   </data>
   <data name="Contact_FullName" xml:space="preserve">
     <value>Contact Full Name</value>
+  </data>
+  <data name="Contact_Person" xml:space="preserve">
+    <value>Contact Person</value>
   </data>
   <data name="Contact_Phone_Number" xml:space="preserve">
     <value>Contact Phone Number</value>
@@ -324,6 +507,111 @@
   <data name="Credit_Card_Name" xml:space="preserve">
     <value>Credit Card Name</value>
   </data>
+  <data name="Credit_Card_Statement_Add_New_Transaction_Record_On_Bottom" xml:space="preserve">
+    <value>Add New Record</value>
+  </data>
+  <data name="Credit_Card_Statement_Add_New_Transaction_Record_On_Top" xml:space="preserve">
+    <value>Add New Record</value>
+  </data>
+  <data name="Credit_Card_Statement_Bank_Transaction_Connection_Edit_Details" xml:space="preserve">
+    <value>Edit Details</value>
+  </data>
+  <data name="Credit_Card_Statement_Bank_Transaction_Connection_Remove" xml:space="preserve">
+    <value>Remove Transaction Connection</value>
+  </data>
+  <data name="Credit_Card_Statement_Bank_Transaction_Connection_View_More" xml:space="preserve">
+    <value>View More</value>
+  </data>
+  <data name="Credit_Card_Statement_Connect_Bank_Transaction_Button" xml:space="preserve">
+    <value>Connect Statement</value>
+  </data>
+  <data name="Credit_Card_Statement_Connect_Statement_To_Bank_Account_Transaction" xml:space="preserve">
+    <value>Connect with a bank account transaction: </value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Actual_Payment_Amount" xml:space="preserve">
+    <value>Charged Amount</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Business_Name" xml:space="preserve">
+    <value>Business Name</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Transaction_Amount" xml:space="preserve">
+    <value>Paid Amount</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Transaction_Date" xml:space="preserve">
+    <value>Transaction Date</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Connected_Documents_SubTitle" xml:space="preserve">
+    <value>List of all the documents that are connected to the transaction.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Connected_Documents_Title" xml:space="preserve">
+    <value>Connected Documentation</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Connect_Document" xml:space="preserve">
+    <value>Connect document</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Edit_Document_Connection_Settings" xml:space="preserve">
+    <value>Edit Document Connection Settings</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Edit_Document_Connection_Settings_Save_Button" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Button" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Filter_By_Type" xml:space="preserve">
+    <value>Filter by Type</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_No_Results_Were_Found" xml:space="preserve">
+    <value>No results were found!</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Please_Use_Search_Criteria" xml:space="preserve">
+    <value>Please use the search criteria to search for documents.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Select_Type" xml:space="preserve">
+    <value>Select type</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_SubTitle" xml:space="preserve">
+    <value>Search and connect with any documents you want to the transaction.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Title" xml:space="preserve">
+    <value>Search Documents To Connect</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Suggested_Documents_SubTitle" xml:space="preserve">
+    <value>List of all the documents that are suggested for connection based on the date of the transaction.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Suggested_Documents_Title" xml:space="preserve">
+    <value>Suggested Documents To Connect</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Edit_Details" xml:space="preserve">
+    <value>Edit Details</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_General_Info" xml:space="preserve">
+    <value>General Info</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_No_Connected_Documents" xml:space="preserve">
+    <value>There are no connected documents.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_No_Documents_To_Suggest" xml:space="preserve">
+    <value>There are no documents to suggested based on the purchase date.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Please_Use_Search_Panel" xml:space="preserve">
+    <value>Please use search panel below to connect with documents.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Save Changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Credit_Card_Statement_Unconnected_To_Bank_Account_Transaction" xml:space="preserve">
+    <value>This credit card statement is not connected to a bank account transaction.</value>
+  </data>
   <data name="Currency" xml:space="preserve">
     <value>Currency</value>
   </data>
@@ -336,14 +624,26 @@
   <data name="Default_Currency" xml:space="preserve">
     <value>Default Currency</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="Documents" xml:space="preserve">
     <value>Documents</value>
   </data>
+  <data name="Documents_Filter_By_Type" xml:space="preserve">
+    <value>Filter by Type</value>
+  </data>
   <data name="Documents_List" xml:space="preserve">
     <value>Documents list</value>
+  </data>
+  <data name="Documents_No_Results_Were_Found" xml:space="preserve">
+    <value>No results were found!</value>
+  </data>
+  <data name="Documents_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>Please use the search criteria to search for documents.</value>
   </data>
   <data name="Document_Creation_Date" xml:space="preserve">
     <value>Document Creation Date</value>
@@ -353,6 +653,15 @@
   </data>
   <data name="Document_Type" xml:space="preserve">
     <value>Document Type</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Edit_Details" xml:space="preserve">
+    <value>Edit Details</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
@@ -366,8 +675,17 @@
   <data name="Expenses" xml:space="preserve">
     <value>Expenses</value>
   </data>
+  <data name="Expenses_Filter_By_Type" xml:space="preserve">
+    <value>Filter by Type</value>
+  </data>
   <data name="Expenses_List" xml:space="preserve">
     <value>Expenses List</value>
+  </data>
+  <data name="Expenses_No_Results_Were_Found" xml:space="preserve">
+    <value>No results were found!</value>
+  </data>
+  <data name="Expenses_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>Please use the search criteria to search for expenses.</value>
   </data>
   <data name="Expense_Date" xml:space="preserve">
     <value>Expense Date</value>
@@ -380,6 +698,27 @@
   </data>
   <data name="Filename" xml:space="preserve">
     <value>Filename</value>
+  </data>
+  <data name="Filter_By_Bank_Account" xml:space="preserve">
+    <value>Filter By Bank Account:</value>
+  </data>
+  <data name="Filter_By_CityAddressZipCode" xml:space="preserve">
+    <value>Filter by City / Address / Zipcode</value>
+  </data>
+  <data name="Filter_By_CompanyNamePeopleName" xml:space="preserve">
+    <value>Filter by Company name / People name</value>
+  </data>
+  <data name="Filter_By_Country" xml:space="preserve">
+    <value>Filter by Country</value>
+  </data>
+  <data name="Filter_By_State" xml:space="preserve">
+    <value>Filter by State</value>
+  </data>
+  <data name="Filter_From_Date" xml:space="preserve">
+    <value>Filter from date</value>
+  </data>
+  <data name="Filter_To_Date" xml:space="preserve">
+    <value>Filter to date</value>
   </data>
   <data name="First_Contract_Contact" xml:space="preserve">
     <value>First Contract Contact</value>
@@ -398,6 +737,213 @@
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
+  </data>
+  <data name="Gender_Select" xml:space="preserve">
+    <value>-- Select --</value>
+  </data>
+  <data name="Gender_Type_1" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Gender_Type_2" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Gender_Type_3" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="GridTable_Bank_Account_Name" xml:space="preserve">
+    <value>Account Name</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Creation_Date" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Creation_Date" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="GridTable_Branch_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="GridTable_Branch_Country_Name" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="GridTable_Branch_Name" xml:space="preserve">
+    <value>Branch Name</value>
+  </data>
+  <data name="GridTable_Company_Name" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="GridTable_Contact_Person" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="GridTable_Country_Name" xml:space="preserve">
+    <value>Country Name</value>
+  </data>
+  <data name="GridTable_Credit_Card_Name" xml:space="preserve">
+    <value>Card Name</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Creation_Date" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Document_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Creation_Date" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Document_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="GridTable_Document_Creation_DateTime" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="GridTable_Document_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="GridTable_Document_From_City" xml:space="preserve">
+    <value>From City</value>
+  </data>
+  <data name="GridTable_Document_From_Country" xml:space="preserve">
+    <value>From Country</value>
+  </data>
+  <data name="GridTable_Document_From_Email" xml:space="preserve">
+    <value>From Email</value>
+  </data>
+  <data name="GridTable_Document_Sent_By" xml:space="preserve">
+    <value>Sent By</value>
+  </data>
+  <data name="GridTable_Document_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="GridTable_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GridTable_Expense_Contact_Person" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="GridTable_Expense_Invoice_DateTime" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="GridTable_Expense_Supplier_Company_Details" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="GridTable_Expiration_Date" xml:space="preserve">
+    <value>Expiration Date</value>
+  </data>
+  <data name="GridTable_Four_Ending_Digits" xml:space="preserve">
+    <value>4 Ending Digits</value>
+  </data>
+  <data name="GridTable_Fullname" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="GridTable_Invoiced_Client_To_CompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="GridTable_Invoiced_Client_To_Country_Name" xml:space="preserve">
+    <value>Country Name</value>
+  </data>
+  <data name="GridTable_Invoiced_Client_To_PersonName" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="GridTable_Latest_Transaction_Balance" xml:space="preserve">
+    <value>Latest Transaction Balance</value>
+  </data>
+  <data name="GridTable_Latest_Transaction_Date" xml:space="preserve">
+    <value>Latest Transaction Date</value>
+  </data>
+  <data name="GridTable_Registration_Date" xml:space="preserve">
+    <value>Reg. Date</value>
+  </data>
+  <data name="GridTable_Statement_Date" xml:space="preserve">
+    <value>Statement Date</value>
+  </data>
+  <data name="GridTable_Total_Amount" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="GridTable_Total_Number_Of_Purchases" xml:space="preserve">
+    <value>Total Number of Purchases</value>
+  </data>
+  <data name="GridTable_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Has_Been_Actually_Charged_In_Statement" xml:space="preserve">
+    <value>Actually Charged</value>
   </data>
   <data name="Heard_About_Application_From" xml:space="preserve">
     <value>Heard About Application From</value>
@@ -447,8 +993,17 @@
   <data name="Invoices" xml:space="preserve">
     <value>Invoices</value>
   </data>
+  <data name="Invoices_Filter_By_Type" xml:space="preserve">
+    <value>Filter by Type</value>
+  </data>
   <data name="Invoices_List" xml:space="preserve">
     <value>Invoices list</value>
+  </data>
+  <data name="Invoices_No_Results_Were_Found" xml:space="preserve">
+    <value>No results were found!</value>
+  </data>
+  <data name="Invoices_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>Please use the search criteria to search for Invoices.</value>
   </data>
   <data name="Invoice_Address_Desc" xml:space="preserve">
     <value>Invoice Address Desc</value>
@@ -519,11 +1074,281 @@
   <data name="Last_Name" xml:space="preserve">
     <value>Last Name</value>
   </data>
+  <data name="Link_To_add_bankaccount" xml:space="preserve">
+    <value>Add Bank Account</value>
+  </data>
+  <data name="Link_To_add_client" xml:space="preserve">
+    <value>Add new client</value>
+  </data>
+  <data name="Link_To_add_document" xml:space="preserve">
+    <value>Add New Document</value>
+  </data>
+  <data name="Link_To_add_expense" xml:space="preserve">
+    <value>Add New Expense</value>
+  </data>
+  <data name="Link_To_add_invoice" xml:space="preserve">
+    <value>Add New Invoice</value>
+  </data>
+  <data name="Link_To_add_supplier" xml:space="preserve">
+    <value>Add New Supplier</value>
+  </data>
+  <data name="Link_To_add_user" xml:space="preserve">
+    <value>Add New User</value>
+  </data>
+  <data name="Link_To_home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Link_To_list_bankaccounts" xml:space="preserve">
+    <value>Bank Accounts</value>
+  </data>
+  <data name="Link_To_list_clients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="Link_To_list_creditcards" xml:space="preserve">
+    <value>Credit Cards</value>
+  </data>
+  <data name="Link_To_list_creditcardsstatements" xml:space="preserve">
+    <value>Credit Card Statements</value>
+  </data>
+  <data name="Link_To_list_documents" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="Link_To_list_expenses" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="Link_To_list_invoices" xml:space="preserve">
+    <value>Invoices</value>
+  </data>
+  <data name="Link_To_list_suppliers" xml:space="preserve">
+    <value>Suppliers</value>
+  </data>
+  <data name="Link_To_list_users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Link_To_manage_bankaccount" xml:space="preserve">
+    <value>Bank Account Details</value>
+  </data>
+  <data name="Link_To_manage_BankAccountTransaction" xml:space="preserve">
+    <value>Bank Account Transaction</value>
+  </data>
+  <data name="Link_To_manage_BankAccountTransactions" xml:space="preserve">
+    <value>Bank Account Log</value>
+  </data>
+  <data name="Link_To_manage_client" xml:space="preserve">
+    <value>Client Details</value>
+  </data>
+  <data name="Link_To_manage_creditcard" xml:space="preserve">
+    <value>Credit Card Details</value>
+  </data>
+  <data name="Link_To_manage_creditcardstatement" xml:space="preserve">
+    <value>Credit Card Statement</value>
+  </data>
+  <data name="Link_To_manage_creditcardstatementtransaction" xml:space="preserve">
+    <value>Credit Card Statement Transaction</value>
+  </data>
+  <data name="Link_To_manage_document" xml:space="preserve">
+    <value>Document Details</value>
+  </data>
+  <data name="Link_To_manage_expense" xml:space="preserve">
+    <value>Expense Details</value>
+  </data>
+  <data name="Link_To_manage_invoice" xml:space="preserve">
+    <value>Invoice Details</value>
+  </data>
+  <data name="Link_To_manage_supplier" xml:space="preserve">
+    <value>Supplier Details</value>
+  </data>
+  <data name="Link_To_manage_user" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="Link_To_seperator" xml:space="preserve">
+    <value>&amp;nbsp; » &amp;nbsp;</value>
+  </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading</value>
   </data>
+  <data name="Login_Page_Button_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Login_Page_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Login_Page_Please_Sign_In" xml:space="preserve">
+    <value>Please sign in</value>
+  </data>
+  <data name="Login_Page_Remember_Me" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="Login_Page_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
   <data name="Log_Off" xml:space="preserve">
     <value>Log Off</value>
+  </data>
+  <data name="Manage_Bank_Account_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_Bank_Account_Edit" xml:space="preserve">
+    <value>Edit Bank Account</value>
+  </data>
+  <data name="Manage_Bank_Account_Save_Changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Manage_Bank_Account_SubTitle" xml:space="preserve">
+    <value>Keep track, audit and add more details to bank account transactions.</value>
+  </data>
+  <data name="Manage_Bank_Account_Title" xml:space="preserve">
+    <value>Manage Bank Account</value>
+  </data>
+  <data name="Manage_Bank_Account_Transactions_SubTitle" xml:space="preserve">
+    <value>Change, add and hide details for your bank accounts. Connect records with documents.</value>
+  </data>
+  <data name="Manage_Bank_Account_Transactions_Title" xml:space="preserve">
+    <value>Manage Bank Account</value>
+  </data>
+  <data name="Manage_Bank_Account_Transaction_SubTitle" xml:space="preserve">
+    <value>Audit and add more details for your bank account transactions.</value>
+  </data>
+  <data name="Manage_Bank_Account_Transaction_Title" xml:space="preserve">
+    <value>Manage Bank Transaction</value>
+  </data>
+  <data name="Manage_Client_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_Client_Edit_Client" xml:space="preserve">
+    <value>Edit Client</value>
+  </data>
+  <data name="Manage_Client_Save_Changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Manage_Client_SubTitle" xml:space="preserve">
+    <value>Change and add more details for your clients and contacts.</value>
+  </data>
+  <data name="Manage_Client_Title" xml:space="preserve">
+    <value>Manage Client</value>
+  </data>
+  <data name="Manage_Credit_Card_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_Credit_Card_Create" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Manage_Credit_Card_Edit_Details" xml:space="preserve">
+    <value>Edit Credit Card</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Bank_Account_Transaction_Tab" xml:space="preserve">
+    <value>BANK ACCOUNT TRANSACTION</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Create_Statement" xml:space="preserve">
+    <value>Save Statement</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Edit_Statement" xml:space="preserve">
+    <value>Edit Statement</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_General_Info_Tab" xml:space="preserve">
+    <value>General Info</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Save_Statement" xml:space="preserve">
+    <value>Save Statement</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_SubTitle" xml:space="preserve">
+    <value>Change and add more details for your credit card statements.</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Title" xml:space="preserve">
+    <value>Manage Credit Card Statement</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Transaction_SubTitle" xml:space="preserve">
+    <value>Audit and add more details for your credit card purchases.</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Transaction_Title" xml:space="preserve">
+    <value>Manage Credit Card Statement Transaction</value>
+  </data>
+  <data name="Manage_Credit_Card_SubTitle" xml:space="preserve">
+    <value>Keep track, audit and add more legacy details to your credit card purchases.</value>
+  </data>
+  <data name="Manage_Credit_Card_Title" xml:space="preserve">
+    <value>Manage Credit Card</value>
+  </data>
+  <data name="Manage_Credit_Card_Update_Details" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Manage_Document_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_Document_Edit_Button" xml:space="preserve">
+    <value>Edit Document</value>
+  </data>
+  <data name="Manage_Document_Save_Changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Manage_Document_SubTitle" xml:space="preserve">
+    <value>Change and add more details for your documents.</value>
+  </data>
+  <data name="Manage_Document_Title" xml:space="preserve">
+    <value>Manage Document</value>
+  </data>
+  <data name="Manage_Expense_Cancel_Editing_Button" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_Expense_Edit_Button" xml:space="preserve">
+    <value>Edit Expense</value>
+  </data>
+  <data name="Manage_Expense_Save_Changes_Button" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Manage_Expense_SubTitle" xml:space="preserve">
+    <value>Change and add more details for your expenses.</value>
+  </data>
+  <data name="Manage_Expense_Title" xml:space="preserve">
+    <value>Manage Expense</value>
+  </data>
+  <data name="Manage_Invoice_Button_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_Invoice_Button_Edit" xml:space="preserve">
+    <value>Edit Invoice</value>
+  </data>
+  <data name="Manage_Invoice_Button_Save_Changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Manage_Invoice_SubTitle" xml:space="preserve">
+    <value>Change and add more details for your Invoices.</value>
+  </data>
+  <data name="Manage_Invoice_Title" xml:space="preserve">
+    <value>Manage Invoice</value>
+  </data>
+  <data name="Manage_Supplier_Button_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_Supplier_Button_Edit" xml:space="preserve">
+    <value>Edit Supplier</value>
+  </data>
+  <data name="Manage_Supplier_Button_Save_Changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Manage_Supplier_SubTitle" xml:space="preserve">
+    <value>Change or add more details for your suppliers and contacts.</value>
+  </data>
+  <data name="Manage_Supplier_Title" xml:space="preserve">
+    <value>Manage Supplier</value>
+  </data>
+  <data name="Manage_User_Button_Cancel_Editing" xml:space="preserve">
+    <value>Cancel Editing</value>
+  </data>
+  <data name="Manage_User_Button_Edit" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
+  <data name="Manage_User_Button_Save_Changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="Manage_User_SubTitle" xml:space="preserve">
+    <value>Change and add more details for your users.</value>
+  </data>
+  <data name="Manage_User_Title" xml:space="preserve">
+    <value>Manage User Details</value>
   </data>
   <data name="Middle_Name" xml:space="preserve">
     <value>Middle Name</value>
@@ -533,6 +1358,12 @@
   </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
+  </data>
+  <data name="Next_Page" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="Obligo_Value" xml:space="preserve">
     <value>Obligo Value</value>
@@ -552,41 +1383,47 @@
   <data name="Payment_Amount" xml:space="preserve">
     <value>Payment Amount</value>
   </data>
+  <data name="Payment_Currency" xml:space="preserve">
+    <value>Payment Currency</value>
+  </data>
   <data name="Permission" xml:space="preserve">
     <value>Permission</value>
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
   </data>
+  <data name="Previous_Page" xml:space="preserve">
+    <value>Previous</value>
+  </data>
   <data name="Recieved_By_User" xml:space="preserve">
-    <value>Recieved_By_User</value>
+    <value>Recieved By User</value>
   </data>
   <data name="Recieved_Date" xml:space="preserve">
-    <value>Recieved_Date</value>
+    <value>Recieved Date</value>
   </data>
   <data name="Recieved_Document_Date" xml:space="preserve">
-    <value>Recieved_Document_Date</value>
+    <value>Recieved Document Date</value>
   </data>
   <data name="Recieved_Document_Time" xml:space="preserve">
-    <value>Recieved_Document_Time</value>
+    <value>Recieved Document Time</value>
   </data>
   <data name="Recieved_In_Address" xml:space="preserve">
-    <value>Recieved_In_Address</value>
+    <value>Recieved In Address</value>
   </data>
   <data name="Recieved_In_City" xml:space="preserve">
-    <value>Recieved_In_City</value>
+    <value>Recieved In City</value>
   </data>
   <data name="Recieved_In_Country" xml:space="preserve">
-    <value>Recieved_In_Country</value>
+    <value>Recieved In Country</value>
   </data>
   <data name="Recieved_In_Email" xml:space="preserve">
-    <value>Recieved_In_Email</value>
+    <value>Recieved In Email</value>
   </data>
   <data name="Recieved_In_State" xml:space="preserve">
-    <value>Recieved_In_State</value>
+    <value>Recieved In State</value>
   </data>
   <data name="Recieved_In_ZipCode" xml:space="preserve">
-    <value>Recieved_In_ZipCode</value>
+    <value>Recieved In ZipCode</value>
   </data>
   <data name="Ref" xml:space="preserve">
     <value>Ref</value>
@@ -603,59 +1440,110 @@
   <data name="Registration_Time" xml:space="preserve">
     <value>Registration Time</value>
   </data>
+  <data name="Remove_Credit_Card_Statement" xml:space="preserve">
+    <value>Remove Statement</value>
+  </data>
   <data name="Repeat_Password" xml:space="preserve">
     <value>Repeat Password</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_Clients" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_Credit_Cards" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_Credit_Cards_Statements" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_Documents" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_Expenses" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_Invoices" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_Suppliers" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search_Users" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Select_Country" xml:space="preserve">
+    <value>Select Country</value>
+  </data>
+  <data name="Select_Document_Type" xml:space="preserve">
+    <value>Select document type</value>
+  </data>
+  <data name="Select_Expense_Type" xml:space="preserve">
+    <value>Select expense type</value>
+  </data>
+  <data name="Select_Invoice_type" xml:space="preserve">
+    <value>Select invoice type</value>
+  </data>
+  <data name="Select_State" xml:space="preserve">
+    <value>Select State</value>
+  </data>
+  <data name="Select_Supplier_Type" xml:space="preserve">
+    <value>Select supplier type</value>
+  </data>
   <data name="Sending_Date" xml:space="preserve">
-    <value>Sending_Date</value>
+    <value>Sending Date</value>
   </data>
   <data name="Sending_Time" xml:space="preserve">
-    <value>Sending_Time</value>
+    <value>Sending Time</value>
   </data>
   <data name="Sent_From" xml:space="preserve">
-    <value>Sent_From</value>
+    <value>Sent From</value>
   </data>
   <data name="Sent_From_Address" xml:space="preserve">
-    <value>Sent_From_Address</value>
+    <value>Sent From Address</value>
   </data>
   <data name="Sent_From_City" xml:space="preserve">
-    <value>Sent_From_City</value>
+    <value>Sent From City</value>
   </data>
   <data name="Sent_From_Country" xml:space="preserve">
-    <value>Sent_From_Country</value>
+    <value>Sent From Country</value>
   </data>
   <data name="Sent_From_Email_Address" xml:space="preserve">
-    <value>Sent_From_Email_Address</value>
+    <value>Sent From Email Address</value>
   </data>
   <data name="Sent_From_State" xml:space="preserve">
-    <value>Sent_From_State</value>
+    <value>Sent From State</value>
   </data>
   <data name="Sent_From_ZipCode" xml:space="preserve">
-    <value>Sent_From_ZipCode</value>
+    <value>Sent From ZipCode</value>
   </data>
   <data name="Sent_To" xml:space="preserve">
-    <value>Sent_To</value>
+    <value>Sent To</value>
   </data>
   <data name="Sent_To_Address" xml:space="preserve">
-    <value>Sent_To_Address</value>
+    <value>Sent To Address</value>
   </data>
   <data name="Sent_To_City" xml:space="preserve">
-    <value>Sent_To_City</value>
+    <value>Sent To City</value>
   </data>
   <data name="Sent_To_Country" xml:space="preserve">
-    <value>Sent_To_Country</value>
+    <value>Sent To Country</value>
   </data>
   <data name="Sent_To_Email" xml:space="preserve">
-    <value>Sent_To_Email</value>
+    <value>Sent To Email</value>
   </data>
   <data name="Sent_To_State" xml:space="preserve">
-    <value>Sent_To_State</value>
+    <value>Sent To State</value>
   </data>
   <data name="Sent_To_ZipCode" xml:space="preserve">
-    <value>Sent_To_ZipCode</value>
+    <value>Sent To ZipCode</value>
   </data>
   <data name="Short_Description" xml:space="preserve">
     <value>Short Description</value>
@@ -672,8 +1560,17 @@
   <data name="Suppliers" xml:space="preserve">
     <value>Suppliers</value>
   </data>
+  <data name="Suppliers_Filter_By_Type" xml:space="preserve">
+    <value>Filter by Type</value>
+  </data>
   <data name="Suppliers_List" xml:space="preserve">
     <value>Suppliers List</value>
+  </data>
+  <data name="Suppliers_No_Results_Were_Found" xml:space="preserve">
+    <value>No results were found!</value>
+  </data>
+  <data name="Suppliers_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>Please use the search criteria to search for suppliers.</value>
   </data>
   <data name="Supplier_Contact_Person" xml:space="preserve">
     <value>Supplier Contact Person</value>
@@ -690,11 +1587,23 @@
   <data name="Tax_Reference_Number" xml:space="preserve">
     <value>Tax Reference Number</value>
   </data>
+  <data name="There_Are_No_Bank_Accounts" xml:space="preserve">
+    <value>There are no bank accounts! :(</value>
+  </data>
+  <data name="There_Are_No_Credit_Cards" xml:space="preserve">
+    <value>There are no credit cards! :(</value>
+  </data>
+  <data name="There_Are_No_Credit_Card_Statements" xml:space="preserve">
+    <value>There are no credit card statements! :(</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Title</value>
   </data>
   <data name="Total_Amount" xml:space="preserve">
     <value>Total Amount</value>
+  </data>
+  <data name="Total_Charged_In_Statement" xml:space="preserve">
+    <value>Total Charged In Statement</value>
   </data>
   <data name="Total_Vat" xml:space="preserve">
     <value>Total Vat</value>
@@ -714,8 +1623,20 @@
   <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Users_Enter_Search_Criteria" xml:space="preserve">
+    <value>Enter Search Criteria:</value>
+  </data>
   <data name="Users_List" xml:space="preserve">
     <value>Users List</value>
+  </data>
+  <data name="Users_No_Results_Were_Found" xml:space="preserve">
+    <value>No results were found!</value>
+  </data>
+  <data name="Users_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>Please use the search criteria to search for users.</value>
   </data>
   <data name="User_Comments" xml:space="preserve">
     <value>User Comments</value>
@@ -723,14 +1644,167 @@
   <data name="User_Description" xml:space="preserve">
     <value>User Description</value>
   </data>
+  <data name="Validator_Account_Name_Required" xml:space="preserve">
+    <value>Please enter bank account name</value>
+  </data>
+  <data name="Validator_Address_Required" xml:space="preserve">
+    <value>Please enter an address</value>
+  </data>
+  <data name="Validator_App_Permission_Type_Required" xml:space="preserve">
+    <value>Please select a permission type</value>
+  </data>
+  <data name="Validator_Birth_Date_Required" xml:space="preserve">
+    <value>Please enter a birth date</value>
+  </data>
+  <data name="Validator_CCStatement_DateTime_Required" xml:space="preserve">
+    <value>Please enter an statement date</value>
+  </data>
+  <data name="Validator_City_Required" xml:space="preserve">
+    <value>Please enter a city</value>
+  </data>
+  <data name="Validator_Client_Required" xml:space="preserve">
+    <value>Please select a client</value>
+  </data>
+  <data name="Validator_Client_Tax_Reference_Number_Required" xml:space="preserve">
+    <value>Please enter a tax reference number</value>
+  </data>
+  <data name="Validator_Client_Type_Required" xml:space="preserve">
+    <value>Please select a client type</value>
+  </data>
+  <data name="Validator_Company_Name_Required" xml:space="preserve">
+    <value>Please enter an company name</value>
+  </data>
+  <data name="Validator_Country_Required" xml:space="preserve">
+    <value>Please select a country</value>
+  </data>
+  <data name="Validator_Currency_Required" xml:space="preserve">
+    <value>Please select a currency</value>
+  </data>
+  <data name="Validator_Document_Creation_Date_Required" xml:space="preserve">
+    <value>Please enter a document date</value>
+  </data>
+  <data name="Validator_Document_Type_Required" xml:space="preserve">
+    <value>Please select a document type</value>
+  </data>
+  <data name="Validator_dropdown_Expense_Type_Required" xml:space="preserve">
+    <value>Please select an expense type</value>
+  </data>
+  <data name="Validator_dropdown_Invoice_Supplier_Country_Required" xml:space="preserve">
+    <value>Please select a country</value>
+  </data>
+  <data name="Validator_Email_Address_Required" xml:space="preserve">
+    <value>Please enter an email address</value>
+  </data>
+  <data name="Validator_Email_Adress_Regex" xml:space="preserve">
+    <value>Please enter a valid email address</value>
+  </data>
+  <data name="Validator_Expense_Invoice_DateTime_Required" xml:space="preserve">
+    <value>Please enter an expense date</value>
+  </data>
+  <data name="Validator_First_Name_Required" xml:space="preserve">
+    <value>Please enter a first name</value>
+  </data>
+  <data name="Validator_Gender_Required" xml:space="preserve">
+    <value>Please enter a gender</value>
+  </data>
+  <data name="Validator_Invoice_DateTime_Required" xml:space="preserve">
+    <value>Please enter an invoice date</value>
+  </data>
+  <data name="Validator_Last_Name_Required" xml:space="preserve">
+    <value>Please enter a last name</value>
+  </data>
+  <data name="Validator_Main_Contact_Email_Address_Required" xml:space="preserve">
+    <value>Please enter a main contact email address</value>
+  </data>
+  <data name="Validator_Main_Contact_FullName_Required" xml:space="preserve">
+    <value>Please enter the contact fullname</value>
+  </data>
+  <data name="Validator_Main_Contact_Phone_Number_Required" xml:space="preserve">
+    <value>Please enter a main contact phone number</value>
+  </data>
+  <data name="Validator_Mobile_Phone_Required" xml:space="preserve">
+    <value>Please enter a mobile phone</value>
+  </data>
+  <data name="Validator_Password_Repeat_Matcher" xml:space="preserve">
+    <value>The passwords do not match</value>
+  </data>
+  <data name="Validator_Password_Repeat_Required" xml:space="preserve">
+    <value>Please repeat the password</value>
+  </data>
+  <data name="Validator_Password_Required" xml:space="preserve">
+    <value>Please enter an password</value>
+  </data>
+  <data name="Validator_Password_Strength" xml:space="preserve">
+    <value>Password must contain english charecters. Minimum 8 length with 1 upper case, 2 lower case chars, 2 digits chars and 1 of the special char !@#$%^&amp;*()\-_+.</value>
+  </data>
+  <data name="Validator_Select_Bank_Account" xml:space="preserve">
+    <value>Please select a bank account</value>
+  </data>
+  <data name="Validator_Select_Credit_Card" xml:space="preserve">
+    <value>Please select a credit card</value>
+  </data>
+  <data name="Validator_State_Required" xml:space="preserve">
+    <value>Please select a state</value>
+  </data>
+  <data name="Validator_Supplier_Required" xml:space="preserve">
+    <value>Please select a supplier</value>
+  </data>
+  <data name="Validator_Supplier_Tax_Reference_Number_Required" xml:space="preserve">
+    <value>Please enter a tax reference number</value>
+  </data>
+  <data name="Validator_Supplier_Type_Required" xml:space="preserve">
+    <value>Please select a supplier type</value>
+  </data>
+  <data name="Validator_Total_Amount_Required" xml:space="preserve">
+    <value>Please enter total amount</value>
+  </data>
+  <data name="Validator_Total_Vat_Required" xml:space="preserve">
+    <value>Please enter total vat amount</value>
+  </data>
+  <data name="Validator_Total_Without_Vat_Required" xml:space="preserve">
+    <value>Please enter total amount without vat</value>
+  </data>
+  <data name="Validator_Transaction_Actual_DateTime" xml:space="preserve">
+    <value>Please select a transaction date</value>
+  </data>
+  <data name="Validator_Username_Required" xml:space="preserve">
+    <value>Please enter an username</value>
+  </data>
+  <data name="Validator_User_Selection_Required" xml:space="preserve">
+    <value>Please select an user</value>
+  </data>
+  <data name="Validator_Vat_Percentage_Required" xml:space="preserve">
+    <value>Please enter vat percentage</value>
+  </data>
+  <data name="Validator_Website_URL_Regex" xml:space="preserve">
+    <value>Please enter a valid website url</value>
+  </data>
+  <data name="Validator_Website_URL_Required" xml:space="preserve">
+    <value>Please enter an website</value>
+  </data>
+  <data name="Validator_Zipcode_Required" xml:space="preserve">
+    <value>Please enter an zipcode</value>
+  </data>
   <data name="Value_Date" xml:space="preserve">
     <value>Value Date</value>
   </data>
   <data name="Vat_Percentage_Text" xml:space="preserve">
     <value>Vat %</value>
   </data>
+  <data name="View_Documents" xml:space="preserve">
+    <value>View documents</value>
+  </data>
+  <data name="View_More" xml:space="preserve">
+    <value>View More</value>
+  </data>
+  <data name="View_Transactions" xml:space="preserve">
+    <value>View Transactions</value>
+  </data>
   <data name="Website_URL" xml:space="preserve">
     <value>Website URL</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="Zip_Code" xml:space="preserve">
     <value>Zip Code</value>

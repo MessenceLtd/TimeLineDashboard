@@ -5,8 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="page-title my-3 text-center">
-        <h2 class="display-5">Manage Invoice</h2>
-        <p class="lead">Change and add more details for your Invoices.</p>
+        <h2 class="display-5"><%= Resources.SiteCommon.Manage_Invoice_Title %></h2>
+        <p class="lead"><%= Resources.SiteCommon.Manage_Invoice_SubTitle %></p>
     </div>
 
     <hr />
@@ -20,7 +20,7 @@
             <asp:HyperLink runat="server" ID="link_Download_Expense"></asp:HyperLink>&nbsp;&nbsp;
             <asp:Panel runat="server" ID="panel_Image_Download_Expense" Style="display: inline">
                 <asp:HyperLink runat="server" ID="link_Download_Expense2">
-                    <img src="/Images/download.png" width="32" height="32" alt="Download" title="Download" />
+                    <img src="/Images/download.png" width="32" height="32" alt="<%= Resources.SiteCommon.Download %>" title="<%= Resources.SiteCommon.Download %>" />
                 </asp:HyperLink>
             </asp:Panel>
         </div>
@@ -30,7 +30,7 @@
                 <label for="<%= fileUpload_Expense_File.ClientID %>"><%= Resources.SiteCommon.Upload_File %>:</label>
             </div>
             <div class="Form_Control">
-                <asp:FileUpload runat="server" ID="fileUpload_Expense_File" ClientIDMode="Static" CssClass="form-control" onchange="Run_Auto_Complete_Helper_On_Uploaded_File_Name(this)" meta:resourcekey="fileUpload_Expense_File" />
+                <asp:FileUpload runat="server" ID="fileUpload_Expense_File" ClientIDMode="Static" CssClass="form-control" onchange="Run_Auto_Complete_Helper_On_Uploaded_File_Name(this)" />
                 <asp:HiddenField runat="server" ClientIDMode="Static" ID="hidden_Uploading_FileName_For_AutoComplete_Helper" />
                 <asp:Button runat="server" ID="button_Run_Auto_Complete_Based_On_Selected_FileName" ClientIDMode="Static"
                     OnClick="Button_Run_Auto_Complete_Based_On_Selected_FileName_Click" CausesValidation="False" Style="display: none" />
@@ -51,7 +51,8 @@
                     <asp:Panel ID="formControl_Wrapper_ReadOnly_Invoice_DateTime" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                         <asp:Label runat="server" ID="label_Invoice_DateTime"></asp:Label>
                     </asp:Panel>
-                    <asp:RequiredFieldValidator runat="server" ID="validator_Invoice_DateTime_Required" ErrorMessage="Please enter an invoice date" Display="Dynamic" ControlToValidate="textbox_Invoice_DateTime" CssClass="text-danger"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="validator_Invoice_DateTime_Required" ErrorMessage="<%$ Resources:SiteCommon, Validator_Invoice_DateTime_Required %>" 
+                        Display="Dynamic" ControlToValidate="textbox_Invoice_DateTime" CssClass="text-danger"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="Form_Group">
@@ -86,7 +87,8 @@
                             <asp:Panel ID="formControl_Wrapper_ReadOnly_Client" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                                 <asp:Label runat="server" ID="label_Client"></asp:Label>
                             </asp:Panel>
-                            <asp:RequiredFieldValidator runat="server" ID="validator_Client_Required" ErrorMessage="Please select a client" Display="Dynamic" ControlToValidate="dropdown_Client" CssClass="text-danger"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator runat="server" ID="validator_Client_Required" ErrorMessage="<%$ Resources:SiteCommon, Validator_Client_Required %>" 
+                                Display="Dynamic" ControlToValidate="dropdown_Client" CssClass="text-danger"></asp:RequiredFieldValidator>
                         </asp:Panel>
                     </ContentTemplate>
                     <Triggers>
@@ -143,7 +145,8 @@
                             <asp:Panel ID="formControl_Wrapper_ReadOnly_Currency" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                                 <asp:Label runat="server" ID="label_Currency"></asp:Label>
                             </asp:Panel>
-                            <asp:RequiredFieldValidator runat="server" ID="validator_Currency_Required" ErrorMessage="Please select a currency" Display="Dynamic" ControlToValidate="dropdown_Currency" CssClass="text-danger"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator runat="server" ID="validator_Currency_Required" ErrorMessage="<%$ Resources:SiteCommon, Validator_Currency_Required %>" 
+                                Display="Dynamic" ControlToValidate="dropdown_Currency" CssClass="text-danger"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="Form_Group">
@@ -157,7 +160,7 @@
                             <asp:Panel ID="formControl_Wrapper_ReadOnly_Total_Amount" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                                 <asp:Label runat="server" ID="label_Total_Amount"></asp:Label>
                             </asp:Panel>
-                            <asp:RequiredFieldValidator runat="server" ID="validator_Total_Amount_Required" ErrorMessage="Please enter total amount" Display="Dynamic"
+                            <asp:RequiredFieldValidator runat="server" ID="validator_Total_Amount_Required" ErrorMessage="<%$ Resources:SiteCommon, Validator_Total_Amount_Required %>" Display="Dynamic"
                                 ControlToValidate="textbox_Total_Amount" CssClass="text-danger"></asp:RequiredFieldValidator>
                         </div>
 
@@ -171,7 +174,7 @@
                             <asp:Panel ID="formControl_Wrapper_ReadOnly_Vat_Percentage" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                                 <asp:Label runat="server" ID="label_Vat_Percentage"></asp:Label>
                             </asp:Panel>
-                            <asp:RequiredFieldValidator runat="server" ID="validator_Vat_Percentage_Required" ErrorMessage="Please enter vat percentage" Display="Dynamic"
+                            <asp:RequiredFieldValidator runat="server" ID="validator_Vat_Percentage_Required" ErrorMessage="<%$ Resources:SiteCommon, Validator_Vat_Percentage_Required %>" Display="Dynamic"
                                 ControlToValidate="textbox_Vat_Percentage" CssClass="text-danger"></asp:RequiredFieldValidator>
                         </div>
 
@@ -185,7 +188,7 @@
                             <asp:Panel ID="formControl_Wrapper_ReadOnly_Total_Without_Vat" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                                 <asp:Label runat="server" ID="label_Total_Without_Vat"></asp:Label>
                             </asp:Panel>
-                            <asp:RequiredFieldValidator runat="server" ID="validator_Total_Without_Vat_Required" ErrorMessage="Please enter total amount without vat" Display="Dynamic"
+                            <asp:RequiredFieldValidator runat="server" ID="validator_Total_Without_Vat_Required" ErrorMessage="<%$ Resources:SiteCommon, Validator_Total_Without_Vat_Required %>" Display="Dynamic"
                                 ControlToValidate="textbox_Total_Without_Vat" CssClass="text-danger"></asp:RequiredFieldValidator>
                         </div>
 
@@ -199,7 +202,7 @@
                             <asp:Panel ID="formControl_Wrapper_ReadOnly_Total_Vat" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                                 <asp:Label runat="server" ID="label_Total_Vat"></asp:Label>
                             </asp:Panel>
-                            <asp:RequiredFieldValidator runat="server" ID="validator_Total_Vat_Required" ErrorMessage="Please enter total vat amount" Display="Dynamic"
+                            <asp:RequiredFieldValidator runat="server" ID="validator_Total_Vat_Required" ErrorMessage="<%$ Resources:SiteCommon, Validator_Total_Vat_Required %>" Display="Dynamic"
                                 ControlToValidate="textbox_Total_Vat" CssClass="text-danger"></asp:RequiredFieldValidator>
                         </div>
 
@@ -354,8 +357,7 @@
                             <div class="Form_Label_Wrapper">
                                 <label for="<%= textbox_Invoiced_Client_To_Zip.ClientID %>"><% = Resources.SiteCommon.Invoiced_To_Zip_Code %>:</label></div>
                             <asp:Panel runat="server" ID="formControl_Wrapper_Edit_Invoiced_Client_To_Zip" Visible="true" CssClass="Form_Control">
-                                <asp:TextBox
-                                    runat="server" ID="textbox_Invoiced_Client_To_Zip" ClientIDMode="Static" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="textbox_Invoiced_Client_To_Zip" ClientIDMode="Static" CssClass="form-control"></asp:TextBox>
                             </asp:Panel>
                             <asp:Panel ID="formControl_Wrapper_ReadOnly_Invoiced_Client_To_Zip" runat="server" Visible="false" CssClass="Form_Control Read_Only_Panel">
                                 <asp:Label runat="server" ID="label_Invoiced_Client_To_Zip"></asp:Label>
@@ -373,8 +375,6 @@
                                 <asp:Label runat="server" ID="label_Invoiced_Client_To_EmailAddress"></asp:Label>
                             </asp:Panel>
                         </div>
-
-                        
 
                     </ContentTemplate>
                     <Triggers>
@@ -496,32 +496,28 @@
             <div class="Form_Label_Wrapper">
                 <label><% = Resources.SiteCommon.Created_By %>:</label></div>
             <asp:Panel ID="formControl_Wrapper_Record_Created_By_User" runat="server" Visible="true" CssClass="Form_Control Read_Only_Panel">
-                <asp:Label
-                    runat="server" ID="label_Record_Created_By_User"></asp:Label>
+                <asp:Label runat="server" ID="label_Record_Created_By_User"></asp:Label>
             </asp:Panel>
         </div>
         <div class="Form_Group">
             <div class="Form_Label_Wrapper">
                 <label><% = Resources.SiteCommon.Created_On %>:</label></div>
             <asp:Panel ID="formControl_Wrapper_Record_Creation_DateTime_UTC" runat="server" Visible="true" CssClass="Form_Control Read_Only_Panel">
-                <asp:Label
-                    runat="server" ID="label_Record_Creation_DateTime_UTC"></asp:Label>
+                <asp:Label runat="server" ID="label_Record_Creation_DateTime_UTC"></asp:Label>
             </asp:Panel>
         </div>
         <div class="Form_Group">
             <div class="Form_Label_Wrapper">
                 <label><% = Resources.SiteCommon.Last_Modified_By %>:</label></div>
             <asp:Panel ID="formControl_Wrapper_Record_Last_Updated_By_User" runat="server" Visible="true" CssClass="Form_Control Read_Only_Panel">
-                <asp:Label
-                    runat="server" ID="label_Record_Last_Updated_By_User"></asp:Label>
+                <asp:Label runat="server" ID="label_Record_Last_Updated_By_User"></asp:Label>
             </asp:Panel>
         </div>
         <div class="Form_Group">
             <div class="Form_Label_Wrapper">
                 <label><% = Resources.SiteCommon.Last_Modified_Date %>:</label></div>
             <asp:Panel ID="formControl_Wrapper_Record_Last_Updated_DateTime_UTC" runat="server" Visible="true" CssClass="Form_Control Read_Only_Panel">
-                <asp:Label
-                    runat="server" ID="label_Record_Last_Updated_DateTime_UTC"></asp:Label>
+                <asp:Label runat="server" ID="label_Record_Last_Updated_DateTime_UTC"></asp:Label>
             </asp:Panel>
         </div>
 
@@ -535,7 +531,7 @@
                 Text="Save Changes" OnClick="button_Update_Invoice_Details_Click" CssClass="btn btn-success" />
 
             <asp:Button runat="server" ID="button_CancelEdit_Invoice_Details"
-                Text="Cancel Editing" OnClick="button_CancelEdit_Invoice_Details_Click" CausesValidation="false" OnClientClick="if (!confirm('Are you sure you want to cancel edit?')) return false;" CssClass="btn btn-danger" />
+                Text="Cancel Editing" OnClick="button_CancelEdit_Invoice_Details_Click" CausesValidation="false" CssClass="btn btn-danger" />
 
             <asp:HiddenField runat="server" ID="hidden_User_Id_Invoice_Owner" />
 

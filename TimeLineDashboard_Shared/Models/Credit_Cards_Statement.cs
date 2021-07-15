@@ -11,9 +11,11 @@ namespace TimeLineDashboard.Shared.Models
         public string Bank_Account_Name { get; set; }
         public int Bank_Account_Owner_User_Id { get; set; }
         public int Credit_Card_Id { get; set; }
+        public string Card_Name { get; set; }
         public DateTime Statement_Date { get; set; }
         public decimal Total_Amount { get; set; }
         public byte Currency_Id { get; set; }
+        public string Currency_Symbol { get; set; }
         public string Original_File_Name { get; set; }
         public string Azure_Block_Blob_Reference { get; set; }
         public long Bank_Account_Transaction_Id_Connection { get; set; }
@@ -31,5 +33,6 @@ namespace TimeLineDashboard.Shared.Models
         public int Record_Deleted_By_User_Id { get; set; }
         public DateTime? Record_Deleted_DateTime_UTC { get; set; }
         public Credit_Card_Transactions_To_DB_Sync_From_UI Credit_Card_Transactions { get; set; }
+        public int Total_Purchases { get; set; }
     }
 }

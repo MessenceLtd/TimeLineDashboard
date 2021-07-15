@@ -150,7 +150,7 @@ namespace WebformsPOCDemo
                 }
 
                 this.checkbox_Is_Active.Checked = creditCardDetails.Is_Active;
-                this.label_Is_Active.Text = creditCardDetails.Is_Active ? "Yes" : "No";
+                this.label_Is_Active.Text = base.Get_Yes_Or_No_Text_Value(creditCardDetails.Is_Active);
 
                 this.label_Record_Created_By_User.Text = creditCardDetails.Record_Created_By_User_Details.FullName_With_Email;
                 this.label_Record_Creation_DateTime_UTC.Text = creditCardDetails.Record_Creation_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");

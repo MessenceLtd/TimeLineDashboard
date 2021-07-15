@@ -269,19 +269,22 @@ namespace WebformsPOCDemo
                 this.label_User_Comments.Text = expenseDetails.User_Comments;
 
                 this.checkbox_Is_Visible_To_Anonymous_Users.Checked = expenseDetails.Is_Visible_To_Anonymous_Users;
-                this.label_Is_Visible_To_Anonymous_Users.Text = expenseDetails.Is_Visible_To_Anonymous_Users ? "Yes" : "No";
+                this.label_Is_Visible_To_Anonymous_Users.Text = base.Get_Yes_Or_No_Text_Value(expenseDetails.Is_Visible_To_Anonymous_Users);
 
                 this.checkbox_Is_Available_For_Download_For_Anonymous_Users.Checked = expenseDetails.Is_Available_For_Download_For_Anonymous_Users;
-                this.label_Is_Available_For_Download_For_Anonymous_Users.Text = expenseDetails.Is_Available_For_Download_For_Anonymous_Users ? "Yes" : "No";
+                this.label_Is_Available_For_Download_For_Anonymous_Users.Text 
+                    = base.Get_Yes_Or_No_Text_Value(expenseDetails.Is_Available_For_Download_For_Anonymous_Users);
 
                 this.checkbox_Is_Visible_To_Followers_Users.Checked = expenseDetails.Is_Visible_To_Followers_Users;
-                this.label_Is_Visible_To_Followers_Users.Text = expenseDetails.Is_Visible_To_Followers_Users ? "Yes" : "No";
+                this.label_Is_Visible_To_Followers_Users.Text 
+                    = base.Get_Yes_Or_No_Text_Value(expenseDetails.Is_Visible_To_Followers_Users);
 
                 this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked = expenseDetails.Is_Available_For_Download_For_Followers_Users;
-                this.label_Is_Available_For_Download_For_Followers_Users.Text = expenseDetails.Is_Available_For_Download_For_Followers_Users ? "Yes" : "No";
+                this.label_Is_Available_For_Download_For_Followers_Users.Text 
+                    = base.Get_Yes_Or_No_Text_Value(expenseDetails.Is_Available_For_Download_For_Followers_Users);
 
                 this.checkbox_Is_Active.Checked = expenseDetails.Is_Active;
-                this.label_Is_Active.Text = expenseDetails.Is_Active ? "Yes" : "No";
+                this.label_Is_Active.Text = base.Get_Yes_Or_No_Text_Value(expenseDetails.Is_Active);
 
                 this.label_Record_Created_By_User.Text = expenseDetails.Record_Created_By_User_Details.FullName_With_Email;
                 this.label_Record_Creation_DateTime_UTC.Text = expenseDetails.Record_Creation_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");

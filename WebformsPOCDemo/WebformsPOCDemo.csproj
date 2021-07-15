@@ -104,11 +104,15 @@
     <Content Include="Images\addmore.png" />
     <Content Include="Images\calendar.gif" />
     <Content Include="Images\cancel.png" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\documents2.png" />
+    <Content Include="Images\documents.png" />
     <Content Include="Images\download.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\languages\en.svg" />
     <Content Include="Images\languages\he.svg" />
     <Content Include="Images\loading.png" />
+    <Content Include="Images\papers.png" />
     <Content Include="Images\refresh.png" />
     <Content Include="Images\viewdetails2.png" />
     <Content Include="Images\save.png" />
@@ -131,6 +135,7 @@
     <Content Include="list_Suppliers.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="manage_BankAccount.aspx" />
+    <Content Include="manage_CreditCardStatementTransaction.aspx" />
     <Content Include="manage_BankAccountTransaction.aspx" />
     <Content Include="manage_BankAccountTransactions.aspx" />
     <Content Include="manage_Client.aspx" />
@@ -290,6 +295,13 @@
     <Compile Include="manage_BankAccount.aspx.designer.cs">
       <DependentUpon>manage_BankAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="manage_CreditCardStatementTransaction.aspx.cs">
+      <DependentUpon>manage_CreditCardStatementTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_CreditCardStatementTransaction.aspx.designer.cs">
+      <DependentUpon>manage_CreditCardStatementTransaction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="manage_BankAccountTransaction.aspx.cs">
       <DependentUpon>manage_BankAccountTransaction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -436,95 +448,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Add_BankAccount.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Add_Client.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Add_Document.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Add_Expense.aspx.resx">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Add_Invoice.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Add_Supplier.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Add_User.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\list_Invoices.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\list_Expenses.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\list_Documents.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\list_Clients.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\list_BankAccounts.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Default.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\manage_Supplier.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\manage_Expense.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\manage_Document.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\manage_Client.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\manage_BankAccountTransactions.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\manage_BankAccountTransaction.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\manage_BankAccount.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Login.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\list_Users.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\list_Suppliers.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\manage_User.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Reports.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Site.Master.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\wuc_Breadcrumbs_Navigation.ascx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\wuc_Footer.ascx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\wuc_Top_Menu.ascx.resx" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\SiteCommon.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>SiteCommon.Designer.cs</LastGenOutput>
@@ -537,7 +460,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\list_CreditCards.aspx.resx" />
+    <Folder Include="App_LocalResources\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

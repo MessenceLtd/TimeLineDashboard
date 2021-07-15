@@ -2,15 +2,7 @@
 
 $(function () {
 
-    $(".InitializeDatePicker").datepicker(
-        {
-            showWeek: false,
-            dateFormat: "dd/mm/yy",
-            changeMonth: true,
-            changeYear: true,
-            yearRange: "-120:+0",
-            regional: 'he'
-        }); 
+    Initialize_Date_Pickers();
 
     var prm = Sys.WebForms.PageRequestManager.getInstance();
 
@@ -24,15 +16,7 @@ $(function () {
 
     prm.add_endRequest(function () {
 
-        $(".InitializeDatePicker").datepicker(
-            {
-                showWeek: false,
-                dateFormat: "dd/mm/yy",
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "-120:+0",
-                regional: 'he'
-            }); 
+        Initialize_Date_Pickers();
 
         $('body').removeClass('Loading');
 
@@ -43,6 +27,18 @@ $(function () {
     );
 
 });
+
+function Initialize_Date_Pickers() {
+    $(".InitializeDatePicker").datepicker(
+        {
+            showWeek: false,
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-120:+0",
+            regional: 'he'
+        });
+}
 
 var images = [];
 function preload_Images()

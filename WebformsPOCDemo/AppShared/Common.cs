@@ -255,6 +255,16 @@ namespace WebformsPOCDemo
             }
         }
 
+        internal static void Set_DateTime_To_Label(
+            DateTime? dateTimeToSet,
+            Label p_Label_Date)
+        {
+            if (dateTimeToSet.HasValue)
+            {
+                p_Label_Date.Text = dateTimeToSet.Value.ToString("dd/MM/yyyy");
+            }
+        }
+
         internal static DateTime? Try_Parse_DateTime_By_Current_Culture(string input)
         {
             DateTime? returnValue = new DateTime?();
@@ -308,6 +318,28 @@ namespace WebformsPOCDemo
             }
         }
 
+        internal static void Set_Number_Text_Value_To_Label(
+            decimal? numeric_Value,
+            Label p_Label_To_Set_Value)
+        {
+            if (numeric_Value.HasValue)
+            {
+                p_Label_To_Set_Value.Text = numeric_Value.Value.ToString("#,0.##");
+            }
+        }
+
+        internal static string Get_Number_Formatted(decimal? numeric_Value)
+        {
+            string l_Return_Value = string.Empty;
+
+            if (numeric_Value.HasValue)
+            {
+                l_Return_Value = numeric_Value.Value.ToString("#,0.##");
+            }
+
+            return l_Return_Value;
+        }
+
         internal static void Set_Number_Text_Value_To_TextBox_Label_Text(
             decimal? numeric_Value,
             TextBox p_TextBox_To_Set_Value,
@@ -353,5 +385,8 @@ namespace WebformsPOCDemo
                 }
             }
         }
+
+
+
     }
 }

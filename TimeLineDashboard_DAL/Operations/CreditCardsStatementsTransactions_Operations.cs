@@ -77,7 +77,10 @@ namespace TimeLineDashboard.DAL.Operations
             decimal? p_Total_Charged_In_Statement, 
             string p_User_Description,
             string p_User_Comments,
-            bool p_Is_Visible,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
             int? p_Creating_User_Id )
         {
             int l_New_Transaction_Id_To_Return = 0;
@@ -93,7 +96,11 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spTotal_Charged_In_Statement = new SqlParameter("@Total_Charged_In_Statement", SqlDbType.Decimal);
             SqlParameter spUser_Description = new SqlParameter("@User_Description", SqlDbType.NVarChar, 300);
             SqlParameter spUser_Comments = new SqlParameter("@User_Comments", SqlDbType.NVarChar, 300);
-            SqlParameter spIs_Visible = new SqlParameter("@Is_Visible", SqlDbType.NVarChar, 300);
+            SqlParameter spIs_Visible_To_Anonymous_Users = new SqlParameter("@Is_Visible_To_Anonymous_Users", SqlDbType.Bit);
+            SqlParameter spIs_Available_For_Download_For_Anonymous_Users = new SqlParameter("@Is_Available_For_Download_For_Anonymous_Users", SqlDbType.Bit);
+            SqlParameter spIs_Visible_To_Followers_Users = new SqlParameter("@Is_Visible_To_Followers_Users", SqlDbType.Bit);
+            SqlParameter spIs_Available_For_Download_For_Followers_Users = new SqlParameter("@Is_Available_For_Download_For_Followers_Users", SqlDbType.Bit);
+
             SqlParameter spCreating_User_Id = new SqlParameter("@Creating_User_Id", SqlDbType.Int);
 
             spBank_Account_Credit_Card_Statement_Id.Value = p_Bank_Account_Credit_Card_Statement_Id;
@@ -129,24 +136,33 @@ namespace TimeLineDashboard.DAL.Operations
 
             spUser_Description.Value = p_User_Description;
             spUser_Comments.Value = p_User_Comments;
-            spIs_Visible.Value = p_Is_Visible;
+
+            spIs_Visible_To_Anonymous_Users.Value = p_Is_Visible_To_Anonymous_Users;
+            spIs_Available_For_Download_For_Anonymous_Users.Value = p_Is_Available_For_Download_For_Anonymous_Users;
+            spIs_Visible_To_Followers_Users.Value = p_Is_Visible_To_Followers_Users;
+            spIs_Available_For_Download_For_Followers_Users.Value = p_Is_Available_For_Download_For_Followers_Users;
+
             spCreating_User_Id.Value = p_Creating_User_Id.Value;
 
-            object new_Credit_Card_Statement_Transaction_Id = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult("p_TLBoard_Insert_Credit_Card_Statement_Transaction",
-                new List<SqlParameter>() {
-                    spBank_Account_Credit_Card_Statement_Id,
-                    spTransaction_Date,
-                    spBusiness_Name,
-                    spTransaction_Amount,
-                    spTransaction_Amount_Currency_Id,
-                    spTransaction_Actual_Payment_Amount,
-                    spDescription,
-                    spHas_Been_Actually_Charged_In_Statement,
-                    spTotal_Charged_In_Statement,
-                    spUser_Description,
-                    spUser_Comments,
-                    spIs_Visible,
-                    spCreating_User_Id
+            object new_Credit_Card_Statement_Transaction_Id = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult(
+                "p_TLBoard_Insert_Credit_Card_Statement_Transaction",
+                    new List<SqlParameter>() {
+                        spBank_Account_Credit_Card_Statement_Id,
+                        spTransaction_Date,
+                        spBusiness_Name,
+                        spTransaction_Amount,
+                        spTransaction_Amount_Currency_Id,
+                        spTransaction_Actual_Payment_Amount,
+                        spDescription,
+                        spHas_Been_Actually_Charged_In_Statement,
+                        spTotal_Charged_In_Statement,
+                        spUser_Description,
+                        spUser_Comments,
+                        spIs_Visible_To_Anonymous_Users, 
+                        spIs_Available_For_Download_For_Anonymous_Users,
+                        spIs_Visible_To_Followers_Users, 
+                        spIs_Available_For_Download_For_Followers_Users,
+                        spCreating_User_Id
             });
 
             if (new_Credit_Card_Statement_Transaction_Id != null)
@@ -158,7 +174,7 @@ namespace TimeLineDashboard.DAL.Operations
         }
 
         internal bool Update_Credit_Card_Statement_Transaction(
-            int p_Credit_Card_Statement_Transaction_Id,
+            long p_Credit_Card_Statement_Transaction_Id,
             DateTime? p_Transaction_Date,
             string p_Business_Name,
             decimal? p_Transaction_Amount,
@@ -167,14 +183,11 @@ namespace TimeLineDashboard.DAL.Operations
             string p_Description,
             bool p_Has_Been_Actually_Charged_In_Statement,
             decimal? p_Total_Charged_In_Statement,
-            string p_User_Description,
-            string p_User_Comments,
-            bool p_Is_Visible,
-            int? p_Updating_User_Id)
+            int p_Updating_User_Id)
         {
             bool updated_Successfully = false;
 
-            SqlParameter spCredit_Card_Statement_Transaction_Id = new SqlParameter("@Credit_Card_Statement_Transaction_Id", SqlDbType.Int);
+            SqlParameter spCredit_Card_Statement_Transaction_Id = new SqlParameter("@Credit_Card_Statement_Transaction_Id", SqlDbType.BigInt);
             SqlParameter spTransaction_Date = new SqlParameter("@Transaction_Date", SqlDbType.DateTime);
             SqlParameter spBusiness_Name = new SqlParameter("@Business_Name", SqlDbType.NVarChar, 50);
             SqlParameter spTransaction_Amount = new SqlParameter("@Transaction_Amount", SqlDbType.Decimal);
@@ -183,9 +196,6 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spDescription = new SqlParameter("@Description", SqlDbType.NVarChar, 80);
             SqlParameter spHas_Been_Actually_Charged_In_Statement = new SqlParameter("@Has_Been_Actually_Charged_In_Statement", SqlDbType.Bit);
             SqlParameter spTotal_Charged_In_Statement = new SqlParameter("@Total_Charged_In_Statement", SqlDbType.Decimal);
-            SqlParameter spUser_Description = new SqlParameter("@User_Description", SqlDbType.NVarChar, 300);
-            SqlParameter spUser_Comments = new SqlParameter("@User_Comments", SqlDbType.NVarChar, 300);
-            SqlParameter spIs_Visible = new SqlParameter("@Is_Visible", SqlDbType.NVarChar, 300);
             SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
 
             spCredit_Card_Statement_Transaction_Id.Value = p_Credit_Card_Statement_Transaction_Id;
@@ -212,6 +222,101 @@ namespace TimeLineDashboard.DAL.Operations
                 spTransaction_Actual_Payment_Amount.Value = DBNull.Value;
 
             spDescription.Value = p_Description;
+
+            spHas_Been_Actually_Charged_In_Statement.Value = p_Has_Been_Actually_Charged_In_Statement;
+
+            if (p_Total_Charged_In_Statement.HasValue)
+                spTotal_Charged_In_Statement.Value = p_Total_Charged_In_Statement.Value;
+            else
+                spTotal_Charged_In_Statement.Value = DBNull.Value;
+
+            spUpdating_User_Id.Value = p_Updating_User_Id;
+
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Update_Credit_Card_Statement_Transaction",
+                    new List<SqlParameter>() {
+                        spCredit_Card_Statement_Transaction_Id,
+                        spTransaction_Date,
+                        spBusiness_Name,
+                        spTransaction_Amount,
+                        spTransaction_Amount_Currency_Id,
+                        spTransaction_Actual_Payment_Amount,
+                        spDescription,
+                        spHas_Been_Actually_Charged_In_Statement,
+                        spTotal_Charged_In_Statement,
+                        spUpdating_User_Id
+                    });
+
+            if (affected_Rows > 0)
+            {
+                updated_Successfully = true;
+            }
+
+            return updated_Successfully;
+        }
+
+        internal bool Update_Credit_Card_Statement_Transaction_FullDetails(
+            long p_Credit_Card_Statement_Transaction_Id,
+            DateTime? p_Transaction_Date,
+            string p_Business_Name,
+            decimal? p_Transaction_Amount,
+            byte? p_Transaction_Amount_Currency_Id,
+            decimal? p_Transaction_Actual_Payment_Amount,
+            string p_Description,
+            bool p_Has_Been_Actually_Charged_In_Statement,
+            decimal? p_Total_Charged_In_Statement,
+            string p_User_Description,
+            string p_User_Comments,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Updating_User_Id)
+        {
+            bool updated_Successfully = false;
+
+            SqlParameter spCredit_Card_Statement_Transaction_Id = new SqlParameter("@Credit_Card_Statement_Transaction_Id", SqlDbType.BigInt);
+            SqlParameter spTransaction_Date = new SqlParameter("@Transaction_Date", SqlDbType.DateTime);
+            SqlParameter spBusiness_Name = new SqlParameter("@Business_Name", SqlDbType.NVarChar, 50);
+            SqlParameter spTransaction_Amount = new SqlParameter("@Transaction_Amount", SqlDbType.Decimal);
+            SqlParameter spTransaction_Amount_Currency_Id = new SqlParameter("@Transaction_Amount_Currency_Id", SqlDbType.Decimal);
+            SqlParameter spTransaction_Actual_Payment_Amount = new SqlParameter("@Transaction_Actual_Payment_Amount", SqlDbType.Decimal);
+            SqlParameter spDescription = new SqlParameter("@Description", SqlDbType.NVarChar, 80);
+            SqlParameter spHas_Been_Actually_Charged_In_Statement = new SqlParameter("@Has_Been_Actually_Charged_In_Statement", SqlDbType.Bit);
+            SqlParameter spTotal_Charged_In_Statement = new SqlParameter("@Total_Charged_In_Statement", SqlDbType.Decimal);
+            SqlParameter spUser_Description = new SqlParameter("@User_Description", SqlDbType.NVarChar, 300);
+            SqlParameter spUser_Comments = new SqlParameter("@User_Comments", SqlDbType.NVarChar, 300);
+            SqlParameter spIs_Visible_To_Anonymous_Users = new SqlParameter("@Is_Visible_To_Anonymous_Users", SqlDbType.Bit);
+            SqlParameter spIs_Available_For_Download_For_Anonymous_Users = new SqlParameter("@Is_Available_For_Download_For_Anonymous_Users", SqlDbType.Bit);
+            SqlParameter spIs_Visible_To_Followers_Users = new SqlParameter("@Is_Visible_To_Followers_Users", SqlDbType.Bit);
+            SqlParameter spIs_Available_For_Download_For_Followers_Users = new SqlParameter("@Is_Available_For_Download_For_Followers_Users", SqlDbType.Bit);
+            SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
+
+            spCredit_Card_Statement_Transaction_Id.Value = p_Credit_Card_Statement_Transaction_Id;
+
+            if (p_Transaction_Date.HasValue)
+                spTransaction_Date.Value = p_Transaction_Date.Value;
+            else
+                spTransaction_Date.Value = DBNull.Value;
+
+            spBusiness_Name.Value = p_Business_Name;
+            if (p_Transaction_Amount.HasValue)
+                spTransaction_Amount.Value = p_Transaction_Amount;
+            else
+                spTransaction_Amount.Value = DBNull.Value;
+
+            if (p_Transaction_Amount_Currency_Id.HasValue)
+                spTransaction_Amount_Currency_Id.Value = p_Transaction_Amount_Currency_Id.Value;
+            else
+                spTransaction_Amount_Currency_Id.Value = DBNull.Value;
+
+            if (p_Transaction_Actual_Payment_Amount.HasValue)
+                spTransaction_Actual_Payment_Amount.Value = p_Transaction_Actual_Payment_Amount.Value;
+            else
+                spTransaction_Actual_Payment_Amount.Value = DBNull.Value;
+
+            spDescription.Value = p_Description;
+
             spHas_Been_Actually_Charged_In_Statement.Value = p_Has_Been_Actually_Charged_In_Statement;
 
             if (p_Total_Charged_In_Statement.HasValue)
@@ -221,25 +326,34 @@ namespace TimeLineDashboard.DAL.Operations
 
             spUser_Description.Value = p_User_Description;
             spUser_Comments.Value = p_User_Comments;
-            spIs_Visible.Value = p_Is_Visible;
-            spUpdating_User_Id.Value = p_Updating_User_Id.Value;
 
-            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Update_Credit_Card_Statement_Transaction",
-                new List<SqlParameter>() {
-                    spCredit_Card_Statement_Transaction_Id,
-                    spTransaction_Date,
-                    spBusiness_Name,
-                    spTransaction_Amount,
-                    spTransaction_Amount_Currency_Id,
-                    spTransaction_Actual_Payment_Amount,
-                    spDescription,
-                    spHas_Been_Actually_Charged_In_Statement,
-                    spTotal_Charged_In_Statement,
-                    spUser_Description,
-                    spUser_Comments,
-                    spIs_Visible,
-                    spUpdating_User_Id
-                });
+            spIs_Visible_To_Anonymous_Users.Value = p_Is_Visible_To_Anonymous_Users;
+            spIs_Available_For_Download_For_Anonymous_Users.Value = p_Is_Available_For_Download_For_Anonymous_Users;
+            spIs_Visible_To_Followers_Users.Value = p_Is_Visible_To_Followers_Users;
+            spIs_Available_For_Download_For_Followers_Users.Value = p_Is_Available_For_Download_For_Followers_Users;
+
+            spUpdating_User_Id.Value = p_Updating_User_Id;
+
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Update_Credit_Card_Statement_Transaction_FullDetails",
+                    new List<SqlParameter>() {
+                        spCredit_Card_Statement_Transaction_Id,
+                        spTransaction_Date,
+                        spBusiness_Name,
+                        spTransaction_Amount,
+                        spTransaction_Amount_Currency_Id,
+                        spTransaction_Actual_Payment_Amount,
+                        spDescription,
+                        spHas_Been_Actually_Charged_In_Statement,
+                        spTotal_Charged_In_Statement,
+                        spUser_Description,
+                        spUser_Comments,
+                        spIs_Visible_To_Anonymous_Users ,
+                        spIs_Available_For_Download_For_Anonymous_Users ,
+                        spIs_Visible_To_Followers_Users ,
+                        spIs_Available_For_Download_For_Followers_Users ,
+                        spUpdating_User_Id
+                    });
 
             if (affected_Rows > 0)
             {
@@ -261,11 +375,12 @@ namespace TimeLineDashboard.DAL.Operations
             spCredit_Card_Statement_Transaction_Id.Value = p_Credit_Card_Statement_Transaction_Id;
             spDeleting_User_Id.Value = p_Deleting_User_Id;
 
-            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Delete_Credit_Card_Statement_Transaction",
-                new List<SqlParameter>() {
-                    spCredit_Card_Statement_Transaction_Id,
-                    spDeleting_User_Id
-                });
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Delete_Credit_Card_Statement_Transaction",
+                    new List<SqlParameter>() {
+                        spCredit_Card_Statement_Transaction_Id,
+                        spDeleting_User_Id
+                    });
 
             if (affected_Rows > 0)
             {
@@ -287,11 +402,12 @@ namespace TimeLineDashboard.DAL.Operations
             spBank_Account_Credit_Card_Statement_Id.Value = p_Bank_Account_Credit_Card_Statement_Id;
             spDeleting_User_Id.Value = p_Deleting_User_Id;
 
-            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Delete_Credit_Card_Statement_All_Transactions_By_Statement_Id",
-                new List<SqlParameter>() {
-                    spBank_Account_Credit_Card_Statement_Id,
-                    spDeleting_User_Id
-                });
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Delete_Credit_Card_Statement_All_Transactions_By_Statement_Id",
+                    new List<SqlParameter>() {
+                        spBank_Account_Credit_Card_Statement_Id,
+                        spDeleting_User_Id
+                    });
 
             if (affected_Rows > 0)
             {
@@ -299,6 +415,37 @@ namespace TimeLineDashboard.DAL.Operations
             }
 
             return updated_Successfully;
+        }
+
+        internal Credit_Cards_Statement_Transaction Get_Credit_Card_Statement_Transaction_Details(
+            int p_User_ID_Bank_Owner,
+            long p_Credit_Card_Statement_Transaction_Id,
+            int p_User_ID_Searching)
+        {
+            Credit_Cards_Statement_Transaction ccStatement_Transactions_To_Return = null;
+
+            SqlParameter spUser_Id_Bank_Owner = new SqlParameter("@User_Id_Bank_Owner", SqlDbType.Int);
+            SqlParameter spCredit_Card_Statement_Transaction_Id = new SqlParameter("@Credit_Card_Statement_Transaction_Id", SqlDbType.BigInt);
+            SqlParameter spSearching_User_Idarching = new SqlParameter("@User_ID_Searching", SqlDbType.Int);
+
+            spUser_Id_Bank_Owner.Value = p_User_ID_Bank_Owner;
+            spCredit_Card_Statement_Transaction_Id.Value = p_Credit_Card_Statement_Transaction_Id;
+            spSearching_User_Idarching.Value = p_User_ID_Searching;
+
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Get_Credit_Card_Statement_Transaction_Details",
+                    new List<SqlParameter>() {
+                        spUser_Id_Bank_Owner                        ,
+                        spCredit_Card_Statement_Transaction_Id      ,
+                        spSearching_User_Idarching
+                    });
+
+            if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+            {
+                ccStatement_Transactions_To_Return = Create_Credit_Card_Statement_Details_From_Data_Row(dataSet.Tables[0].Rows[0]);
+            }
+
+            return ccStatement_Transactions_To_Return;
         }
 
         private Credit_Cards_Statement_Transaction Create_Credit_Card_Statement_Details_From_Data_Row(DataRow dbRow)
@@ -350,10 +497,10 @@ namespace TimeLineDashboard.DAL.Operations
             Credit_Card_Statement_To_Return.User_Description = dbRow["User_Description"].ToString();
             Credit_Card_Statement_To_Return.User_Comments = dbRow["User_Comments"].ToString();
 
-            if (dbRow["Is_Visible"] != DBNull.Value)
-                Credit_Card_Statement_To_Return.Is_Visible = (bool)dbRow["Is_Visible"];
-            else
-                Credit_Card_Statement_To_Return.Is_Visible = true;
+            Credit_Card_Statement_To_Return.Is_Visible_To_Anonymous_Users = (bool)dbRow["Is_Visible_To_Anonymous_Users"];
+            Credit_Card_Statement_To_Return.Is_Available_For_Download_For_Anonymous_Users = (bool)dbRow["Is_Available_For_Download_For_Anonymous_Users"];
+            Credit_Card_Statement_To_Return.Is_Visible_To_Followers_Users = (bool)dbRow["Is_Visible_To_Followers_Users"];
+            Credit_Card_Statement_To_Return.Is_Available_For_Download_For_Followers_Users = (bool)dbRow["Is_Available_For_Download_For_Followers_Users"];
 
             if (dbRow.Table.Columns.IndexOf("Record_Creation_DateTime_UTC") >-1)
             { 

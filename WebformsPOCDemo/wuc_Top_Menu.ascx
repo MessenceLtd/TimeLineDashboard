@@ -11,10 +11,10 @@
                 <asp:PlaceHolder ID="panel_HeaderLinks" runat="server">
 
                     <li class="nav-item">
-                        <asp:HyperLink runat="server" ID="hyperlink_MainPage" CssClass="nav-link" ClientIDMode="Static" NavigateUrl="default.aspx" meta:resourcekey="hyperlink_MainPage">Home</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_MainPage" CssClass="nav-link" ClientIDMode="Static" NavigateUrl="default.aspx"><%= Resources.SiteCommon.Link_To_home %></asp:HyperLink>
                     </li>
                     <li class="nav-item dropdown">
-                        <asp:HyperLink runat="server" ID="hyperlink_Users" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_users" meta:resourcekey="hyperlink_Users">Users</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hyperlink_Users" CssClass="nav-link dropdown-toggle" data-toggle="dropdown" ClientIDMode="Static" NavigateUrl="#list_users"><%= Resources.SiteCommon.Users %></asp:HyperLink>
                         <asp:PlaceHolder runat="server" ID="placeHolder_Users_Links">
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="list_users.aspx"><%= Resources.SiteCommon.Users_List %></a></li>

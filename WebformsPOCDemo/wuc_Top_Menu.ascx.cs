@@ -15,7 +15,6 @@ namespace WebformsPOCDemo
             if (!this.IsPostBack)
             {
                 this.SetCurrentVisitedLink();
-                
             }
         }
 
@@ -89,6 +88,13 @@ namespace WebformsPOCDemo
                     if (requestedUrl == "manage_invoice.aspx") this.hyperlink_Invoices.CssClass += " active";
                     if (requestedUrl == "manage_document.aspx") this.hyperlink_Documents.CssClass += " active";
                     if (requestedUrl == "manage_bankaccount.aspx") this.hyperlink_BankAccounts.CssClass += " active";
+
+                    if (requestedUrl == "manage_bankaccounttransaction.aspx") this.hyperlink_BankAccounts.CssClass += " active";
+                    if (requestedUrl == "manage_bankaccounttransactions.aspx") this.hyperlink_BankAccounts.CssClass += " active";
+                    if (requestedUrl == "list_creditcardsstatements.aspx") this.hyperlink_BankAccounts.CssClass += " active";
+                    if (requestedUrl == "list_creditcards.aspx") this.hyperlink_BankAccounts.CssClass += " active";
+                    if (requestedUrl == "manage_creditcardstatement.aspx") this.hyperlink_BankAccounts.CssClass += " active";
+                    if (requestedUrl == "manage_creditcard.aspx") this.hyperlink_BankAccounts.CssClass += " active";
                 }
             }
             else

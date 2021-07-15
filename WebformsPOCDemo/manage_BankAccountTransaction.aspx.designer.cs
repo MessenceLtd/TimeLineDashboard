@@ -15,6 +15,87 @@ namespace WebformsPOCDemo
     {
 
         /// <summary>
+        /// upTabs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upTabs;
+
+        /// <summary>
+        /// tab_Button_General_Info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink tab_Button_General_Info;
+
+        /// <summary>
+        /// phTab_Documents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phTab_Documents;
+
+        /// <summary>
+        /// tab_Button_Documents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink tab_Button_Documents;
+
+        /// <summary>
+        /// phTab_CreditCardStatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phTab_CreditCardStatement;
+
+        /// <summary>
+        /// liTab_CreditCardStatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liTab_CreditCardStatement;
+
+        /// <summary>
+        /// tab_Button_CreditCardStatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink tab_Button_CreditCardStatement;
+
+        /// <summary>
+        /// General_Info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel General_Info;
+
+        /// <summary>
+        /// updatePanel_General_Info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanel_General_Info;
+
+        /// <summary>
         /// formControl_Wrapper_Edit_Transaction_Account_Balance control.
         /// </summary>
         /// <remarks>
@@ -564,6 +645,15 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.WebControls.Label lbl_Insert_Process_Error_Result;
 
         /// <summary>
+        /// Documents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Documents;
+
+        /// <summary>
         /// up_Transaction_Connected_Documents control.
         /// </summary>
         /// <remarks>
@@ -573,6 +663,24 @@ namespace WebformsPOCDemo
         protected global::System.Web.UI.UpdatePanel up_Transaction_Connected_Documents;
 
         /// <summary>
+        /// pConnected_Documents_Title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pConnected_Documents_Title;
+
+        /// <summary>
+        /// lblConnected_Documents_Title_Message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConnected_Documents_Title_Message;
+
+        /// <summary>
         /// grid_Connected_Documents control.
         /// </summary>
         /// <remarks>
@@ -580,6 +688,78 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataGrid grid_Connected_Documents;
+
+        /// <summary>
+        /// pConnected_Documents_Empty_Results control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pConnected_Documents_Empty_Results;
+
+        /// <summary>
+        /// lblConnected_Documents_Empty_Results_Message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConnected_Documents_Empty_Results_Message;
+
+        /// <summary>
+        /// upTransaction_Suggested_Documents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upTransaction_Suggested_Documents;
+
+        /// <summary>
+        /// pSuggested_Documents_Title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pSuggested_Documents_Title;
+
+        /// <summary>
+        /// lblSuggested_Documents_Title_Message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuggested_Documents_Title_Message;
+
+        /// <summary>
+        /// grid_Suggested_Documents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid grid_Suggested_Documents;
+
+        /// <summary>
+        /// pSuggested_Documents_Empty_Message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pSuggested_Documents_Empty_Message;
+
+        /// <summary>
+        /// lbl_No_Suggested_Documents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_No_Suggested_Documents;
 
         /// <summary>
         /// text_Filter_By_From_Date control.
@@ -733,5 +913,347 @@ namespace WebformsPOCDemo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panel_No_Results_Message;
+
+        /// <summary>
+        /// CCStatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel CCStatement;
+
+        /// <summary>
+        /// up_CCStatement_Details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_CCStatement_Details;
+
+        /// <summary>
+        /// panel_Statement_Unconnected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_Statement_Unconnected;
+
+        /// <summary>
+        /// dropdown_CreditCardStatements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown_CreditCardStatements;
+
+        /// <summary>
+        /// button_Save_Statement_Connection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Save_Statement_Connection;
+
+        /// <summary>
+        /// panel_Statement_Info control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_Statement_Info;
+
+        /// <summary>
+        /// label_BankAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_BankAccount;
+
+        /// <summary>
+        /// label_CreditCard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CreditCard;
+
+        /// <summary>
+        /// label_CCStatement_DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_DateTime;
+
+        /// <summary>
+        /// label_Currency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_Currency;
+
+        /// <summary>
+        /// label_Total_Amount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_Total_Amount;
+
+        /// <summary>
+        /// p_Edit_Statement_File_Download control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel p_Edit_Statement_File_Download;
+
+        /// <summary>
+        /// panel_Image_Download_CCStatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel_Image_Download_CCStatement;
+
+        /// <summary>
+        /// link_Download_CCStatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link_Download_CCStatement;
+
+        /// <summary>
+        /// link_Download_CCStatement2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link_Download_CCStatement2;
+
+        /// <summary>
+        /// label_CCStatement_Is_Visible_To_Anonymous_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_Is_Visible_To_Anonymous_Users;
+
+        /// <summary>
+        /// label_CCStatement_Is_Available_For_Download_For_Anonymous_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_Is_Available_For_Download_For_Anonymous_Users;
+
+        /// <summary>
+        /// label_CCStatement_Is_Visible_To_Followers_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_Is_Visible_To_Followers_Users;
+
+        /// <summary>
+        /// label_CCStatement_Is_Available_For_Download_For_Followers_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_Is_Available_For_Download_For_Followers_Users;
+
+        /// <summary>
+        /// label_CCStatement_Record_Created_By_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_Record_Created_By_User;
+
+        /// <summary>
+        /// label_CCStatement_Record_Creation_DateTime_UTC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_Record_Creation_DateTime_UTC;
+
+        /// <summary>
+        /// label_CCStatement_Record_Last_Updated_By_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_Record_Last_Updated_By_User;
+
+        /// <summary>
+        /// label_CCStatement_Record_Last_Updated_DateTime_UTC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label_CCStatement_Record_Last_Updated_DateTime_UTC;
+
+        /// <summary>
+        /// hidden_Credit_Card_Statement_Id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Credit_Card_Statement_Id;
+
+        /// <summary>
+        /// link_Statement_ViewMore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link_Statement_ViewMore;
+
+        /// <summary>
+        /// link_Statement_EditDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link_Statement_EditDetails;
+
+        /// <summary>
+        /// button_Delete_Statement_Connection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Delete_Statement_Connection;
+
+        /// <summary>
+        /// hidden_Edit_Document_Connection_Id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Edit_Document_Connection_Id;
+
+        /// <summary>
+        /// checkbox_DocumentConnection_Is_Visible_To_Anonymous_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox checkbox_DocumentConnection_Is_Visible_To_Anonymous_Users;
+
+        /// <summary>
+        /// checkbox_DocumentConnection_Is_Available_For_Download_For_Anonymous_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox checkbox_DocumentConnection_Is_Available_For_Download_For_Anonymous_Users;
+
+        /// <summary>
+        /// checkbox_DocumentConnection_Is_Visible_To_Followers_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox checkbox_DocumentConnection_Is_Visible_To_Followers_Users;
+
+        /// <summary>
+        /// checkbox_DocumentConnection_Is_Available_For_Download_For_Followers_Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox checkbox_DocumentConnection_Is_Available_For_Download_For_Followers_Users;
+
+        /// <summary>
+        /// button_Popup_Save_Document_Connection_Details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Popup_Save_Document_Connection_Details;
+
+        /// <summary>
+        /// hidden_Add_Document_Connection_Document_Record_Id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Add_Document_Connection_Document_Record_Id;
+
+        /// <summary>
+        /// hidden_Add_Document_Connection_Type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Add_Document_Connection_Type;
+
+        /// <summary>
+        /// button_Add_Document_Connection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Add_Document_Connection;
+
+        /// <summary>
+        /// hidden_Delete_Document_Connection_Id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden_Delete_Document_Connection_Id;
+
+        /// <summary>
+        /// button_Delete_Document_Connection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_Delete_Document_Connection;
     }
 }

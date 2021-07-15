@@ -30,13 +30,13 @@ namespace TimeLineDashboard.DAL.Operations
         #endregion
 
         internal Bank_Account_Transactions Get_Bank_Account_Transaction_Details_By_Transaction_Id (
-            int p_Bank_Account_Transaction_Id, 
+            long p_Bank_Account_Transaction_Id, 
             int p_User_Id_Bank_Account_Transaction_Owner, 
             int p_User_Id_Searching_For_Bank_Account_Transaction_Details )
         {
             Bank_Account_Transactions Bank_Account_Transaction_To_Return = new Bank_Account_Transactions();
 
-            SqlParameter spBank_Account_Transaction_Record_Id = new SqlParameter("@Bank_Account_Transaction_Record_Id", SqlDbType.Int);
+            SqlParameter spBank_Account_Transaction_Record_Id = new SqlParameter("@Bank_Account_Transaction_Record_Id", SqlDbType.BigInt);
             SqlParameter spUser_Id_Bank_Account_Transaction_Owner = new SqlParameter("@User_Id_Bank_Account_Transaction_Owner", SqlDbType.Int);
             SqlParameter spUser_Id_Searching_For_Bank_Account_Transaction_Details = new SqlParameter("@User_Id_Searching_For_Bank_Account_Transaction_Details", SqlDbType.Int);
 
@@ -44,8 +44,12 @@ namespace TimeLineDashboard.DAL.Operations
             spUser_Id_Bank_Account_Transaction_Owner.Value = p_User_Id_Bank_Account_Transaction_Owner;
             spUser_Id_Searching_For_Bank_Account_Transaction_Details.Value = p_User_Id_Searching_For_Bank_Account_Transaction_Details;
 
-            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString("p_TLBoard_Get_Bank_Account_Transaction_Details",
-                new List<SqlParameter>() { spBank_Account_Transaction_Record_Id, spUser_Id_Bank_Account_Transaction_Owner, spUser_Id_Searching_For_Bank_Account_Transaction_Details });
+            var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Get_Bank_Account_Transaction_Details",
+                    new List<SqlParameter>() { 
+                        spBank_Account_Transaction_Record_Id, 
+                        spUser_Id_Bank_Account_Transaction_Owner, 
+                        spUser_Id_Searching_For_Bank_Account_Transaction_Details });
 
             if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
             {
@@ -57,6 +61,7 @@ namespace TimeLineDashboard.DAL.Operations
 
         internal Bank_Account_Transactions Insert_New_Bank_Account_Transaction_Details(
             int p_Bank_Account_Id,
+            long? p_After_Transaction_Id,
             decimal p_Transaction_Account_Balance,
             DateTime p_Transaction_Actual_DateTime,
             decimal p_Positive_Amount_Entered, 
@@ -73,11 +78,12 @@ namespace TimeLineDashboard.DAL.Operations
             Bank_Account_Transactions new_Registered_Bank_Account_Transaction_To_Return = null;
 
             SqlParameter spBank_Account_Id = new SqlParameter("@Bank_Account_Id", SqlDbType.Int);
+            SqlParameter spAfter_Transaction_Id = new SqlParameter("@After_Transaction_Id", SqlDbType.BigInt);
             SqlParameter spTransaction_Account_Balance = new SqlParameter("@Transaction_Account_Balance", SqlDbType.Decimal);
-            SqlParameter spTransaction_Actual_DateTime = new SqlParameter("@Transaction_Actual_DateTime", SqlDbType.DateTime);
+            SqlParameter spTransaction_Actual_DateTime = new SqlParameter("@Transaction_Actual_DateTime", SqlDbType.SmallDateTime);
             SqlParameter spPositive_Amount_Entered = new SqlParameter("@Positive_Amount_Entered", SqlDbType.Decimal);
             SqlParameter spNegative_Amount_Paid = new SqlParameter("@Negative_Amount_Paid", SqlDbType.Decimal);
-            SqlParameter spTransaction_Value_DateTime = new SqlParameter("@Transaction_Value_DateTime", SqlDbType.DateTime);
+            SqlParameter spTransaction_Value_DateTime = new SqlParameter("@Transaction_Value_DateTime", SqlDbType.SmallDateTime);
             SqlParameter spReference_Number = new SqlParameter("@Reference_Number", SqlDbType.NVarChar , 40);
             SqlParameter spTransaction_Bank_Description = new SqlParameter("@Transaction_Bank_Description", SqlDbType.NVarChar, 40);
             SqlParameter spTransaction_Bank_Inner_Reference_Code = new SqlParameter("@Transaction_Bank_Inner_Reference_Code", SqlDbType.NVarChar, 15);
@@ -86,6 +92,12 @@ namespace TimeLineDashboard.DAL.Operations
             SqlParameter spCreating_User_Id = new SqlParameter("@Creating_User_Id", SqlDbType.Int);
 
             spBank_Account_Id.Value = p_Bank_Account_Id;
+            
+            if (p_After_Transaction_Id.HasValue)
+                spAfter_Transaction_Id.Value = p_After_Transaction_Id.Value;
+            else
+                spAfter_Transaction_Id.Value = DBNull.Value;
+
             spTransaction_Account_Balance.Value = p_Transaction_Account_Balance;
             spTransaction_Actual_DateTime.Value = p_Transaction_Actual_DateTime;
             spPositive_Amount_Entered.Value = p_Positive_Amount_Entered;
@@ -105,7 +117,8 @@ namespace TimeLineDashboard.DAL.Operations
             object new_Bank_Account_Transaction_Id = SQLHelper.ExecuteStoredProcedure_ReturnDataObjectResult(
                 "p_TLBoard_Insert_Bank_Account_Transaction_Details",
                 new List<SqlParameter>() {
-                    spBank_Account_Id, 
+                    spBank_Account_Id,
+                    spAfter_Transaction_Id, 
                     spTransaction_Account_Balance,
                     spTransaction_Actual_DateTime, 
                     spPositive_Amount_Entered,
@@ -135,7 +148,7 @@ namespace TimeLineDashboard.DAL.Operations
         }
 
         internal bool Update_Bank_Account_Transaction_Details(
-            int p_Bank_Account_Transaction_Id,
+            long p_Bank_Account_Transaction_Id,
             decimal p_Transaction_Account_Balance,
             DateTime p_Transaction_Actual_DateTime,
             decimal p_Positive_Amount_Entered,
@@ -151,7 +164,7 @@ namespace TimeLineDashboard.DAL.Operations
         {
             bool updated_Successfully = false;
 
-            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.Int);
+            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.BigInt);
             SqlParameter spTransaction_Account_Balance = new SqlParameter("@Transaction_Account_Balance", SqlDbType.Decimal);
             SqlParameter spTransaction_Actual_DateTime = new SqlParameter("@Transaction_Actual_DateTime", SqlDbType.DateTime);
             SqlParameter spPositive_Amount_Entered = new SqlParameter("@Positive_Amount_Entered", SqlDbType.Decimal);
@@ -206,7 +219,7 @@ namespace TimeLineDashboard.DAL.Operations
         }
 
         internal bool Update_Bank_Account_Transaction_Details(
-            int p_Bank_Account_Transaction_Id,
+            long p_Bank_Account_Transaction_Id,
             decimal p_Transaction_Account_Balance,
             DateTime p_Transaction_Actual_DateTime,
             decimal p_Positive_Amount_Entered,
@@ -224,7 +237,7 @@ namespace TimeLineDashboard.DAL.Operations
         {
             bool updated_Successfully = false;
 
-            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.Int);
+            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.BigInt);
             SqlParameter spTransaction_Account_Balance = new SqlParameter("@Transaction_Account_Balance", SqlDbType.Decimal);
             SqlParameter spTransaction_Actual_DateTime = new SqlParameter("@Transaction_Actual_DateTime", SqlDbType.DateTime);
             SqlParameter spPositive_Amount_Entered = new SqlParameter("@Positive_Amount_Entered", SqlDbType.Decimal);
@@ -262,23 +275,24 @@ namespace TimeLineDashboard.DAL.Operations
             spIs_Visible_To_Followers_Users.Value = p_Is_Visible_To_Followers_Users;
             spUpdating_User_Id.Value = p_Updating_User_Id;
 
-            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Update_Bank_Account_Transaction_Full_Details",
-                new List<SqlParameter>() {
-                    spBank_Account_Transaction_Id,
-                    spTransaction_Account_Balance,
-                    spTransaction_Actual_DateTime,
-                    spPositive_Amount_Entered,
-                    spNegative_Amount_Paid,
-                    spTransaction_Value_DateTime,
-                    spReference_Number,
-                    spTransaction_Bank_Description,
-                    spTransaction_Bank_Inner_Reference_Code,
-                    spUser_Description, 
-                    spUser_Comments,
-                    spIs_Visible_To_Anonymous_Users,
-                    spIs_Visible_To_Followers_Users,
-                    spUpdating_User_Id
-                });
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Update_Bank_Account_Transaction_Full_Details",
+                    new List<SqlParameter>() {
+                        spBank_Account_Transaction_Id,
+                        spTransaction_Account_Balance,
+                        spTransaction_Actual_DateTime,
+                        spPositive_Amount_Entered,
+                        spNegative_Amount_Paid,
+                        spTransaction_Value_DateTime,
+                        spReference_Number,
+                        spTransaction_Bank_Description,
+                        spTransaction_Bank_Inner_Reference_Code,
+                        spUser_Description, 
+                        spUser_Comments,
+                        spIs_Visible_To_Anonymous_Users,
+                        spIs_Visible_To_Followers_Users,
+                        spUpdating_User_Id
+                    });
 
             if (affected_Rows > 0)
             {
@@ -290,26 +304,27 @@ namespace TimeLineDashboard.DAL.Operations
 
         internal bool Delete_Bank_Account_Transaction(
             int p_Bank_Account_Id,
-            int p_Bank_Account_Transaction_Id,
+            long p_Bank_Account_Transaction_Id,
             int p_Updating_User_Id
             )
         {
             bool updated_Successfully = false;
 
             SqlParameter spBank_Account_Id = new SqlParameter("@Bank_Account_Id", SqlDbType.Int);
-            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.Int);
+            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.BigInt);
             SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
 
             spBank_Account_Id.Value = p_Bank_Account_Id;
             spBank_Account_Transaction_Id.Value = p_Bank_Account_Transaction_Id;
             spUpdating_User_Id.Value = p_Updating_User_Id;
 
-            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString("p_TLBoard_Delete_Bank_Account_Transactions_By_Bank_Account_Id_And_User_Id_And_Transaction_ID",
-                new List<SqlParameter>() {
-                    spBank_Account_Id, 
-                    spBank_Account_Transaction_Id,
-                    spUpdating_User_Id
-                });
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Delete_Bank_Account_Transactions_By_Bank_Account_Id_And_User_Id_And_Transaction_ID",
+                    new List<SqlParameter>() {
+                        spBank_Account_Id, 
+                        spBank_Account_Transaction_Id,
+                        spUpdating_User_Id
+                    });
 
             if (affected_Rows > 0)
             {
@@ -372,39 +387,87 @@ namespace TimeLineDashboard.DAL.Operations
             return bank_Account_Transactions_Response;
         }
 
-        internal List<Bank_Account_Transactions> Get_Transactions_By_Bank_Account_Id_And_User_Id_And_TransactionsIDs_Array(
-            int p_Bank_Account_Id,
-            int[] p_Transcations_IDs_Array,
-            int p_User_Id_Searching_For_Bank_Account_Transactions)
+        internal bool Update_Bank_Account_Transaction_Connect_With_Statement(
+            long p_Bank_Account_Transaction_Id,
+            int p_Credit_Card_Statement_Id,
+            int p_Updating_User_Id )
+        {
+            bool updated_Successfully = false;
+
+            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.BigInt);
+            SqlParameter spCredit_Card_Statement_Id = new SqlParameter("@Credit_Card_Statement_Id", SqlDbType.Int);
+            SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
+
+            spBank_Account_Transaction_Id.Value = p_Bank_Account_Transaction_Id;
+            spCredit_Card_Statement_Id.Value = p_Credit_Card_Statement_Id;
+            spUpdating_User_Id.Value = p_Updating_User_Id;
+
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Update_Bank_Account_Transaction_Connect_With_Statement",
+                    new List<SqlParameter>() {
+                        spBank_Account_Transaction_Id,
+                        spCredit_Card_Statement_Id,
+                        spUpdating_User_Id
+                    });
+
+            if (affected_Rows > 0)
+            {
+                updated_Successfully = true;
+            }
+
+            return updated_Successfully;
+        }
+
+        internal bool Update_Bank_Account_Transaction_Disconnect_Statement(
+            long p_Bank_Account_Transaction_Id,
+            int p_Credit_Card_Statement_Id,
+            int p_Updating_User_Id)
+        {
+            bool updated_Successfully = false;
+
+            SqlParameter spBank_Account_Transaction_Id = new SqlParameter("@Bank_Account_Transaction_Id", SqlDbType.BigInt);
+            SqlParameter spCredit_Card_Statement_Id = new SqlParameter("@Credit_Card_Statement_Id", SqlDbType.Int);
+            SqlParameter spUpdating_User_Id = new SqlParameter("@Updating_User_Id", SqlDbType.Int);
+
+            spBank_Account_Transaction_Id.Value = p_Bank_Account_Transaction_Id;
+            spCredit_Card_Statement_Id.Value = p_Credit_Card_Statement_Id;
+            spUpdating_User_Id.Value = p_Updating_User_Id;
+
+            int affected_Rows = SQLHelper.ExecuteStoredProcedure_ReturnAffectedRowsNumber_WithDefaultAppConfigConnectionString(
+                "p_TLBoard_Update_Bank_Account_Transaction_Disconnect_Statement",
+                    new List<SqlParameter>() {
+                        spBank_Account_Transaction_Id,
+                        spCredit_Card_Statement_Id,
+                        spUpdating_User_Id
+                    });
+
+            if (affected_Rows > 0)
+            {
+                updated_Successfully = true;
+            }
+
+            return updated_Successfully;
+        }
+
+        internal List<Bank_Account_Transactions> Get_By_Date_Unconnected_Transactions_To_Credit_Card_Statements(
+            int p_Credit_card_Statement_Id,
+            int p_User_ID_Searching)
         {
             List<Bank_Account_Transactions> transactions_To_Return = new List<Bank_Account_Transactions>();
 
-            SqlParameter spBank_Account_Id = new SqlParameter("@Bank_Account_Id", SqlDbType.Int);
-            SqlParameter spTranscations_IDs_Array = new SqlParameter("@Transcations_IDs_Array", SqlDbType.VarChar, 1000);
-            SqlParameter spUser_Id_Searching_For_Bank_Account_Transactions = new SqlParameter("@User_Id_Searching_For_Bank_Account_Transactions", SqlDbType.Int);
+            SqlParameter spCredit_card_Statement_Id = new SqlParameter("@Credit_card_Statement_Id", SqlDbType.Int);
+            SqlParameter spUser_ID_Searching = new SqlParameter("@User_ID_Searching", SqlDbType.Int);
 
-            spBank_Account_Id.Value = p_Bank_Account_Id;
-            string p_Transactions_IDs_Seperated_Array = string.Empty;
-            for (int i = 0; i < p_Transcations_IDs_Array.Length; i++)
-            {
-                p_Transactions_IDs_Seperated_Array += p_Transcations_IDs_Array[i] ;
-                if ( i <  p_Transcations_IDs_Array.Length -1    )
-                {
-                    p_Transactions_IDs_Seperated_Array += ",";
-                }
-            }
+            spCredit_card_Statement_Id.Value = p_Credit_card_Statement_Id;
+            spUser_ID_Searching.Value = p_User_ID_Searching;
 
-            spTranscations_IDs_Array.Value = p_Transactions_IDs_Seperated_Array;
-            spUser_Id_Searching_For_Bank_Account_Transactions.Value = p_User_Id_Searching_For_Bank_Account_Transactions;
-            
             var dataSet = SQLHelper.SelectUsingStoredProcedure_WithDefaultAppConfigConnectionString(
-                "p_TLBoard_Get_Bank_Account_Transactions_By_Bank_Account_Id_And_User_Id_And_Transactions_IDs",
+                "p_TLBoard_Get_Bank_Account_Transactions_By_Date_Unconnected_Transactions_To_Credit_Card_Statements",
                 new List<SqlParameter>() {
-                    spBank_Account_Id,
-                    spTranscations_IDs_Array,
-                    spUser_Id_Searching_For_Bank_Account_Transactions });
+                    spCredit_card_Statement_Id,
+                    spUser_ID_Searching });
 
-            if (dataSet != null && dataSet.Tables[0].Rows.Count > 0)
+            if (dataSet != null && dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
             {
                 transactions_To_Return = new List<Bank_Account_Transactions>(dataSet.Tables[0].Rows.Count);
 
@@ -442,6 +505,22 @@ namespace TimeLineDashboard.DAL.Operations
             Bank_Account_Transaction_To_Return.Reference_Number = dbRow["Reference_Number"].ToString();
             Bank_Account_Transaction_To_Return.Transaction_Bank_Description = dbRow["Transaction_Bank_Description"].ToString();
             Bank_Account_Transaction_To_Return.Transaction_Bank_Inner_Reference_Code = dbRow["Transaction_Bank_Inner_Reference_Code"].ToString();
+
+            if (dbRow.Table.Columns.IndexOf("Is_Credit_Card_Statement_Transaction") > -1)
+            {
+                if (dbRow["Is_Credit_Card_Statement_Transaction"] != DBNull.Value)
+                {
+                    Bank_Account_Transaction_To_Return.Is_Credit_Card_Statement_Transaction = (bool)dbRow["Is_Credit_Card_Statement_Transaction"];
+                }
+            }
+
+            if (dbRow.Table.Columns.IndexOf("Bank_Account_Credit_Card_Statement_Id") > -1)
+            {
+                if (dbRow["Bank_Account_Credit_Card_Statement_Id"] != DBNull.Value)
+                {
+                    Bank_Account_Transaction_To_Return.Credit_Card_Statement_Id = (int)dbRow["Bank_Account_Credit_Card_Statement_Id"];
+                }
+            }
 
             if (dbRow.Table.Columns.IndexOf("Transaction_User_Description") > -1)
             {

@@ -1119,7 +1119,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public Bank_Account_Transactions BankAccount_Transactions_Get_Transaction_Details_By_Transaction_Id(
-                    int p_Bank_Account_Transaction_Id,
+                    long p_Bank_Account_Transaction_Id,
                     int p_User_Id_Bank_Account_Transaction_Owner,
                     int p_User_Id_Searching_For_Bank_Account_Transaction_Details)
         {
@@ -1132,6 +1132,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
 
         public Bank_Account_Transactions BankAccount_Transactions_Insert_New_Transaction_Details(
             int p_Bank_Account_Id,
+            long? p_After_Transaction_Id,
             decimal p_Transaction_Account_Balance,
             DateTime p_Transaction_Actual_DateTime,
             decimal p_Positive_Amount_Entered,
@@ -1146,6 +1147,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         {
             return Data_Access_Layer_Facade.Instance.BankAccount_Transactions_Insert_New_Transaction_Details(
                 p_Bank_Account_Id,
+                p_After_Transaction_Id, 
                 p_Transaction_Account_Balance,
                 p_Transaction_Actual_DateTime,
                 p_Positive_Amount_Entered,
@@ -1161,7 +1163,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public bool BankAccount_Transactions_Update_Transaction_Details(
-            int p_Bank_Account_Transaction_Id,
+            long p_Bank_Account_Transaction_Id,
             decimal p_Transaction_Account_Balance,
             DateTime p_Transaction_Actual_DateTime,
             decimal p_Positive_Amount_Entered,
@@ -1191,7 +1193,7 @@ namespace TimeLineDashboard.BusinessLogicLayer
         }
 
         public bool BankAccount_Transactions_Update_Transaction_Details(
-            int p_Bank_Account_Transaction_Id,
+            long p_Bank_Account_Transaction_Id,
             decimal p_Transaction_Account_Balance,
             DateTime p_Transaction_Actual_DateTime,
             decimal p_Positive_Amount_Entered,
@@ -1221,22 +1223,6 @@ namespace TimeLineDashboard.BusinessLogicLayer
                     p_Is_Visible_To_Anonymous_Users,
                     p_Is_Visible_To_Followers_Users,
                     p_Updating_User_Id
-                );
-        }
-
-        public Bank_Account_Transactions_Response_For_UI BankAccount_Transactions_Get_Transactions_By_Bank_Account_Id_And_User_Id(
-            int p_Page_Number,
-            int p_Rows_Per_Page,
-            int p_Bank_Account_Id,
-            int p_User_Id_Bank_Account_Owner,
-            int p_User_Id_Searching_For_Bank_Account_Transactions)
-        {
-            return Data_Access_Layer_Facade.Instance.BankAccount_Transactions_Get_Transactions_By_Bank_Account_Id_And_User_Id(
-                    p_Page_Number,
-                    p_Rows_Per_Page,
-                    p_Bank_Account_Id,
-                    p_User_Id_Bank_Account_Owner,
-                    p_User_Id_Searching_For_Bank_Account_Transactions
                 );
         }
 
@@ -1329,129 +1315,9 @@ namespace TimeLineDashboard.BusinessLogicLayer
             transactions_Table.Rows.Add(new_Transaction_Row);
         }
 
-        public int BankAccount_Transactions_Save_Transactions_From_UI_To_Database(
-            int p_Bank_Account_Id,
-            Bank_Account_Transactions_To_DB_Sync_From_UI transactions_From_UI,
-            int p_Saving_User_Id
-            )
-        {
-            int successfully_Processed_Transactions = 0;
-
-            int[] bankAccount_Transactions_Ids = new int[] { transactions_From_UI.Bank_Account_Transaction_Id };// transactions_From_UI.Where(t => t.Bank_Account_Transaction_Id > 0).Select(t => t.Bank_Account_Transaction_Id).ToArray();
-            // Select the bankAccountsTransactions In the database to compare values to know if to actually update the records in the database.
-            List<Bank_Account_Transactions> transactions_To_Check_If_Updated =
-                this.BankAccounts_Transactions_Get_Transactions_By_Transactions_ArrayOfIds(p_Bank_Account_Id, bankAccount_Transactions_Ids, p_Saving_User_Id);
-
-            Bank_Account_Transactions_To_DB_Sync_From_UI transaction_To_DB_Sync_From_UI = transactions_From_UI;
-
-            if (transaction_To_DB_Sync_From_UI.Is_New_Record)
-            {
-                var newTransaction = this.BankAccount_Transactions_Insert_New_Transaction_Details(
-                    p_Bank_Account_Id,
-                    transaction_To_DB_Sync_From_UI.Transaction_Account_Balance,
-                    transaction_To_DB_Sync_From_UI.Transaction_Actual_DateTime,
-                    transaction_To_DB_Sync_From_UI.Positive_Amount_Entered,
-                    transaction_To_DB_Sync_From_UI.Negative_Amount_Paid,
-                    transaction_To_DB_Sync_From_UI.Transaction_Value_DateTime,
-                    transaction_To_DB_Sync_From_UI.Reference_Number,
-                    transaction_To_DB_Sync_From_UI.Transaction_Bank_Description,
-                    transaction_To_DB_Sync_From_UI.Transaction_Bank_Inner_Reference_Code,
-                    transaction_To_DB_Sync_From_UI.Is_Visible_To_Anonymous_Users,
-                    transaction_To_DB_Sync_From_UI.Is_Visible_To_Followers_Users,
-                    p_Saving_User_Id
-                    );
-
-                if (newTransaction.Bank_Account_Transaction_Id > 0)
-                {
-                    successfully_Processed_Transactions++;
-                }
-            }
-            else
-            {
-                if (!transaction_To_DB_Sync_From_UI.Is_Deleted)
-                {
-                    var transaction_Details_In_Database = transactions_To_Check_If_Updated.Single(t => t.Bank_Account_Transaction_Id == transaction_To_DB_Sync_From_UI.Bank_Account_Transaction_Id);
-
-                    bool transaction_Should_Be_Updated = false;
-
-                    if (transaction_Details_In_Database.Transaction_Account_Balance != transaction_To_DB_Sync_From_UI.Transaction_Account_Balance
-                         || transaction_Details_In_Database.Transaction_Actual_DateTime != transaction_To_DB_Sync_From_UI.Transaction_Actual_DateTime
-                         || transaction_Details_In_Database.Positive_Amount_Entered != transaction_To_DB_Sync_From_UI.Positive_Amount_Entered
-                         || transaction_Details_In_Database.Negative_Amount_Paid != transaction_To_DB_Sync_From_UI.Negative_Amount_Paid
-                         || transaction_Details_In_Database.Transaction_Value_DateTime != transaction_To_DB_Sync_From_UI.Transaction_Value_DateTime
-                         || transaction_Details_In_Database.Reference_Number != transaction_To_DB_Sync_From_UI.Reference_Number
-                         || transaction_Details_In_Database.Transaction_Bank_Description != transaction_To_DB_Sync_From_UI.Transaction_Bank_Description
-                         || transaction_Details_In_Database.Transaction_Bank_Inner_Reference_Code != transaction_To_DB_Sync_From_UI.Transaction_Bank_Inner_Reference_Code
-                         || transaction_Details_In_Database.Is_Visible_To_Anonymous_Users != transaction_To_DB_Sync_From_UI.Is_Visible_To_Anonymous_Users
-                         || transaction_Details_In_Database.Is_Visible_To_Followers_Users != transaction_To_DB_Sync_From_UI.Is_Visible_To_Followers_Users
-                         )
-                    {
-                        transaction_Should_Be_Updated = true;
-                    }
-
-                    if (transaction_Should_Be_Updated)
-                    {
-                        bool updated_Successfully = this.BankAccount_Transactions_Update_Transaction_Details(
-                            transaction_To_DB_Sync_From_UI.Bank_Account_Transaction_Id,
-                            transaction_To_DB_Sync_From_UI.Transaction_Account_Balance,
-                            transaction_To_DB_Sync_From_UI.Transaction_Actual_DateTime,
-                            transaction_To_DB_Sync_From_UI.Positive_Amount_Entered,
-                            transaction_To_DB_Sync_From_UI.Negative_Amount_Paid,
-                            transaction_To_DB_Sync_From_UI.Transaction_Value_DateTime,
-                            transaction_To_DB_Sync_From_UI.Reference_Number,
-                            transaction_To_DB_Sync_From_UI.Transaction_Bank_Description,
-                            transaction_To_DB_Sync_From_UI.Transaction_Bank_Inner_Reference_Code,
-                            transaction_To_DB_Sync_From_UI.Is_Visible_To_Anonymous_Users,
-                            transaction_To_DB_Sync_From_UI.Is_Visible_To_Followers_Users,
-                            p_Saving_User_Id
-                            );
-
-                        if (updated_Successfully)
-                        {
-                            successfully_Processed_Transactions++;
-                        }
-                    }
-                    else
-                    {
-                        // The transaction is the same as in the database so no need to update it. 
-                        successfully_Processed_Transactions++;
-                    }
-                }
-                else
-                {
-                    // The transaction got deleted. Mark it as deleted in the DB..
-                    if (this.BankAccount_Transactions_Delete_Transaction(
-                        p_Bank_Account_Id,
-                        transaction_To_DB_Sync_From_UI.Bank_Account_Transaction_Id,
-                        p_Saving_User_Id
-                        ))
-                    {
-                        successfully_Processed_Transactions++;
-                    }
-                }
-
-            }
-
-            return successfully_Processed_Transactions;
-        }
-
-
-        internal List<Bank_Account_Transactions> BankAccounts_Transactions_Get_Transactions_By_Transactions_ArrayOfIds(
-            int p_Bank_Account_Id,
-            int[] transactions_IDs_Array,
-            int p_Searching_User_Id
-            )
-        {
-            return Data_Access_Layer_Facade.Instance.BankAccount_Transactions_Get_Transactions_By_Bank_Account_Id_And_User_Id_And_TransactionsIDs_Array(
-                    p_Bank_Account_Id,
-                    transactions_IDs_Array,
-                    p_Searching_User_Id
-                );
-        }
-
         public bool BankAccount_Transactions_Delete_Transaction(
             int p_Bank_Account_Id,
-            int p_Bank_Account_Transaction_Id,
+            long p_Bank_Account_Transaction_Id,
             int p_Updating_User_Id)
         {
             return Data_Access_Layer_Facade.Instance.BankAccount_Transactions_Delete_Transaction(
@@ -2559,7 +2425,10 @@ namespace TimeLineDashboard.BusinessLogicLayer
                                 p_Statement_Transactions[i].Total_Charged_In_Statement,
                                 string.Empty,
                                 string.Empty,
-                                true,
+                                p_Is_Visible_To_Anonymous_Users,
+                                p_Is_Available_For_Download_For_Anonymous_Users,
+                                p_Is_Visible_To_Followers_Users,
+                                p_Is_Available_For_Download_For_Followers_Users,
                                 p_Creating_User_Id,
                                 p_Authenticated_User_Permission);
                         }
@@ -2578,40 +2447,170 @@ namespace TimeLineDashboard.BusinessLogicLayer
             int p_User_Id_Owner,
             int p_Credit_Card_Statement_Id,
             int p_Credit_Card_Id,
-            DateTime p_Statement_Date,
-            decimal p_Total_Amount,
+            DateTime? p_Statement_Date,
+            decimal? p_Total_Amount,
             byte p_Currency_Id,
             string p_Original_File_Name,
-            string p_Azure_Block_Blob_Reference,
-            bool p_File_Uploaded,
+            byte[] p_File_Content_To_Save_In_Azure,
             long? p_Bank_Account_Transaction_Id_Connection,
             bool p_Is_Visible_To_Anonymous_Users,
             bool p_Is_Available_For_Download_For_Anonymous_Users,
             bool p_Is_Visible_To_Followers_Users,
             bool p_Is_Available_For_Download_For_Followers_Users,
+            List<Credit_Card_Transactions_To_DB_Sync_From_UI> p_Statement_Transactions,
             int p_Updating_User_Id,
             App_Permission_Type p_Authenticated_User_Permission)
         {
+            bool l_Updated_Success_Flag_To_Return = false;
+
             this.Validate_Operation_For_Authenticated_User(
                 p_User_Id_Owner,
                 p_Updating_User_Id,
                 p_Authenticated_User_Permission);
 
-            return Data_Access_Layer_Facade.Instance.CreditCardStatements_Update_Credit_Card_Statement_Details(
+
+            bool l_File_Uploaded = false;
+            bool l_Error_Occured_During_Azure_Operations = false;
+            string l_New_Azure_Block_Blob_Reference = string.Empty;
+
+            if (!string.IsNullOrEmpty(p_Original_File_Name) && p_File_Content_To_Save_In_Azure.Length > 0)
+            {
+                // A new file has been uploaded for the expense. 
+                // the previous file needs to be deleted from azure and the new one should be uploaded and connected with the update process
+                Users user_Details = this.Users_Get_Details_By_User_Id(
+                    p_User_Id_Owner,
+                    p_Updating_User_Id,
+                    p_Authenticated_User_Permission);
+
+                string l_Azure_Container_Reference = user_Details.Azure_Container_Ref;
+
+                Credit_Cards_Statement ccStatement_Details = this.CreditCardStatements_Get_Credit_Card_Statement_Details_By_Credit_Card_Statement_Id(
+                    p_Credit_Card_Statement_Id,
+                    p_User_Id_Owner,
+                    p_Updating_User_Id,
+                    p_Authenticated_User_Permission);
+
+                string l_Expense_Azure_Block_Blob_Reference = ccStatement_Details.Azure_Block_Blob_Reference;
+                if (!string.IsNullOrEmpty(l_Expense_Azure_Block_Blob_Reference))
+                {
+                    // Try to first upload the new expense file, If successfull then try to delete as well. 
+                    l_New_Azure_Block_Blob_Reference = Azure_Integration.Instance.Upload_File_To_Azure_Storage_Blob_Container(
+                        p_File_Content_To_Save_In_Azure,
+                        p_Original_File_Name,
+                        l_Azure_Container_Reference);
+
+                    if (!string.IsNullOrEmpty(l_New_Azure_Block_Blob_Reference))
+                    {
+                        l_File_Uploaded = true;
+
+                        bool l_Deleted_Successfully = Azure_Integration.Instance.Delete_File_From_Azure_Storage_Blob_Container(
+                        l_Expense_Azure_Block_Blob_Reference, l_Azure_Container_Reference);
+
+                        if (!l_Deleted_Successfully)
+                        {
+                            // ToDo -- Log exception that a file was uploaded but the previous file was not deleted.. 
+                        }
+                    }
+                }
+                else
+                {
+                    // There is no azure block blob reference for the current expense, so there is nothing to delete.
+                }
+            }
+
+            l_Updated_Success_Flag_To_Return = Data_Access_Layer_Facade.Instance.CreditCardStatements_Update_Credit_Card_Statement_Details(
                 p_Credit_Card_Statement_Id,
                 p_Credit_Card_Id,
                 p_Statement_Date,
                 p_Total_Amount,
                 p_Currency_Id,
                 p_Original_File_Name,
-                p_Azure_Block_Blob_Reference,
-                p_File_Uploaded,
+                l_New_Azure_Block_Blob_Reference,
+                l_File_Uploaded,
                 p_Bank_Account_Transaction_Id_Connection,
                 p_Is_Visible_To_Anonymous_Users,
                 p_Is_Available_For_Download_For_Anonymous_Users,
                 p_Is_Visible_To_Followers_Users,
                 p_Is_Available_For_Download_For_Followers_Users,
                 p_Updating_User_Id);
+
+
+            if (l_Updated_Success_Flag_To_Return)
+            {
+                // Create the statement transactions for the new created transaction
+                if (p_Statement_Transactions.Count > 0)
+                {
+                    for (int i = 0; i < p_Statement_Transactions.Count; i++)
+                    {
+                        if (!p_Statement_Transactions[i].Is_Deleted &&
+                            p_Statement_Transactions[i].Is_New_Record &&
+                            p_Statement_Transactions[i].Credit_Card_Statement_Transaction_Id <= 0 )
+                        {
+                            int new_Statement_Transaction_Id = this.CreditCardStatementTransactions_Insert_New_Credit_Card_Statement_Transaction_Details(
+                                p_User_Id_Owner,
+                                p_Credit_Card_Statement_Id,
+                                p_Statement_Transactions[i].Transaction_Date,
+                                p_Statement_Transactions[i].Business_Name,
+                                p_Statement_Transactions[i].Transaction_Amount,
+                                p_Statement_Transactions[i].Transaction_Amount_Currency_Id,
+                                p_Statement_Transactions[i].Transaction_Actual_Payment_Amount,
+                                p_Statement_Transactions[i].Description,
+                                p_Statement_Transactions[i].Has_Been_Actually_Charged_In_Statement,
+                                p_Statement_Transactions[i].Total_Charged_In_Statement,
+                                string.Empty,
+                                string.Empty,
+                                p_Is_Visible_To_Anonymous_Users,
+                                p_Is_Available_For_Download_For_Anonymous_Users,
+                                p_Is_Visible_To_Followers_Users,
+                                p_Is_Available_For_Download_For_Followers_Users,
+                                p_Updating_User_Id,
+                                p_Authenticated_User_Permission);
+                        }
+                        else
+                        {
+                            // The transaction might have been deleted or updated 
+                            if (p_Statement_Transactions[i].Is_Deleted)
+                            {
+                                // If the transaction was deleted but it's transaction ID is less or equal to 0, It means it was a temporary delete that should not affect the database
+                                if (p_Statement_Transactions[i].Credit_Card_Statement_Transaction_Id > 0 )
+                                {
+                                    this.CreditCardStatementTransactions_Delete_Credit_Card_Statement_Transaction(
+                                        p_User_Id_Owner,
+                                        p_Statement_Transactions[i].Credit_Card_Statement_Transaction_Id,
+                                        p_Updating_User_Id,
+                                        p_Authenticated_User_Permission);
+                                }
+                            }
+                            else
+                            {
+                                // The transaction might have been updated. 
+                                if (p_Statement_Transactions[i].Has_Pending_Changes)
+                                {
+                                    this.CreditCardStatementTransactions_Update_Credit_Card_Statement_Transaction(
+                                        p_User_Id_Owner,
+                                        p_Statement_Transactions[i].Credit_Card_Statement_Transaction_Id,
+                                        p_Statement_Transactions[i].Transaction_Date,
+                                        p_Statement_Transactions[i].Business_Name,
+                                        p_Statement_Transactions[i].Transaction_Amount,
+                                        p_Statement_Transactions[i].Transaction_Amount_Currency_Id,
+                                        p_Statement_Transactions[i].Transaction_Actual_Payment_Amount,
+                                        p_Statement_Transactions[i].Description,
+                                        p_Statement_Transactions[i].Has_Been_Actually_Charged_In_Statement,
+                                        p_Statement_Transactions[i].Total_Charged_In_Statement,
+                                        p_Updating_User_Id,
+                                        p_Authenticated_User_Permission);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // ToDo: The statement didnt got created in the DB, If azure file was uploaded it should be deleted here
+            }
+
+            return l_Updated_Success_Flag_To_Return;
         }
 
         public List<Credit_Cards_Statement> CreditCardStatements_Get_All_By_User_Id(
@@ -2700,7 +2699,10 @@ namespace TimeLineDashboard.BusinessLogicLayer
             decimal? p_Total_Charged_In_Statement,
             string p_User_Description,
             string p_User_Comments,
-            bool p_Is_Visible,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
             int p_Creating_User_Id,
             App_Permission_Type p_Authenticated_User_Permission)
         {
@@ -2721,13 +2723,16 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Total_Charged_In_Statement,
                 p_User_Description,
                 p_User_Comments,
-                p_Is_Visible,
+                p_Is_Visible_To_Anonymous_Users,
+                p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users,
+                p_Is_Available_For_Download_For_Followers_Users,
                 p_Creating_User_Id);
         }
 
         public bool CreditCardStatementTransactions_Update_Credit_Card_Statement_Transaction(
             int p_User_ID_Bank_Owner,
-            int p_Credit_Card_Statement_Transaction_Id,
+            long p_Credit_Card_Statement_Transaction_Id,
             DateTime? p_Transaction_Date,
             string p_Business_Name,
             decimal? p_Transaction_Amount,
@@ -2736,9 +2741,6 @@ namespace TimeLineDashboard.BusinessLogicLayer
             string p_Description,
             bool p_Has_Been_Actually_Charged_In_Statement,
             decimal? p_Total_Charged_In_Statement,
-            string p_User_Description,
-            string p_User_Comments,
-            bool p_Is_Visible,
             int p_Updating_User_Id,
             App_Permission_Type p_Authenticated_User_Permission)
         {
@@ -2757,9 +2759,6 @@ namespace TimeLineDashboard.BusinessLogicLayer
                 p_Description,
                 p_Has_Been_Actually_Charged_In_Statement,
                 p_Total_Charged_In_Statement,
-                p_User_Description,
-                p_User_Comments,
-                p_Is_Visible,
                 p_Updating_User_Id);
         }
 
@@ -2793,6 +2792,477 @@ namespace TimeLineDashboard.BusinessLogicLayer
             return Data_Access_Layer_Facade.Instance.CreditCardStatementTransactions_Delete_Credit_Card_Statement_All_Transactions_By_Statement_Id(
                 p_Bank_Account_Credit_Card_Statement_Id,
                 p_Deleting_User_Id);
+        }
+
+        public Credit_Cards_Statement_Transaction CreditCardStatementTransactions_Get_Credit_Card_Statement_Transaction_Details(
+            int p_User_ID_Bank_Owner,
+            long p_Credit_Card_Statement_Transaction_Id,
+            int p_User_ID_Searching,
+            App_Permission_Type p_Authenticated_User_Permission
+            )
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_User_ID_Searching,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatementTransactions_Get_Credit_Card_Statement_Transaction_Details(
+                p_User_ID_Bank_Owner,
+                p_Credit_Card_Statement_Transaction_Id,
+                p_User_ID_Searching);
+        }
+
+        public bool CreditCardStatementTransactions_Update_Credit_Card_Statement_Transaction_FullDetails(
+            int  p_User_ID_Bank_Owner,
+            long p_Credit_Card_Statement_Transaction_Id,
+            DateTime? p_Transaction_Date,
+            string p_Business_Name,
+            decimal? p_Transaction_Amount,
+            byte? p_Transaction_Amount_Currency_Id,
+            decimal? p_Transaction_Actual_Payment_Amount,
+            string p_Description,
+            bool p_Has_Been_Actually_Charged_In_Statement,
+            decimal? p_Total_Charged_In_Statement,
+            string p_User_Description,
+            string p_User_Comments,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Updating_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_ID_Bank_Owner,
+                p_Updating_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance.CreditCardStatementTransactions_Update_Credit_Card_Statement_Transaction_FullDetails(
+                p_Credit_Card_Statement_Transaction_Id,
+                p_Transaction_Date,
+                p_Business_Name,
+                p_Transaction_Amount,
+                p_Transaction_Amount_Currency_Id,
+                p_Transaction_Actual_Payment_Amount,
+                p_Description,
+                p_Has_Been_Actually_Charged_In_Statement,
+                p_Total_Charged_In_Statement,
+                p_User_Description,
+                p_User_Comments,
+                p_Is_Visible_To_Anonymous_Users,
+                p_Is_Available_For_Download_For_Anonymous_Users,
+                p_Is_Visible_To_Followers_Users,
+                p_Is_Available_For_Download_For_Followers_Users,
+                p_Updating_User_Id);
+        }
+
+        //public List<Credit_Card_Statement_Transaction_Document_Connection> CreditCardStatementTransactionDocumentConnection_Get_Document_Connections_By_CCStatement_Transaction_Id(
+        //    int p_User_Id_Bank_Owner,
+        //    long p_Credit_Card_Statement_Transaction_Id,
+        //    int p_Searching_User_Id,
+        //    App_Permission_Type p_Authenticated_User_Permission)
+        //{
+        //    this.Validate_Operation_For_Authenticated_User(
+        //        p_User_Id_Bank_Owner,
+        //        p_Searching_User_Id,
+        //        p_Authenticated_User_Permission);
+
+        //    return Data_Access_Layer_Facade.Instance
+        //        .CreditCardStatementTransactionDocumentConnection_Get_Document_Connections_By_CCStatement_Transaction_Id(
+        //            p_User_Id_Bank_Owner,
+        //            p_Credit_Card_Statement_Transaction_Id,
+        //            p_Searching_User_Id
+        //        );
+        //}
+
+        private long CreditCardStatementTransactionDocumentConnection_Insert_Credit_Card_Statement_Transaction_Document_Connection(
+            int p_User_Id_Bank_Owner,
+            long p_Credit_Card_Statement_Transaction_Id,
+            byte p_Connection_Type,
+            int p_Document_Record_Id,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Creating_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Bank_Owner,
+                p_Creating_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance
+                .CreditCardStatementTransactionDocumentConnection_Insert_Credit_Card_Statement_Transaction_Document_Connection(
+                    p_User_Id_Bank_Owner,
+                    p_Credit_Card_Statement_Transaction_Id,
+                    p_Connection_Type,
+                    p_Document_Record_Id,
+                    p_Is_Visible_To_Anonymous_Users,
+                    p_Is_Available_For_Download_For_Anonymous_Users,
+                    p_Is_Visible_To_Followers_Users,
+                    p_Is_Available_For_Download_For_Followers_Users,
+                    p_Creating_User_Id
+                );
+        }
+
+        public long CreditCardStatementTransactionDocumentConnection_Insert_Credit_Card_Statement_Transaction_Document_Connection(
+            int p_User_Id_Bank_Owner,
+            long p_Credit_Card_Statement_Transaction_Id,
+            byte p_Connection_Type,
+            int p_Document_Record_Id,
+            int p_Creating_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            long l_New_Document_Connection_Id_To_Return = 0;
+
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Bank_Owner,
+                p_Creating_User_Id,
+                p_Authenticated_User_Permission);
+
+            bool? p_Is_Visible_To_Anonymous_Users = null;
+            bool? p_Is_Available_For_Download_For_Anonymous_Users = null;
+            bool? p_Is_Visible_To_Followers_Users = null;
+            bool? p_Is_Available_For_Download_For_Followers_Users = null;
+
+            switch (p_Connection_Type)
+            {
+                case 1:
+                    // Expense
+                    var expenseDetails = this.Expenses_Get_By_Id(
+                            p_Document_Record_Id,
+                            p_User_Id_Bank_Owner,
+                            p_Creating_User_Id,
+                            p_Authenticated_User_Permission);
+                    if (expenseDetails!= null)
+                    {
+                        p_Is_Visible_To_Anonymous_Users = expenseDetails.Is_Visible_To_Anonymous_Users;
+                        p_Is_Available_For_Download_For_Anonymous_Users = expenseDetails.Is_Available_For_Download_For_Anonymous_Users;
+                        p_Is_Visible_To_Followers_Users = expenseDetails.Is_Visible_To_Anonymous_Users;
+                        p_Is_Available_For_Download_For_Followers_Users = expenseDetails.Is_Available_For_Download_For_Followers_Users;
+                    }
+
+                    break;
+
+                case 2:
+                    // Invoice
+                    var invoiceDetails = this.Invoices_Get_By_Id(
+                            p_Document_Record_Id,
+                            p_User_Id_Bank_Owner,
+                            p_Creating_User_Id,
+                            p_Authenticated_User_Permission);
+                    if (invoiceDetails != null)
+                    {
+                        p_Is_Visible_To_Anonymous_Users = invoiceDetails.Is_Visible_To_Anonymous_Users;
+                        p_Is_Available_For_Download_For_Anonymous_Users = invoiceDetails.Is_Available_For_Download_For_Anonymous_Users;
+                        p_Is_Visible_To_Followers_Users = invoiceDetails.Is_Visible_To_Anonymous_Users;
+                        p_Is_Available_For_Download_For_Followers_Users = invoiceDetails.Is_Available_For_Download_For_Followers_Users;
+                    }
+                    break;
+
+                case 3:
+                    // General document
+                    var generalDocumentDetails = this.GeneralDocuments_Get_By_Id(
+                            p_Document_Record_Id,
+                            p_User_Id_Bank_Owner,
+                            p_Creating_User_Id,
+                            p_Authenticated_User_Permission);
+                    if (generalDocumentDetails != null)
+                    {
+                        p_Is_Visible_To_Anonymous_Users = generalDocumentDetails.Is_Visible_To_Anonymous_Users;
+                        p_Is_Available_For_Download_For_Anonymous_Users = generalDocumentDetails.Is_Available_For_Download_For_Anonymous_Users;
+                        p_Is_Visible_To_Followers_Users = generalDocumentDetails.Is_Visible_To_Anonymous_Users;
+                        p_Is_Available_For_Download_For_Followers_Users = generalDocumentDetails.Is_Available_For_Download_For_Followers_Users;
+                    }
+                    break;
+
+            }
+
+            if (    p_Is_Visible_To_Anonymous_Users.HasValue &&
+                    p_Is_Available_For_Download_For_Anonymous_Users.HasValue &&
+                    p_Is_Visible_To_Followers_Users.HasValue &&
+                    p_Is_Available_For_Download_For_Followers_Users.HasValue    )
+            {
+                l_New_Document_Connection_Id_To_Return = Data_Access_Layer_Facade.Instance
+                    .CreditCardStatementTransactionDocumentConnection_Insert_Credit_Card_Statement_Transaction_Document_Connection(
+                        p_User_Id_Bank_Owner,
+                        p_Credit_Card_Statement_Transaction_Id,
+                        p_Connection_Type,
+                        p_Document_Record_Id,
+                        p_Is_Visible_To_Anonymous_Users.Value,
+                        p_Is_Available_For_Download_For_Anonymous_Users.Value,
+                        p_Is_Visible_To_Followers_Users.Value,
+                        p_Is_Available_For_Download_For_Followers_Users.Value,
+                        p_Creating_User_Id
+                    );
+            }
+
+            return l_New_Document_Connection_Id_To_Return;
+        }
+
+        public bool CreditCardStatementTransactionDocumentConnection_Delete_Credit_Card_Statement_Transaction_Document_Connection(
+            int p_User_Id_Bank_Owner,
+            long p_Document_Connection_Id,
+            int p_Deleting_User_Id,
+            App_Permission_Type p_Authenticated_User_Permission)
+        {
+            this.Validate_Operation_For_Authenticated_User(
+                p_User_Id_Bank_Owner,
+                p_Deleting_User_Id,
+                p_Authenticated_User_Permission);
+
+            return Data_Access_Layer_Facade.Instance
+                .CreditCardStatementTransactionDocumentConnection_Delete_Credit_Card_Statement_Transaction_Document_Connection(
+                    p_User_Id_Bank_Owner,
+                    p_Document_Connection_Id,
+                    p_Deleting_User_Id
+                );
+        }
+
+        public List<Bank_Account_Transaction_Document_Connection>
+            BankAccountTransactionsDocumentConnections_Get_Documents_Connections(
+            long p_Bank_Account_Transaction_Id,
+            int p_Searching_User_Id
+            )
+        {
+            return this.TransactionsDocumentConnections_Get_Documents_Connections(
+                    p_Bank_Account_Transaction_Id,
+                    Transaction_Type.Bank_Account_Transaction,
+                    p_Searching_User_Id);
+        }
+
+        public List<Bank_Account_Transaction_Document_Connection>
+            CreditCardStatementTransactionDocumentConnection_Get_Documents_Connections(
+            long p_Credit_Card_Statement_Transaction_Id,
+            int p_Searching_User_Id
+            )
+        {
+            return this.TransactionsDocumentConnections_Get_Documents_Connections(
+                    p_Credit_Card_Statement_Transaction_Id,
+                    Transaction_Type.Credit_Card_Statement_Transaction,
+                    p_Searching_User_Id);
+        }
+
+        private List<Bank_Account_Transaction_Document_Connection>
+            TransactionsDocumentConnections_Get_Documents_Connections(
+            long p_Transaction_Id,
+            Transaction_Type p_Transaction_Type,
+            int p_Searching_User_Id
+            )
+        {
+            return Data_Access_Layer_Facade.Instance
+                .BankAccountTransactionsDocumentConnections_Get_Documents_Connections(
+                    p_Transaction_Id,
+                    p_Transaction_Type,
+                    p_Searching_User_Id);
+        }
+
+        public List<Bank_Account_Transaction_Document_Connection_Suggestion>
+            BankAccountTransactionsDocumentConnections_Get_Document_Connection_Suggestions(
+            long p_Bank_Account_Transaction_Id,
+            int p_Searching_User_Id)
+        {
+            return this.TransactionsDocumentConnections_Get_Document_Connection_Suggestions(
+                    p_Bank_Account_Transaction_Id,
+                    Transaction_Type.Bank_Account_Transaction,
+                    p_Searching_User_Id);
+        }
+
+        public List<Bank_Account_Transaction_Document_Connection_Suggestion>
+            CreditCardStatementTransactionDocumentConnection_Get_Document_Connection_Suggestions(
+            long p_Credit_Card_Statement_Transaction_Id,
+            int p_Searching_User_Id)
+        {
+            return this.TransactionsDocumentConnections_Get_Document_Connection_Suggestions(
+                    p_Credit_Card_Statement_Transaction_Id,
+                    Transaction_Type.Credit_Card_Statement_Transaction,
+                    p_Searching_User_Id);
+        }
+
+        private List<Bank_Account_Transaction_Document_Connection_Suggestion>
+            TransactionsDocumentConnections_Get_Document_Connection_Suggestions(
+            long p_Transaction_Id,
+            Transaction_Type p_Transaction_Type,
+            int p_Searching_User_Id)
+        {
+            return Data_Access_Layer_Facade.Instance
+                .BankAccountTransactionsDocumentConnections_Get_Document_Connection_Suggestions(
+                    p_Transaction_Id,
+                    p_Transaction_Type,
+                    p_Searching_User_Id);
+        }
+
+        public List<Bank_Account_Transaction_Document_Connection_Suggestion> 
+            BankAccountTransactionsDocumentConnections_Search_For_Documents_To_Connect(
+                long        p_Bank_Account_Transaction_Id               ,
+                DateTime?   p_Filter_By_From_Date                       ,
+                DateTime?   p_Filter_By_To_Date                         ,
+                byte?       p_Filter_By_Type                            ,
+                short?      p_Filter_By_Country_Id                      ,
+                string      p_Filter_By_City_Or_Address_Or_Zipcode      ,
+                string      p_Filter_By_Company_Name_Or_People_Name     ,
+                int         p_Searching_User_Id                         )
+        {
+            // Validate for minimum search criteria 
+
+            return this.TransactionsDocumentConnections_Search_For_Documents_To_Connect(
+                    p_Bank_Account_Transaction_Id,
+                    Transaction_Type.Bank_Account_Transaction,
+                    p_Filter_By_From_Date,
+                    p_Filter_By_To_Date,
+                    p_Filter_By_Type,
+                    p_Filter_By_Country_Id,
+                    p_Filter_By_City_Or_Address_Or_Zipcode,
+                    p_Filter_By_Company_Name_Or_People_Name,
+                    p_Searching_User_Id);
+        }
+
+        public List<Bank_Account_Transaction_Document_Connection_Suggestion>
+            CreditCardStatementTransactionDocumentConnection_Search_For_Documents_To_Connect(
+                long p_Credit_Card_Statement_Transaction_Id,
+                DateTime? p_Filter_By_From_Date,
+                DateTime? p_Filter_By_To_Date,
+                byte? p_Filter_By_Type,
+                short? p_Filter_By_Country_Id,
+                string p_Filter_By_City_Or_Address_Or_Zipcode,
+                string p_Filter_By_Company_Name_Or_People_Name,
+                int p_Searching_User_Id)
+        {
+            // Validate for minimum search criteria 
+
+            return this.TransactionsDocumentConnections_Search_For_Documents_To_Connect(
+                    p_Credit_Card_Statement_Transaction_Id,
+                    Transaction_Type.Credit_Card_Statement_Transaction,
+                    p_Filter_By_From_Date,
+                    p_Filter_By_To_Date,
+                    p_Filter_By_Type,
+                    p_Filter_By_Country_Id,
+                    p_Filter_By_City_Or_Address_Or_Zipcode,
+                    p_Filter_By_Company_Name_Or_People_Name,
+                    p_Searching_User_Id);
+        }
+
+        private List<Bank_Account_Transaction_Document_Connection_Suggestion>
+            TransactionsDocumentConnections_Search_For_Documents_To_Connect(
+                long p_Transaction_Id,
+                Transaction_Type p_Transaction_Type,
+                DateTime? p_Filter_By_From_Date,
+                DateTime? p_Filter_By_To_Date,
+                byte? p_Filter_By_Type,
+                short? p_Filter_By_Country_Id,
+                string p_Filter_By_City_Or_Address_Or_Zipcode,
+                string p_Filter_By_Company_Name_Or_People_Name,
+                int p_Searching_User_Id)
+        {
+            // Validate for minimum search criteria 
+
+            return Data_Access_Layer_Facade.Instance
+                .BankAccountTransactionsDocumentConnections_Search_For_Documents_To_Connect(
+                    p_Transaction_Id,
+                    p_Transaction_Type,
+                    p_Filter_By_From_Date,
+                    p_Filter_By_To_Date,
+                    p_Filter_By_Type,
+                    p_Filter_By_Country_Id,
+                    p_Filter_By_City_Or_Address_Or_Zipcode,
+                    p_Filter_By_Company_Name_Or_People_Name,
+                    p_Searching_User_Id);
+        }
+
+        public long BankAccountTransactionsDocumentConnections_Insert_Document_Connection(
+            long p_Bank_Account_Transaction_Id,
+            byte p_Connection_Type,
+            int p_Document_Record_Id,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Creating_User_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.BankAccountTransactionsDocumentConnections_Insert_Document_Connection(
+                    p_Bank_Account_Transaction_Id,
+                    p_Connection_Type,
+                    p_Document_Record_Id,
+                    p_Is_Visible_To_Anonymous_Users,
+                    p_Is_Available_For_Download_For_Anonymous_Users,
+                    p_Is_Visible_To_Followers_Users,
+                    p_Is_Available_For_Download_For_Followers_Users,
+                    p_Creating_User_Id);
+        }
+
+        public bool BankAccountTransactionsDocumentConnections_Update_Document_Connection(
+            long p_Document_Connection_Id,
+            long p_Bank_Account_Transaction_Id,
+            bool p_Is_Visible_To_Anonymous_Users,
+            bool p_Is_Available_For_Download_For_Anonymous_Users,
+            bool p_Is_Visible_To_Followers_Users,
+            bool p_Is_Available_For_Download_For_Followers_Users,
+            int p_Updating_User_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.BankAccountTransactionsDocumentConnections_Update_Document_Connection(
+                    p_Document_Connection_Id,
+                    p_Bank_Account_Transaction_Id,
+                    p_Is_Visible_To_Anonymous_Users,
+                    p_Is_Available_For_Download_For_Anonymous_Users,
+                    p_Is_Visible_To_Followers_Users,
+                    p_Is_Available_For_Download_For_Followers_Users,
+                    p_Updating_User_Id);
+        }
+
+        public bool BankAccountTransactionsDocumentConnections_Delete_Document_Connection(
+            long p_Document_Connection_Id,
+            long p_Bank_Account_Transaction_Id,
+            int p_Deleting_User_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.BankAccountTransactionsDocumentConnections_Delete_Document_Connection(
+                    p_Document_Connection_Id,
+                    p_Bank_Account_Transaction_Id,
+                    p_Deleting_User_Id);
+        }
+
+        public List<Credit_Cards_Statement> CreditCardStatements_Get_By_Date_Unconnected_Statements(
+            long p_Bank_Account_Transaction_Id,
+            int p_User_ID_Searching)
+        {
+            return Data_Access_Layer_Facade.Instance.CreditCardStatements_Get_By_Date_Unconnected_Statements(
+                p_Bank_Account_Transaction_Id,
+                p_User_ID_Searching);
+        }
+
+        public bool BankAccount_Transactions_Update_Connect_With_Statement(
+            long p_Bank_Account_Transaction_Id,
+            int p_Credit_Card_Statement_Id,
+            int p_Updating_User_Id
+            )
+        {
+            return Data_Access_Layer_Facade.Instance.BankAccount_Transactions_Update_Connect_With_Statement(
+                    p_Bank_Account_Transaction_Id,
+                    p_Credit_Card_Statement_Id,
+                    p_Updating_User_Id
+                );
+        }
+
+        public bool BankAccount_Transactions_Update_Disconnect_Statement(
+            long p_Bank_Account_Transaction_Id,
+            int p_Credit_Card_Statement_Id,
+            int p_Updating_User_Id)
+        {
+            return Data_Access_Layer_Facade.Instance.BankAccount_Transactions_Update_Disconnect_Statement(
+                    p_Bank_Account_Transaction_Id,
+                    p_Credit_Card_Statement_Id,
+                    p_Updating_User_Id
+                );
+        }
+
+        public List<Bank_Account_Transactions> BankAccount_Transactions_Get_By_Date_Unconnected_Transactions_To_Credit_Card_Statements(
+            int p_Credit_card_Statement_Id,
+            int p_User_ID_Searching)
+        {
+            return Data_Access_Layer_Facade.Instance
+                .BankAccount_Transactions_Get_By_Date_Unconnected_Transactions_To_Credit_Card_Statements(
+                    p_Credit_card_Statement_Id,
+                    p_User_ID_Searching);
         }
     }
 }

@@ -219,19 +219,19 @@ namespace WebformsPOCDemo
                 //textbox_Original_File_Name // TODO -- Show file management / update
 
                 this.checkbox_Is_Visible_To_Anonymous_Users.Checked = InvoiceDetails.Is_Visible_To_Anonymous_Users;
-                this.label_Is_Visible_To_Anonymous_Users.Text = InvoiceDetails.Is_Visible_To_Anonymous_Users ? "Yes" : "No";
+                this.label_Is_Visible_To_Anonymous_Users.Text = base.Get_Yes_Or_No_Text_Value(InvoiceDetails.Is_Visible_To_Anonymous_Users);
 
                 this.checkbox_Is_Available_For_Download_For_Anonymous_Users.Checked = InvoiceDetails.Is_Available_For_Download_For_Anonymous_Users;
-                this.label_Is_Available_For_Download_For_Anonymous_Users.Text = InvoiceDetails.Is_Available_For_Download_For_Anonymous_Users ? "Yes" : "No";
+                this.label_Is_Available_For_Download_For_Anonymous_Users.Text = base.Get_Yes_Or_No_Text_Value(InvoiceDetails.Is_Available_For_Download_For_Anonymous_Users);
 
                 this.checkbox_Is_Visible_To_Followers_Users.Checked = InvoiceDetails.Is_Visible_To_Followers_Users;
-                this.label_Is_Visible_To_Followers_Users.Text = InvoiceDetails.Is_Visible_To_Followers_Users ? "Yes" : "No";
+                this.label_Is_Visible_To_Followers_Users.Text = base.Get_Yes_Or_No_Text_Value(InvoiceDetails.Is_Visible_To_Followers_Users);
 
                 this.checkbox_Is_Available_For_Download_For_Followers_Users.Checked = InvoiceDetails.Is_Available_For_Download_For_Followers_Users;
-                this.label_Is_Available_For_Download_For_Followers_Users.Text = InvoiceDetails.Is_Available_For_Download_For_Followers_Users ? "Yes" : "No";
+                this.label_Is_Available_For_Download_For_Followers_Users.Text = base.Get_Yes_Or_No_Text_Value(InvoiceDetails.Is_Available_For_Download_For_Followers_Users);
 
                 this.checkbox_Is_Active.Checked = InvoiceDetails.Is_Active;
-                this.label_Is_Active.Text = InvoiceDetails.Is_Active ? "Yes" : "No";
+                this.label_Is_Active.Text = base.Get_Yes_Or_No_Text_Value(InvoiceDetails.Is_Active);
 
                 this.label_Record_Created_By_User.Text = InvoiceDetails.Record_Created_By_User_Details.FullName_With_Email;
                 this.label_Record_Creation_DateTime_UTC.Text = InvoiceDetails.Record_Creation_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");

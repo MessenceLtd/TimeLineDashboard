@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Demo Document Manager / Timeline dashboard chaos</title>
+    <title><%= Resources.SiteCommon.Application_Title %></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -33,10 +33,8 @@
         <link href="/CSS/bootstrap/bootstrap-reboot.css" rel="stylesheet" />
     <%} %>
     
-
     <link href="/CSS/jquery-ui.css" rel="stylesheet" />
 
-    <%--<link href="CSS/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />--%>
     <link href="/CSS/bootstrap/dark-mode.css" rel="stylesheet" />
     <link href="/CSS/Main.css" rel="stylesheet" />
 

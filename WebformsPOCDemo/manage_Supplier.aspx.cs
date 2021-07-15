@@ -167,7 +167,7 @@ namespace WebformsPOCDemo
                 this.label_First_Contract_Signed_In_Location_Description.Text = SupplierDetails.First_Contract_Signed_In_Location_Description;
 
                 this.checkbox_Is_Active.Checked = SupplierDetails.Is_Active;
-                this.label_Is_Active.Text = SupplierDetails.Is_Active ? "Yes" : "No";
+                this.label_Is_Active.Text = base.Get_Yes_Or_No_Text_Value(SupplierDetails.Is_Active);
 
                 this.label_Record_Created_By_User.Text = SupplierDetails.Record_Created_By_User_Details.FullName_With_Email;
                 this.label_Record_Creation_DateTime_UTC.Text = SupplierDetails.Record_Creation_DateTime_UTC.ToString("dd/MM/yyyy HH:mm:ss UTC");

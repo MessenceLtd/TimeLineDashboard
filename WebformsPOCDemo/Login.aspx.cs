@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -14,9 +15,11 @@ namespace WebformsPOCDemo
 {
     public partial class Login : BasePage
     {
+        public bool is_RTL = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.is_RTL = Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft;
         }
 
         protected void button_Login_Click(object sender, EventArgs e)

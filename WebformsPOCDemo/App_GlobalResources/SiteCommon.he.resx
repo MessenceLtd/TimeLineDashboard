@@ -118,621 +118,1695 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Account_Active_From" xml:space="preserve">
-    <value>Account Active From</value>
+    <value>פעילות חשבון מתאריך</value>
   </data>
   <data name="Account_Active_To_Date" xml:space="preserve">
-    <value>Account Active To Date</value>
+    <value>פעילות חשבון עד תאריך</value>
   </data>
   <data name="Account_Balance" xml:space="preserve">
-    <value>Account Balance</value>
+    <value>יתרה בחשבון</value>
   </data>
   <data name="Account_IBAN" xml:space="preserve">
-    <value>Account IBAN</value>
+    <value>מספר IBAN</value>
   </data>
   <data name="Account_Name" xml:space="preserve">
-    <value>Account Name</value>
+    <value>שם חשבון</value>
   </data>
   <data name="Account_Number" xml:space="preserve">
-    <value>Account Number</value>
+    <value>מספר חשבון</value>
+  </data>
+  <data name="Actual_Payment_Amount" xml:space="preserve">
+    <value>סה"כ ששולם</value>
   </data>
   <data name="Additional_Phone_Number" xml:space="preserve">
-    <value>Additional Phone Number</value>
+    <value>מספר טלפון נוסף</value>
   </data>
   <data name="Address" xml:space="preserve">
-    <value>Address</value>
+    <value>כתובת</value>
+  </data>
+  <data name="Add_Bank_Account_SubTitle" xml:space="preserve">
+    <value>מעקב, תיעוד וחיבור של כל פרטי פעולות הבנקאית שלך</value>
+  </data>
+  <data name="Add_Bank_Account_Title" xml:space="preserve">
+    <value>הוספת חשבון בנק</value>
+  </data>
+  <data name="Add_Client_SubTitle" xml:space="preserve">
+    <value>מעקב, תיעוד וניהול של כל אנשי הקשר והלקוחות שלכם</value>
+  </data>
+  <data name="Add_Client_Title" xml:space="preserve">
+    <value>הוספת לקוח חדש</value>
+  </data>
+  <data name="Add_Document_SubTitle" xml:space="preserve">
+    <value>הדרך המתקדמת לעדכן ולתעד את כל המסמכים שלך</value>
+  </data>
+  <data name="Add_Document_Title" xml:space="preserve">
+    <value>הוספת מסמך חדש</value>
+  </data>
+  <data name="Add_Expense_SubTitle" xml:space="preserve">
+    <value>הדרך המתקדמת לעדכן ולתעד את כל ההוצאות שלך</value>
+  </data>
+  <data name="Add_Expense_Title" xml:space="preserve">
+    <value>הוספת הוצאה חדשה</value>
+  </data>
+  <data name="Add_Invoice_SubTitle" xml:space="preserve">
+    <value>הדרך המתקדמת לעדכן ולתעד את כל ההכנסות שלך</value>
+  </data>
+  <data name="Add_Invoice_Title" xml:space="preserve">
+    <value>הוספת הכנסה חדשה (חשבונית/קבלה)</value>
+  </data>
+  <data name="Add_More" xml:space="preserve">
+    <value>הוספת שורה</value>
   </data>
   <data name="Add_New_Bank_Account" xml:space="preserve">
-    <value>Add new bank account</value>
+    <value>יצירת חשבון בנק חדש</value>
+  </data>
+  <data name="Add_New_Bank_Account_Transaction_Record" xml:space="preserve">
+    <value>הוספת שורה חדשה</value>
   </data>
   <data name="Add_New_Client" xml:space="preserve">
-    <value>Add New Client</value>
+    <value>יצירת לקוח חדש</value>
   </data>
   <data name="Add_New_Credit_Card" xml:space="preserve">
-    <value>Add New Credit Card</value>
+    <value>יצירת כרטיס אשראי חדש</value>
   </data>
   <data name="Add_New_Credit_Card_Statement" xml:space="preserve">
-    <value>New Credit Card Statement</value>
+    <value>יצירת דו"ח חיוב אשראי חדש</value>
   </data>
   <data name="Add_New_Credit_Invoice" xml:space="preserve">
-    <value>Add New Credit Invoice</value>
+    <value>יצירת חשבונית זיכוי</value>
   </data>
   <data name="Add_New_Document" xml:space="preserve">
-    <value>Add new document</value>
+    <value>הוספת מסמך חדש</value>
   </data>
   <data name="Add_New_Expense" xml:space="preserve">
-    <value>Add new expense</value>
+    <value>הוספת הוצאה חדשה</value>
   </data>
   <data name="Add_New_Invoice" xml:space="preserve">
-    <value>Add new invoice</value>
+    <value>חשבונית חדשה</value>
   </data>
   <data name="Add_New_Receipt" xml:space="preserve">
-    <value>Add New Receipt</value>
+    <value>קבלה חדשה</value>
   </data>
   <data name="Add_New_Receipt_Tax_Invoice" xml:space="preserve">
-    <value>Add New Receipt Tax Invoice</value>
+    <value>חשבונית מס/קבלה חדשה</value>
+  </data>
+  <data name="Add_New_Record" xml:space="preserve">
+    <value>הוספת שורה חדשה</value>
   </data>
   <data name="Add_New_Supplier" xml:space="preserve">
-    <value>Add new supplier</value>
+    <value>יצירת ספק חדש</value>
   </data>
   <data name="Add_New_Tax_Invoice" xml:space="preserve">
-    <value>Add New Tax Invoice</value>
+    <value>יצירת חשבונית מס חדשה</value>
   </data>
   <data name="Add_New_User" xml:space="preserve">
-    <value>Add New User</value>
+    <value>יצירת משתמש חדש</value>
+  </data>
+  <data name="Add_Record" xml:space="preserve">
+    <value>הוספת שורה</value>
+  </data>
+  <data name="Add_Supplier_SubTitle" xml:space="preserve">
+    <value>מעקב, תיעוד וניהול של כל פרטי הספק ואנשי הקשר שלכם</value>
+  </data>
+  <data name="Add_Supplier_Title" xml:space="preserve">
+    <value>יצירת ספק חדש</value>
   </data>
   <data name="Adminstration_Notes" xml:space="preserve">
-    <value>Adminstration Notes</value>
+    <value>הערות אנשי המערכת</value>
+  </data>
+  <data name="Application_Title" xml:space="preserve">
+    <value>מנהל מסמכים וקישורי קווי זמן</value>
   </data>
   <data name="App_Permission_Type" xml:space="preserve">
-    <value>App Permission Type</value>
+    <value>סוג הרשאה</value>
   </data>
   <data name="Azure_Container" xml:space="preserve">
-    <value>Azure Container</value>
+    <value>קוד כספת Azure</value>
   </data>
   <data name="Balance" xml:space="preserve">
-    <value>Balance</value>
+    <value>יתרה</value>
+  </data>
+  <data name="BankAccount_Transaction_Document_Connection_Type_1" xml:space="preserve">
+    <value>הוצאה</value>
+  </data>
+  <data name="BankAccount_Transaction_Document_Connection_Type_2" xml:space="preserve">
+    <value>הכנסה</value>
+  </data>
+  <data name="BankAccount_Transaction_Document_Connection_Type_3" xml:space="preserve">
+    <value>מסמך כללי</value>
   </data>
   <data name="Bank_Account" xml:space="preserve">
-    <value>Bank Account</value>
+    <value>חשבון בנק</value>
   </data>
   <data name="Bank_Accounts" xml:space="preserve">
-    <value>Bank Accounts</value>
+    <value>חשבונות בנק</value>
   </data>
   <data name="Bank_Accounts_List" xml:space="preserve">
-    <value>Bank Accounts list</value>
+    <value>רשימת חשבונות בנק</value>
+  </data>
+  <data name="Bank_Account_Transactions_Create_Bank_Account_Transaction" xml:space="preserve">
+    <value>הוספת שורת פעילות</value>
+  </data>
+  <data name="Bank_Account_Transactions_Edit_Bank_Account_Transaction" xml:space="preserve">
+    <value>ניהול פעולה בנקאית</value>
+  </data>
+  <data name="Bank_Account_Transaction_Amount_Entered" xml:space="preserve">
+    <value>סכום שנכנס</value>
+  </data>
+  <data name="Bank_Account_Transaction_Amount_Paid" xml:space="preserve">
+    <value>סה"כ שולם</value>
+  </data>
+  <data name="Bank_Account_Transaction_Bank_Description" xml:space="preserve">
+    <value>תיאור חשבון בנק:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Bank_Inner_Reference" xml:space="preserve">
+    <value>קוד בנקאי פנימי</value>
+  </data>
+  <data name="Bank_Account_Transaction_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Bank_Account_Transaction_Confirm_Delete" xml:space="preserve">
+    <value>האם ברצונך למחוק את השורה?</value>
+  </data>
+  <data name="Bank_Account_Transaction_Connected_Documents" xml:space="preserve">
+    <value>מסמכים מקושרים:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Connect_Suggested_Document" xml:space="preserve">
+    <value>הוספה</value>
+  </data>
+  <data name="Bank_Account_Transaction_Connect_With_A_Credit_Card_Statement" xml:space="preserve">
+    <value>קישור חיוב אשראי עם פעולה בנקאית</value>
+  </data>
+  <data name="Bank_Account_Transaction_Credit_Card_Statement_Tab" xml:space="preserve">
+    <value>דו"ח חיוב אשראי</value>
+  </data>
+  <data name="Bank_Account_Transaction_Documents_No_Results_Were_Found" xml:space="preserve">
+    <value>לא נמצאו תוצאות רלוונטיות!</value>
+  </data>
+  <data name="Bank_Account_Transaction_Documents_Tab" xml:space="preserve">
+    <value>מסמכים</value>
+  </data>
+  <data name="Bank_Account_Transaction_Documents_Use_Search_Criteria" xml:space="preserve">
+    <value>בבקשה השתמש/י בהגדרות חיפוש כדי לחפש מסמכים</value>
+  </data>
+  <data name="Bank_Account_Transaction_Each_Transaction_In_Credit_Card_Statement_Has_Own_Documents" xml:space="preserve">
+    <value>לכל שורת חיוב בדו"ח חיובי אשראי יש קישורי מסמכים משלהם.</value>
+  </data>
+  <data name="Bank_Account_Transaction_Edit" xml:space="preserve">
+    <value>עריכת פרטים</value>
+  </data>
+  <data name="Bank_Account_Transaction_Edit_Document_Connection_Settings" xml:space="preserve">
+    <value>עריכת הגדרות קישור</value>
+  </data>
+  <data name="Bank_Account_Transaction_General_Info_Tab" xml:space="preserve">
+    <value>פרטים כלליים</value>
+  </data>
+  <data name="Bank_Account_Transaction_It_Is_Not_Possible_To_Both_Connect_Statement_And_Documents" xml:space="preserve">
+    <value>זה לא אפשרי לחבר מסמכים שונים וגם דו"ח חיוב כרטיס אשראי לפעולה בנקאית</value>
+  </data>
+  <data name="Bank_Account_Transaction_My_Comments" xml:space="preserve">
+    <value>הערות:</value>
+  </data>
+  <data name="Bank_Account_Transaction_My_Description" xml:space="preserve">
+    <value>תיאור:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Not_Connected_To_Credit_Card_Statement" xml:space="preserve">
+    <value>הפעולה הבנקאית אינה מחוברת לדו"ח חיוב כרטיס אשראי</value>
+  </data>
+  <data name="Bank_Account_Transaction_Reference_Number" xml:space="preserve">
+    <value>קוד מזהה:</value>
+  </data>
+  <data name="Bank_Account_Transaction_Save_Changes" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Bank_Account_Transaction_Save_Document_Connection_Details" xml:space="preserve">
+    <value>שמירה</value>
+  </data>
+  <data name="Bank_Account_Transaction_Search_For_Documents_To_Connect" xml:space="preserve">
+    <value>חיפוש מסמכים לקישור</value>
+  </data>
+  <data name="Bank_Account_Transaction_Suggested_Documents_Title_Message" xml:space="preserve">
+    <value>רשימת מסמכים מומלצים לקישור</value>
+  </data>
+  <data name="Bank_Account_Transaction_There_Are_No_Connected_Documents" xml:space="preserve">
+    <value>אין מסמכים מקושרים.</value>
+  </data>
+  <data name="Bank_Account_Transaction_There_Are_No_Suggested_Documents" xml:space="preserve">
+    <value>אין מסמכים מומלצים לקישור הפעולה הבנקאית</value>
+  </data>
+  <data name="Bank_Account_Transaction_Value_DateTime" xml:space="preserve">
+    <value>תאריך חיוב:</value>
   </data>
   <data name="Bank_Name" xml:space="preserve">
-    <value>Bank Name</value>
+    <value>שם בנק</value>
   </data>
   <data name="Bank_Number" xml:space="preserve">
-    <value>Bank Number</value>
+    <value>מספר בנק</value>
   </data>
   <data name="Birth_Date" xml:space="preserve">
-    <value>Birth_Date</value>
+    <value>תאריך לידה</value>
   </data>
   <data name="Branch_Address" xml:space="preserve">
-    <value>Branch Address</value>
+    <value>כתובת הסניף</value>
   </data>
   <data name="Branch_City" xml:space="preserve">
-    <value>Branch City</value>
+    <value>עיר הסניף</value>
   </data>
   <data name="Branch_Contact_Phone" xml:space="preserve">
-    <value>Branch Contact Phone</value>
+    <value>טלפון איש הקשר בסניף</value>
   </data>
   <data name="Branch_Country" xml:space="preserve">
-    <value>Branch Country</value>
+    <value>מדינת הסניף</value>
   </data>
   <data name="Branch_Main_Contact" xml:space="preserve">
-    <value>Branch Main Contact</value>
+    <value>איש הקשר בסניף</value>
   </data>
   <data name="Branch_Main_Email" xml:space="preserve">
-    <value>Branch Main Email</value>
+    <value>אימייל איש הקשר בסניף</value>
   </data>
   <data name="Branch_Name" xml:space="preserve">
-    <value>Branch Name</value>
+    <value>שם הסניף</value>
   </data>
   <data name="Branch_Number" xml:space="preserve">
-    <value>Branch Number</value>
+    <value>מספר סניף</value>
   </data>
   <data name="Branch_Phone" xml:space="preserve">
-    <value>Branch Phone</value>
+    <value>טלפון הסניף</value>
   </data>
   <data name="Branch_State" xml:space="preserve">
-    <value>Branch State</value>
+    <value>אזור</value>
   </data>
   <data name="Branch_Zip_Code" xml:space="preserve">
-    <value>Branch Zip Code</value>
+    <value>מיקוד</value>
   </data>
   <data name="Business_Name" xml:space="preserve">
-    <value>Business Name</value>
+    <value>שם העסק</value>
   </data>
   <data name="Business_Phone" xml:space="preserve">
-    <value>Business Phone</value>
+    <value>טלפון בעסק</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ביטול</value>
+  </data>
+  <data name="Cancel_Edit" xml:space="preserve">
+    <value>ביטול עריכה</value>
   </data>
   <data name="Can_Followers_Download_File" xml:space="preserve">
-    <value>Can Followers Download File</value>
+    <value>האם לאפשר לעוקבים שלך להוריד את המסמך</value>
   </data>
   <data name="CC_Expiration_Date" xml:space="preserve">
-    <value>CC Expiration Date</value>
+    <value>תאריך תוקף</value>
   </data>
   <data name="CC_Statement_Date" xml:space="preserve">
-    <value>CC Statement Date</value>
+    <value>תאריך חיוב</value>
   </data>
   <data name="Charged_Amount" xml:space="preserve">
-    <value>Charged Amount</value>
+    <value>חיוב בפועל</value>
   </data>
   <data name="City" xml:space="preserve">
-    <value>City</value>
+    <value>עיר</value>
   </data>
   <data name="Client" xml:space="preserve">
-    <value>Client</value>
+    <value>לקוח</value>
   </data>
   <data name="Clients" xml:space="preserve">
-    <value>Clients</value>
+    <value>לקוחות</value>
   </data>
   <data name="Clients List" xml:space="preserve">
-    <value>Clients_List</value>
+    <value>רשימת לקוחות</value>
+  </data>
+  <data name="Clients_Filter_By_Type" xml:space="preserve">
+    <value>סינון לפי סוג לקוח</value>
+  </data>
+  <data name="Clients_No_Results_Were_Found" xml:space="preserve">
+    <value>לא נמצאו תוצאות רלוונטיות!</value>
+  </data>
+  <data name="Clients_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>בבקשה השתמש/י בהגדרות חיפוש כדי לחפש לקוחות</value>
+  </data>
+  <data name="Clients_Select_Client_Type" xml:space="preserve">
+    <value>בחירת סוג לקוח</value>
   </data>
   <data name="Client_From_Date" xml:space="preserve">
-    <value>Client From Date</value>
+    <value>פעילות לקוח מתאריך</value>
   </data>
   <data name="Client_To_Date" xml:space="preserve">
-    <value>Client To Date</value>
+    <value>פעילות לקוח עד תאריך</value>
   </data>
   <data name="Client_Type" xml:space="preserve">
-    <value>Client Type</value>
+    <value>סוג לקוח</value>
+  </data>
+  <data name="Close_Window" xml:space="preserve">
+    <value>סגירת חלון</value>
   </data>
   <data name="Comments" xml:space="preserve">
-    <value>Comments</value>
+    <value>הערות</value>
   </data>
   <data name="Company_Name" xml:space="preserve">
-    <value>Company Name</value>
+    <value>שם העסק</value>
+  </data>
+  <data name="Connect_Credit_Card_Statement" xml:space="preserve">
+    <value>קישור חיוב האשראי</value>
   </data>
   <data name="Contact_Email_Address" xml:space="preserve">
-    <value>Contact Email Address</value>
+    <value>אימייל איש הקשר</value>
   </data>
   <data name="Contact_FullName" xml:space="preserve">
-    <value>Contact Full Name</value>
+    <value>שם איש קשר</value>
+  </data>
+  <data name="Contact_Person" xml:space="preserve">
+    <value>איש קשר</value>
   </data>
   <data name="Contact_Phone_Number" xml:space="preserve">
-    <value>Contact Phone Number</value>
+    <value>טלפון איש הקשר</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Country</value>
+    <value>מדינה</value>
   </data>
   <data name="Created_By" xml:space="preserve">
-    <value>Created By</value>
+    <value>נוצר על ידי</value>
   </data>
   <data name="Created_On" xml:space="preserve">
-    <value>Created On</value>
+    <value>נוצר בתאריך</value>
   </data>
   <data name="Creation_Date" xml:space="preserve">
-    <value>Creation Date</value>
+    <value>תאריך יצירה</value>
   </data>
   <data name="Creation_Time" xml:space="preserve">
-    <value>Creation Time</value>
+    <value>תאריך יצירה</value>
   </data>
   <data name="Credit_Card" xml:space="preserve">
-    <value>Credit Card</value>
+    <value>כרטיס אשראי</value>
   </data>
   <data name="Credit_Cards_List" xml:space="preserve">
-    <value>Credit Cards List</value>
+    <value>רשימת כרטיסי אשראי</value>
   </data>
   <data name="Credit_Cards_Statements_List" xml:space="preserve">
-    <value>Credit Cards Statements List</value>
+    <value>דוחות חיובי כרטיסי אשראי</value>
   </data>
   <data name="Credit_Card_Name" xml:space="preserve">
-    <value>Credit Card Name</value>
+    <value>שם כרטיס אשראי</value>
+  </data>
+  <data name="Credit_Card_Statement_Add_New_Transaction_Record_On_Bottom" xml:space="preserve">
+    <value>הוספת שורה חדשה</value>
+  </data>
+  <data name="Credit_Card_Statement_Add_New_Transaction_Record_On_Top" xml:space="preserve">
+    <value>הוספת שורה חדשה</value>
+  </data>
+  <data name="Credit_Card_Statement_Bank_Transaction_Connection_Edit_Details" xml:space="preserve">
+    <value>עריכת פרטים</value>
+  </data>
+  <data name="Credit_Card_Statement_Bank_Transaction_Connection_Remove" xml:space="preserve">
+    <value>ניתוק הקישור של המסמך לפעולת הכרטיס אשראי</value>
+  </data>
+  <data name="Credit_Card_Statement_Bank_Transaction_Connection_View_More" xml:space="preserve">
+    <value>צפייה במידע נוסף</value>
+  </data>
+  <data name="Credit_Card_Statement_Connect_Bank_Transaction_Button" xml:space="preserve">
+    <value>קישור המסמך</value>
+  </data>
+  <data name="Credit_Card_Statement_Connect_Statement_To_Bank_Account_Transaction" xml:space="preserve">
+    <value>קישור חיוב אשראי עם פעולה בנקאית</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Actual_Payment_Amount" xml:space="preserve">
+    <value>חיוב בפועל</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Business_Name" xml:space="preserve">
+    <value>שם העסק</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Description" xml:space="preserve">
+    <value>תיאור</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Transaction_Amount" xml:space="preserve">
+    <value>סכום ששולם</value>
+  </data>
+  <data name="Credit_Card_Statement_Transactions_Transaction_Date" xml:space="preserve">
+    <value>תאריך בפועל</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents" xml:space="preserve">
+    <value>מסמכים</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Connected_Documents_SubTitle" xml:space="preserve">
+    <value>רשימת מסמכים המקושרים לפעולת הכרטיס אשראי</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Connected_Documents_Title" xml:space="preserve">
+    <value>מסמכים מקושרים</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Connect_Document" xml:space="preserve">
+    <value>חיבור המסמך</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Edit_Document_Connection_Settings" xml:space="preserve">
+    <value>עריכת הגדרות קישור</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Edit_Document_Connection_Settings_Save_Button" xml:space="preserve">
+    <value>שמירה</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Button" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Filter_By_Type" xml:space="preserve">
+    <value>סינון לפי סוג מסמך</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_No_Results_Were_Found" xml:space="preserve">
+    <value>לא נמצאו תוצאות רלוונטיות!</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Please_Use_Search_Criteria" xml:space="preserve">
+    <value>בבקשה השתמש/י בהגדרות חיפוש כדי לחפש מסמכים לקישור</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Select_Type" xml:space="preserve">
+    <value>בחירת סוג המסמך</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_SubTitle" xml:space="preserve">
+    <value>חיפוש וקישור מסמכים לפעולת הכרטיס אשראי</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Search_Title" xml:space="preserve">
+    <value>חיפוש מסמכים לקישור</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Suggested_Documents_SubTitle" xml:space="preserve">
+    <value>רשימת מסמכים המומלצים לקישור לפעולת הכרטיס האשראי</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Documents_Suggested_Documents_Title" xml:space="preserve">
+    <value>רשימת מסמכים מומלצים לקישור</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Edit_Details" xml:space="preserve">
+    <value>עריכת פרטים</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_General_Info" xml:space="preserve">
+    <value>פרטים כלליים</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_No_Connected_Documents" xml:space="preserve">
+    <value>אין מסמכים מקושרים.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_No_Documents_To_Suggest" xml:space="preserve">
+    <value>אין מסמכים המומלצים לקישור פעולת הכרטיס אשראי</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Please_Use_Search_Panel" xml:space="preserve">
+    <value>ניתן להשתמש באיזור החיפוש למטה בכדי לחפש ולקשר מסמכים רלוונטים לדו"ח חיוב הכרטיס אשראי.</value>
+  </data>
+  <data name="Credit_Card_Statement_Transaction_Save Changes" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Credit_Card_Statement_Unconnected_To_Bank_Account_Transaction" xml:space="preserve">
+    <value>דו"ח חיוב האשראי אינו מחובר לפעולה בחשבון הבנק</value>
   </data>
   <data name="Currency" xml:space="preserve">
-    <value>Currency</value>
+    <value>מטבע</value>
   </data>
   <data name="Dark_Mode" xml:space="preserve">
     <value>מצב מוחשך</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>Date</value>
+    <value>תאריך</value>
   </data>
   <data name="Default_Currency" xml:space="preserve">
-    <value>Default Currency</value>
+    <value>מטבע ראשי</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>מחיקה</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Description</value>
+    <value>תיאור</value>
   </data>
   <data name="Documents" xml:space="preserve">
-    <value>Documents</value>
+    <value>מסמכים</value>
+  </data>
+  <data name="Documents_Filter_By_Type" xml:space="preserve">
+    <value>סינון לפי סוג מסמך</value>
   </data>
   <data name="Documents_List" xml:space="preserve">
-    <value>Documents list</value>
+    <value>רשימת מסמכים</value>
+  </data>
+  <data name="Documents_No_Results_Were_Found" xml:space="preserve">
+    <value>לא נמצאו תוצאות רלוונטיות!</value>
+  </data>
+  <data name="Documents_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>בבקשה השתמש/י בהגדרות חיפוש כדי לחפש מסמכים</value>
   </data>
   <data name="Document_Creation_Date" xml:space="preserve">
-    <value>Document Creation Date</value>
+    <value>תאריך יצירת מסמך</value>
   </data>
   <data name="Document_Creation_Time" xml:space="preserve">
-    <value>Document Creation Time</value>
+    <value>תאריך יצירת מסמך</value>
   </data>
   <data name="Document_Type" xml:space="preserve">
-    <value>Document Type</value>
+    <value>סוג מסמך</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>הורדה</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>עריכה</value>
+  </data>
+  <data name="Edit_Details" xml:space="preserve">
+    <value>עריכת פרטים</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email</value>
+    <value>אימייל</value>
   </data>
   <data name="Email_Address" xml:space="preserve">
-    <value>Email Address</value>
+    <value>כתובת אימייל</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>אנגלית</value>
   </data>
   <data name="Expenses" xml:space="preserve">
-    <value>Expenses</value>
+    <value>הוצאות</value>
+  </data>
+  <data name="Expenses_Filter_By_Type" xml:space="preserve">
+    <value>סינון לפי סוג הוצאה</value>
   </data>
   <data name="Expenses_List" xml:space="preserve">
-    <value>Expenses List</value>
+    <value>רשימת הוצאות</value>
+  </data>
+  <data name="Expenses_No_Results_Were_Found" xml:space="preserve">
+    <value>לא נמצאו תוצאות רלוונטיות!</value>
+  </data>
+  <data name="Expenses_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>בבקשה השתמש/י בהגדרות חיפוש כדי לחפש הוצאות</value>
   </data>
   <data name="Expense_Date" xml:space="preserve">
-    <value>Expense Date</value>
+    <value>תאריך הוצאה</value>
   </data>
   <data name="Expense_Time" xml:space="preserve">
-    <value>Expense Time</value>
+    <value>זמן הוצאה</value>
   </data>
   <data name="Expense_Type" xml:space="preserve">
-    <value>Expense Type</value>
+    <value>סוג הוצאה</value>
   </data>
   <data name="Filename" xml:space="preserve">
-    <value>Filename</value>
+    <value>שם הקובץ</value>
+  </data>
+  <data name="Filter_By_Bank_Account" xml:space="preserve">
+    <value>סינון לפי חשבון בנק:</value>
+  </data>
+  <data name="Filter_By_CityAddressZipCode" xml:space="preserve">
+    <value>סינון לפי עיר / כתובת / מיקוד</value>
+  </data>
+  <data name="Filter_By_CompanyNamePeopleName" xml:space="preserve">
+    <value>סינון לפי שם העסק / איש קשר</value>
+  </data>
+  <data name="Filter_By_Country" xml:space="preserve">
+    <value>סינון לפי מדינה</value>
+  </data>
+  <data name="Filter_By_State" xml:space="preserve">
+    <value>סינון לפי אזור</value>
+  </data>
+  <data name="Filter_From_Date" xml:space="preserve">
+    <value>סינון מתאריך</value>
+  </data>
+  <data name="Filter_To_Date" xml:space="preserve">
+    <value>סינון עד תאריך</value>
   </data>
   <data name="First_Contract_Contact" xml:space="preserve">
-    <value>First Contract Contact</value>
+    <value>איש הקשר של החוזה הראשון</value>
   </data>
   <data name="First_Contract_Date" xml:space="preserve">
-    <value>First Contract Date</value>
+    <value>תאריך החוזה הראשון</value>
   </data>
   <data name="First_Contract_Location" xml:space="preserve">
-    <value>First Contract Location</value>
+    <value>מיקום חתימת החוזה</value>
   </data>
   <data name="First_Name" xml:space="preserve">
-    <value>First Name</value>
+    <value>שם פרטי</value>
   </data>
   <data name="Four_Ending_Digits" xml:space="preserve">
-    <value>Four Ending Digits</value>
+    <value>4 ספרות אחרונות</value>
   </data>
   <data name="Gender" xml:space="preserve">
-    <value>Gender</value>
+    <value>מין</value>
+  </data>
+  <data name="Gender_Select" xml:space="preserve">
+    <value>-- Select --</value>
+  </data>
+  <data name="Gender_Type_1" xml:space="preserve">
+    <value>זכר</value>
+  </data>
+  <data name="Gender_Type_2" xml:space="preserve">
+    <value>נקבה</value>
+  </data>
+  <data name="Gender_Type_3" xml:space="preserve">
+    <value>אחר</value>
+  </data>
+  <data name="GridTable_Bank_Account_Name" xml:space="preserve">
+    <value>שם חשבון</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_City" xml:space="preserve">
+    <value>עיר</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Country" xml:space="preserve">
+    <value>מדינה</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Creation_Date" xml:space="preserve">
+    <value>תאריך יצירה</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Date" xml:space="preserve">
+    <value>תאריך</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Description" xml:space="preserve">
+    <value>תיאור</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Email" xml:space="preserve">
+    <value>אימייל</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Title" xml:space="preserve">
+    <value>כותרת</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Connected_Documents_Type" xml:space="preserve">
+    <value>סוג מסמך</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_City" xml:space="preserve">
+    <value>עיר</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Country" xml:space="preserve">
+    <value>מדינה</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Creation_Date" xml:space="preserve">
+    <value>תאריך יצירה</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Date" xml:space="preserve">
+    <value>תאריך</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Description" xml:space="preserve">
+    <value>תיאור</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Email" xml:space="preserve">
+    <value>אימייל</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Title" xml:space="preserve">
+    <value>כותרת</value>
+  </data>
+  <data name="GridTable_Bank_Account_Transaction_Suggested_Documents_Type" xml:space="preserve">
+    <value>סוג מסמך</value>
+  </data>
+  <data name="GridTable_Branch_City" xml:space="preserve">
+    <value>עיר</value>
+  </data>
+  <data name="GridTable_Branch_Country_Name" xml:space="preserve">
+    <value>מדינה</value>
+  </data>
+  <data name="GridTable_Branch_Name" xml:space="preserve">
+    <value>סניף</value>
+  </data>
+  <data name="GridTable_Company_Name" xml:space="preserve">
+    <value>שם העסק</value>
+  </data>
+  <data name="GridTable_Contact_Person" xml:space="preserve">
+    <value>איש קשר</value>
+  </data>
+  <data name="GridTable_Country_Name" xml:space="preserve">
+    <value>מדינה</value>
+  </data>
+  <data name="GridTable_Credit_Card_Name" xml:space="preserve">
+    <value>שם כרטיס</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_City" xml:space="preserve">
+    <value>עיר</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Country" xml:space="preserve">
+    <value>מדינה</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Creation_Date" xml:space="preserve">
+    <value>תאריך יצירה</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Description" xml:space="preserve">
+    <value>תיאור</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Document_Date" xml:space="preserve">
+    <value>תאריך</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Email" xml:space="preserve">
+    <value>אימייל</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Title" xml:space="preserve">
+    <value>כותרת</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Connected_Documents_Type" xml:space="preserve">
+    <value>סוג מסמך</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_City" xml:space="preserve">
+    <value>עיר</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Country" xml:space="preserve">
+    <value>מדינה</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Creation_Date" xml:space="preserve">
+    <value>תאריך יצירה</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Description" xml:space="preserve">
+    <value>תיאור</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Document_Date" xml:space="preserve">
+    <value>תאריך</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Email" xml:space="preserve">
+    <value>אימייל</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Title" xml:space="preserve">
+    <value>כותרת</value>
+  </data>
+  <data name="GridTable_Credit_Card_Statement_Transaction_Suggested_Documents_Type" xml:space="preserve">
+    <value>סוג מסמך</value>
+  </data>
+  <data name="GridTable_Document_Creation_DateTime" xml:space="preserve">
+    <value>תאריך</value>
+  </data>
+  <data name="GridTable_Document_Description" xml:space="preserve">
+    <value>תיאור</value>
+  </data>
+  <data name="GridTable_Document_From_City" xml:space="preserve">
+    <value>מעיר</value>
+  </data>
+  <data name="GridTable_Document_From_Country" xml:space="preserve">
+    <value>ממדינה</value>
+  </data>
+  <data name="GridTable_Document_From_Email" xml:space="preserve">
+    <value>מאימייל</value>
+  </data>
+  <data name="GridTable_Document_Sent_By" xml:space="preserve">
+    <value>נשלח על ידי</value>
+  </data>
+  <data name="GridTable_Document_Title" xml:space="preserve">
+    <value>כותרת</value>
+  </data>
+  <data name="GridTable_Email" xml:space="preserve">
+    <value>אימייל</value>
+  </data>
+  <data name="GridTable_Expense_Contact_Person" xml:space="preserve">
+    <value>איש קשר</value>
+  </data>
+  <data name="GridTable_Expense_Invoice_DateTime" xml:space="preserve">
+    <value>תאריך</value>
+  </data>
+  <data name="GridTable_Expense_Supplier_Company_Details" xml:space="preserve">
+    <value>שם העסק</value>
+  </data>
+  <data name="GridTable_Expiration_Date" xml:space="preserve">
+    <value>תוקף</value>
+  </data>
+  <data name="GridTable_Four_Ending_Digits" xml:space="preserve">
+    <value>4 ספרות אחרונות</value>
+  </data>
+  <data name="GridTable_Fullname" xml:space="preserve">
+    <value>שם מלא</value>
+  </data>
+  <data name="GridTable_Invoiced_Client_To_CompanyName" xml:space="preserve">
+    <value>שם העסק</value>
+  </data>
+  <data name="GridTable_Invoiced_Client_To_Country_Name" xml:space="preserve">
+    <value>מדינה</value>
+  </data>
+  <data name="GridTable_Invoiced_Client_To_PersonName" xml:space="preserve">
+    <value>איש קשר</value>
+  </data>
+  <data name="GridTable_Latest_Transaction_Balance" xml:space="preserve">
+    <value>יתרת חשבון לאחר פעולה אחרונה</value>
+  </data>
+  <data name="GridTable_Latest_Transaction_Date" xml:space="preserve">
+    <value>תאריך פעולה אחרונה בחשבון</value>
+  </data>
+  <data name="GridTable_Registration_Date" xml:space="preserve">
+    <value>תאריך</value>
+  </data>
+  <data name="GridTable_Statement_Date" xml:space="preserve">
+    <value>תאריך דו"ח חיוב</value>
+  </data>
+  <data name="GridTable_Total_Amount" xml:space="preserve">
+    <value>סכום סה"כ</value>
+  </data>
+  <data name="GridTable_Total_Number_Of_Purchases" xml:space="preserve">
+    <value>סה"כ רכישות בדו"ח חיוב האשראי</value>
+  </data>
+  <data name="GridTable_Username" xml:space="preserve">
+    <value>שם משתמש</value>
+  </data>
+  <data name="Has_Been_Actually_Charged_In_Statement" xml:space="preserve">
+    <value>האם חויב בפועל</value>
   </data>
   <data name="Heard_About_Application_From" xml:space="preserve">
-    <value>Heard About Application From</value>
+    <value>מקור הפנייה למערכת</value>
   </data>
   <data name="Hebrew" xml:space="preserve">
     <value>עברית</value>
   </data>
   <data name="Income_Value" xml:space="preserve">
-    <value>Income Value</value>
+    <value>סכום הכנסה</value>
   </data>
   <data name="Invoiced_Client_Tax_Reference" xml:space="preserve">
-    <value>Invoiced Client Tax#</value>
+    <value>מזהה מספר העסק במס הכנסה</value>
   </data>
   <data name="Invoiced_For_Country" xml:space="preserve">
-    <value>Invoiced For Country</value>
+    <value>חש. עבור מדינה</value>
   </data>
   <data name="Invoiced_For_State" xml:space="preserve">
-    <value>Invoiced For State</value>
+    <value>חש. עבור איזור</value>
   </data>
   <data name="Invoiced_On_Location" xml:space="preserve">
-    <value>Invoiced On Location</value>
+    <value>הופק במיקום</value>
   </data>
   <data name="Invoiced_To_Address" xml:space="preserve">
-    <value>Invoiced To Address</value>
+    <value>חש. עבור כתובת</value>
   </data>
   <data name="Invoiced_To_City" xml:space="preserve">
-    <value>Invoiced To City</value>
+    <value>חש. עבור עיר</value>
   </data>
   <data name="Invoiced_To_Company" xml:space="preserve">
-    <value>Invoiced to Company</value>
+    <value>חש. עבור שם חברה</value>
   </data>
   <data name="Invoiced_To_Email" xml:space="preserve">
-    <value>Invoiced To Email</value>
+    <value>חש. עבור אימייל</value>
   </data>
   <data name="Invoiced_To_Person_Name" xml:space="preserve">
-    <value>Invoiced To Person Name</value>
+    <value>חש. עבור </value>
   </data>
   <data name="Invoiced_To_Phone" xml:space="preserve">
-    <value>Invoiced To Phone</value>
+    <value>חש. עבור טלפון</value>
   </data>
   <data name="Invoiced_To_TAX_Reference" xml:space="preserve">
-    <value>Invoiced to TAX Reference</value>
+    <value>חש. עבור מזהה מספר עוסק</value>
   </data>
   <data name="Invoiced_To_Zip_Code" xml:space="preserve">
-    <value>Invoiced To Zip Code</value>
+    <value>חש. עבור מיקוד</value>
   </data>
   <data name="Invoices" xml:space="preserve">
-    <value>Invoices</value>
+    <value>חשבוניות מס</value>
+  </data>
+  <data name="Invoices_Filter_By_Type" xml:space="preserve">
+    <value>סינון לפי סוג חשבונית</value>
   </data>
   <data name="Invoices_List" xml:space="preserve">
-    <value>Invoices list</value>
+    <value>רשימת חשבוניות מס</value>
+  </data>
+  <data name="Invoices_No_Results_Were_Found" xml:space="preserve">
+    <value>לא נמצאו תוצאות רלוונטיות!</value>
+  </data>
+  <data name="Invoices_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>בבקשה השתמש/י בהגדרות חיפוש כדי לחפש הכנסות</value>
   </data>
   <data name="Invoice_Address_Desc" xml:space="preserve">
-    <value>Invoice Address Desc</value>
+    <value>כתובת העסק בחשבונית</value>
   </data>
   <data name="Invoice_Content_Description" xml:space="preserve">
-    <value>Invoice Content Description</value>
+    <value>תיאור תוכן החשבונית</value>
   </data>
   <data name="Invoice_Date" xml:space="preserve">
-    <value>Invoice Date</value>
+    <value>תאריך חשבונית</value>
   </data>
   <data name="Invoice_Number" xml:space="preserve">
-    <value>Invoice Number</value>
+    <value>מספר חשבונית</value>
   </data>
   <data name="Invoice_Reference_Number" xml:space="preserve">
-    <value>Invoice Reference Number</value>
+    <value>מזהה חשבונית</value>
   </data>
   <data name="Invoice_Supplier_City" xml:space="preserve">
-    <value>Invoice Supplier City</value>
+    <value>עיר הספק</value>
   </data>
   <data name="Invoice_Supplier_Company" xml:space="preserve">
-    <value>Invoice Supplier Company</value>
+    <value>שם העסק</value>
   </data>
   <data name="Invoice_Supplier_Country" xml:space="preserve">
-    <value>Invoice Supplier Country</value>
+    <value>מדינת הספק</value>
   </data>
   <data name="Invoice_Supplier_Phone" xml:space="preserve">
-    <value>Invoice Supplier Phone</value>
+    <value>טלפון הספק</value>
   </data>
   <data name="Invoice_Supplier_State" xml:space="preserve">
-    <value>Invoice Supplier State</value>
+    <value>אזור הספק</value>
   </data>
   <data name="Invoice_Supplier_Tax_Ref" xml:space="preserve">
-    <value>Invoice Supplier Tax Ref</value>
+    <value>מזהה מספר העסק</value>
   </data>
   <data name="Invoice_Supplier_Web_Address" xml:space="preserve">
-    <value>Invoice Supplier Web Address</value>
+    <value>כתובת אינטרנט של הספק</value>
   </data>
   <data name="Invoice_Supplier_ZipCode" xml:space="preserve">
-    <value>Invoice Supplier ZipCode</value>
+    <value>מיקוד  כתובת הספק</value>
   </data>
   <data name="Invoice_Time" xml:space="preserve">
-    <value>Invoice Time</value>
+    <value>שעת החשבונית</value>
   </data>
   <data name="Invoice_Type" xml:space="preserve">
-    <value>Invoice Type</value>
+    <value>סוג חשבונית</value>
   </data>
   <data name="Is_Active" xml:space="preserve">
-    <value>Is Active</value>
+    <value>האם פעיל</value>
   </data>
   <data name="Is_Downloadable_To_Public" xml:space="preserve">
-    <value>Is Downloadable To Public</value>
+    <value>האם לאפשר לציבור להוריד את המסמך</value>
   </data>
   <data name="Is_Visible_To_Followers" xml:space="preserve">
-    <value>Is Visible To Followers</value>
+    <value>האם המסמך יראה לעוקבים שלך</value>
   </data>
   <data name="Is_Visible_To_Public" xml:space="preserve">
-    <value>Is Visible To Public</value>
+    <value>המסמך יראה לציבור</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Language</value>
+    <value>שפת מערכת</value>
   </data>
   <data name="Last_Modified_By" xml:space="preserve">
-    <value>Last Modified By</value>
+    <value>עדכון לאחרונה על ידי</value>
   </data>
   <data name="Last_Modified_Date" xml:space="preserve">
-    <value>Last Modified Date</value>
+    <value>עודכן לאחרונה בתאריך</value>
   </data>
   <data name="Last_Name" xml:space="preserve">
-    <value>Last Name</value>
+    <value>שם משפחה</value>
+  </data>
+  <data name="Link_To_add_bankaccount" xml:space="preserve">
+    <value>הוספת חשבון בנק</value>
+  </data>
+  <data name="Link_To_add_client" xml:space="preserve">
+    <value>יצירת לקוח חדש</value>
+  </data>
+  <data name="Link_To_add_document" xml:space="preserve">
+    <value>הוספת מסמך חדש</value>
+  </data>
+  <data name="Link_To_add_expense" xml:space="preserve">
+    <value>הוספת הוצאה חדשה</value>
+  </data>
+  <data name="Link_To_add_invoice" xml:space="preserve">
+    <value>חשבונית חדשה</value>
+  </data>
+  <data name="Link_To_add_supplier" xml:space="preserve">
+    <value>יצירת ספק חדש</value>
+  </data>
+  <data name="Link_To_add_user" xml:space="preserve">
+    <value>יצירת משתמש חדש</value>
+  </data>
+  <data name="Link_To_home" xml:space="preserve">
+    <value>דף הבית</value>
+  </data>
+  <data name="Link_To_list_bankaccounts" xml:space="preserve">
+    <value>חשבונות בנק</value>
+  </data>
+  <data name="Link_To_list_clients" xml:space="preserve">
+    <value>רשימת לקוחות</value>
+  </data>
+  <data name="Link_To_list_creditcards" xml:space="preserve">
+    <value>כרטיסי אשראי</value>
+  </data>
+  <data name="Link_To_list_creditcardsstatements" xml:space="preserve">
+    <value>דוחות חיובי כרטיסי אשראי</value>
+  </data>
+  <data name="Link_To_list_documents" xml:space="preserve">
+    <value>מסמכים</value>
+  </data>
+  <data name="Link_To_list_expenses" xml:space="preserve">
+    <value>הוצאות</value>
+  </data>
+  <data name="Link_To_list_invoices" xml:space="preserve">
+    <value>חשבוניות מס</value>
+  </data>
+  <data name="Link_To_list_suppliers" xml:space="preserve">
+    <value>ספקים / אנשי קשר</value>
+  </data>
+  <data name="Link_To_list_users" xml:space="preserve">
+    <value>רשימת משתמשים</value>
+  </data>
+  <data name="Link_To_manage_bankaccount" xml:space="preserve">
+    <value>פרטי חשבון בנק</value>
+  </data>
+  <data name="Link_To_manage_BankAccountTransaction" xml:space="preserve">
+    <value>פעולה בנקאית</value>
+  </data>
+  <data name="Link_To_manage_BankAccountTransactions" xml:space="preserve">
+    <value>תיעוד פעולות בחשבון בנק</value>
+  </data>
+  <data name="Link_To_manage_client" xml:space="preserve">
+    <value>פרטי הלקוח</value>
+  </data>
+  <data name="Link_To_manage_creditcard" xml:space="preserve">
+    <value>ניהול כרטיס אשראי</value>
+  </data>
+  <data name="Link_To_manage_creditcardstatement" xml:space="preserve">
+    <value>עריכת דו"ח חיוב אשראי</value>
+  </data>
+  <data name="Link_To_manage_creditcardstatementtransaction" xml:space="preserve">
+    <value>פרטי חיוב כרטיס האשראי</value>
+  </data>
+  <data name="Link_To_manage_document" xml:space="preserve">
+    <value>עריכת פרטי מסמך</value>
+  </data>
+  <data name="Link_To_manage_expense" xml:space="preserve">
+    <value>פרטי הוצאה</value>
+  </data>
+  <data name="Link_To_manage_invoice" xml:space="preserve">
+    <value>פרטי החשבונית</value>
+  </data>
+  <data name="Link_To_manage_supplier" xml:space="preserve">
+    <value>פרטי ספק/איש קשר</value>
+  </data>
+  <data name="Link_To_manage_user" xml:space="preserve">
+    <value>פרטי משתמש</value>
+  </data>
+  <data name="Link_To_seperator" xml:space="preserve">
+    <value>&amp;nbsp; » &amp;nbsp;</value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>Loading</value>
+    <value>טעינת נתונים</value>
+  </data>
+  <data name="Login_Page_Button_Login" xml:space="preserve">
+    <value>התחברות</value>
+  </data>
+  <data name="Login_Page_Password" xml:space="preserve">
+    <value>סיסמא</value>
+  </data>
+  <data name="Login_Page_Please_Sign_In" xml:space="preserve">
+    <value>התחברות למערכת</value>
+  </data>
+  <data name="Login_Page_Remember_Me" xml:space="preserve">
+    <value>זכור אותי</value>
+  </data>
+  <data name="Login_Page_Username" xml:space="preserve">
+    <value>שם משתמש</value>
   </data>
   <data name="Log_Off" xml:space="preserve">
-    <value>Log Off</value>
+    <value>התנתקות</value>
+  </data>
+  <data name="Manage_Bank_Account_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_Bank_Account_Edit" xml:space="preserve">
+    <value>עריכת חשבון בנק</value>
+  </data>
+  <data name="Manage_Bank_Account_Save_Changes" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Manage_Bank_Account_SubTitle" xml:space="preserve">
+    <value>מעקב, תיעוד, ניהול וחיבור של כל פרטי פעולות הבנקאית שלך</value>
+  </data>
+  <data name="Manage_Bank_Account_Title" xml:space="preserve">
+    <value>עריכת חשבון בנק</value>
+  </data>
+  <data name="Manage_Bank_Account_Transactions_SubTitle" xml:space="preserve">
+    <value>תיעוד, ניהול וקישור פעולות בנקאיות למסמכים האישיים שלך</value>
+  </data>
+  <data name="Manage_Bank_Account_Transactions_Title" xml:space="preserve">
+    <value>ניהול פעולות חשבון הבנק</value>
+  </data>
+  <data name="Manage_Bank_Account_Transaction_SubTitle" xml:space="preserve">
+    <value>ניהול, תיעוד ושיקוף של כל הפעיליות הבנקאיות שלך</value>
+  </data>
+  <data name="Manage_Bank_Account_Transaction_Title" xml:space="preserve">
+    <value>עריכת פעולה בחשבון בנק</value>
+  </data>
+  <data name="Manage_Client_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_Client_Edit_Client" xml:space="preserve">
+    <value>עריכת פרטי לקוח</value>
+  </data>
+  <data name="Manage_Client_Save_Changes" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Manage_Client_SubTitle" xml:space="preserve">
+    <value>עריכת פרטי הלקוח ואנשי הקשר ומידע נוסף</value>
+  </data>
+  <data name="Manage_Client_Title" xml:space="preserve">
+    <value>עריכת פרטי לקוח</value>
+  </data>
+  <data name="Manage_Credit_Card_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_Credit_Card_Create" xml:space="preserve">
+    <value>שמירה</value>
+  </data>
+  <data name="Manage_Credit_Card_Edit_Details" xml:space="preserve">
+    <value>עריכת פרטי כרטיס אשראי</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Bank_Account_Transaction_Tab" xml:space="preserve">
+    <value>פעולה בנקאית</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Create_Statement" xml:space="preserve">
+    <value>שמירת דו"ח חיוב</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Edit_Statement" xml:space="preserve">
+    <value>עריכת הדו"ח</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_General_Info_Tab" xml:space="preserve">
+    <value>פרטים כלליים</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Save_Statement" xml:space="preserve">
+    <value>שמירת דו"ח חיוב</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_SubTitle" xml:space="preserve">
+    <value>ניהול, תיעוד קישור ושיקוף של פעולות כרטיס האשראי</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Title" xml:space="preserve">
+    <value>עריכת דו"ח חיוב כרטיס אשראי</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Transaction_SubTitle" xml:space="preserve">
+    <value>תיעוד וקישור מסמכים לכל פעילויות האשראי השונות</value>
+  </data>
+  <data name="Manage_Credit_Card_Statement_Transaction_Title" xml:space="preserve">
+    <value>ניהול פעולת דו"ח חיוב כרטיס אשראי</value>
+  </data>
+  <data name="Manage_Credit_Card_SubTitle" xml:space="preserve">
+    <value>תיעוד, חיבור והוספת פרטים מתקדמים לרכישות בכרטיס אשראי </value>
+  </data>
+  <data name="Manage_Credit_Card_Title" xml:space="preserve">
+    <value>עריכת פרטי כרטיס אשראי</value>
+  </data>
+  <data name="Manage_Credit_Card_Update_Details" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Manage_Document_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_Document_Edit_Button" xml:space="preserve">
+    <value>עריכת המסמך</value>
+  </data>
+  <data name="Manage_Document_Save_Changes" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Manage_Document_SubTitle" xml:space="preserve">
+    <value>תיעוד והוספת פרטים נוספים למסמכים שלך</value>
+  </data>
+  <data name="Manage_Document_Title" xml:space="preserve">
+    <value>עריכת פרטי מסמך</value>
+  </data>
+  <data name="Manage_Expense_Cancel_Editing_Button" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_Expense_Edit_Button" xml:space="preserve">
+    <value>עריכת הוצאה</value>
+  </data>
+  <data name="Manage_Expense_Save_Changes_Button" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Manage_Expense_SubTitle" xml:space="preserve">
+    <value>תיעוד וקישור פרטים נוספים להוצאות שלך</value>
+  </data>
+  <data name="Manage_Expense_Title" xml:space="preserve">
+    <value>עריכת פרטי הוצאה</value>
+  </data>
+  <data name="Manage_Invoice_Button_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_Invoice_Button_Edit" xml:space="preserve">
+    <value>עריכת פרטים</value>
+  </data>
+  <data name="Manage_Invoice_Button_Save_Changes" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Manage_Invoice_SubTitle" xml:space="preserve">
+    <value>עריכת מסמכי הכנסות וקישורים טכניים לקווי הזמן</value>
+  </data>
+  <data name="Manage_Invoice_Title" xml:space="preserve">
+    <value>עריכת פרטי חשבונית/הכנסה</value>
+  </data>
+  <data name="Manage_Supplier_Button_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_Supplier_Button_Edit" xml:space="preserve">
+    <value>עריכת הספק</value>
+  </data>
+  <data name="Manage_Supplier_Button_Save_Changes" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Manage_Supplier_SubTitle" xml:space="preserve">
+    <value>עריכה ותיעוד של פרטי הספק ואנשי הקשר</value>
+  </data>
+  <data name="Manage_Supplier_Title" xml:space="preserve">
+    <value>עריכת פרטי ספק/איש קשר</value>
+  </data>
+  <data name="Manage_User_Button_Cancel_Editing" xml:space="preserve">
+    <value>ביטול עריכה</value>
+  </data>
+  <data name="Manage_User_Button_Edit" xml:space="preserve">
+    <value>עריכת המשתמש</value>
+  </data>
+  <data name="Manage_User_Button_Save_Changes" xml:space="preserve">
+    <value>שמירת שינויים</value>
+  </data>
+  <data name="Manage_User_SubTitle" xml:space="preserve">
+    <value>ניהול ותיעוד נתוני משתמש ועריכת הרשאות</value>
+  </data>
+  <data name="Manage_User_Title" xml:space="preserve">
+    <value>עריכת פרטי משתמש</value>
   </data>
   <data name="Middle_Name" xml:space="preserve">
-    <value>Middle Name</value>
+    <value>שם אמצעי</value>
   </data>
   <data name="Mobile_Phone" xml:space="preserve">
-    <value>Mobile Phone</value>
+    <value>מספר נייד</value>
   </data>
   <data name="Next" xml:space="preserve">
-    <value>Next</value>
+    <value>הבא</value>
+  </data>
+  <data name="Next_Page" xml:space="preserve">
+    <value>הבא</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>לא</value>
   </data>
   <data name="Obligo_Value" xml:space="preserve">
-    <value>Obligo Value</value>
+    <value>סכום ששולם</value>
   </data>
   <data name="Opening_Date" xml:space="preserve">
-    <value>Opening Date</value>
+    <value>תאריך פתיחה</value>
   </data>
   <data name="Operations" xml:space="preserve">
-    <value>Operations</value>
+    <value>פעולות</value>
   </data>
   <data name="Our_Administrative_Side_Notes" xml:space="preserve">
-    <value>Our Administrative Side Notes</value>
+    <value>הערות צוות המערכת</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>סיסמא</value>
   </data>
   <data name="Payment_Amount" xml:space="preserve">
-    <value>Payment Amount</value>
+    <value>סכום העסקה</value>
+  </data>
+  <data name="Payment_Currency" xml:space="preserve">
+    <value>מטבע העסקה</value>
   </data>
   <data name="Permission" xml:space="preserve">
-    <value>Permission</value>
+    <value>הרשאה</value>
   </data>
   <data name="Previous" xml:space="preserve">
-    <value>Previous</value>
+    <value>דף קודם</value>
+  </data>
+  <data name="Previous_Page" xml:space="preserve">
+    <value>דף קודם</value>
   </data>
   <data name="Recieved_By_User" xml:space="preserve">
-    <value>Recieved_By_User</value>
+    <value>התקבל על ידי</value>
   </data>
   <data name="Recieved_Date" xml:space="preserve">
-    <value>Recieved_Date</value>
+    <value>נאסף בתאריך</value>
   </data>
   <data name="Recieved_Document_Date" xml:space="preserve">
-    <value>Recieved_Document_Date</value>
+    <value>התקבל בתאריך</value>
   </data>
   <data name="Recieved_Document_Time" xml:space="preserve">
-    <value>Recieved_Document_Time</value>
+    <value>התקבל בשעה</value>
   </data>
   <data name="Recieved_In_Address" xml:space="preserve">
-    <value>Recieved_In_Address</value>
+    <value>התקבל בכתובת</value>
   </data>
   <data name="Recieved_In_City" xml:space="preserve">
-    <value>Recieved_In_City</value>
+    <value>התקבל בעיר</value>
   </data>
   <data name="Recieved_In_Country" xml:space="preserve">
-    <value>Recieved_In_Country</value>
+    <value>התקבל במדינה</value>
   </data>
   <data name="Recieved_In_Email" xml:space="preserve">
-    <value>Recieved_In_Email</value>
+    <value>התקבל באימייל</value>
   </data>
   <data name="Recieved_In_State" xml:space="preserve">
-    <value>Recieved_In_State</value>
+    <value>התקבל באיזור</value>
   </data>
   <data name="Recieved_In_ZipCode" xml:space="preserve">
-    <value>Recieved_In_ZipCode</value>
+    <value>התקבל במיקוד</value>
   </data>
   <data name="Ref" xml:space="preserve">
-    <value>Ref</value>
+    <value>מזהה</value>
   </data>
   <data name="Reference" xml:space="preserve">
-    <value>Reference</value>
+    <value>מזהה נוסף</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>ריענון</value>
   </data>
   <data name="Registration_Date" xml:space="preserve">
-    <value>Registration Date</value>
+    <value>תאריך הצטרפות</value>
   </data>
   <data name="Registration_Time" xml:space="preserve">
-    <value>Registration Time</value>
+    <value>שעת הצטרפות</value>
+  </data>
+  <data name="Remove_Credit_Card_Statement" xml:space="preserve">
+    <value>ניתוק דו"ח חיוב אשראי</value>
   </data>
   <data name="Repeat_Password" xml:space="preserve">
-    <value>Repeat Password</value>
+    <value>חזרה על הסיסמא</value>
   </data>
   <data name="Reports" xml:space="preserve">
-    <value>Reports</value>
+    <value>דוחות מערכת</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>שמירה</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Search_Clients" xml:space="preserve">
+    <value>חיפוש </value>
+  </data>
+  <data name="Search_Credit_Cards" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Search_Credit_Cards_Statements" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Search_Documents" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Search_Expenses" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Search_Invoices" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Search_Suppliers" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Search_Users" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Select_Country" xml:space="preserve">
+    <value>בחירת מדינה</value>
+  </data>
+  <data name="Select_Document_Type" xml:space="preserve">
+    <value>בחירת סוג המסמך</value>
+  </data>
+  <data name="Select_Expense_Type" xml:space="preserve">
+    <value>בחירת סוג ההוצאה</value>
+  </data>
+  <data name="Select_Invoice_type" xml:space="preserve">
+    <value>בחירת סוג ההכנסה/חשבונית</value>
+  </data>
+  <data name="Select_State" xml:space="preserve">
+    <value>בחירת איזור</value>
+  </data>
+  <data name="Select_Supplier_Type" xml:space="preserve">
+    <value>בחירת סוג הספק/איש קשר</value>
   </data>
   <data name="Sending_Date" xml:space="preserve">
-    <value>Sending_Date</value>
+    <value>תאריך השליחה</value>
   </data>
   <data name="Sending_Time" xml:space="preserve">
-    <value>Sending_Time</value>
+    <value>זמן השליחה</value>
   </data>
   <data name="Sent_From" xml:space="preserve">
-    <value>Sent_From</value>
+    <value>נשלח מאת</value>
   </data>
   <data name="Sent_From_Address" xml:space="preserve">
-    <value>Sent_From_Address</value>
+    <value>נשלח מכתובת</value>
   </data>
   <data name="Sent_From_City" xml:space="preserve">
-    <value>Sent_From_City</value>
+    <value>נשלח מעיר</value>
   </data>
   <data name="Sent_From_Country" xml:space="preserve">
-    <value>Sent_From_Country</value>
+    <value>נשלח ממדינה</value>
   </data>
   <data name="Sent_From_Email_Address" xml:space="preserve">
-    <value>Sent_From_Email_Address</value>
+    <value>נשלח מאימייל</value>
   </data>
   <data name="Sent_From_State" xml:space="preserve">
-    <value>Sent_From_State</value>
+    <value>נשלח מאיזור</value>
   </data>
   <data name="Sent_From_ZipCode" xml:space="preserve">
-    <value>Sent_From_ZipCode</value>
+    <value>נשלח ממיקוד</value>
   </data>
   <data name="Sent_To" xml:space="preserve">
-    <value>Sent_To</value>
+    <value>נשלח ל</value>
   </data>
   <data name="Sent_To_Address" xml:space="preserve">
-    <value>Sent_To_Address</value>
+    <value>נשלח לכתובת</value>
   </data>
   <data name="Sent_To_City" xml:space="preserve">
-    <value>Sent_To_City</value>
+    <value>נשלח לעיר</value>
   </data>
   <data name="Sent_To_Country" xml:space="preserve">
-    <value>Sent_To_Country</value>
+    <value>נשלח למדינה</value>
   </data>
   <data name="Sent_To_Email" xml:space="preserve">
-    <value>Sent_To_Email</value>
+    <value>נשלח לאימייל</value>
   </data>
   <data name="Sent_To_State" xml:space="preserve">
-    <value>Sent_To_State</value>
+    <value>נשלח לאיזור</value>
   </data>
   <data name="Sent_To_ZipCode" xml:space="preserve">
-    <value>Sent_To_ZipCode</value>
+    <value>נשלח למיקוד</value>
   </data>
   <data name="Short_Description" xml:space="preserve">
-    <value>Short Description</value>
+    <value>תיאור קצר</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>State</value>
+    <value>איזור</value>
   </data>
   <data name="Statement_Charges" xml:space="preserve">
-    <value>Statement Charges</value>
+    <value>דו"ח חיוב אשראי</value>
   </data>
   <data name="Supplier" xml:space="preserve">
-    <value>Supplier</value>
+    <value>ספק/איש קשר</value>
   </data>
   <data name="Suppliers" xml:space="preserve">
-    <value>Suppliers</value>
+    <value>ספקים / אנשי קשר</value>
+  </data>
+  <data name="Suppliers_Filter_By_Type" xml:space="preserve">
+    <value>סינון לפי סוג ספק/איש קשר</value>
   </data>
   <data name="Suppliers_List" xml:space="preserve">
-    <value>Suppliers List</value>
+    <value>רשימת ספקים / אנשי קשר</value>
+  </data>
+  <data name="Suppliers_No_Results_Were_Found" xml:space="preserve">
+    <value>לא נמצאו תוצאות רלוונטיות!</value>
+  </data>
+  <data name="Suppliers_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>בבקשה השתמש/י בהגדרות חיפוש כדי לחפש ספקים/אנשי קשר</value>
   </data>
   <data name="Supplier_Contact_Person" xml:space="preserve">
-    <value>Supplier Contact Person</value>
+    <value>איש הקשר</value>
   </data>
   <data name="Supplier_From_Date" xml:space="preserve">
-    <value>Supplier From Date</value>
+    <value>פעיל מתאריך</value>
   </data>
   <data name="Supplier_To_Date" xml:space="preserve">
-    <value>Supplier To Date</value>
+    <value>פעיל עד תאריך</value>
   </data>
   <data name="Supplier_Type" xml:space="preserve">
-    <value>Supplier Type</value>
+    <value>סוג ספק/איש קשר</value>
   </data>
   <data name="Tax_Reference_Number" xml:space="preserve">
-    <value>Tax Reference Number</value>
+    <value>מזהה מספר עסק</value>
+  </data>
+  <data name="There_Are_No_Bank_Accounts" xml:space="preserve">
+    <value>אין חשבונות בנק! :(</value>
+  </data>
+  <data name="There_Are_No_Credit_Cards" xml:space="preserve">
+    <value>אין כרטיסי אשראי! :(</value>
+  </data>
+  <data name="There_Are_No_Credit_Card_Statements" xml:space="preserve">
+    <value>לא נמצאו דוחות חיובי כרטיס אשראי! :(</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Title</value>
+    <value>כותרת</value>
   </data>
   <data name="Total_Amount" xml:space="preserve">
-    <value>Total Amount</value>
+    <value>סכום סה"כ</value>
+  </data>
+  <data name="Total_Charged_In_Statement" xml:space="preserve">
+    <value>סה"כ חויב</value>
   </data>
   <data name="Total_Vat" xml:space="preserve">
-    <value>Total Vat</value>
+    <value>סה"כ מע"מ</value>
   </data>
   <data name="Total_Without_Vat" xml:space="preserve">
-    <value>Total Without Vat</value>
+    <value>סה"כ ללא מע"מ</value>
   </data>
   <data name="Transaction Date" xml:space="preserve">
-    <value>Transaction Date</value>
+    <value>תאריך בפועל</value>
   </data>
   <data name="Upload_File" xml:space="preserve">
-    <value>Upload File</value>
+    <value>העלאת קובץ</value>
   </data>
   <data name="User" xml:space="preserve">
-    <value>User</value>
+    <value>משתמש</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>שם משתמש</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>משתמשים</value>
+  </data>
+  <data name="Users_Enter_Search_Criteria" xml:space="preserve">
+    <value>חיפוש משתמשים:</value>
   </data>
   <data name="Users_List" xml:space="preserve">
-    <value>Users List</value>
+    <value>רשימת משתמשים</value>
+  </data>
+  <data name="Users_No_Results_Were_Found" xml:space="preserve">
+    <value>לא נמצאו תוצאות רלוונטיות!</value>
+  </data>
+  <data name="Users_Please_Use_The_Search_Criteria" xml:space="preserve">
+    <value>חובה לכתוב ולבחור פרטים נוספים למעלה כדי לקבל תוצאות חיפוש רלוונטיות.</value>
   </data>
   <data name="User_Comments" xml:space="preserve">
-    <value>User Comments</value>
+    <value>הערות</value>
   </data>
   <data name="User_Description" xml:space="preserve">
-    <value>User Description</value>
+    <value>תיאור</value>
+  </data>
+  <data name="Validator_Account_Name_Required" xml:space="preserve">
+    <value>חובה לכתוב שם/כינוי לחשבון הבנק </value>
+  </data>
+  <data name="Validator_Address_Required" xml:space="preserve">
+    <value>חובה לכתוב כתובת</value>
+  </data>
+  <data name="Validator_App_Permission_Type_Required" xml:space="preserve">
+    <value>חובה לבחור את סוג ההרשאה</value>
+  </data>
+  <data name="Validator_Birth_Date_Required" xml:space="preserve">
+    <value>חובה לבחור תאריך לידה</value>
+  </data>
+  <data name="Validator_CCStatement_DateTime_Required" xml:space="preserve">
+    <value>חובה לבחור תאריך דו"ח חיוב</value>
+  </data>
+  <data name="Validator_City_Required" xml:space="preserve">
+    <value>חובה לכתוב עיר</value>
+  </data>
+  <data name="Validator_Client_Required" xml:space="preserve">
+    <value>חובה לבחור לקוח/איש הקשר</value>
+  </data>
+  <data name="Validator_Client_Tax_Reference_Number_Required" xml:space="preserve">
+    <value>חובה לכתוב מספר מזהה של העסק</value>
+  </data>
+  <data name="Validator_Client_Type_Required" xml:space="preserve">
+    <value>חובה לבחור את סוג הלקוח</value>
+  </data>
+  <data name="Validator_Company_Name_Required" xml:space="preserve">
+    <value>חובה לכתוב את שם העסק</value>
+  </data>
+  <data name="Validator_Country_Required" xml:space="preserve">
+    <value>חובה לבחור מדינה</value>
+  </data>
+  <data name="Validator_Currency_Required" xml:space="preserve">
+    <value>חובה לבחור מטבע חיוב</value>
+  </data>
+  <data name="Validator_Document_Creation_Date_Required" xml:space="preserve">
+    <value>חובה לבחור תאריך המסמך</value>
+  </data>
+  <data name="Validator_Document_Type_Required" xml:space="preserve">
+    <value>חובה לבחור את סוג המסמך</value>
+  </data>
+  <data name="Validator_dropdown_Expense_Type_Required" xml:space="preserve">
+    <value>חובה לבחור את סוג ההוצאה</value>
+  </data>
+  <data name="Validator_dropdown_Invoice_Supplier_Country_Required" xml:space="preserve">
+    <value>חובה לבחור מדינה</value>
+  </data>
+  <data name="Validator_Email_Address_Required" xml:space="preserve">
+    <value>חובה לכתוב כתובת אימייל</value>
+  </data>
+  <data name="Validator_Email_Adress_Regex" xml:space="preserve">
+    <value>חובה לכתוב אימייל תקין</value>
+  </data>
+  <data name="Validator_Expense_Invoice_DateTime_Required" xml:space="preserve">
+    <value>חובה לבחור תאריך</value>
+  </data>
+  <data name="Validator_First_Name_Required" xml:space="preserve">
+    <value>חובה לכתוב שם פרטי</value>
+  </data>
+  <data name="Validator_Gender_Required" xml:space="preserve">
+    <value>חובה לבחור מין</value>
+  </data>
+  <data name="Validator_Invoice_DateTime_Required" xml:space="preserve">
+    <value>חובה לבחור תאריך</value>
+  </data>
+  <data name="Validator_Last_Name_Required" xml:space="preserve">
+    <value>חובה לכתוב שם משפחה</value>
+  </data>
+  <data name="Validator_Main_Contact_Email_Address_Required" xml:space="preserve">
+    <value>חובה לכתוב אימייל איש קשר ראשי</value>
+  </data>
+  <data name="Validator_Main_Contact_FullName_Required" xml:space="preserve">
+    <value>חובה לכתוב שם מלא של איש הקשר</value>
+  </data>
+  <data name="Validator_Main_Contact_Phone_Number_Required" xml:space="preserve">
+    <value>חובה לכתוב טלפון איש קשר ראשי</value>
+  </data>
+  <data name="Validator_Mobile_Phone_Required" xml:space="preserve">
+    <value>חובה לכתוב מספר פלאפון נייד</value>
+  </data>
+  <data name="Validator_Password_Repeat_Matcher" xml:space="preserve">
+    <value>הסיסמאות לא תואמות</value>
+  </data>
+  <data name="Validator_Password_Repeat_Required" xml:space="preserve">
+    <value>חובה לחזור על הסיסמא</value>
+  </data>
+  <data name="Validator_Password_Required" xml:space="preserve">
+    <value>חובה לכתוב סיסמא</value>
+  </data>
+  <data name="Validator_Password_Strength" xml:space="preserve">
+    <value>הסיסמא חייבת להכיל אותיות באנגלית בלבד. הסיסמא חייבת להיות לפחות באורך 8 תווים. חובה להשתמש לפחות באות גבוהה אחת, 2 אותיות נמוכות, 2 מספרים ואחד מהסימנים  !@#$%^&amp;*()\-_+.</value>
+  </data>
+  <data name="Validator_Select_Bank_Account" xml:space="preserve">
+    <value>חובה לבחור את חשבון הבנק</value>
+  </data>
+  <data name="Validator_Select_Credit_Card" xml:space="preserve">
+    <value>חובה לבחור כרטיס אשראי</value>
+  </data>
+  <data name="Validator_State_Required" xml:space="preserve">
+    <value>חובה לבחור איזור</value>
+  </data>
+  <data name="Validator_Supplier_Required" xml:space="preserve">
+    <value>חובה לבחור ספק</value>
+  </data>
+  <data name="Validator_Supplier_Tax_Reference_Number_Required" xml:space="preserve">
+    <value>חובה לכתוב מספר מזהה של העסק</value>
+  </data>
+  <data name="Validator_Supplier_Type_Required" xml:space="preserve">
+    <value>חובה לבחור את סוג הספק</value>
+  </data>
+  <data name="Validator_Total_Amount_Required" xml:space="preserve">
+    <value>חובה לכתוב את הסכום הסופי של העסקה</value>
+  </data>
+  <data name="Validator_Total_Vat_Required" xml:space="preserve">
+    <value>חובה לכתוב את הסכום המע"מ של העסקה</value>
+  </data>
+  <data name="Validator_Total_Without_Vat_Required" xml:space="preserve">
+    <value>חובה לכתוב את הסכום ללא המע"מ של העסקה</value>
+  </data>
+  <data name="Validator_Transaction_Actual_DateTime" xml:space="preserve">
+    <value>חובה לבחור תאריך </value>
+  </data>
+  <data name="Validator_Username_Required" xml:space="preserve">
+    <value>חובה לכתוב מזהה שם משתמש</value>
+  </data>
+  <data name="Validator_User_Selection_Required" xml:space="preserve">
+    <value>חובה לבחור משתמש</value>
+  </data>
+  <data name="Validator_Vat_Percentage_Required" xml:space="preserve">
+    <value>חובה לכתוב את אחוז המע"מ של העסקה</value>
+  </data>
+  <data name="Validator_Website_URL_Regex" xml:space="preserve">
+    <value>כתובת האינטרנט אינה חוקית</value>
+  </data>
+  <data name="Validator_Website_URL_Required" xml:space="preserve">
+    <value>חובה לכתוב אתר אינטרנט</value>
+  </data>
+  <data name="Validator_Zipcode_Required" xml:space="preserve">
+    <value>חובה לכתוב מיקוד</value>
   </data>
   <data name="Value_Date" xml:space="preserve">
-    <value>Value Date</value>
+    <value>תאריך בפועל</value>
   </data>
   <data name="Vat_Percentage_Text" xml:space="preserve">
-    <value>Vat %</value>
+    <value>אחוז המע"מ</value>
+  </data>
+  <data name="View_Documents" xml:space="preserve">
+    <value>צפייה במסמכים</value>
+  </data>
+  <data name="View_More" xml:space="preserve">
+    <value>צפייה במידע נוסף</value>
+  </data>
+  <data name="View_Transactions" xml:space="preserve">
+    <value>צפייה בפעולות</value>
   </data>
   <data name="Website_URL" xml:space="preserve">
-    <value>Website URL</value>
+    <value>כתובת אתר אינטרנט</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>כן</value>
   </data>
   <data name="Zip_Code" xml:space="preserve">
-    <value>Zip Code</value>
+    <value>מיקוד</value>
   </data>
 </root>

@@ -43,10 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationHelper.cs" />
+    <Compile Include="Models\Bank_Account_Transaction_Document_Connection_Suggestion.cs" />
     <Compile Include="Models\Credit_Cards_Statement_Transaction.cs" />
     <Compile Include="Models\Credit_Cards_Statement.cs" />
     <Compile Include="Models\Credit_Cards.cs" />
     <Compile Include="Models\Bank_Accounts.cs" />
+    <Compile Include="Models\Bank_Account_Transaction_Document_Connection.cs" />
     <Compile Include="Models\Credit_Card_Transactions_To_DB_Sync_From_UI.cs" />
     <Compile Include="Models\Bank_Account_Transactions_To_DB_Sync_From_UI.cs" />
     <Compile Include="Models\General_Documents.cs" />

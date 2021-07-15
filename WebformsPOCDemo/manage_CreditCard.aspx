@@ -5,8 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="page-title my-3 text-center">
-        <h2 class="display-5">Manage Credit Cards</h2>
-        <p class="lead">Keep track, audit and add more legacy details to your credit card purchases.</p>
+        <h2 class="display-5"><% = Resources.SiteCommon.Manage_Credit_Card_Title %></h2>
+        <p class="lead"><% = Resources.SiteCommon.Manage_Credit_Card_SubTitle %></p>
     </div>
 
     <hr />
@@ -119,16 +119,16 @@
         <div>
 
             <asp:Button runat="server" ID="button_Edit_CreditCard_Details"
-                Text="Edit Credit Card" OnClick="button_Edit_CreditCard_Details_Click" CausesValidation="False" CssClass="btn btn-primary" />
-
+                Text="<%$ Resources:SiteCommon, Manage_Credit_Card_Edit_Details %>" OnClick="button_Edit_CreditCard_Details_Click" CausesValidation="False" CssClass="btn btn-primary" />
+            &nbsp;&nbsp;&nbsp;
             <asp:Button runat="server" ID="button_Update_CreditCard_Details"
-                Text="Save Changes" OnClick="button_Update_CreditCard_Details_Click" CssClass="btn btn-success" />
-
+                Text="<%$ Resources:SiteCommon, Manage_Credit_Card_Update_Details %>" OnClick="button_Update_CreditCard_Details_Click" CssClass="btn btn-success" />
+            &nbsp;&nbsp;&nbsp;
             <asp:Button runat="server" ID="button_Create_CreditCard_Details"
-                Text="Save" OnClick="button_Create_CreditCard_Details_Click" CssClass="btn btn-success" />
-
+                Text="<%$ Resources:SiteCommon, Manage_Credit_Card_Create %>" OnClick="button_Create_CreditCard_Details_Click" CssClass="btn btn-success" />
+            &nbsp;&nbsp;&nbsp;
             <asp:Button runat="server" ID="button_CancelEdit_CreditCard_Details"
-                Text="Cancel Editing" OnClick="button_CancelEdit_CreditCard_Details_Click" CausesValidation="False" CssClass="btn btn-danger" />
+                Text="<%$ Resources:SiteCommon, Manage_Credit_Card_Cancel_Editing %>" OnClick="button_CancelEdit_CreditCard_Details_Click" CausesValidation="False" CssClass="btn btn-danger" />
 
         </div>
 

@@ -353,7 +353,7 @@ body.Loading
 body.Loading > div.Loading-Animation 
 {
     display:block;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
@@ -399,4 +399,119 @@ body.Loading > div.Loading-Animation > .Loading-Image
 
 .Form_Control.Read_Only_Panel.download-link-with-image {
     padding-top: 0px;
+}
+
+select.Regular_ComboBox.form-control
+{
+    display:inline-block;
+    width:200px;
+}
+
+.Form_Group.CheckBox
+{
+    margin-bottom:6px;
+}
+
+.Popup_Background_Wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(220, 220, 220, 0.5);
+    z-index:100;
+}
+
+.Popup_Inner_Wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 600px;
+    height: 441px;
+    background-color: black;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.Popup_Inner_Wrapper > .Header_Title {
+    background-color: silver;
+    padding: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
+    color: black
+}
+
+.Popup_Inner_Wrapper > .Edit_Transaction_Template {
+    padding-top: 18px;
+}
+
+.Popup_Inner_Wrapper .Form_Group .Form_Control {
+    min-width:initial;
+}
+
+.Popup_Inner_Wrapper .Form_Group
+{
+    display:inline-block;
+}
+
+.Popup_Inner_Wrapper .Edit_Transaction_Template{
+    padding-left:72px;
+}
+
+.Popup_Inner_Wrapper .Edit_Transaction_Template_Commands {
+    text-align:center;
+    padding-top:20px;
+}
+
+.Popup_Inner_Wrapper .Close-Button {
+    position: absolute;
+    right: 2px;
+    top: 1px;
+    width: 30px;
+    height: 30px;
+    cursor:pointer;
+}
+
+.Search-Settings {
+    max-width:800px;
+}
+
+.Search-Settings > .row.g-2 {
+    padding-top:4px;
+}
+
+.Popup_Inner_Wrapper .Edit_Document_Connection_Template {
+
+    padding-top:30px;
+    padding-left: 177px;
+}
+
+.Popup_Inner_Wrapper .Edit_Document_Connection_Template .Form_Label_Wrapper {
+    
+    text-align:left;
+}
+
+.Popup_Background_Wrapper .Popup_Inner_Wrapper.Document_Connection_Popup
+{
+    height:300px;
+}
+
+.Breadcrumbs
+{
+    text-transform:uppercase;
+}
+
+.Breadcrumbs span:not(.seperator) {
+    font-weight:bold;
+}
+
+.Breadcrumbs a {
+    text-decoration:none;
+}
+
+.Breadcrumbs a:hover, .Breadcrumbs a:focus {
+    text-decoration: underline;
 }
